@@ -1,4 +1,4 @@
-US1:  As a user, I want to be able to login from the landing page by entering my username and password
+US1:  As a user, I want to login from the landing page by entering my username and password
         then clicking the sign-in button. I want the main page to load on success. 
 US2:  As an administrator, after logging in, I want to see buttons on the taskbar at the top of the screen
         to choose what I want to do. I want them to be highlighted as I mouse over them. 
