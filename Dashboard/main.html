@@ -1,12 +1,24 @@
+<!-- **************************************************************************
+* Copyright 2020 Marshall Brown, Josiah Schmidt, Micah Withers
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+* See the License for the specific language governing permissions and
+* limitations under the License.
+************************************************************************** -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Overall page format -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+        <!-- Link to CSS stylesheet -->
         <link rel="stylesheet", href="styles.css">
     </head>
     <body>
         <!-- Trigger/Open The pop up box -->
-        <button id="myBtn">Add Lot</button>
+        <button id="myBtn" class="button">ADD LOT</button>
 
         <!-- The pop up -->
         <div id="addLot" class="modal">
@@ -14,27 +26,28 @@
           <!-- pop up content -->
           <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Add Lot Information</p>
-        	<label for="cust"><b>Customer</b></label>
-            <input type="text" placeholder="Enter Customer" name="cust" required>
+            <p>ADD LOT</p>
 
-            <label for="amt"><b>Amount</b></label>
-            <input type="number" placeholder="Enter Amount" name="amt" required>
+            <div>
+            	<label for="cust"><b>CUSTOMER</b></label>
+                <input type="text" placeholder="Enter Customer" name="cust" required>
+            </div>
+            <div>
+                <label for="amt"><b>AMOUNT</b></label>
+                <input type="number" placeholder="Enter Amount" name="amt" required>
+            </div>
 
             <button type="submit" class="btn">submit</button>
-
           </div>
-
         </div>
 
-        <form action="">
-            <div class="container">
-            	<button type="submit">lot history</button>
-                <button type="submit">reports</button>
-            	<button type="submit">customers</button>
-            	<button type="submit">accounts</button>
-        	</div>
-        </form>
+        <!-- Buttons on the task bar without implementation -->
+        <button class="button">LOT HISTORY</button>
+        <button class="button">REPORTS</button>
+        <button class="button">CUSTOMERS</button>
+        <button class="button">ACCOUNTS</button>
+
+        <!-- Link to JavaScript source file -->
         <script src="scripts.js"> </script>
     </body>
 </html>

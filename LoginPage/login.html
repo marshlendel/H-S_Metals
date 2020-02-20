@@ -1,11 +1,36 @@
-<form action="../Dashboard/main.html">
-    <div class="container">
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
+<!-- **************************************************************************
+* Copyright 2020 Marshall Brown, Josiah Schmidt, Micah Withers
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+* See the License for the specific language governing permissions and
+* limitations under the License.
+************************************************************************** -->
 
-        <label for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <!-- Overall page format -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+        <!-- Link to CSS stylesheet -->
+        <link rel="stylesheet", href="../Dashboard/styles.css">
+    </head>
+    <body>
+        <!-- :ogin Form -->
+        <form action="../Dashboard/main.html">
+            <div class="container">
+                <!-- Username Field -->
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
 
-        <button type="submit">Login</button>
-	</div>
-</form>
+                <!-- Password Field -->
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+
+                <!-- On Submit Opens main.html -->
+                <button type="submit">LOGIN</button>
+            </div>
+        </form>
+    </body>
+</html>
