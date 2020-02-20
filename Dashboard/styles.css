@@ -37,3 +37,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
   text-decoration: none;
   cursor: pointer;
 }
+
+.container {
+  display:flex;
+  justify-content: space-around;
+  background-color: gray;
+  overflow: hidden;
+   padding: 14px 16px;
+}
+
+.container button:hover {
+	background-color: yellow;
+}
+
+
