@@ -9,7 +9,7 @@
 ************************************************************************** */
 
 body {font-family: Arial, Helvetica, sans-serif;}
-/* The Modal (background) */
+/* The Modal (background) During Active Popup */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -24,7 +24,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
+/* Modal Content Style For Popup Box */
 .modal-content {
   background-color: #fefefe;
   margin: auto;
@@ -33,7 +33,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   width: 50%;
 }
 
-/* The Close Button */
+/* The Close Button On Popup */
 .close {
   color: #aaaaaa;
   float: right;
@@ -49,6 +49,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   cursor: pointer;
 }
 
+/* Taskbar Styling */
 .container {
   display:flex;
   justify-content: space-around;
@@ -56,7 +57,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   overflow: hidden;
    padding: 14px 16px;
 }
-
+/* Taskbar Button Highlight On HOver */
 .container button:hover {
 	background-color: yellow;
 }

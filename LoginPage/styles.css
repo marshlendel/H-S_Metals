@@ -9,7 +9,7 @@
 ************************************************************************** */
 
 body {font-family: Arial, Helvetica, sans-serif;}
-/* The Modal (background) */
+/* Background */
 .container {
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -23,7 +23,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
+/* Login Box */
 .container-content {
   background-color: #fefefe;
   margin: auto;
@@ -32,6 +32,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   width: 55%;
 }
 
+/* Highlight Button On Hover */
 .container button:hover {
 	background-color: yellow;
 }
