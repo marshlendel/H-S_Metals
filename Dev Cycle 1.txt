@@ -6,4 +6,4 @@ US2:  As an administrator, after logging in, I want to see buttons on the taskba
         to choose what I want to do. I want them to be highlighted as I mouse over them.
         
 US3:  As an administrator, I want to see a popup appear when I click the "Add Lot" button on the taskbar
-        at the top of the screen. 
+        at the top of the screen. I can close the popup by clicking the "X" in the top right of the box. 
