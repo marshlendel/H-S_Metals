@@ -55,7 +55,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   justify-content: space-around;
   background-color: gray;
   overflow: hidden;
-   padding: 14px 16px;
+  padding: 14px 16px;
 }
 /* Taskbar Button Highlight On HOver */
 .container button:hover {
