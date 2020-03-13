@@ -2,24 +2,27 @@
 $servername = "localhost";
 $username = "mwithers";
 $password = "2270410";
-$db = "HandSMetals"
+$database = "HandSMetals";
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $db);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected successfully";
-
+// $conn = mysqli_connect($servername, $username, $password);
+//
+// // Check connection
+// if (!$conn) {
+//     die("Connection failed: " . mysqli_connect_error());
+// }
+// echo "Connected successfully";
+//
 // // Create database
-// $sql = "CREATE DATABASE HandSMetals";
+// $sql = "CREATE DATABASE  HandSMetals";
 // if ($conn->query($sql) === TRUE) {
 //     echo "Database created successfully";
 // } else {
 //     echo "Error creating database: " . $conn->error;
 // }
+// $conn->close();
+
+$conn = mysqli_connect($servername, $username, $password, $database);
 
 // sql to create table
 $sql = "CREATE TABLE MyGuests (
@@ -55,15 +58,22 @@ echo "New records created successfully";
 
 $stmt->close();
 
-// $sql = "SELECT * FROM table";
-//
-// function name($sql) {
-//     if ($conn->query($sql) === TRUE) {
-//         echo "Table MyGuests created successfully";
-//     } else {
-//         echo "Error creating table: " . $conn->error;
-//     }
-// }
+$sql = "SELECT * FROM myguests";
+
+function viewGuests($conn, $sql) {
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
+}
+
+viewGuests($conn, $sql);
 
 $conn->close();
 ?>
