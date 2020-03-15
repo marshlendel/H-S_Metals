@@ -24,41 +24,56 @@ $database = "HandSMetals";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
 
-// sql to create table
-$sql = "CREATE TABLE MyGuests (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-firstname VARCHAR(30) NOT NULL,
-lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Table MyGuests created successfully";
-} else {
-    echo "Error creating table: " . $conn->error;
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
+echo "Connected successfully<br>";
 
-// prepare and bind
-$stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $firstname, $lastname, $email);
+// sql to create table
+// $sql = "CREATE TABLE MyGuests (
+// id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+// firstname VARCHAR(30) NOT NULL,
+// lastname VARCHAR(30) NOT NULL,
+// email VARCHAR(50),
+// reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+// )";
 
-// set parameters and execute
-$firstname = "John";
-$lastname = "Doe";
-$email = "john@example.com";
-$stmt->execute();
+// if (mysqli_query($conn, $sql)) {
+//     echo "Table MyGuests created successfully";
+// } else {
+//     echo "Error creating table: " . mysqli_error($conn);
+// }
 
-$firstname = "Mary";
-$lastname = "Moe";
-$email = "mary@example.com";
-$stmt->execute();
+// if ($conn->query($sql) === TRUE) {
+//     echo "Table MyGuests created successfully";
+// } else {
+//     echo "Error creating table: " . $conn->error;
+// }
 
-echo "New records created successfully";
+// // prepare and bind
+// $stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
+// $stmt->bind_param("sss", $firstname, $lastname, $email);
+//
+// // set parameters and execute
+// $firstname = "John";
+// $lastname = "Doe";
+// $email = "john@example.com";
+// $stmt->execute();
+//
+// $firstname = "Mary";
+// $lastname = "Moe";
+// $email = "mary@example.com";
+// $stmt->execute();
+//
+// echo "New records created successfully";
+//
+// $stmt->close();
+//
 
-$stmt->close();
+$tableName = "MyGuests";
 
-$sql = "SELECT * FROM myguests";
+$sql = "SELECT * FROM " . $tableName;
 
 function viewGuests($conn, $sql) {
     $result = $conn->query($sql);
@@ -66,7 +81,7 @@ function viewGuests($conn, $sql) {
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. " - Email: " . $row["email"]. "<br>";
         }
     } else {
         echo "0 results";
