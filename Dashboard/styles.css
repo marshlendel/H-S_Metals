@@ -61,6 +61,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .container button:hover {
 	background-color: yellow;
 }
+.container input:hover {
+	background-color: yellow;
 
 /* Search Bar Styling */
 .topnav {
