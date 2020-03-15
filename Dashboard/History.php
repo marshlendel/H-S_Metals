@@ -7,7 +7,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 ************************************************************************** -->
-
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <!-- Overall page format -->
@@ -22,12 +22,14 @@
 			<input type="button" onclick="location.href='Reports.html';" value="Reports" />
 			<button>Customers</button>
 			<button>Accounts</button>
+            <p><?php include 'search.php' ?></p>
             <?php if (isset($result)) { ?>
                 <h1> Result: <?php echo $result ?></h1>
             <?php } ?>
             <form action="" method="post">
             <p>Search:  <input type="text" name="usr_input" /></p>
             <p><input type="submit"/></p>
+        </form>
 		</div>
 
 	<p> This is our History page </p>
