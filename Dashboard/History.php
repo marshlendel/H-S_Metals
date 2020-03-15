@@ -1,0 +1,36 @@
+	<!-- **************************************************************************
+* Copyright 2020 Marshall Brown, Josiah Schmidt, Micah Withers
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+* See the License for the specific language governing permissions and
+* limitations under the License.
+************************************************************************** -->
+
+<html lang="en" dir="ltr">
+    <head>
+        <!-- Overall page format -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+        <!-- Link to CSS stylesheet -->
+        <link rel="stylesheet", href="styles.css">
+    </head>
+    <body>
+		<div class = "topnav">
+			<input type="button" onclick="location.href='main.html';" value="Home" />
+			<input type="button" onclick="location.href='History.html';" value="Lot History" />
+			<input type="button" onclick="location.href='Reports.html';" value="Reports" />
+			<button>Customers</button>
+			<button>Accounts</button>
+            <?php if (isset($result)) { ?>
+                <h1> Result: <?php echo $result ?></h1>
+            <?php } ?>
+            <form action="" method="post">
+            <p>Search:  <input type="text" name="usr_input" /></p>
+            <p><input type="submit"/></p>
+		</div>
+
+	<p> This is our History page </p>
+
+	</body>
+</html>
