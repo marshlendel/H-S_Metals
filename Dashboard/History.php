@@ -1,4 +1,4 @@
-	<!-- **************************************************************************
+<!-- **************************************************************************
 * Copyright 2020 Marshall Brown, Josiah Schmidt, Micah Withers
 *
 * Unless required by applicable law or agreed to in writing, software
@@ -18,6 +18,7 @@
     </head>
     <body>
 		<div class = "container">
+            <!-- Taskbar -->
 			<input type="button" onclick="location.href='main.html';" value="Home" />
 			<input type="button" onclick="location.href='History.html';" value="Lot History" />
 			<input type="button" onclick="location.href='Reports.html';" value="Reports" />
@@ -31,8 +32,10 @@
 		</div>
 
 	<h1>History Page</h1>
+    <!-- Results of search -->
     <?php if (isset($_POST["user_input"])) { ?>
-        <p> Result: <?php echo $result ?></p>
+        <h1>Results</h1>
+        <p><?php echo $result ?></p>
     <?php } ?>
 
 	</body>
