@@ -7,6 +7,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 ************************************************************************** -->
+<?php require 'search.php' ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -16,23 +17,23 @@
         <link rel="stylesheet", href="styles.css">
     </head>
     <body>
-		<div class = "topnav">
+		<div class = "container">
 			<input type="button" onclick="location.href='main.html';" value="Home" />
 			<input type="button" onclick="location.href='History.html';" value="Lot History" />
 			<input type="button" onclick="location.href='Reports.html';" value="Reports" />
 			<button>Customers</button>
-			<button>Accounts</button>
-            <p><?php include 'search.php' ?></p>
-            <?php if (isset($result)) { ?>
-                <h1> Result: <?php echo $result ?></h1>
-            <?php } ?>
+			<input type="button" onclick="location.href='accounts.html';" value="Accounts" />
+
             <form action="" method="post">
-            <p>Search:  <input type="text" name="usr_input" /></p>
-            <p><input type="submit"/></p>
-        </form>
+            Search:  <input type="text" name="user_input" />
+            <form/>
+			<a href="../LoginPage/login.html">Logout</a>
 		</div>
 
-	<p> This is our History page </p>
+	<h1>History Page</h1>
+    <?php if (isset($_POST["user_input"])) { ?>
+        <p> Result: <?php echo $result ?></p>
+    <?php } ?>
 
 	</body>
 </html>
