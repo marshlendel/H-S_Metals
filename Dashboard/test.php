@@ -71,13 +71,38 @@ echo "Connected successfully<br>";
 // $stmt->close();
 //
 
-$tableName = "MyGuests";
+// $tableName = "MyGuests";
+//
+// $sql = "SELECT * FROM " . $tableName;
+//
+// function viewGuests($conn, $sql) {
+//     $result = $conn->query($sql);
+//
+//     if ($result->num_rows > 0) {
+//         // output data of each row
+//         while($row = $result->fetch_assoc()) {
+//             echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. " - Email: " . $row["email"]. "<br>";
+//         }
+//     } else {
+//         echo "0 results";
+//     }
+// }
+//
+// viewGuests($conn, $sql);
 
-$sql = "SELECT * FROM " . $tableName;
 
-function viewGuests($conn, $sql) {
-    $result = $conn->query($sql);
+$stmt = $conn->prepare("SELECT * FROM `MyGuests` WHERE firstname LIKE ?");
+$stmt->bind_param("s", $search);
 
+// set parameters and execute
+$search = "John";
+$stmt->execute();
+
+$res = $stmt->get_result();
+
+$stmt->close();
+
+function viewGuests($result) {
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
@@ -88,7 +113,7 @@ function viewGuests($conn, $sql) {
     }
 }
 
-viewGuests($conn, $sql);
+viewGuests($res);
 
 $conn->close();
 ?>
