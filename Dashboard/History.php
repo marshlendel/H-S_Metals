@@ -9,34 +9,37 @@
 ************************************************************************** -->
 <?php require 'search.php' ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <!-- Overall page format -->
-        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-        <!-- Link to CSS stylesheet -->
-        <link rel="stylesheet", href="styles.css">
-    </head>
-    <body>
-		<div class = "container">
+<html>
+	<head>
+		<title>Lot History</title>
+		 <link rel="stylesheet", href="styles.css">
+	</head>
+	<body>
+		 <div class="container">
             <!-- Taskbar -->
-			<input type="button" onclick="location.href='main.html';" value="Home" />
-			<input type="button" onclick="location.href='History.html';" value="Lot History" />
-			<input type="button" onclick="location.href='Reports.html';" value="Reports" />
-			<button>Customers</button>
-			<input type="button" onclick="location.href='accounts.html';" value="Accounts" />
+            <button onClick="location.href='main.html';">Home</button>
+            <button id="highlight">Lot History</button>
+            <button onClick="location.href='reports.html';">Reports</button>
+            <button onClick="location.href='customers.html';">Customers</button>
+        	<button onClick="location.href='accounts.html';">Accounts</button>
 
+            <!-- Search bar -->
             <form action="" method="post">
-            Search:  <input type="text" name="user_input" />
+                Search:  <input type="text" name="user_input" />
             <form/>
 			<a href="../LoginPage/login.html">Logout</a>
+
 		</div>
 
-	<h1>History Page</h1>
-    <!-- Results of search -->
-    <?php if (isset($_POST["user_input"])) { ?>
-        <h1>Results</h1>
-        <p><?php echo $result ?></p>
-    <?php } ?>
+		<h1>Lot History</h1>
+        <!-- Results of search -->
+        <?php if (isset($_POST["user_input"])) { ?>
+            <h2>Results</h2>
+            <p><?php echo $result ?></p>
+        <?php } ?>
 
+
+        <!-- Link to JavaScript source file -->
+        <script src="scripts.js"> </script>
 	</body>
 </html>
