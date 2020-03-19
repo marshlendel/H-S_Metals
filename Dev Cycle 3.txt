@@ -1,0 +1,18 @@
+User stories 3.1-3.2 start at URL: https://levi.cis.indwes.edu/~mwithers/Dashboard/main.html 
+
+3.1 As a user, I want to click Add Lot on the home page and enter Customer and Amount information, 
+  click submit, and see a dialog box on success that says "Lot Added" along with the lot number and 
+  other related details. (Micah)
+
+3.2 As a user, I want to search for the customer or lot number of the lot added in user story 3.1 
+  and see the lot in a table in the middle of the screen on success. (Micah and Josiah/Marshall)
+
+User story 3.3 starts at:
+https://levi.cis.indwes.edu/~mwithers/LoginPage/login.html
+
+3.3 As a user, I want to enter any information into the username and password fields on the login 
+  page and see a dialog box that says "Login Successful" before loading the home page. (Josiah)
+
+3.4 As a user, I want to see the company logo: (Marshall)
+  3.4.1 on the login page <insert area of login page here>.
+  3.4.2 on the taskbar on the left (maybe make it the home button?). 
