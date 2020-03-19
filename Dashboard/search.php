@@ -40,7 +40,7 @@
         $stmt->bind_param("s", $search);
 
         // set parameters and execute
-        $search = $input;
+        $search = '%' . $input . '%';
         $stmt->execute();
 
         $res = $stmt->get_result();
