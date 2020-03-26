@@ -37,6 +37,8 @@
             <h2>Results</h2>
             <p><?php echo $result ?></p>
         <?php } ?>
+		
+		
 
 
         <!-- Link to JavaScript source file -->
