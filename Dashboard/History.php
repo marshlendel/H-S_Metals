@@ -41,28 +41,14 @@
 				<th> name </th>
 				<th> email </th>
 				</tr>
-            <?php 
-			$conn = mysqli_connect("localhost", "mwithers", "2270410", "HandSMetals");
-			if($conn-> connect_error){
-				die("connection failed:" . $conn-> connect_error);
-			}
-			
-			$sql = "SELECT id, name, email from MyGuests";
-			$result = $conn-> query($sql);
-			
+            <?php
 			if($result-> num_rows > 0){
 				while($row = $result-> fetch_assoc()){
-					echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["email"]. "</td></tr>";
+					echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td><td>" . $row["email"] . "</td></tr>";
 				}
 				echo "</table>";
 			}
-			
-			$conn-> close();
-			
 			?>
-		
-		
-
 
         <!-- Link to JavaScript source file -->
         <script src="scripts.js"> </script>
