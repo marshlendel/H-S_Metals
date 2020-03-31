@@ -30,7 +30,13 @@
                     <input type="password" placeholder="Enter Password" name="password" required>
 
                     <!-- On Submit Opens main.html -->
-                    <button type="submit">Login</button>
+					<button onclick="successMessage()">Login</button>
+
+					<script>
+					function successMessage() {     
+					  alert("Login Successful!");		// Fulfills user story 3.3
+					}
+					</script>
                 </div>    
             </div>
         </form>
