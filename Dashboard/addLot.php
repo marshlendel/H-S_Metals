@@ -8,38 +8,32 @@
 * limitations under the License.
 ************************************************************************** -->
 <?php
-
+    $lotAdded = false;
     function addLot ($lotnum, $cust, $amt) {      //  Takes user input and inserts in sql query
-        $servername = "localhost";  //      and returns the result
+        $servername = "localhost";
         $username = "mwithers";
         $password = "2270410";
-        $database = "HandSMetals";
+        $dbname = "HandSMetals";
 
-        $conn = mysqli_connect($servername, $username, $password, $database);
-
-        // Check connection
-        // if (!$conn) {
-        //     die("Connection failed: " . mysqli_connect_error());
-        // }
-        // echo "Connected successfully<br>";
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
         // prepare and bind
-        $stmt = $conn->prepare("INSERT INTO Lots (`lotnum`, `cutomer`, `amount`) VALUES (?, ?, ?)");
-        $stmt->bind_param("isd", $lotnum, $cust, $amt);
+        $stmt = $conn->prepare("INSERT INTO Lots (lotnum, customer, amount) VALUES (?, ?, ?)");
+        $stmt->bind_param("isi", $lotnumsql, $custsql, $amtsql);
 
         // set parameters and execute
+        $lotnumsql = (int)$lotnum;
+        $custsql = "".$cust."";
+        $amtsql = (int)$amt;
         $stmt->execute();
 
-        $res = $stmt->get_result();
-
         $stmt->close();
-
         $conn->close();
-
-        return $res;
     }
 
-    if (isset($_POST['lotnum']) && isset($_POST['cust']) && isset($_POST['amt'])) {
-        $result = addLOt($_POST['lotnum'], $_POST['cust'], $_POST['amt']));
+    if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
+        addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);
+        $lotAdded = true;
     }
 ?>
