@@ -29,13 +29,19 @@
                 <span class="close">&times;</span>
                 <p>Add Lot</p>
 
-            	<label for="cust"><b>Customer</b></label>
-                <input type="text" placeholder="Enter Customer" name="cust" required>
+                <form class="" action="addLot.php" method="post">
+                    <label for="lotnum"><b>Lot #</b></label>
+                    <input type="number" name="lotnum" required>
 
-                <label for="amt"><b>Amount</b></label>
-                <input type="number" placeholder="Enter Amount" name="amt" required>
+                    <label for="cust"><b>Customer</b></label>
+                    <input type="text" placeholder="Enter Customer" name="cust" required>
 
-                <button type="submit" class="btn">Submit</button>
+                    <label for="amt"><b>Amount</b></label>
+                    <input type="number" placeholder="Enter Amount" name="amt" required>
+
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+
               </div>
             </div>
 
