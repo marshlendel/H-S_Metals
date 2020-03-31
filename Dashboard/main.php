@@ -8,6 +8,7 @@
 * limitations under the License.
 ************************************************************************** -->
 
+<!-- php file required to insert new lots into database (US 3.1) -->
 <?php require 'addLot.php' ?>
 
 <!DOCTYPE html>
@@ -30,6 +31,7 @@
                 <span class="close">&times;</span>
                 <p>Add Lot</p>
 
+                <!-- form for User Story 3.1 -->
                 <form class="" action="" method="post">
                     <label for="lotnum"><b>Lot #</b></label>
                     <input type="number" name="lotnum" required>
@@ -43,6 +45,11 @@
                     <button type="submit" class="btn">Submit</button>
                 </form>
 
+                <!-- Action for submit of form to add lot (US 3.1)-->
+                <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
+                    ?> <script> alert("Lot Added Successfully");</script>
+                <?php addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);}?>
+
               </div>
             </div>
 
@@ -54,9 +61,7 @@
         	<button onClick="location.href='accounts.html';">Accounts</button>
 			<a href="../LoginPage/login.html">Logout</a>
 
-            <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
-                addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);
-            } ?>
+            <!-- <?php echo "Lot #: " . $_POST['lotnum'] . " Customer: " . $_POST['cust'] . " Amount: " . $_POST['amt'];?> -->
     	</div>
         <h1>Home</h1>
 

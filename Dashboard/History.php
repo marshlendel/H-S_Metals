@@ -17,7 +17,7 @@
 	<body>
 		 <div class="container">
             <!-- Taskbar -->
-            <button onClick="location.href='main.html';">Home</button>
+            <button onClick="location.href='main.php';">Home</button>
             <button id="highlight">Lot History</button>
             <button onClick="location.href='reports.html';">Reports</button>
             <button onClick="location.href='customers.html';">Customers</button>
@@ -41,27 +41,27 @@
 				<th> name </th>
 				<th> email </th>
 				</tr>
-            <?php 
+            <?php
 			$conn = mysqli_connect("localhost", "root", "", "HandSMetals");
 			if($conn-> connect_error){
 				die("connection failed:" . $conn-> connect_error);
 			}
-			
+
 			$sql = "SELECT id, name, email from MyGuests";
 			$result = $conn-> query($sql);
-			
+
 			if($result-> num_rows > 0){
 				while($row = $result-> fetch_assoc()){
 					echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["email"]. "</td></tr>";
 				}
 				echo "</table>";
 			}
-			
+
 			$conn-> close();
-			
+
 			?>
-		
-		
+
+
 
 
         <!-- Link to JavaScript source file -->
