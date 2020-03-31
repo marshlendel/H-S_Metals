@@ -33,21 +33,22 @@
 
 		<h1>Lot History</h1>
         <!-- Results of search -->
-        <?php if (isset($_POST["user_input"])) ?>
+        <?php if (isset($_POST["user_input"])) {?>
             <h2>Results</h2>
-        <table>
+        <table style="width:100%">
 				<tr>
-				<th> id </th>
-				<th> name </th>
-				<th> email </th>
+				<th> Lot # </th>
+				<th> Customer </th>
+				<th> Amount </th>
 				</tr>
             <?php
 			if($result-> num_rows > 0){
 				while($row = $result-> fetch_assoc()){
-					echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td><td>" . $row["email"] . "</td></tr>";
+					echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
 				}
 				echo "</table>";
 			}
+        }
 			?>
 
         <!-- Link to JavaScript source file -->

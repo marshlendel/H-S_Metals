@@ -24,11 +24,16 @@
         // echo "Connected successfully<br>";
 
         // prepare and bind
-        $stmt = $conn->prepare("SELECT * FROM MyGuests WHERE firstname LIKE ?");
-        $stmt->bind_param("s", $search);
+        if (is_numeric($input)) {
+            $stmt = $conn->prepare("SELECT * FROM Lots WHERE lotnum = ?");
+            $stmt->bind_param("i", $search);
+            $search = (int)$input;
+        } else {
+            $stmt = $conn->prepare("SELECT * FROM Lots WHERE customer LIKE ?");
+            $stmt->bind_param("s", $search);
+            $search = '%' . $input . '%';
+        }
 
-        // set parameters and execute
-        $search = '%' . $input . '%';
         $stmt->execute();
 
         $res = $stmt->get_result();
