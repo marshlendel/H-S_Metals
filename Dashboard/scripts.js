@@ -33,22 +33,3 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-
-// Get the pop up
-var success = document.getElementById("lotAdded");
-
-
-// Get the <span> element that closes the pop up
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the pop up
-span.onclick = function() {
-  success.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the pop up, close it
-window.onclick = function(event) {
-  if (event.target == success) {
-    success.style.display = "none";
-  }
-}

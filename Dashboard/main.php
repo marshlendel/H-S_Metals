@@ -54,15 +54,9 @@
         	<button onClick="location.href='accounts.html';">Accounts</button>
 			<a href="../LoginPage/login.html">Logout</a>
 
-            <?php if ($lotAdded) { ?>
-                <div id="lotAdded" class="modal">
-                  <!-- pop up content -->
-                  <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p>Add Lot</p>
-                  </div>
-                </div>
-            <?php } $lotAdded = false; ?>
+            <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
+                addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);
+            } ?>
     	</div>
         <h1>Home</h1>
 

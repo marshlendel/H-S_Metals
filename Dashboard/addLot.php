@@ -8,7 +8,6 @@
 * limitations under the License.
 ************************************************************************** -->
 <?php
-    $lotAdded = false;
     function addLot ($lotnum, $cust, $amt) {      //  Takes user input and inserts in sql query
         $servername = "localhost";
         $username = "mwithers";
@@ -31,9 +30,8 @@
         $stmt->close();
         $conn->close();
     }
-
-    if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
-        addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);
-        $lotAdded = true;
-    }
+    //
+    // if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
+    //     addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);
+    // }
 ?>
