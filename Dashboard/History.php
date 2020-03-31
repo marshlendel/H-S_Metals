@@ -42,7 +42,7 @@
 				<th> email </th>
 				</tr>
             <?php 
-			$conn = mysqli_connect("localhost", "root", "", "HandSMetals");
+			$conn = mysqli_connect("localhost", "mwithers", "2270410", "HandSMetals");
 			if($conn-> connect_error){
 				die("connection failed:" . $conn-> connect_error);
 			}
