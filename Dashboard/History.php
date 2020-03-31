@@ -33,36 +33,23 @@
 
 		<h1>Lot History</h1>
         <!-- Results of search -->
-        <?php if (isset($_POST["user_input"])) ?>
+        <?php if (isset($_POST["user_input"])) {?>
             <h2>Results</h2>
-        <table>
+        <table style="width:100%">
 				<tr>
-				<th> id </th>
-				<th> name </th>
-				<th> email </th>
+    				<th> Lot # </th>
+    				<th> Customer </th>
+    				<th> Amount </th>
 				</tr>
             <?php
-			$conn = mysqli_connect("localhost", "root", "", "HandSMetals");
-			if($conn-> connect_error){
-				die("connection failed:" . $conn-> connect_error);
-			}
-
-			$sql = "SELECT id, name, email from MyGuests";
-			$result = $conn-> query($sql);
-
 			if($result-> num_rows > 0){
 				while($row = $result-> fetch_assoc()){
-					echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["email"]. "</td></tr>";
+					echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
 				}
 				echo "</table>";
 			}
-
-			$conn-> close();
-
+        }
 			?>
-
-
-
 
         <!-- Link to JavaScript source file -->
         <script src="scripts.js"> </script>
