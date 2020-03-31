@@ -1,119 +1,133 @@
+<!-- **************************************************************************
+* Copyright 2020 Marshall Brown, Josiah Schmidt, Micah Withers
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+* See the License for the specific language governing permissions and
+* limitations under the License.
+************************************************************************** -->
 <?php
-$servername = "localhost";
-$username = "mwithers";
-$password = "2270410";
-$database = "HandSMetals";
 
-// Create connection
-// $conn = mysqli_connect($servername, $username, $password);
-//
-// // Check connection
-// if (!$conn) {
-//     die("Connection failed: " . mysqli_connect_error());
-// }
-// echo "Connected successfully";
-//
-// // Create database
-// $sql = "CREATE DATABASE  HandSMetals";
-// if ($conn->query($sql) === TRUE) {
-//     echo "Database created successfully";
-// } else {
-//     echo "Error creating database: " . $conn->error;
-// }
-// $conn->close();
+    // function addLot ($input_lotnum, $input_cust, $input_amt) {      //  Takes user input and inserts in sql query
+    //     $servername = "localhost";  //      and returns the result
+    //     $username = "mwithers";
+    //     $password = "2270410";
+    //     $database = "HandSMetals";
+    //
+    //     $conn = mysqli_connect($servername, $username, $password, $database);
+    //
+    //     // Check connection
+    //     if (!$conn) {
+    //         die("Connection failed: " . mysqli_connect_error());
+    //     }
+    //     echo "Connected successfully<br>";
+    //
+    //     // prepare and bind
+    //     $stmt = $conn->prepare("INSERT INTO Lots (lotnum, customer, amount) VALUES (?, ?, ?)");
+    //     $stmt->bind_param("isd", $lotnum, $cust, $amt);
+    //
+    //     // set parameters and execute
+    //     $lotnum = (int)$input_lotnum;
+    //     $cust = $input_cust;
+    //     $amt = (double)$input_amt;
+    //     $stmt->execute();
+    //
+    //     echo "New records created successfully";
+    //
+    //     $stmt->close();
+    //
+    //     $conn->close();
+    // }
 
-$conn = mysqli_connect($servername, $username, $password, $database);
+    // if (isset($_POST['lotnum']) && isset($_POST['cust']) && isset($_POST['amt'])) {
+    //     addLOt($_POST['lotnum'], $_POST['cust'], $_POST['amt']));
+    // }
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected successfully<br>";
+    // addLot(456, `Micah`, 78910);
 
-// sql to create table
-// $sql = "CREATE TABLE MyGuests (
-// id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-// firstname VARCHAR(30) NOT NULL,
-// lastname VARCHAR(30) NOT NULL,
-// email VARCHAR(50),
-// reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-// )";
-
-// if (mysqli_query($conn, $sql)) {
-//     echo "Table MyGuests created successfully";
-// } else {
-//     echo "Error creating table: " . mysqli_error($conn);
-// }
-
-// if ($conn->query($sql) === TRUE) {
-//     echo "Table MyGuests created successfully";
-// } else {
-//     echo "Error creating table: " . $conn->error;
-// }
-
-// // prepare and bind
-// $stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
-// $stmt->bind_param("sss", $firstname, $lastname, $email);
-//
-// // set parameters and execute
-// $firstname = "John";
-// $lastname = "Doe";
-// $email = "john@example.com";
-// $stmt->execute();
-//
-// $firstname = "Mary";
-// $lastname = "Moe";
-// $email = "mary@example.com";
-// $stmt->execute();
-//
-// echo "New records created successfully";
-//
-// $stmt->close();
-//
-
-// $tableName = "MyGuests";
-//
-// $sql = "SELECT * FROM " . $tableName;
-//
-// function viewGuests($conn, $sql) {
-//     $result = $conn->query($sql);
-//
-//     if ($result->num_rows > 0) {
-//         // output data of each row
-//         while($row = $result->fetch_assoc()) {
-//             echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. " - Email: " . $row["email"]. "<br>";
-//         }
-//     } else {
-//         echo "0 results";
-//     }
-// }
-//
-// viewGuests($conn, $sql);
-
-
-$stmt = $conn->prepare("SELECT * FROM `MyGuests` WHERE firstname LIKE ?");
-$stmt->bind_param("s", $search);
-
-// set parameters and execute
-$search = "John";
-$stmt->execute();
-
-$res = $stmt->get_result();
-
-$stmt->close();
-
-function viewGuests($result) {
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. " - Email: " . $row["email"]. "<br>";
+    function viewGuests($result) {  // Takes a mysqli result query and returns rows
+        $tuples = "";
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $tuples = $tuples . "lotnum: " . $row["lotnum"]. " - customer: " . $row["customer"]. " - amount: " . $row["amount"]. "<br>";
+            }
+            return $tuples;
+        } else {
+            return "0 results";
         }
-    } else {
-        echo "0 results";
     }
-}
 
-viewGuests($res);
+    function search () {      //  Takes user input and inserts in sql query
+        $servername = "localhost";  //      and returns the result
+        $username = "mwithers";
+        $password = "2270410";
+        $database = "HandSMetals";
 
-$conn->close();
+        $conn = mysqli_connect($servername, $username, $password, $database);
+
+        // Check connection
+        // if (!$conn) {
+        //     die("Connection failed: " . mysqli_connect_error());
+        // }
+        // echo "Connected successfully<br>";
+
+        // prepare and bind
+        $stmt = $conn->prepare("SELECT * FROM Lots");
+
+        $stmt->execute();
+
+        $res = $stmt->get_result();
+
+        $stmt->close();
+
+        $conn->close();
+
+        return $res;
+    }
+?>
+<?php
+    function addLot ($lotnum, $cust, $amt) {
+        $servername = "localhost";
+        $username = "mwithers";
+        $password = "2270410";
+        $dbname = "HandSMetals";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // prepare and bind
+        $stmt = $conn->prepare("INSERT INTO Lots (lotnum, customer, amount) VALUES (?, ?, ?)");
+        $stmt->bind_param("isi", $lotnumsql, $custsql, $amtsql);
+
+        // set parameters and execute
+        $lotnumsql = (int)$lotnum;
+        $custsql = "".$cust."";
+        $amtsql = (int)$amt;
+        // $stmt->execute();
+
+        // $lotnumsql = 111;
+        // $custsql = "Josiah";
+        // $amtsql = 5678;
+        $stmt->execute();
+        //
+        // $lotnum = 3;
+        // $cust = "Marshmellow";
+        // $amt = 91011;
+        // $stmt->execute();
+
+        echo "New records created successfully";
+
+        $stmt->close();
+        $conn->close();
+    }
+    // addLot(222, `Micah`, 4567);
+
+    echo viewGuests(search());
 ?>
