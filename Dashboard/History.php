@@ -15,9 +15,20 @@
 		 <link rel="stylesheet", href="styles.css">
 	</head>
 	<body>
+	<style>
+	img {
+	position: absolute;
+z-index: 10;
+width:125px;
+max-height: 12%;
+top: 0px;
+left: 7.9px;
+	
+
+	</style>
 		 <div class="container">
             <!-- Taskbar -->
-            <button onClick="location.href='main.php';">Home</button>
+			<a href="main.php"><img id="logo" src="../images/logo.jpg"></a>
             <button id="highlight">Lot History</button>
             <button onClick="location.href='reports.html';">Reports</button>
             <button onClick="location.href='customers.html';">Customers</button>
