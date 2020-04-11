@@ -16,15 +16,14 @@
 	</head>
 	<body>
 	<style>
-	img {
-	position: absolute;
-z-index: 10;
-width:125px;
-max-height: 12%;
-top: 0px;
-left: 7.9px;
-	
-
+    	img {
+        	position: absolute;
+            z-index: 10;
+            width:125px;
+            max-height: 12%;
+            top: 0px;
+            left: 7.9px;
+        }
 	</style>
 		 <div class="container">
             <!-- Taskbar -->
@@ -47,21 +46,21 @@ left: 7.9px;
         <!-- Results of search -->
         <?php if (isset($_POST["user_input"])) {?>
             <h2>Results</h2>
-        <table style="width:100%">
-				<tr>
-    				<th> Lot # </th>
-    				<th> Customer </th>
-    				<th> Amount </th>
-				</tr>
+            <table style="width:100%">
+    				<tr>
+        				<th> Lot # </th>
+        				<th> Customer </th>
+        				<th> Amount </th>
+    				</tr>
             <?php
-			if($result-> num_rows > 0){
-				while($row = $result-> fetch_assoc()){
-					echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
-				}
-				echo "</table>";
-			}
-        }
-			?>
+        			if($result-> num_rows > 0){
+        				while($row = $result-> fetch_assoc()){
+        					echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
+        				}
+        				echo "</table>";
+        			}
+                }
+		    ?>
 
         <!-- Link to JavaScript source file -->
         <script src="scripts.js"> </script>
