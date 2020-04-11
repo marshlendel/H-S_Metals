@@ -29,6 +29,10 @@
 	border: 1px solid black;
 	}
 	
+	td {
+		text-align: center;
+	}
+	
 
 	</style>
 		 <div class="container">
