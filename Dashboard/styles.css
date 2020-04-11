@@ -85,7 +85,7 @@ img {
 	border-radius: 50%;
 }
 
-table, th, td {
+.table, .th, .td {
   border: 1px solid black;
 }
 	
