@@ -16,14 +16,13 @@
 	<body>
 	<style>
 	img {
-	position: absolute;
-z-index: 10;
-width:125px;
-max-height: 12%;
-top: 0px;
-left: 7.9px;
-	
-
+    	position: absolute;
+        z-index: 10;
+        width:125px;
+        max-height: 12%;
+        top: 0px;
+        left: 7.9px;
+    }
 	</style>
 
 		<div class="container">
