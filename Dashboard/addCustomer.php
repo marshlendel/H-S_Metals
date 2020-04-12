@@ -8,6 +8,7 @@
 * limitations under the License.
 ************************************************************************** -->
 <?php
+    //  User Story 4.4.2
     function addCustomer ($bus_name, $contact, $phone, $email) {      //  Takes user input and inserts in sql query
         $servername = "localhost";
         $username = "mwithers";
