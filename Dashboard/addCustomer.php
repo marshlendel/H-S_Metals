@@ -9,7 +9,7 @@
 ************************************************************************** -->
 <?php
     //  User Story 4.4.2
-    function addCustomer ($bus_name, $contact, $phone, $email) {      //  Takes user input and inserts in sql query
+    function addCustomer ($company, $contact, $phone, $email) {      //  Takes user input and inserts in sql query
         $servername = "localhost";
         $username = "mwithers";
         $password = "2270410";
@@ -20,10 +20,10 @@
 
         // prepare and bind
         $stmt = $conn->prepare("INSERT INTO Customers (name, contact, phone, email) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("isi", $bus_namesql, $contactsql, $phonesql, $emailsql);
+        $stmt->bind_param("isi", $companysql, $contactsql, $phonesql, $emailsql);
 
         // set parameters and execute
-        $bus_namesql = (int)$bus_name;
+        $companysql = (int)$company;
         $contactsql = "".$contact."";
         $phonesql = (int)$phone;
         $emailsql = "".$email."";
