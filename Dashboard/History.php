@@ -28,14 +28,12 @@
 	table, th, td {
 	border: 1px solid black;
 	}
-	
+
 	td {
 		text-align: center;
 	}
 	tr:nth-child(even){background-color: #f2f2f2;}
 	tr:nth-child(odd) {background-color: #FFA500;}
-	
-
 	</style>
 		 <div class="container">
             <!-- Taskbar -->
@@ -58,21 +56,21 @@
         <!-- Results of search -->
         <?php if (isset($_POST["user_input"])) {?>
             <h2>Results</h2>
-        <table style="width:100%">
-				<tr>
-    				<th> Lot # </th>
-    				<th> Customer </th>
-    				<th> Amount </th>
-				</tr>
+            <table style="width:100%">
+    				<tr>
+        				<th> Lot # </th>
+        				<th> Customer </th>
+        				<th> Amount </th>
+    				</tr>
             <?php
-			if($result-> num_rows > 0){
-				while($row = $result-> fetch_assoc()){
-					echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
-				}
-				echo "</table>";
-			}
-        }
-			?>
+        			if($result-> num_rows > 0){
+        				while($row = $result-> fetch_assoc()){
+        					echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
+        				}
+        				echo "</table>";
+        			}
+                }
+		    ?>
 
         <!-- Link to JavaScript source file -->
         <script src="scripts.js"> </script>
