@@ -57,7 +57,7 @@
 
             <button onClick="location.href='history.php';">Lot History</button>
             <button onClick="location.href='reports.html';">Reports</button>
-            <button onClick="location.href='customers.html';">Customers</button>
+            <button onClick="location.href='customers.php';">Customers</button>
         	<button onClick="location.href='accounts.html';">Accounts</button>
 			<a href="../LoginPage/login.html">Logout</a>
 
