@@ -32,8 +32,4 @@
         $stmt->close();
         $conn->close();
     }
-    //
-    // if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
-    //     addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);
-    // }
 ?>
