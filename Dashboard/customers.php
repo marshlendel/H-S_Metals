@@ -40,6 +40,23 @@
             <a href="../LoginPage/login.html">Logout</a>
 		</div>
 		<h1>Customers</h1>
+		
+		<table style="width:100%">
+    				<tr>
+        				<th> Company </th>
+        				<th> Contact </th>
+        				<th> Phone Number </th>
+						<th> Email </th>
+    				</tr>
+            <?php
+        			if($result-> num_rows > 0){
+        				while($row = $result-> fetch_assoc()){
+        					echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
+        				}
+        				echo "</table>";
+        			}
+                }
+		    ?>
 
 
         <!-- Link to JavaScript source file -->
