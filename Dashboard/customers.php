@@ -25,6 +25,7 @@
             left: 7.9px;
         }
 
+        /* Styling for table in User Story 4.3 */
         table, th, td {
             border: 1px solid black;
         }
@@ -55,6 +56,7 @@
 		</div>
 		<h1>Customers</h1>
 
+        <!-- Customers table (User Story 4.3) -->
 		<table style="width:100%">
     				<tr>
         				<th> Company </th>
