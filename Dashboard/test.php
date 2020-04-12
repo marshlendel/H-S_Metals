@@ -51,7 +51,7 @@
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                $tuples = $tuples . "lotnum: " . $row["lotnum"]. " - customer: " . $row["customer"]. " - amount: " . $row["amount"]. "<br>";
+                $tuples = $tuples . "company: " . $row["company"]. " - contact: " . $row["contact"]. " - phone: " . $row["phone"]. "<br>";
             }
             return $tuples;
         } else {
@@ -74,7 +74,7 @@
         // echo "Connected successfully<br>";
 
         // prepare and bind
-        $stmt = $conn->prepare("SELECT * FROM Lots");
+        $stmt = $conn->prepare("SELECT * FROM Customers");
 
         $stmt->execute();
 

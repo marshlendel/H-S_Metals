@@ -24,6 +24,18 @@
             top: 0px;
             left: 7.9px;
         }
+        table, th, td {
+            border: 1px solid black;
+        }
+        td {
+            text-align: center;
+        }
+        tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(odd) {
+            background-color: #FFA500;
+        }
 	</style>
 		 <div class="container">
             <!-- Taskbar -->
