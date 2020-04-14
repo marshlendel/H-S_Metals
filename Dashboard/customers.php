@@ -98,7 +98,7 @@
                 <label for="phone"><b>Phone</b></label>
                 <input type="number" name="phone" required>
 
-    			 <label for="email"><b>E-mail</b></label>
+    		    <label for="email"><b>E-mail</b></label>
                 <input type="text" name="email" required>
 
                 <button type="submit" class="btn">Submit</button>

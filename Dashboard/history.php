@@ -15,33 +15,33 @@
 		 <link rel="stylesheet", href="styles.css">
 	</head>
 	<body>
-	<style>
-    	img {
-        	position: absolute;
-            z-index: 10;
-            width:125px;
-            max-height: 12%;
-            top: 0px;
-            left: 7.9px;
-        }
-        /* Styling for table in User Story 4.3 */
-        table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-        tr:nth-child(even) {
-          background-color: orange;
-        }
-        tr:nth-child(odd) {
-            background-color: #F2F2F2;
-        }
-	</style>
+    	<style>
+        	img {
+            	position: absolute;
+                z-index: 10;
+                width:125px;
+                max-height: 12%;
+                top: 0px;
+                left: 7.9px;
+            }
+            /* Styling for table in User Story 4.3 */
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            tr:nth-child(even) {
+              background-color: orange;
+            }
+            tr:nth-child(odd) {
+                background-color: #F2F2F2;
+            }
+    	</style>
 		 <div class="container">
             <!-- Taskbar -->
 			<a href="main.php"><img id="logo" src="../images/logo.jpg"></a>
@@ -56,7 +56,6 @@
                 <button type="submit">Submit</button>
             <form/>
 			<a href="../LoginPage/login.html">Logout</a>
-
 		</div>
 
 		<h1>Lot History</h1>

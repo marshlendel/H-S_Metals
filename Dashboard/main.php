@@ -74,19 +74,16 @@
                     addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);
                     $result = get_lots();}
                 ?>
-
               </div>
             </div>
-
             <!-- Buttons on the task bar without implementation -->
-
             <button onClick="location.href='history.php';">Lot History</button>
             <button onClick="location.href='reports.html';">Reports</button>
             <button onClick="location.href='customers.php';">Customers</button>
         	<button onClick="location.href='accounts.html';">Accounts</button>
 			<a href="../LoginPage/login.html">Logout</a>
 
-            <!-- <?php echo "Lot #: " . $_POST['lotnum'] . " Customer: " . $_POST['cust'] . " Amount: " . $_POST['amt'];?> -->
+            <?php //echo "Lot #: " . $_POST['lotnum'] . " Customer: " . $_POST['cust'] . " Amount: " . $_POST['amt'];?>
     	</div>
         <h1>Home</h1>
         <!-- Table of lot info from db (User Story 4.2) -->
