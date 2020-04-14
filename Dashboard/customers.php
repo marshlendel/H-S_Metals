@@ -74,8 +74,40 @@
                 }
 		    ?>
         </table>
+ <div id="addCust" class="modal">
+
+              <!-- pop up content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Add Customer</p>
+
+                <!-- form for User Story 3.1 -->
+                <form class="" action="" method="post">
+                    <label for="company"><b>Compnay</b></label>
+                    <input type="text" name="company" required>
+
+                    <label for="contact"><b>Contact</b></label>
+                    <input type="text" name="contact" required>
+
+                    <label for="phone"><b>Phone</b></label>
+                    <input type="number" name="phone" required>
+					
+					 <label for="email"><b>E-mail</b></label>
+                    <input type="text" name="email" required>
+
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+
+                <!-- Action for submit of form to add lot (US 3.1)-->
+                <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
+                    ?> <script> alert("Lot Added Successfully");</script>
+                <?php addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);}?>
+
+              </div>
+            </div>
+
 
         <!-- Link to JavaScript source file -->
-        <script src="scripts.js"> </script>
+        <script src="addCustDialogue.js"> </script>
 	</body>
 </html>
