@@ -64,6 +64,30 @@
             <!-- <?php echo "Lot #: " . $_POST['lotnum'] . " Customer: " . $_POST['cust'] . " Amount: " . $_POST['amt'];?> -->
     	</div>
         <h1>Home</h1>
+		<table>
+  <tr>
+    <th>Lot Number</th>
+    <th>Customer</th>
+    <th>Amount</th>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>Bobby Boy</td>
+    <td>155</td>
+  </tr>
+  <tr>
+    <td>157</td>
+    <td>Daniel</td>
+    <td>157</td>
+  </tr>
+  <tr>
+    <td>55</td>
+    <td>Sam</td>
+    <td>88</td>
+  </tr>
+</table>
+	
+
 
         <!-- Link to JavaScript source file -->
         <script src="scripts.js"> </script>
