@@ -9,7 +9,10 @@
 ************************************************************************** -->
 
 <!-- php file required to insert new lots into database (US 3.1) -->
-<?php require 'addLot.php' ?>
+<?php
+    require 'addLot.php';
+    require 'getLots.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -20,6 +23,25 @@
         <link rel="stylesheet", href="styles.css">
     </head>
     <body>
+        <style>
+            /* Table in User Story 4.2 */
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            tr:nth-child(even) {
+              background-color: orange;
+            }
+            tr:nth-child(odd) {
+                background-color: #F2F2F2;
+            }
+        </style>
         <!-- Trigger/Open The pop up box -->
         <div class="container">
             <button id="myBtn">Add Lot</button>
@@ -65,61 +87,15 @@
     	</div>
         <h1>Home</h1>
 		<table>
-  <tr>
-    <th>Lot Number</th>
-    <th>Customer</th>
-    <th>Amount</th>
-  </tr>
-  <tr>
-    <td>12</td>
-    <td>Bobby Boy</td>
-    <td>155</td>
-  </tr>
-  <tr>
-    <td>157</td>
-    <td>Daniel</td>
-    <td>157</td>
-  </tr>
-  <tr>
-    <td>55</td>
-    <td>Sam</td>
-    <td>88</td>
-  </tr>
-</table>
-	 <div id="addCust" class="modal">
-
-              <!-- pop up content -->
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>Add Customer</p>
-
-                <!-- form for User Story 3.1 -->
-                <form class="" action="" method="post">
-                    <label for="company"><b>Compnay</b></label>
-                    <input type="text" name="company" required>
-
-                    <label for="contact"><b>Contact</b></label>
-                    <input type="text" name="contact" required>
-
-                    <label for="phone"><b>Phone</b></label>
-                    <input type="number" name="phone" required>
-					
-					 <label for="email"><b>E-mail</b></label>
-                    <input type="text" name="email" required>
-
-                    <button type="submit" class="btn">Submit</button>
-                </form>
-
-                <!-- Action for submit of form to add lot (US 3.1)-->
-                <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
-                    ?> <script> alert("Lot Added Successfully");</script>
-                <?php addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);}?>
-
-              </div>
-            </div>
-
+            <tr> <th>Lot Number</th> <th>Customer</th> <th>Amount</th> </tr>
+            <?php
+                while($row = $result-> fetch_assoc()){
+                    echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
+                }
+		    ?>
+        </table>
 
         <!-- Link to JavaScript source file -->
-        <script src="addCustDialogue.js"> </script>
+        <script src="addLotDialogue.js"> </script>
     </body>
 </html>
