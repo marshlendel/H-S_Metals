@@ -68,9 +68,12 @@
                 </form>
 
                 <!-- Action for submit of form to add lot (US 3.1)-->
-                <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
-                    ?> <script> alert("Lot Added Successfully");</script>
-                <?php addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);}?>
+                <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) { ?>
+                    <script> alert("Lot Added Successfully");</script>
+                <?php
+                    addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);
+                    $result = get_lots();}
+                ?>
 
               </div>
             </div>
