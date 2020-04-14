@@ -8,22 +8,15 @@
 * limitations under the License.
 ************************************************************************** -->
 <?php
-
-    function get_customers () {      //  Takes user input and inserts in sql query
-        $servername = "localhost";  //      and returns the result
+    //  Code to connect to db and return data in Customers table (User Story 4.3)
+    function get_customers () {
+        $servername = "localhost";
         $username = "mwithers";
         $password = "2270410";
         $database = "HandSMetals";
 
         $conn = mysqli_connect($servername, $username, $password, $database);
 
-        //  Check connection
-        // if (!$conn) {
-        //     die("Connection failed: " . mysqli_connect_error());
-        // }
-        // echo "Connected successfully<br>";
-
-        // prepare and bind
         $stmt = $conn->prepare("SELECT * FROM Customers");
 
         $stmt->execute();

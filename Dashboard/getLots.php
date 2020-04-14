@@ -8,9 +8,9 @@
 * limitations under the License.
 ************************************************************************** -->
 <?php
-
-    function get_lots () {      //  Takes user input and inserts in sql query
-        $servername = "localhost";  //      and returns the result
+    //  Code to connect to db and return data in Lots table (User Story 3.2)
+    function get_lots () {
+        $servername = "localhost";
         $username = "mwithers";
         $password = "2270410";
         $database = "HandSMetals";

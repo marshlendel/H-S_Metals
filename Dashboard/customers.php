@@ -77,6 +77,8 @@
                 }
 		    ?>
         </table>
+
+        <!-- Button for User Story 4.4 -->
         <button id="myBtn">Add Customer</button>
         <!-- The pop up -->
         <div id="addCust" class="modal">
@@ -85,7 +87,7 @@
             <span class="close">&times;</span>
             <p>Add Customer</p>
 
-            <!-- form for User Story 3.1 -->
+            <!-- form for User Story 4.4.1 -->
             <form class="" action="" method="post">
                 <label for="company"><b>Compnay</b></label>
                 <input type="text" name="company" required>
@@ -102,7 +104,7 @@
                 <button type="submit" class="btn">Submit</button>
             </form>
 
-            <!-- Action for submit of form to add lot (US 3.1)-->
+            <!-- Action for submit of form to add customer (User Story 4.4.2)-->
             <?php if (isset($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email'])) {
                 ?> <script> alert("Customer Added Successfully");</script>
             <?php
@@ -112,7 +114,7 @@
         </div>
 
 
-        <!-- Link to JavaScript source file -->
+        <!-- Link to JavaScript source file (User Story 4.4.1)-->
         <script src="addCustDialogue.js"> </script>
 	</body>
 </html>

@@ -8,6 +8,8 @@
 // * limitations under the License.
 // **************************************************************************
 
+//  JS for Add Customer dialogue when button is clicked (User Story 4.4.1)
+
 // Get the pop up
 var modal = document.getElementById("addCust");
 

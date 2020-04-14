@@ -89,6 +89,7 @@
             <!-- <?php echo "Lot #: " . $_POST['lotnum'] . " Customer: " . $_POST['cust'] . " Amount: " . $_POST['amt'];?> -->
     	</div>
         <h1>Home</h1>
+        <!-- Table of lot info from db (User Story 4.2) -->
 		<table>
             <tr> <th>Lot Number</th> <th>Customer</th> <th>Amount</th> </tr>
             <?php
