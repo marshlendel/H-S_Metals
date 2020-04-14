@@ -7,7 +7,10 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 ************************************************************************** -->
-<?php require 'getCustomers.php'; ?>
+<?php
+    require 'getCustomers.php';
+    require 'addCustomer.php';
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -74,37 +77,39 @@
                 }
 		    ?>
         </table>
- <div id="addCust" class="modal">
+        <button id="myBtn">Add Customer</button>
+        <!-- The pop up -->
+        <div id="addCust" class="modal">
+          <!-- pop up content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Add Customer</p>
 
-              <!-- pop up content -->
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>Add Customer</p>
+            <!-- form for User Story 3.1 -->
+            <form class="" action="" method="post">
+                <label for="company"><b>Compnay</b></label>
+                <input type="text" name="company" required>
 
-                <!-- form for User Story 3.1 -->
-                <form class="" action="" method="post">
-                    <label for="company"><b>Compnay</b></label>
-                    <input type="text" name="company" required>
+                <label for="contact"><b>Contact</b></label>
+                <input type="text" name="contact" required>
 
-                    <label for="contact"><b>Contact</b></label>
-                    <input type="text" name="contact" required>
+                <label for="phone"><b>Phone</b></label>
+                <input type="number" name="phone" required>
 
-                    <label for="phone"><b>Phone</b></label>
-                    <input type="number" name="phone" required>
-					
-					 <label for="email"><b>E-mail</b></label>
-                    <input type="text" name="email" required>
+    			 <label for="email"><b>E-mail</b></label>
+                <input type="text" name="email" required>
 
-                    <button type="submit" class="btn">Submit</button>
-                </form>
+                <button type="submit" class="btn">Submit</button>
+            </form>
 
-                <!-- Action for submit of form to add lot (US 3.1)-->
-                <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
-                    ?> <script> alert("Lot Added Successfully");</script>
-                <?php addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);}?>
-
-              </div>
+            <!-- Action for submit of form to add lot (US 3.1)-->
+            <?php if (isset($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email'])) {
+                ?> <script> alert("Customer Added Successfully");</script>
+            <?php
+                addCustomer($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email']);
+                $result = get_customers();}?>
             </div>
+        </div>
 
 
         <!-- Link to JavaScript source file -->

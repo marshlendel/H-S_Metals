@@ -19,11 +19,11 @@
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         // prepare and bind
-        $stmt = $conn->prepare("INSERT INTO Customers (name, contact, phone, email) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("isi", $companysql, $contactsql, $phonesql, $emailsql);
+        $stmt = $conn->prepare("INSERT INTO Customers (company, contact, phone, email) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssis", $companysql, $contactsql, $phonesql, $emailsql);
 
         // set parameters and execute
-        $companysql = (int)$company;
+        $companysql = "".$company."";
         $contactsql = "".$contact."";
         $phonesql = (int)$phone;
         $emailsql = "".$email."";
