@@ -89,7 +89,7 @@
 
             <!-- form for User Story 4.4.1 -->
             <form class="" action="" method="post">
-                <label for="company"><b>Compnay</b></label>
+                <label for="company"><b>Company</b></label>
                 <input type="text" name="company" required>
 
                 <label for="contact"><b>Contact</b></label>
