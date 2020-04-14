@@ -9,7 +9,7 @@
 // **************************************************************************
 
 // Get the pop up
-var modal = document.getElementById("addCust");
+var modal = document.getElementById("addLot");
 
 // Get the button that opens the pop up
 var btn = document.getElementById("myBtn");

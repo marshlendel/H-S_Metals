@@ -7,7 +7,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 ************************************************************************** -->
-<?php require 'getCustomers.php' ?>
+<?php require 'getCustomers.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -26,17 +26,21 @@
         }
 
         /* Styling for table in User Story 4.3 */
-        table, th, td {
-            border: 1px solid black;
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
         }
-        td {
-            text-align: center;
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
         }
-        tr:nth-child(even){
-            background-color: #f2f2f2;
+        tr:nth-child(even) {
+          background-color: orange;
         }
         tr:nth-child(odd) {
-            background-color: #FFA500;
+            background-color: #F2F2F2;
         }
 	</style>
 
@@ -68,8 +72,8 @@
                 while($row = $result-> fetch_assoc()){
                     echo "<tr><td>" . $row["company"] . "</td><td>" . $row["contact"] . "</td><td>" . $row["phone"] . "</td><td>" . $row["email"] . "</td></tr>";
                 }
-                echo "</table>";
 		    ?>
+        </table>
 
         <!-- Link to JavaScript source file -->
         <script src="scripts.js"> </script>

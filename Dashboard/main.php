@@ -9,7 +9,10 @@
 ************************************************************************** -->
 
 <!-- php file required to insert new lots into database (US 3.1) -->
-<?php require 'addLot.php' ?>
+<?php
+    require 'addLot.php';
+    require 'getLots.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -20,6 +23,25 @@
         <link rel="stylesheet", href="styles.css">
     </head>
     <body>
+        <style>
+            /* Table in User Story 4.2 */
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            tr:nth-child(even) {
+              background-color: orange;
+            }
+            tr:nth-child(odd) {
+                background-color: #F2F2F2;
+            }
+        </style>
         <!-- Trigger/Open The pop up box -->
         <div class="container">
             <button id="myBtn">Add Lot</button>
@@ -65,31 +87,15 @@
     	</div>
         <h1>Home</h1>
 		<table>
-  <tr>
-    <th>Lot Number</th>
-    <th>Customer</th>
-    <th>Amount</th>
-  </tr>
-  <tr>
-    <td>12</td>
-    <td>Bobby Boy</td>
-    <td>155</td>
-  </tr>
-  <tr>
-    <td>157</td>
-    <td>Daniel</td>
-    <td>157</td>
-  </tr>
-  <tr>
-    <td>55</td>
-    <td>Sam</td>
-    <td>88</td>
-  </tr>
-</table>
-	
-
+            <tr> <th>Lot Number</th> <th>Customer</th> <th>Amount</th> </tr>
+            <?php
+                while($row = $result-> fetch_assoc()){
+                    echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
+                }
+		    ?>
+        </table>
 
         <!-- Link to JavaScript source file -->
-        <script src="scripts.js"> </script>
+        <script src="addLotDialogue.js"> </script>
     </body>
 </html>
