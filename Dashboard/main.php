@@ -51,9 +51,9 @@
               <!-- pop up content -->
               <div class="modal-content">
                 <span class="close">&times;</span>
-                <p>Add Lot</p>
+                <p>Lot No:</p>
 
-                <!-- form for User Story 3.1 -->
+                <!-- form for User Story 3.1 AND 5.1 -->
                 <form class="" action="" method="post">
                     <label for="lotnum"><b>Lot #</b></label>
                     <input type="number" name="lotnum" required>
@@ -63,6 +63,9 @@
 
                     <label for="amt"><b>Amount</b></label>
                     <input type="number" name="amt" required>
+					
+					<label for="pallet"><b>Pallet</b></label>
+					<input type="number" name="pallet" required>
 
                     <button type="submit" class="btn">Submit</button>
                 </form>
