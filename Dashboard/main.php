@@ -74,6 +74,16 @@
                     <label for="amt"><b>Amount</b></label>
                     <input type="number" name="amt" required>
 				<br></br>
+				<!--User story 5.1.3-->
+				<form>
+                    <label for="type"><b>Type</b></label>
+                    <select name="type" id="type">
+						<option value="Ingot">Ingot</option>
+						<option value="S">S</option>
+						<option value="MS">MS</option>
+					</select>
+				</form>
+				<br></br>
                     <button type="submit" class="btn">Submit</button>
 					
                 </form>
