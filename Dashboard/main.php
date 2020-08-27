@@ -84,6 +84,15 @@
 					</select>
 				</form>
 				<br></br>
+				<form>
+                    <label for="Status"><b>Status</b></label>
+                    <select name="Status" id="Status">
+						<option value="Dirty">Dirty</option>
+						<option value="Clean">Clean</option>
+						<option value="Finished">Finished</option>
+						<option value="Gone">Gone</option>
+					</select>
+				</form>
                     <button type="submit" class="btn">Submit</button>
 					
                 </form>
