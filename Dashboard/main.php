@@ -44,27 +44,35 @@
         </style>
         <!-- Trigger/Open The pop up box -->
         <div class="container">
-            <button id="myBtn">Add Lot</button>
+            <button id="myBtn">Add Lot</button>   
             <!-- The pop up -->
             <div id="addLot" class="modal">
 
               <!-- pop up content -->
               <div class="modal-content">
                 <span class="close">&times;</span>
-                <p>Add Lot</p>
+         
 
                 <!-- form for User Story 3.1 -->
                 <form class="" action="" method="post">
-                    <label for="lotnum"><b>Lot #</b></label>
+                    <label for="lotnum"><b>Lot No.</b></label>
                     <input type="number" name="lotnum" required>
-
+					<br></br>
+				 <!-- User story 5.1.1-->
+				<form>
                     <label for="cust"><b>Customer</b></label>
-                    <input type="text" name="cust" required>
-
+                    <select name="cust" id="cust">
+						<option value="Danny">Danny</option>
+						<option value="Dad">Dad</option>
+						<option value="Bobby Darin">Bobby Darin</option>
+					</select>
+				</form>
+				<br></br>
                     <label for="amt"><b>Amount</b></label>
                     <input type="number" name="amt" required>
-
+				<br></br>
                     <button type="submit" class="btn">Submit</button>
+					
                 </form>
 
                 <!-- Action for submit of form to add lot (US 3.1)-->
