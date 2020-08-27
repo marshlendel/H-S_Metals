@@ -61,10 +61,20 @@
                     <label for="cust"><b>Customer</b></label>
                     <input type="text" name="cust" required>
 					
-					<label for="pallet"><b>Pallet</b></label>
-					<input type="number" name="pallet" required>
+					<label for="amt"><b>Amount</b></label>
+					<input type="number" name="amt" required>
 					
-					<button type ="submit" class="btn">Add Pallet</button>
+					<button onclick="addPallet()">Add Pallet</button>
+
+					<p id="palletNum"></p>
+
+						<script>
+						function addPallet() {
+						  document.getElementById("palletNum").innerHTML = "Pallet 2";
+							<label for="amt"><b>Amount</b></label>
+							<input type="number" name="amt" required>
+						}
+						</script>
 
                     <label for="amt"><b>Amount</b></label>
                     <input type="number" name="amt" required>
