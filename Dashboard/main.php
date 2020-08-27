@@ -72,6 +72,8 @@
 							"<p> pallet 2 </p>	<label for=\"amt\"><b>Amount</b></label> <input type=\"number\" name=\"amt\" required>;"
 						};
 						</script>
+						
+					<button onclick="removePallet()"> Remove Pallet</button>
 
                     <button type="submit" class="btn">Submit</button>
                 </form>
