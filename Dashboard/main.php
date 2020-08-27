@@ -68,6 +68,9 @@
 					</select>
 				</form>
 				<br></br>
+				<!--User story 5.1.2-->
+				<label><b>Pallet 1</b></label>
+				<br></br>
                     <label for="amt"><b>Amount</b></label>
                     <input type="number" name="amt" required>
 				<br></br>
