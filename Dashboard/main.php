@@ -54,7 +54,7 @@
                 <p>Lot No:</p>
 
                 <!-- form for User Story 3.1 AND 5.1 -->
-                <form class="" action="" method="post">
+                <form class="" id="lot" action="" method="post">
                     <label for="lotnum"><b>Lot #</b></label>
                     <input type="number" name="lotnum" required>
 
@@ -70,9 +70,8 @@
 
 						<script>
 						function addPallet() {
-						  document.getElementById("palletNum").innerHTML = "Pallet 2";
-							<label for="amt"><b>Amount</b></label>
-							<input type="number" name="amt" required>
+							document.getElementById("lot").innerHTML += 
+							"<p> pallet 2 </p>	<label for="amt"><b>Amount</b></label> <input type="number" name="amt" required>;"
 						}
 						</script>
 
