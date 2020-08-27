@@ -60,12 +60,14 @@
 
                     <label for="cust"><b>Customer</b></label>
                     <input type="text" name="cust" required>
-
-                    <label for="amt"><b>Amount</b></label>
-                    <input type="number" name="amt" required>
 					
 					<label for="pallet"><b>Pallet</b></label>
 					<input type="number" name="pallet" required>
+					
+					<button type ="submit" class="btn">Add Pallet</button>
+
+                    <label for="amt"><b>Amount</b></label>
+                    <input type="number" name="amt" required>
 
                     <button type="submit" class="btn">Submit</button>
                 </form>
