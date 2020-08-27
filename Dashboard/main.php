@@ -66,17 +66,12 @@
 					
 					<button onclick="addPallet()">Add Pallet</button>
 
-					<p id="palletNum"></p>
-
 						<script>
 						function addPallet() {
 							document.getElementById("lot").innerHTML += 
-							"<p> pallet 2 </p>	<label for="amt"><b>Amount</b></label> <input type="number" name="amt" required>;"
-						}
+							"<p> pallet 2 </p>	<label for=\"amt\"><b>Amount</b></label> <input type=\"number\" name=\"amt\" required>;"
+						};
 						</script>
-
-                    <label for="amt"><b>Amount</b></label>
-                    <input type="number" name="amt" required>
 
                     <button type="submit" class="btn">Submit</button>
                 </form>
