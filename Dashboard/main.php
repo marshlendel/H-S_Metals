@@ -10,8 +10,9 @@
 
 <!-- php file required to insert new lots into database (US 3.1) -->
 <?php
-    require 'addLot.php';
-    require 'getLots.php';
+    // require 'addLot.php';
+    // require 'getLots.php';
+    require 'sql.php';
 ?>
 
 <!DOCTYPE html>
@@ -86,14 +87,31 @@
             <?php //echo "Lot #: " . $_POST['lotnum'] . " Customer: " . $_POST['cust'] . " Amount: " . $_POST['amt'];?>
     	</div>
         <h1>Home</h1>
+        <!-- US 5.2: JavaScript array to contain table values from db -->
+        <script type="text/javascript">
+            let lotTable = [];
+            let row = 0;
+            <?php
+                $result = get_lots();
+                while($row = $result -> fetch_assoc()) {
+                    ?> lotTable[row] = [<?php echo json_encode($row["lotnum"]) ?>,
+                        <?php echo json_encode($row["customer"]) ?>, <?php echo json_encode($row["amount"]) ?>];
+                        ++row
+                    <?php
+                }
+             ?>;
+             console.log(lotTable);
+        </script>
+
         <!-- Table of lot info from db (User Story 4.2) -->
 		<table>
             <tr> <th>Lot Number</th> <th>Customer</th> <th>Amount</th> </tr>
             <?php
-                while($row = $result-> fetch_assoc()){
-                    echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
-                }
-		    ?>
+                // $result = get_lots();
+                // while($row = $result-> fetch_assoc()){
+                    // echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
+                // }
+		    ?>;
         </table>
 
         <!-- Link to JavaScript source file -->

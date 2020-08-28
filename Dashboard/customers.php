@@ -8,8 +8,9 @@
 * limitations under the License.
 ************************************************************************** -->
 <?php
-    require 'getCustomers.php';
-    require 'addCustomer.php';
+    // require 'getCustomers.php';
+    // require 'addCustomer.php';
+    require 'sql.php';
 ?>
 <!DOCTYPE html>
 <html>
