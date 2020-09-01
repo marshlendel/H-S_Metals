@@ -55,7 +55,8 @@
 
                 <!-- form for User Story 3.1 AND 5.1 (Josiah)--> 
                 <form class="" id="lot" action="" method="post">
-                    <label for="lotnum"><b>Lot #</b></label>
+                    <
+					label for="lotnum"><b>Lot #</b></label>
                     <input type="number" name="lotnum" required>
 
                     <label for="cust"><b>Customer</b></label>
@@ -64,14 +65,14 @@
 					<label for="amt"><b>Amount</b></label>
 					<input type="number" name="amt" required>
 					
-					<button onclick="addPallet()">Add Pallet</button>
+					<button onclick="addPallet()">Add Pallet</button> <!-- new button addition --> 
 
 						<script>
 						function addPallet() {
 							document.getElementById("lot").innerHTML += 
-							"<p> pallet 2 </p>	<label for=\"amt\"><b>Amount</b></label> <input type=\"number\" name=\"amt\" required>;"
+							"<p> pallet 2 </p>	<label for=\"amt\"><b>Amount</b></label> <input type=\"number\" name=\"amt\" required>;" <!-- script displays pallet 2 for user story -->
 						};
-						</script>
+						</script>		
 						
 					<button onclick="removePallet()"> Remove Pallet</button>
 
