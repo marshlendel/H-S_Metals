@@ -68,7 +68,7 @@
     				</form>
     				<br></br>
 					
-					<div class="pallets">
+					<div id="pallets">
 						<!--User story 5.1.2-->
 						<label><b>Pallet 1</b></label>
 						<br></br>
