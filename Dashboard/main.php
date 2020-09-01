@@ -53,7 +53,7 @@
                 <span class="close">&times;</span>
                 <p>Lot No:</p>
 
-                <!-- form for User Story 3.1 AND 5.1 -->
+                <!-- form for User Story 3.1 AND 5.1 (Josiah)--> 
                 <form class="" id="lot" action="" method="post">
                     <label for="lotnum"><b>Lot #</b></label>
                     <input type="number" name="lotnum" required>
