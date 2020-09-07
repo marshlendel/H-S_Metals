@@ -113,7 +113,7 @@
 							 // }
 						//	}
 							document.getElementById("pallets").innerHTML += 
-							"<p><b> Pallet +1 </b></p>	<label for=\"amt\"><b>Amount</b></label><input type=\"number\" name=\"amt\" required><button onclick=\"removePallet()\"> Remove Pallet</button><form><label for=\"type\"><b>Type</b></label><select name=\"type\" id=\"type\"><option value=\"Ingot\">Ingot</option><option value=\"S\">S</option><option value=\"MS\">MS</option></select></form><br></br><form><label for=\"Status\"><b>Status</b></label><select name=\"Status\" id=\"Status\"><option value=\"Dirty\">Dirty</option><option value=\"Clean\">Clean</option><option value=\"Finished\">Finished</option><option value=\"Gone\">Gone</option></select></form>"
+							"<p><b> Pallet </b>+ clickcount+1</p>	<label for=\"amt\"><b>Amount</b></label><input type=\"number\" name=\"amt\" required><button onclick=\"removePallet()\"> Remove Pallet</button><form><label for=\"type\"><b>Type</b></label><select name=\"type\" id=\"type\"><option value=\"Ingot\">Ingot</option><option value=\"S\">S</option><option value=\"MS\">MS</option></select></form><br></br><form><label for=\"Status\"><b>Status</b></label><select name=\"Status\" id=\"Status\"><option value=\"Dirty\">Dirty</option><option value=\"Clean\">Clean</option><option value=\"Finished\">Finished</option><option value=\"Gone\">Gone</option></select></form>"
 						};
 						</script>
 						
