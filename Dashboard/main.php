@@ -107,9 +107,9 @@
 								} else {
 								  localStorage.clickcount = 1;
 								}
-								document.getElementById("result").innerHTML = "Pallet number: ";
+								document.getElementById("pallets").innerHTML = "Pallet number: ";
 							  } else {
-								document.getElementById("result").innerHTML = "Pallet storage error";
+								document.getElementById("pallets").innerHTML = "Pallet storage error";
 							  }
 							}
 							// document.getElementById("pallets").innerHTML += 
