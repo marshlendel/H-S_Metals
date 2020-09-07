@@ -10,8 +10,7 @@
 
 <!-- php file required to insert new lots into database (US 3.1) -->
 <?php
-    require 'addLot.php';
-    require 'getLots.php';
+    require 'sql.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +21,7 @@
         <!-- Link to CSS stylesheet -->
         <link rel="stylesheet", href="styles.css">
     </head>
+
     <body>
         <style>
             /* Table in User Story 4.2 */
@@ -124,8 +124,7 @@
                 <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) { ?>
                     <script> alert("Lot Added Successfully");</script>
                 <?php
-                    addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);
-                    $result = get_lots();}
+                    addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);}
                 ?>
               </div>
             </div>
@@ -136,20 +135,41 @@
         	<button onClick="location.href='accounts.html';">Accounts</button>
 			<a href="../LoginPage/login.html">Logout</a>
 
-            <?php //echo "Lot #: " . $_POST['lotnum'] . " Customer: " . $_POST['cust'] . " Amount: " . $_POST['amt'];?>
     	</div>
         <h1>Home</h1>
-        <!-- Table of lot info from db (User Story 4.2) -->
-		<table>
-            <tr> <th>Lot Number</th> <th>Customer</th> <th>Amount</th> </tr>
-            <?php
-                while($row = $result-> fetch_assoc()){
-                    echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
-                }
-		    ?>
-        </table>
+        <!-- US 5.3: JavaScript array to contain table values from db -->
+        <div id="tableDiv" class="">
+
+        </div>
+
+        <!-- US 4.2, 5.3: Table of lot info from db -->
+        <script src="scripts.js"></script>
+        <script type="text/javascript">
+            function createLotTable(id, rows, fields) {
+                console.log("createLotTable called");
+                <?php
+                    $result = get_lots();
+                    $fields = get_fields($result);
+                    $rows = get_rows($result);
+                ?>
+                fields = <?php echo json_encode($fields); ?>;
+                console.log(fields);
+                rows = <?php echo json_encode($rows); ?>;
+                stringifyRows(fields, rows);
+                sortRows(rows, 'customer');
+                let table = document.createElement("TABLE");
+                table.setAttribute("id", id);
+                document.getElementById("tableDiv").appendChild(table);
+                createHeaders(id, fields, rows);
+                updateTable(id, fields, rows);
+            }
+            var rows;
+            var fields;
+            var tableId = "lotsTable";
+            createLotTable(tableId, rows, fields);
+        </script>
 
         <!-- Link to JavaScript source file -->
-        <script src="addLotDialogue.js"> </script>
+        <script src="addLotDialogue.js"></script>
     </body>
 </html>
