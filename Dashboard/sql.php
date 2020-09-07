@@ -107,5 +107,41 @@
         return $res;
     }
 
-    // $result = get_lots();
+    function get_fields($result) {
+        // echo "Getting result...";
+        $fieldsArray = array();
+        // echo "Created array";
+        $finfo = $result->fetch_fields();
+        // echo "fetched results";
+        $index = 0;
+        foreach ($finfo as $field) {
+            $fieldsArray[$index] = $field->name;
+            ++$index;
+        }
+        // echo "Fields array: ";
+        // echo $fieldsArray;
+        return $fieldsArray;
+    }
+
+    function get_rows($result, $fields) {
+        $rows = array();
+        $rowInt = 0;
+        while($row = $result->fetch_assoc()) {
+            $rows[$rowInt] = $row;
+            ++$rowInt;
+        }
+        // $rowData = $result->fetch_assoc();
+        // $rowInt = 0;
+        // foreach($rowData as $row) {
+        //     $rowArray = array();
+        //     $fieldInt = 0;
+        //     foreach($fields as $field) {
+        //         $rowArray[$field] = $rowData[$field];
+        //         ++$fieldInt;
+        //     }
+        //     $rows[$rowInt] = $rowArray;
+        //     ++$rowInt;
+        // }
+        return $rows;
+    }
 ?>
