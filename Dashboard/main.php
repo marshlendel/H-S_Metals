@@ -84,37 +84,39 @@
 
     	</div>
         <h1>Home</h1>
-        <!-- US 5.2: JavaScript array to contain table values from db -->
+        <!-- US 5.3: JavaScript array to contain table values from db -->
         <div id="tableDiv" class="">
 
         </div>
 
-        <!-- Table of lot info from db (User Story 4.2) -->
+        <!-- US 4.2, 5.3: Table of lot info from db -->
         <script src="scripts.js"></script>
         <script type="text/javascript">
-            console.log("Script2 has been read");
-            function createLotTable() {
-                console.log("createLotTable() called");
+            function createLotTable(id, rows, fields) {
+                console.log("createLotTable called");
                 <?php
                     $result = get_lots();
                     $fields = get_fields($result);
-                    $rows = get_rows($result, $fields);
+                    $rows = get_rows($result);
                 ?>
-                let fields = <?php echo json_encode($fields); ?>;
+                fields = <?php echo json_encode($fields); ?>;
                 console.log(fields);
-                let rows = <?php echo json_encode($rows); ?>;
-                console.log(rows);
-                let tableId = "lotsTable";
+                rows = <?php echo json_encode($rows); ?>;
+                stringifyRows(fields, rows);
+                sortRows(rows, 'customer');
                 let table = document.createElement("TABLE");
-                table.setAttribute("id", tableId);
+                table.setAttribute("id", id);
                 document.getElementById("tableDiv").appendChild(table);
-                createHeaders(tableId, fields);
-                updateTable(tableId, fields, rows);
+                createHeaders(id, fields, rows);
+                updateTable(id, fields, rows);
             }
-            createLotTable();
+            var rows;
+            var fields;
+            var tableId = "lotsTable";
+            createLotTable(tableId, rows, fields);
         </script>
 
         <!-- Link to JavaScript source file -->
-        <script src="addLotDialogue.js"> </script>
+        <script src="addLotDialogue.js"></script>
     </body>
 </html>

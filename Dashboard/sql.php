@@ -123,25 +123,13 @@
         return $fieldsArray;
     }
 
-    function get_rows($result, $fields) {
+    function get_rows($result) {
         $rows = array();
         $rowInt = 0;
         while($row = $result->fetch_assoc()) {
             $rows[$rowInt] = $row;
             ++$rowInt;
         }
-        // $rowData = $result->fetch_assoc();
-        // $rowInt = 0;
-        // foreach($rowData as $row) {
-        //     $rowArray = array();
-        //     $fieldInt = 0;
-        //     foreach($fields as $field) {
-        //         $rowArray[$field] = $rowData[$field];
-        //         ++$fieldInt;
-        //     }
-        //     $rows[$rowInt] = $rowArray;
-        //     ++$rowInt;
-        // }
         return $rows;
     }
 ?>

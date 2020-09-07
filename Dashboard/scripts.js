@@ -34,8 +34,8 @@ window.onclick = function(event) {
   }
 }
 
+// US 5.3: Capitalizes each word in string and returns the result
 function toUpper(string) {
-    console.log("toUpper("+string+")");
     let upper = "";
     let list = string.split(" ");
     let word;
@@ -50,43 +50,155 @@ function toUpper(string) {
     return upper;
 }
 
-function createHeaders(id, headers) {
-    console.log("Headers: ");
-    console.log(headers);
-    let table = document.getElementById(id);
+// US 5.3: Creates headers for the table for each column name in "headers"
+function createHeaders(tableId, headers, rows) {
+    console.log("createHeaders called ");
+    let table = document.getElementById(tableId);
     let header = table.createTHead();
+    header.addEventListener('click', function(ev) {
+        sortTable(ev, tableId, headers, rows);
+    }, false);
+    header.setAttribute('id', 'tHead');
+    header.setAttribute('for', -1);
     let row = header.insertRow(0);
     let cell;
     let label;
     for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
         cell = row.insertCell(cellNum);
         label = headers[cellNum];
-        console.log(label);
+        cell.setAttribute('id', label);
+        cell.setAttribute('for', cellNum);
         cell.innerHTML = toUpper(label == 'lotnum' ? 'Lot' : label);
     }
 }
 
-function updateTable(id, headers, rows) {
-    console.log("Rows: ");
-    console.log(rows);
-    let table = document.getElementById(id);
-    let body = table.createTBody();
-    while (body.rows.length > 0) {
+// US 5.3: Removes all rows in table (if they exist) and replaces them with
+//      values in "rows"
+function updateTable(tableId, headers, rows) {
+    console.log("updateTable called");
+    let table = document.getElementById(tableId);
+    let body;
+    if (table.tBodies.length < 1) {
+        body = table.createTBody();
+        body.setAttribute('id', 'tBody');
+    }
+    else {
+        body = table.tBodies[0];
+    }
+    let nRows = body.getElementsByTagName('tr').length;
+    console.log("Rows: " + nRows.toString());
+    while (body.getElementsByTagName('tr').length > 0) {
         body.deleteRow(0);
     }
+    console.log("Rows deleted: " + nRows.toString());
     let row;
     let cell;
     let head;
     for (let rowNum = 0; rowNum < rows.length; ++rowNum) {
-        console.log("Row "+JSON.stringify(rowNum));
-        console.log(rows[rowNum]);
         row = body.insertRow(rowNum);
         for (let cellNum = 0; cellNum < Object.keys(rows[rowNum]).length; ++cellNum) {
             cell = row.insertCell(cellNum);
             head = headers[cellNum]
-            console.log(head);
-            console.log(rows[rowNum][head]);
-            cell.innerHTML = toUpper(JSON.stringify(rows[rowNum][head]));
+            cell.innerHTML = rows[rowNum][head];
         }
     }
+}
+
+function stringifyRows(fields, rows) {
+    console.log("stringifyRows called");
+    let field;
+    let string;
+    for (let rowNum = 0; rowNum < rows.length; ++rowNum) {
+        for (let fieldNum = 0; fieldNum < fields.length; ++fieldNum) {
+            field = fields[fieldNum];
+            string = toUpper(JSON.stringify(rows[rowNum][field]));
+            string = string.split('"').length > 1 ? string.split('"')[1] : string;
+            rows[rowNum][field] = string;
+        }
+    }
+}
+
+// US 5.3: The following functions compare the fields between
+function cmpCust(row1, row2) {
+    if (row1['customer'].toUpperCase() < row2['customer'].toUpperCase()) {
+        return -1;
+    }
+    else if (row1['customer'].toUpperCase() > row2['customer'].toUpperCase()) {
+        return 1;
+    }
+    return 0;
+}
+
+function cmpDate(row1, row2) {
+    if (row1['date'] < row2['date']) {
+        return -1;
+    }
+    else if (row1['date'] > row2['date']) {
+        return 1;
+    }
+    return 0;
+}
+
+function cmpStatus(row1, row2) {
+    if (row1['status'] < row2['status']) {
+        return -1;
+    }
+    else if (row1['status'] > row2['status']) {
+        return 1;
+    }
+    return 0;
+}
+
+function cmpNum(row1, row2) {
+    return row1['lotnum'] - row2['lotnum'];
+}
+
+function sortRows(rows, sortField, reverse) {
+    switch (sortField) {
+        case "customer":
+            console.log("Sorting by "+ sortField);
+            rows.sort(cmpCust);
+            break;
+        case "date":
+            console.log("Sorting by "+ sortField);
+            rows.sort(cmpDate);
+            break;
+        case "status":
+            console.log("Sorting by "+ sortField);
+            rows.sort(cmpStatus);
+            break;
+        case "lotnum":
+            console.log("Sorting by "+ sortField);
+            rows.sort(cmpNum);
+            break;
+        default:
+            console.log("Cannot sort by "+sortField);
+            reverse = false;
+    }
+    if (reverse) {
+        console.log("Rows reversed");
+        rows.reverse();
+    }
+}
+
+// Sorts table by the id of the element clicked
+// (i.e. if 'Customer' is clicked, table is sorted by 'customer')
+function sortTable(ev, tableId, headers, rows) {
+    let elmtId = ev.target.id;
+    if (ev.target != ev.currentTarget && elmtId != 'type' && elmtId != 'amount') {
+        console.log("Element clicked: id='"+elmtId+"'");
+        let element = document.getElementById(elmtId);
+// If order is ascending, it becomes descending and vise versa
+        let header = document.getElementById('tHead');
+        let reverse = header.getAttribute('for') == element.getAttribute('for') ? true : false;
+        header.setAttribute('for', element.getAttribute('for'));
+        console.log(reverse);
+        sortRows(rows, elmtId, reverse);
+        if (reverse) {
+            header.setAttribute('for', -1);
+        }
+        updateTable(tableId, headers, rows);
+    }
+
+    ev.stopPropagation();
 }
