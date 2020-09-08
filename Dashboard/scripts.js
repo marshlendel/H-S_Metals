@@ -180,7 +180,6 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
     lotNumInput.required = true;
     lotForm.appendChild(lotNumInput);
 
-    console.log(custVals);
     let custForm = document.createElement("FORM");
     let formLabel = createBoldLabel("Cust");
     formLabel.setAttribute('for', 'cust');
@@ -205,7 +204,6 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
     addCustBtn.innerHTML = "+";
     custForm.appendChild(addCustBtn);
     lotForm.appendChild(custForm);
-    console.log("Add Cust button created with id: "+addCustBtnId.toString());
     var modalCust = document.getElementById("addCust");
     // When the user clicks the button, open the pop up
     addCustBtn.onclick = function() {
@@ -272,6 +270,8 @@ function createHeaders(tableId, headers, rows) {
     let cell;
     let label;
     for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
+        console.log(headers[cellNum]);
+        console.log(cellNum);
         cell = row.insertCell(cellNum);
         label = headers[cellNum];
         cell.setAttribute('id', label);
@@ -399,6 +399,8 @@ function sortTable(ev, tableId, headers, rows) {
 // If order is ascending, it becomes descending and vise versa
         let header = document.getElementById('tHead');
         let reverse = header.getAttribute('for') == element.getAttribute('for') ? true : false;
+        console.log(header.getAttribute('for'));
+        console.log(element.getAttribute('for'));
         header.setAttribute('for', element.getAttribute('for'));
         console.log(reverse);
         sortRows(rows, elmtId, reverse);
