@@ -602,6 +602,23 @@
           "id": "ryreFkr4P"
         },
         {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "r1Sfigr4D",
+          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
+          "width": 500,
+          "height": 500,
+          "resize": false,
+          "complete": false
+        },
+        {
           "type": "URL_CHANGE_INDICATOR",
           "selector": "",
           "selectorType": "CSS",

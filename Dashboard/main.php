@@ -43,7 +43,7 @@
             }
         </style>
 
-        <!-- Trigger/Open The pop up box -->
+        <!-- US 1.1: Trigger/Open The pop up box -->
         <div class="container">
             <button id="myBtnLot">Add Lot</button>
             <div id="addCust" class="modal">
@@ -77,7 +77,7 @@
                     <?php } ?>
                 </div>
             </div>
-            <!-- The pop up -->
+            <!-- US 2.1, 5.1-5.2: The pop up -->
             <div id="addLot" class="modal">
                 <!-- pop up content -->
                 <div id="lotbox" class="modal-content">
@@ -91,7 +91,9 @@
                     ?>
                 </div>
             </div>
+            <!-- Import JS functions -->
             <script src="scripts.js"></script>
+            <!-- US 2.1, 5.1-5.2: Creates elements of Add Lot box -->
             <script type="text/javascript">
                 let custList = <?php echo json_encode(get_customers_list()); ?>;
                 createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custList);

@@ -165,12 +165,15 @@ function removePallet(palletsDivId) {
     palletsDiv.getElementsByTagName("P")[size-1].remove();
 }
 
-// US 5.1
+// US 2.1, 5.1-5.2: Creates elements of Add Lot box
 function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
     console.log("Creating Add Lot Form");
+    // Creates form to be submitted
     let lotDiv = document.getElementById(lotDivId);
     let lotForm = document.createElement('FORM');
     lotDiv.appendChild(lotForm);
+
+    // Creates Lot No. label and adds to form
     let lotNumLabel = createBoldLabel("Lot No.");
     lotNumLabel.setAttribute('for', 'lotnum');
     lotForm.appendChild(lotNumLabel);
@@ -180,6 +183,7 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
     lotNumInput.required = true;
     lotForm.appendChild(lotNumInput);
 
+    // Creates customer selection dropdown
     let custForm = document.createElement("FORM");
     let formLabel = createBoldLabel("Cust");
     formLabel.setAttribute('for', 'cust');
@@ -198,6 +202,8 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
         selectCust.appendChild(cust);
     }
     custForm.appendChild(selectCust);
+
+    // Creates add Customer button
     let addCustBtn = document.createElement("BUTTON");
     addCustBtn.setAttribute('type', 'button');
     addCustBtn.setAttribute('id', addCustBtnId);
@@ -211,6 +217,7 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
     }
     lotForm.appendChild(document.createElement("BR"));
 
+    // Creates add pallet button
     let palletsDiv = document.createElement("DIV");
     palletsDiv.setAttribute('id', palletsDivId);
     lotForm.appendChild(palletsDiv);
@@ -222,6 +229,8 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
         console.log("Add Pallet clicked");
         addPallet(palletsDivId);
     }, false);
+
+    // Creates remove pallet button
     let rmvPalBtn = document.createElement("BUTTON");
     rmvPalBtn.setAttribute('id', rmvPalBtnId);
     rmvPalBtn.setAttribute('type', 'button');
@@ -233,6 +242,8 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
     rmvPalBtn.disabled = true;
     lotForm.appendChild(addPalBtn);
     lotForm.appendChild(rmvPalBtn);
+
+    // Creates subit button for form
     let submitBtn = document.createElement("BUTTON");
     submitBtn.setAttribute('type', 'submit');
     submitBtn.setAttribute('class', 'btnLot');
@@ -261,6 +272,7 @@ function createHeaders(tableId, headers, rows) {
     console.log("createHeaders called ");
     let table = document.getElementById(tableId);
     let header = table.createTHead();
+    // Add click listener to sort table by the clicked header
     header.addEventListener('click', function(ev) {
         sortTable(ev, tableId, headers, rows);
     }, false);
@@ -269,6 +281,7 @@ function createHeaders(tableId, headers, rows) {
     let row = header.insertRow(0);
     let cell;
     let label;
+    // Creates header labels
     for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
         console.log(headers[cellNum]);
         console.log(cellNum);
@@ -284,6 +297,7 @@ function createHeaders(tableId, headers, rows) {
 //      values in "rows"
 function updateTable(tableId, headers, rows) {
     console.log("updateTable called");
+    // Create table body if one does not exist
     let table = document.getElementById(tableId);
     let body;
     if (table.tBodies.length < 1) {
@@ -293,6 +307,7 @@ function updateTable(tableId, headers, rows) {
     else {
         body = table.tBodies[0];
     }
+    // Create rows and add to table body (tBody)
     let nRows = body.getElementsByTagName('tr').length;
     console.log("Rows: " + nRows.toString());
     while (body.getElementsByTagName('tr').length > 0) {
@@ -312,6 +327,7 @@ function updateTable(tableId, headers, rows) {
     }
 }
 
+// US 4.2: Helper function for retrieving data from database
 function stringifyRows(fields, rows) {
     console.log("stringifyRows called");
     let field;
@@ -326,7 +342,7 @@ function stringifyRows(fields, rows) {
     }
 }
 
-// US 5.3: The following functions compare the fields between
+// US 5.3: The following functions compare the fields between each row
 function cmpCust(row1, row2) {
     if (row1['customer'].toUpperCase() < row2['customer'].toUpperCase()) {
         return -1;
@@ -361,6 +377,7 @@ function cmpNum(row1, row2) {
     return row1['lotnum'] - row2['lotnum'];
 }
 
+// US 5.3: Function sorts rows using the comparison function correspponding to the field
 function sortRows(rows, sortField, reverse) {
     switch (sortField) {
         case "customer":
@@ -389,7 +406,7 @@ function sortRows(rows, sortField, reverse) {
     }
 }
 
-// Sorts table by the id of the element clicked
+// US 5.3: Sorts table by the id of the element clicked
 // (i.e. if 'Customer' is clicked, table is sorted by 'customer')
 function sortTable(ev, tableId, headers, rows) {
     let elmtId = ev.target.id;
