@@ -37,7 +37,7 @@
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "#myBtn",
+          "selector": "#myBtnLot",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -114,14 +114,12 @@
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "div > form > button",
+          "selector": ".btnLot",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [
-            "Couldn't find a good selector strategy to target this element. "
-          ],
+          "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
           "id": "BJMIwHbPU",
@@ -485,38 +483,8 @@
           "isContentEditable": false
         },
         {
-          "type": "MOUSEDOWN",
-          "selector": "body form button",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "Sk3JyUWwI",
-          "textContent": "Login",
-          "textAsserted": false,
-          "x": 380,
-          "y": 150
-        },
-        {
           "type": "SUBMIT",
-          "selector": "form",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [
-            "Couldn't find a good selector strategy to target this element. "
-          ],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "HkkeyUZDL"
-        },
-        {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
+          "selector": "[name=password]",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -524,23 +492,7 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "H1egJUbDL",
-          "value": "/~mwithers/Dashboard/main.php",
-          "index": null
-        },
-        {
-          "type": "PATH_ASSERT",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "Byxel18bvI",
-          "value": "/~mwithers/Dashboard/main.php",
-          "regex": false
+          "id": "H1HejkS4v"
         }
       ],
       "id": "H1KG0r-PL",
@@ -636,22 +588,6 @@
           "isContentEditable": false
         },
         {
-          "type": "MOUSEDOWN",
-          "selector": "body form button",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "HkRyF8bD8",
-          "textContent": "Login",
-          "textAsserted": false,
-          "x": 368,
-          "y": 153
-        },
-        {
           "type": "SUBMIT",
           "selector": "form",
           "selectorType": "CSS",
@@ -663,7 +599,7 @@
           ],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "B1egtUbwI"
+          "id": "ryreFkr4P"
         },
         {
           "type": "URL_CHANGE_INDICATOR",
@@ -695,7 +631,7 @@
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "#myBtn",
+          "selector": "#myBtnLot",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -762,6 +698,34 @@
           "id": "HJhWYUZvU",
           "value": "Accounts",
           "regex": false
+        },
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "B1LxFkSED",
+          "value": "/~mwithers/Dashboard/main.php",
+          "index": null
+        },
+        {
+          "type": "PATH_ASSERT",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Bkx8lF1S4D",
+          "value": "/~mwithers/Dashboard/main.php",
+          "regex": false
         }
       ],
       "id": "HJ0o_LZDU",
@@ -812,7 +776,7 @@
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "#myBtn",
+          "selector": "#myBtnLot",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -828,7 +792,7 @@
         },
         {
           "type": "MOUSEDOWN",
-          "selector": ".close",
+          "selector": "#addLot",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2187,7 +2151,7 @@
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr > th",
+          "selector": "#date",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2195,13 +2159,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rJakRLmO8",
-          "value": "Lot Number",
+          "id": "B1mOskSND",
+          "value": "Date",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr > th:nth-of-type(2)",
+          "selector": "#lotnum",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2209,13 +2173,27 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ByR108Q_U",
+          "id": "BkEOjkrEv",
+          "value": "Lot",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "#customer",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "r1S_oJr4v",
           "value": "Customer",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr > th:nth-of-type(3)",
+          "selector": "#amount",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2223,13 +2201,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HkkgCLQOI",
+          "id": "Bk8Oi1BED",
           "value": "Amount",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr:nth-of-type(2) > td",
+          "selector": "thead > tr > td:nth-of-type(5)",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2237,13 +2215,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rkwgRLX_I",
-          "value": "1",
+          "id": "H1Ddi1SND",
+          "value": "Status",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr:nth-of-type(2) > td:nth-of-type(2)",
+          "selector": "thead > tr > td:nth-of-type(6)",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2251,13 +2229,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BkOgRUXOL",
-          "value": "micah",
+          "id": "HktdoJrEP",
+          "value": "Type",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr:nth-of-type(2) > td:nth-of-type(3)",
+          "selector": "tbody > tr > td:nth-of-type(2)",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2265,8 +2243,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BJqeRLm_I",
-          "value": "6000",
+          "id": "HyXFo1r4D",
+          "value": "57",
           "regex": false
         }
       ],
@@ -2420,7 +2398,7 @@
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr:nth-of-type(3) > td",
+          "selector": "tbody > tr:nth-of-type(5) > td",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2434,7 +2412,7 @@
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr:nth-of-type(3) > td:nth-of-type(2)",
+          "selector": "tbody > tr:nth-of-type(5) > td:nth-of-type(2)",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2448,7 +2426,7 @@
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr:nth-of-type(3) > td:nth-of-type(3)",
+          "selector": "tbody > tr:nth-of-type(5) > td:nth-of-type(3)",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2462,7 +2440,7 @@
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr:nth-of-type(3) > td:nth-of-type(4)",
+          "selector": "tbody > tr:nth-of-type(5) > td:nth-of-type(4)",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2807,7 +2785,7 @@
           "suggestions": [],
           "continueOnFail": false,
           "id": "Bkdkyw7uL",
-          "value": "Person",
+          "value": "Me",
           "regex": false
         },
         {
@@ -2821,7 +2799,7 @@
           "suggestions": [],
           "continueOnFail": false,
           "id": "S1F1ywQ_8",
-          "value": "Micah",
+          "value": "dfgh",
           "regex": false
         },
         {
@@ -2835,7 +2813,7 @@
           "suggestions": [],
           "continueOnFail": false,
           "id": "HJ91JD7dL",
-          "value": "12345",
+          "value": "4567",
           "regex": false
         },
         {
@@ -2849,7 +2827,7 @@
           "suggestions": [],
           "continueOnFail": false,
           "id": "rko1JwXdU",
-          "value": "me@gmail.com",
+          "value": "sdkfj",
           "regex": false
         }
       ],
@@ -2858,6 +2836,917 @@
       "variables": [
         {
           "id": "rJeH8CIm_U",
+          "name": "baseUrl",
+          "defaultValue": "https://levi.cis.indwes.edu",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "5.1",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Bk-tl6ySNv",
+          "value": "/~mwithers/Dashboard/main.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ryKl61SNP",
+          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
+          "width": 768,
+          "height": 719,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#myBtnLot",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "B1ngp1rVP",
+          "textContent": "Add Lot",
+          "textAsserted": false,
+          "x": 90,
+          "y": 37
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div:nth-of-type(2) > div > form > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HyEbayrEw",
+          "value": "Lot No.",
+          "regex": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "[name=lotnum]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "BkSZ6krED"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "form > form > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HyvZTJHVD",
+          "value": "Cust",
+          "regex": false
+        },
+        {
+          "type": "VALUE_ASSERT",
+          "selector": "#cust",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJcbaJrVv",
+          "value": "Apple",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "#myBtnCust",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HyXzaJHEP",
+          "value": "+",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "form > div > p > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "S1HGpkBED",
+          "value": "Pallet 1",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "form > div > p > label:nth-of-type(2) > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SyLf6kHEv",
+          "value": "Amount",
+          "regex": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "[name=amt]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJDG6yHEv"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div > p > form > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "By_GakSEv",
+          "value": "Type",
+          "regex": false
+        },
+        {
+          "type": "VALUE_ASSERT",
+          "selector": "[name=type]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HytfpySVD",
+          "value": "Ingot",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div > p > form:nth-of-type(2) > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "r15GTySNP",
+          "value": "Status",
+          "regex": false
+        },
+        {
+          "type": "VALUE_ASSERT",
+          "selector": "[name=status]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ByiGayrVw",
+          "value": "Dirty",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "#addPal",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ryTfa1SVD",
+          "value": "Add Pallet",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": ".btnLot",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "H1QQaJSVw",
+          "value": "Submit",
+          "regex": false
+        }
+      ],
+      "id": "HJch3yrNP",
+      "type": "test",
+      "variables": [
+        {
+          "id": "H1xKepJHVv",
+          "name": "baseUrl",
+          "defaultValue": "https://levi.cis.indwes.edu",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "5.2",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SyZSKpJSEv",
+          "value": "/~mwithers/Dashboard/main.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HyHY6ySVP",
+          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
+          "width": 768,
+          "height": 719,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#myBtnLot",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "S1DtTkHEP",
+          "textContent": "Add Lot",
+          "textAsserted": false,
+          "x": 83,
+          "y": 36
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#addPal",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Bk9FT1SEP",
+          "textContent": "Add Pallet",
+          "textAsserted": false,
+          "x": 238,
+          "y": 297
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "form > div > p:nth-of-type(2) > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJMqTJSND",
+          "value": "Pallet 2",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "form > div > p:nth-of-type(2) > label:nth-of-type(2) > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "BJ756JBVw",
+          "value": "Amount",
+          "regex": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "form > div > p:nth-of-type(2) > input",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HkE5TyBED"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div > p:nth-of-type(2) > form > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ByS9T1BVv",
+          "value": "Type",
+          "regex": false
+        },
+        {
+          "type": "VALUE_ASSERT",
+          "selector": "form > div > p:nth-of-type(2) > form > select",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HkUqTkSVD",
+          "value": "Ingot",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div > p:nth-of-type(2) > form:nth-of-type(2) > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Byw9aJBEw",
+          "value": "Status",
+          "regex": false
+        },
+        {
+          "type": "VALUE_ASSERT",
+          "selector": "form > div > p:nth-of-type(2) > form:nth-of-type(2) > select",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "S1OqTJH4P",
+          "value": "Dirty",
+          "regex": false
+        },
+        {
+          "type": "VALUE_ASSERT",
+          "selector": "form > div > p:nth-of-type(2) > form:nth-of-type(2) > select",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HylO9akH4D",
+          "value": "Dirty",
+          "regex": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#addPal",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Hysc6ySVv",
+          "textContent": "Add Pallet",
+          "textAsserted": false,
+          "x": 236,
+          "y": 389
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "form > div > p:nth-of-type(3) > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rkJspyHEv",
+          "value": "Pallet 3",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "form > div > p:nth-of-type(3) > label:nth-of-type(2) > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJlopyB4D",
+          "value": "Amount",
+          "regex": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "form > div > p:nth-of-type(3) > input",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "B1geipJHNP"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div > p:nth-of-type(3) > form > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Hy-sp1rVD",
+          "value": "Type",
+          "regex": false
+        },
+        {
+          "type": "VALUE_ASSERT",
+          "selector": "form > div > p:nth-of-type(3) > form > select",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "B1GopkB4w",
+          "value": "Ingot",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div > p:nth-of-type(3) > form:nth-of-type(2) > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJgMj6JBVD",
+          "value": "Status",
+          "regex": false
+        },
+        {
+          "type": "VALUE_ASSERT",
+          "selector": "form > div > p:nth-of-type(3) > form:nth-of-type(2) > select",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ByXipJSED",
+          "value": "Dirty",
+          "regex": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#rmvPal",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJ5spyr4v",
+          "textContent": "Remove",
+          "textAsserted": false,
+          "x": 318,
+          "y": 489
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#addPal",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "H1cha1rVv",
+          "textContent": "Add Pallet",
+          "textAsserted": false,
+          "x": 248,
+          "y": 396
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#addPal",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Bkec2T1SED",
+          "textContent": "Add Pallet",
+          "textAsserted": false,
+          "x": 237,
+          "y": 494
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#rmvPal",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Hyn2T1SEw",
+          "textContent": "Remove",
+          "textAsserted": false,
+          "x": 289,
+          "y": 574
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#rmvPal",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rylh2akB4P",
+          "textContent": "Remove",
+          "textAsserted": false,
+          "x": 313,
+          "y": 491
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#rmvPal",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Hyka6JSNv",
+          "textContent": "Remove",
+          "textAsserted": false,
+          "x": 304,
+          "y": 394
+        }
+      ],
+      "id": "HkxVa1r4w",
+      "type": "test",
+      "variables": [
+        {
+          "id": "H1lHFpyS4w",
+          "name": "baseUrl",
+          "defaultValue": "https://levi.cis.indwes.edu",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "5.3",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SyWIXRyHNw",
+          "value": "/~mwithers/Dashboard/main.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "BJL7AkrVw",
+          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
+          "width": 768,
+          "height": 719,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#date",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "BJsXCkrEw",
+          "textContent": "Date",
+          "textAsserted": false,
+          "x": 84,
+          "y": 157
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "tbody > tr > td",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ryL4CyrVv",
+          "value": "2020-03-31 18:41:10",
+          "regex": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#date",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ryO4RkrND",
+          "textContent": "Date",
+          "textAsserted": false,
+          "x": 105,
+          "y": 152
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "tbody > tr > td",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ByiECJrVP",
+          "value": "2020-09-01 08:44:36",
+          "regex": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#lotnum",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJTVAJSED",
+          "textContent": "Lot",
+          "textAsserted": false,
+          "x": 268,
+          "y": 149
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "tbody > tr > td:nth-of-type(2)",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ry1SAkHVD",
+          "value": "1",
+          "regex": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#lotnum",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "B17B0JSVv",
+          "textContent": "Lot",
+          "textAsserted": false,
+          "x": 280,
+          "y": 145
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "tbody > tr > td:nth-of-type(2)",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HyHBR1S4D",
+          "value": "3456",
+          "regex": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#customer",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "S1OH0ySNv",
+          "textContent": "Customer",
+          "textAsserted": false,
+          "x": 358,
+          "y": 148
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "tbody > tr > td:nth-of-type(3)",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJirRyBVv",
+          "value": "Daniel",
+          "regex": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#customer",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJprC1HVw",
+          "textContent": "Customer",
+          "textAsserted": false,
+          "x": 368,
+          "y": 151
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "tbody > tr > td:nth-of-type(3)",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SJkI0yHVP",
+          "value": "micah",
+          "regex": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "thead > tr > td:nth-of-type(5)",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [
+            "Couldn't find a good selector strategy to target this element. "
+          ],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Byf801H4P",
+          "textContent": "Status",
+          "textAsserted": false,
+          "x": 584,
+          "y": 152
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "tbody > tr > td:nth-of-type(5)",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HyHL0kSVD",
+          "value": "CLEAN",
+          "regex": false
+        }
+      ],
+      "id": "HJWGAyB4v",
+      "type": "test",
+      "variables": [
+        {
+          "id": "BJgU7CJrNP",
           "name": "baseUrl",
           "defaultValue": "https://levi.cis.indwes.edu",
           "type": "STRING_VAR"
@@ -2874,120 +3763,155 @@
       "children": [
         {
           "collapsed": false,
-          "module": "DevCyc1 Tests",
-          "id": "BklsuIbDL",
+          "module": "All Tests",
+          "id": "SyP2DkBEw",
           "children": [
             {
-              "module": "Unnamed test",
-              "testId": "HJ0o_LZDU",
-              "leaf": true,
-              "id": "H1Cs_Ubv8",
-              "type": "test"
+              "collapsed": false,
+              "module": "DevCyc1 Tests",
+              "id": "BklsuIbDL",
+              "children": [
+                {
+                  "module": "Unnamed test",
+                  "testId": "HJ0o_LZDU",
+                  "leaf": true,
+                  "id": "H1Cs_Ubv8",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "rk5_K8-v8",
+                  "leaf": true,
+                  "id": "HkcdtIWPL",
+                  "type": "test"
+                }
+              ]
             },
             {
-              "module": "Unnamed test",
-              "testId": "rk5_K8-v8",
-              "leaf": true,
-              "id": "HkcdtIWPL",
-              "type": "test"
-            }
-          ]
-        },
-        {
-          "collapsed": false,
-          "module": "DevCyc2 Tests",
-          "id": "SyFg5UZwL",
-          "children": [
-            {
-              "module": "Unnamed test",
-              "testId": "S1s75L-w8",
-              "leaf": true,
-              "id": "r1omqLZvI",
-              "type": "test"
+              "collapsed": false,
+              "module": "DevCyc2 Tests",
+              "id": "SyFg5UZwL",
+              "children": [
+                {
+                  "module": "Unnamed test",
+                  "testId": "S1s75L-w8",
+                  "leaf": true,
+                  "id": "r1omqLZvI",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "B1fynUWwL",
+                  "leaf": true,
+                  "id": "rkMJ3UbPI",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "HJUJALbDL",
+                  "leaf": true,
+                  "id": "rkUyCUbwU",
+                  "type": "test"
+                }
+              ]
             },
             {
-              "module": "Unnamed test",
-              "testId": "B1fynUWwL",
-              "leaf": true,
-              "id": "rkMJ3UbPI",
-              "type": "test"
+              "collapsed": false,
+              "module": "DevCyc3 Tests",
+              "id": "rJOVQBbwU",
+              "children": [
+                {
+                  "module": "Unnamed test",
+                  "testId": "rk3sZH-vU",
+                  "leaf": true,
+                  "id": "SJnj-BbvI",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "H1OAfr-wU",
+                  "leaf": true,
+                  "id": "SkORGS-PL",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "H1KG0r-PL",
+                  "leaf": true,
+                  "id": "SktfCSZP8",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "HkJeDYbwI",
+                  "leaf": true,
+                  "id": "BJ1lvFWD8",
+                  "type": "test"
+                }
+              ]
             },
             {
-              "module": "Unnamed test",
-              "testId": "HJUJALbDL",
-              "leaf": true,
-              "id": "rkUyCUbwU",
-              "type": "test"
-            }
-          ]
-        },
-        {
-          "collapsed": false,
-          "module": "DevCyc3 Tests",
-          "id": "rJOVQBbwU",
-          "children": [
-            {
-              "module": "Unnamed test",
-              "testId": "rk3sZH-vU",
-              "leaf": true,
-              "id": "SJnj-BbvI",
-              "type": "test"
+              "collapsed": false,
+              "module": "DevCyc4 Tests",
+              "id": "rJXOpLX_U",
+              "children": [
+                {
+                  "module": "Unnamed test",
+                  "testId": "BkJdaLX_L",
+                  "leaf": true,
+                  "id": "ry1OTL7_U",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "r1lCaL7dU",
+                  "leaf": true,
+                  "id": "H1l0TUXd8",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "ByXb0U7OU",
+                  "leaf": true,
+                  "id": "HkXbA8XdL",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "BJK4RLXuL",
+                  "leaf": true,
+                  "id": "BkFNRIQOL",
+                  "type": "test"
+                }
+              ]
             },
             {
-              "module": "Unnamed test",
-              "testId": "H1OAfr-wU",
-              "leaf": true,
-              "id": "SkORGS-PL",
-              "type": "test"
-            },
-            {
-              "module": "Unnamed test",
-              "testId": "H1KG0r-PL",
-              "leaf": true,
-              "id": "SktfCSZP8",
-              "type": "test"
-            },
-            {
-              "module": "Unnamed test",
-              "testId": "HkJeDYbwI",
-              "leaf": true,
-              "id": "BJ1lvFWD8",
-              "type": "test"
-            }
-          ]
-        },
-        {
-          "collapsed": false,
-          "module": "DevCyc4 Tests",
-          "id": "rJXOpLX_U",
-          "children": [
-            {
-              "module": "Unnamed test",
-              "testId": "BkJdaLX_L",
-              "leaf": true,
-              "id": "ry1OTL7_U",
-              "type": "test"
-            },
-            {
-              "module": "Unnamed test",
-              "testId": "r1lCaL7dU",
-              "leaf": true,
-              "id": "H1l0TUXd8",
-              "type": "test"
-            },
-            {
-              "module": "Unnamed test",
-              "testId": "ByXb0U7OU",
-              "leaf": true,
-              "id": "HkXbA8XdL",
-              "type": "test"
-            },
-            {
-              "module": "Unnamed test",
-              "testId": "BJK4RLXuL",
-              "leaf": true,
-              "id": "BkFNRIQOL",
-              "type": "test"
+              "collapsed": false,
+              "module": "DevCyc5 Tests",
+              "id": "SyOshJBED",
+              "children": [
+                {
+                  "module": "Unnamed test",
+                  "testId": "HJch3yrNP",
+                  "leaf": true,
+                  "id": "BJch2kSVw",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "HkxVa1r4w",
+                  "leaf": true,
+                  "id": "rkgVpySNP",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "HJWGAyB4v",
+                  "leaf": true,
+                  "id": "BJbGRyBNP",
+                  "type": "test"
+                }
+              ]
             }
           ]
         }
