@@ -94,7 +94,6 @@
             <script src="scripts.js"></script>
             <script type="text/javascript">
                 let custList = <?php echo json_encode(get_customers_list()); ?>;
-                console.log(custList);
                 createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custList);
                 setupBoth();
                 let addCustBtn = document.getElementById(addCustBtnId);
