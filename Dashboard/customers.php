@@ -10,7 +10,8 @@
 <?php
     // require 'getCustomers.php';
     // require 'addCustomer.php';
-    require 'sql.php';
+    require 'getCustomers.php';
+    require 'addCustomer.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -106,11 +107,12 @@
             </form>
 
             <!-- Action for submit of form to add customer (User Story 4.4.2)-->
-            <?php if (isset($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email'])) {
-                ?> <script> alert("Customer Added Successfully");</script>
+            <?php if (isset($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email'])) {?> 
+                <script> alert("Customer Added Successfully");</script>
             <?php
                 addCustomer($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email']);
-                $result = get_customers();}?>
+                $result = get_customers();
+            }?>
             </div>
         </div>
 

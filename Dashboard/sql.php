@@ -29,6 +29,10 @@
 
         $stmt->close();
         $conn->close();
+        if (!$result) {
+            return $error;
+        }
+        return "Success";
     }
     //
     // if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
@@ -54,10 +58,15 @@
         $contactsql = "".$contact."";
         $phonesql = (int)$phone;
         $emailsql = "".$email."";
-        $stmt->execute();
+        $result = $stmt->execute();
+        $error = $stmt->error;
 
         $stmt->close();
         $conn->close();
+        if (!$result) {
+            return $error;
+        }
+        return "Success";
     }
 
     //  Code to connect to db and return data in Customers table (User Story 4.3)
@@ -82,8 +91,6 @@
         return $res;
     }
 
-    $result = get_customers();
-
     //  Code to connect to db and return data in Lots table (User Story 3.2)
     function get_lots () {
         $servername = "localhost";
@@ -105,6 +112,34 @@
         $conn->close();
 
         return $res;
+    }
+
+    function get_customers_list() {
+        $servername = "localhost";
+        $username = "mwithers";
+        $password = "2270410";
+        $database = "HandSMetals";
+
+        $conn = mysqli_connect($servername, $username, $password, $database);
+
+        // prepare and bind
+        $stmt = $conn->prepare("SELECT company FROM Customers");
+
+        $stmt->execute();
+
+        $res = $stmt->get_result();
+
+        $stmt->close();
+
+        $conn->close();
+
+        $rows = array();
+        $rowInt = 0;
+        while($row = $res->fetch_assoc()) {
+            $rows[$rowInt] = $row;
+            ++$rowInt;
+        }
+        return $rows;
     }
 
     function get_fields($result) {
