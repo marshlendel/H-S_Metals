@@ -25,7 +25,8 @@
         $lotnumsql = (int)$lotnum;
         $custsql = "".$cust."";
         $amtsql = (int)$amt;
-        $stmt->execute();
+        $result = $stmt->execute();
+        $error = $result->error;
 
         $stmt->close();
         $conn->close();
@@ -34,10 +35,6 @@
         }
         return "Success";
     }
-    //
-    // if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
-    //     addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);
-    // }
 
     //  User Story 4.4.2
     function addCustomer ($company, $contact, $phone, $email) {      //  Takes user input and inserts in sql query
