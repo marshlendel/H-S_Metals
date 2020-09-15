@@ -287,11 +287,12 @@ function createHeaders(tableId, headers, rows) {
     // Creates header labels
     for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
         console.log(headers[cellNum]);
-        console.log(cellNum);
+        // console.log(cellNum);
         cell = document.createElement('TH');
         label = headers[cellNum];
         cell.setAttribute('id', label);
         cell.setAttribute('for', cellNum);
+        console.log(cell.getAttribute('for'));
         cell.innerHTML = toUpper(label == 'lotnum' ? 'Lot' : label);
         row.appendChild(cell);
     }
@@ -417,13 +418,14 @@ function sortTable(ev, tableId, headers, rows) {
     if (ev.target != ev.currentTarget && elmtId != 'type' && elmtId != 'amount') {
         console.log("Element clicked: id='"+elmtId+"'");
         let element = document.getElementById(elmtId);
+        if (elmtId == 'status') {
+            element.setAttribute('for', 4);
+
+        }
 // If order is ascending, it becomes descending and vise versa
         let header = document.getElementById('tHead');
         let reverse = header.getAttribute('for') == element.getAttribute('for') ? true : false;
-        console.log(header.getAttribute('for'));
-        console.log(element.getAttribute('for'));
         header.setAttribute('for', element.getAttribute('for'));
-        console.log(reverse);
         sortRows(rows, elmtId, reverse);
         if (reverse) {
             header.setAttribute('for', -1);
