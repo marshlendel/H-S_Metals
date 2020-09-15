@@ -7,7 +7,10 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 ************************************************************************** -->
-<?php require 'search.php' ?>
+<?php 
+	require 'search.php';
+	require 'sql.php';
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,7 +27,7 @@
                 top: 0px;
                 left: 7.9px;
             }
-            /* Styling for table in User Story 4.3 */
+            /* Table in User Story 4.2 */
             table {
               font-family: arial, sans-serif;
               border-collapse: collapse;
@@ -59,26 +62,39 @@
 		</div>
 
 		<h1>Lot History</h1>
-        <!-- Results of search -->
-        <?php if (isset($_POST["user_input"])) {?>
-            <h2>Results</h2>
-            <table style="width:100%">
-    				<tr>
-        				<th> Lot # </th>
-        				<th> Customer </th>
-        				<th> Amount </th>
-    				</tr>
-            <?php
-        			if($result-> num_rows > 0){
-        				while($row = $result-> fetch_assoc()){
-        					echo "<tr><td>" . $row["lotnum"] . "</td><td>" . $row["customer"] . "</td><td>" . $row["amount"] . "</td></tr>";
-        				}
-        				echo "</table>";
-        			}
-                }
-		    ?>
+		<div id="tableDiv" class="">
 
-        <!-- Link to JavaScript source file -->
+        </div>
+		<!-- Link to JavaScript source file -->
         <script src="scripts.js"> </script>
+        <!-- Results of search -->
+        <script type="text/javascript">
+            function createLotTable(id, rows, fields) {
+                console.log("createLotTable called");
+                <?php
+                    $result = search($_POST["user_input"]);
+                    $fields = get_fields($result);
+                    $rows = get_rows($result);
+                ?>
+                fields = <?php echo json_encode($fields); ?>;
+                console.log(fields);
+                rows = <?php echo json_encode($rows); ?>;
+                stringifyRows(fields, rows);
+                sortRows(rows, 'customer');
+                let table = document.createElement("TABLE");
+                table.setAttribute("id", id);
+                document.getElementById("tableDiv").appendChild(table);
+                createHeaders(id, fields, rows);
+                updateTable(id, fields, rows);
+            }
+            var rows;
+            var fields;
+            var tableId = "lotsTable";
+        </script>
+		<?php if (isset($_POST["user_input"])) { ?>
+			<script type="text/javascript">
+				createLotTable(tableId, rows, fields);
+			</script>
+		<?php } ?>
 	</body>
 </html>
