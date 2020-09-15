@@ -16,7 +16,7 @@ function setupAddLot() {
     var btnLot = document.getElementById("myBtnLot");
 
     // Get the <span> element that closes the pop up
-    var spanLot = document.getElementsByClassName("close")[0];
+    var spanLot = document.getElementById("spanLot");
 
     // When the user clicks the button, open the pop up
     btnLot.onclick = function() {
@@ -42,14 +42,10 @@ function setupAddCust() {
     var modalCust = document.getElementById("addCust");
 
     // Get the <span> element that closes the pop up
-    var span = document.getElementsByClassName("close");
-    var spanCust = span[span.length-1];
+    var spanCust = document.getElementById("spanCust");
 
-    // When the user clicks on <span> (x), close the pop up
-    spanCust.onclick = function() {
-      modalCust.style.display = "none";
-    }
     var modalLot = document.getElementById("addLot");
+
     // When the user clicks anywhere outside of the pop up, close it
     if (typeof modalLot != 'undefined') {
         window.onclick = function(event) {
@@ -61,13 +57,21 @@ function setupAddCust() {
               modalLot.style.display = "block";
           }
         }
+        // When the user clicks on <span> (x), close the pop up
+        spanCust.onclick = function() {
+            modalCust.style.display = "none";
+            modalLot.style.display = "block";
+        }
     }
     else {
-        console.log("modalLot is not defined");
         window.onclick = function(event) {
           if (event.target == modalCust) {
               modalCust.style.display = "none";
           }
+        }
+        // When the user clicks on <span> (x), close the pop up
+        spanCust.onclick = function() {
+            modalCust.style.display = "none";
         }
     }
 }
@@ -185,7 +189,7 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
 
     // Creates customer selection dropdown
     let custForm = document.createElement("FORM");
-    let formLabel = createBoldLabel("Cust");
+    let formLabel = createBoldLabel("Customer");
     formLabel.setAttribute('for', 'cust');
     custForm.appendChild(formLabel);
     let selectCust = document.createElement("SELECT");
@@ -215,7 +219,6 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
     addCustBtn.onclick = function() {
       modalCust.style.display = "block";
     }
-    lotForm.appendChild(document.createElement("BR"));
 
     // Creates add pallet button
     let palletsDiv = document.createElement("DIV");
@@ -284,12 +287,14 @@ function createHeaders(tableId, headers, rows) {
     // Creates header labels
     for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
         console.log(headers[cellNum]);
-        console.log(cellNum);
-        cell = row.insertCell(cellNum);
+        // console.log(cellNum);
+        cell = document.createElement('TH');
         label = headers[cellNum];
         cell.setAttribute('id', label);
         cell.setAttribute('for', cellNum);
+        console.log(cell.getAttribute('for'));
         cell.innerHTML = toUpper(label == 'lotnum' ? 'Lot' : label);
+        row.appendChild(cell);
     }
 }
 
@@ -413,13 +418,14 @@ function sortTable(ev, tableId, headers, rows) {
     if (ev.target != ev.currentTarget && elmtId != 'type' && elmtId != 'amount') {
         console.log("Element clicked: id='"+elmtId+"'");
         let element = document.getElementById(elmtId);
+        if (elmtId == 'status') {
+            element.setAttribute('for', 4);
+
+        }
 // If order is ascending, it becomes descending and vise versa
         let header = document.getElementById('tHead');
         let reverse = header.getAttribute('for') == element.getAttribute('for') ? true : false;
-        console.log(header.getAttribute('for'));
-        console.log(element.getAttribute('for'));
         header.setAttribute('for', element.getAttribute('for'));
-        console.log(reverse);
         sortRows(rows, elmtId, reverse);
         if (reverse) {
             header.setAttribute('for', -1);

@@ -30,7 +30,11 @@
               border-collapse: collapse;
               width: 100%;
             }
-            td, th {
+            th {
+              border: 1px solid #dddddd;
+              padding: 8px;
+            }
+            td {
               border: 1px solid #dddddd;
               text-align: left;
               padding: 8px;
@@ -49,7 +53,7 @@
             <div id="addCust" class="modal">
                 <!-- pop up content -->
                 <div id="custbox" class="modal-content">
-                    <span class="close">&times;</span>
+                    <span id="spanCust" class="close">&times;</span>
                     <p>Add Customer</p>
                     <!-- form for User Story 4.4.1 -->
                     <form class="" action="" method="post">
@@ -69,11 +73,10 @@
                     </form>
 
                     <!-- Action for submit of form to add customer (User Story 4.4.2)-->
-                    <?php if (isset($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email'])) {
-                        ?> <script>
+                    <?php if (isset($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email'])) { ?>
+                        <script>
                             alert("<?php echo addCustomer($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email']); ?>");
                         </script>
-
                     <?php } ?>
                 </div>
             </div>
@@ -81,7 +84,7 @@
             <div id="addLot" class="modal">
                 <!-- pop up content -->
                 <div id="lotbox" class="modal-content">
-                    <span class="close">&times;</span>
+                    <span id="spanLot" class="close">&times;</span>
 
                     <!-- Action for submit of form to add lot (US 3.1)-->
                     <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) { ?>
