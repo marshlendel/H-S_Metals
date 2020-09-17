@@ -46,8 +46,16 @@
                 background-color: #F2F2F2;
             }
 			
-			custAdd{
+			label {
 				font-weight: bold;
+			}
+			
+			#lotNum{
+				margin-left: 20px;
+			}
+			
+			.modal-content{
+				width: 350px;
 			}
         </style>
 
@@ -61,18 +69,22 @@
                     <p>Add Customer</p>
                     <!-- form for User Story 4.4.1 -->
                     <form class="" action="" method="post">
-                        <label for="company"><b>Company</b></label>
+                        <label for="company">Company</label>
                         <input type="text" name="company" required>
+						<br>
 
-                        <label for="contact"><b>Contact</b></label>
+                        <label for="contact">Contact</label>
                         <input type="text" name="contact" required>
-
-                        <label for="phone"><b>Phone</b></label>
+						<br>
+						
+                        <label for="phone">Phone</label>
                         <input type="number" name="phone" required>
-
-            		    <label for="email"><b>E-mail</b></label>
+						<br>
+						
+            		    <label for="email">E-mail</label>
                         <input type="text" name="email" required>
-
+						<br>
+						
                         <button type="submit" class="btn">Submit</button>
                     </form>
 
@@ -90,17 +102,18 @@
                 <div id="lotbox" class="modal-content">
                     <span id="spanLot" class="close">&times;</span>
 					
-					<label for="lotnum" class="custAdd">Lot No.</label> 
-					<input name="lotnum" type="number" required=true > <br>
+					<label for="lotnum">Lot No.</label> 
+					<input name="lotnum" id="lotNum" type="number" required=true > <br>
 					
-					<label for="cust" class="custAdd">Customer</label>
+					<label for="cust">Customer</label>
 					<input type="search" name="cust" list="custList">
 					
 					<!--Lets names pop up with search-->
 					<datalist id="custList">
 					</datalist>
 					
-					<button type="button" id="myBtnCust">Add customer</button>
+					<button type="button" id="myBtnCust">+</button>
+					
 					<!-- Action for submit of form to add lot (US 3.1)-->
                     <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) { ?>
                         <script> alert("Lot Added Successfully");</script>
@@ -114,15 +127,18 @@
             <!-- US 2.1, 5.1-5.2: Creates elements of Add Lot box -->
             <script type="text/javascript">
                 let custList = <?php echo json_encode(get_customers_list()); ?>;
-               // createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custList);
+                // createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custList);
 			   
-			   custAdd("custList", custList);
+				custAdd("custList", custList);
                 setupBoth();
                 let addCustBtn = document.getElementById(addCustBtnId);
                 addCustBtn.addEventListener('click', function() {
                     var modalLot = document.getElementById("addLot");
                     modalLot.style.display = 'none';
+					var modalCust = document.getElementById("addCust");
+					modalCust.style.display = "block";
                 });
+				
             </script>
             <!-- Buttons on the task bar without implementation -->
             <button onClick="location.href='history.php';">Lot History</button>
