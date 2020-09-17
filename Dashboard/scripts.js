@@ -435,3 +435,15 @@ function sortTable(ev, tableId, headers, rows) {
 
     ev.stopPropagation();
 }
+
+function createLotTable(id, rows, fields) {
+    console.log("createLotTable called");
+    console.log(fields);
+    stringifyRows(fields, rows);
+    sortRows(rows, 'customer', false);
+    let table = document.createElement("TABLE");
+    table.setAttribute("id", id);
+    document.getElementById("tableDiv").appendChild(table);
+    createHeaders(id, fields, rows);
+    updateTable(id, fields, rows);
+}
