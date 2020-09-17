@@ -85,7 +85,9 @@
                 <!-- pop up content -->
                 <div id="lotbox" class="modal-content">
                     <span id="spanLot" class="close">&times;</span>
-
+					<datalist id="custList">
+					
+					</datalist>
                     <input type="search" name="cust">
 					
 					<!-- Action for submit of form to add lot (US 3.1)-->
@@ -101,7 +103,9 @@
             <!-- US 2.1, 5.1-5.2: Creates elements of Add Lot box -->
             <script type="text/javascript">
                 let custList = <?php echo json_encode(get_customers_list()); ?>;
-                createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custList);
+               // createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custList);
+			   
+			   custAdd("custList", custList);
                 setupBoth();
                 let addCustBtn = document.getElementById(addCustBtnId);
                 addCustBtn.addEventListener('click', function() {
