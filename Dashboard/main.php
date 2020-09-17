@@ -85,10 +85,15 @@
                 <!-- pop up content -->
                 <div id="lotbox" class="modal-content">
                     <span id="spanLot" class="close">&times;</span>
-					<datalist id="custList">
 					
+					<label for="lotnum">Lot No.</label> 
+					<input name="lotnum" type="number" required=true > <br>
+					
+					<label for="cust">Customer</label>
+					<input type="search" name="cust" list="custList">
+					
+					<datalist id="custList">
 					</datalist>
-                    <input type="search" name="cust">
 					
 					<!-- Action for submit of form to add lot (US 3.1)-->
                     <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) { ?>

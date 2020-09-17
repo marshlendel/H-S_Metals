@@ -261,7 +261,7 @@ function custAdd(elemID, custVals) {
 	inputCust = document.getElementById(elemID);
 	let cust;
     let value;
-	stringifyRows(custVals, ['company']);
+	stringifyRows(['company'], custVals);
     for (let index = 0; index < custVals.length; ++index) {
         cust = document.createElement("OPTION");
         value = custVals[index]['company'];
