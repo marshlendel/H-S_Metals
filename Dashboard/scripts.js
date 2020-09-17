@@ -85,7 +85,7 @@ var typeVals = ["Ingot", "S", "MS"];
 var statusVals = ["Dirty", "Clean", "Finished", "Gone"];
 var palletsDivId = "pallets-div";
 var lotDivId = "lotbox";
-var addCustBtnId = "myBtnCust";
+var addCustBtnId = "myBtnCust"; 
 var addPalBtnId = "addPal";
 var rmvPalBtnId = "rmvPal";
 

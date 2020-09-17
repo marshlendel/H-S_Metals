@@ -45,6 +45,10 @@
             tr:nth-child(odd) {
                 background-color: #F2F2F2;
             }
+			
+			custAdd{
+				font-weight: bold;
+			}
         </style>
 
         <!-- US 1.1: Trigger/Open The pop up box -->
@@ -86,15 +90,17 @@
                 <div id="lotbox" class="modal-content">
                     <span id="spanLot" class="close">&times;</span>
 					
-					<label for="lotnum">Lot No.</label> 
+					<label for="lotnum" class="custAdd">Lot No.</label> 
 					<input name="lotnum" type="number" required=true > <br>
 					
-					<label for="cust">Customer</label>
+					<label for="cust" class="custAdd">Customer</label>
 					<input type="search" name="cust" list="custList">
 					
+					<!--Lets names pop up with search-->
 					<datalist id="custList">
 					</datalist>
 					
+					<button type="button" id="myBtnCust">Add customer</button>
 					<!-- Action for submit of form to add lot (US 3.1)-->
                     <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) { ?>
                         <script> alert("Lot Added Successfully");</script>
