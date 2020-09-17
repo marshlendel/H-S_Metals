@@ -85,7 +85,7 @@ var typeVals = ["Ingot", "S", "MS"];
 var statusVals = ["Dirty", "Clean", "Finished", "Gone"];
 var palletsDivId = "pallets-div";
 var lotDivId = "lotbox";
-var addCustBtnId = "myBtnCust";
+var addCustBtnId = "myBtnCust"; 
 var addPalBtnId = "addPal";
 var rmvPalBtnId = "rmvPal";
 
@@ -170,6 +170,7 @@ function removePallet(palletsDivId) {
 }
 
 // US 2.1, 5.1-5.2: Creates elements of Add Lot box
+/*
 function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
     console.log("Creating Add Lot Form");
     // Creates form to be submitted
@@ -188,11 +189,11 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
     lotForm.appendChild(lotNumInput);
 
     // Creates customer selection dropdown
-    let custForm = document.createElement("FORM");
+    let custForm = document.createElement("INPUT");
     let formLabel = createBoldLabel("Customer");
     formLabel.setAttribute('for', 'cust');
     custForm.appendChild(formLabel);
-    let selectCust = document.createElement("SELECT");
+    let selectCust = document.createElement("input");
     selectCust.setAttribute('name', 'cust');
     selectCust.setAttribute('id', 'cust');
     let cust;
@@ -219,6 +220,7 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
     addCustBtn.onclick = function() {
       modalCust.style.display = "block";
     }
+
 
     // Creates add pallet button
     let palletsDiv = document.createElement("DIV");
@@ -253,7 +255,21 @@ function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
     submitBtn.innerHTML = "Submit";
     lotForm.appendChild(submitBtn);
 }
+*/
 
+function custAdd(elemID, custVals) {
+	inputCust = document.getElementById(elemID);
+	let cust;
+    let value;
+	stringifyRows(['company'], custVals);
+    for (let index = 0; index < custVals.length; ++index) {
+        cust = document.createElement("OPTION");
+        value = custVals[index]['company'];
+        cust.setAttribute('value', value);
+        cust.innerHTML = value;
+        inputCust.appendChild(cust);
+    }
+}
 // US 5.3: Capitalizes each word in string and returns the result
 function toUpper(string) {
     let upper = "";
