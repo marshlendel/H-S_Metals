@@ -49,6 +49,14 @@
 			label {
 				font-weight: bold;
 			}
+			
+			#lotNum{
+				margin-left: 20px;
+			}
+			
+			.modal-content{
+				width: 350px;
+			}
         </style>
 
         <!-- US 1.1: Trigger/Open The pop up box -->
@@ -95,7 +103,7 @@
                     <span id="spanLot" class="close">&times;</span>
 					
 					<label for="lotnum">Lot No.</label> 
-					<input name="lotnum" type="number" required=true > <br>
+					<input name="lotnum" id="lotNum" type="number" required=true > <br>
 					
 					<label for="cust">Customer</label>
 					<input type="search" name="cust" list="custList">
