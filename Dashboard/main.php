@@ -120,29 +120,11 @@
         <div id="tableDiv" class="">
 
         </div>
-
         <!-- US 4.2, 5.3: Table of lot info from db -->
         <script type="text/javascript">
-            function createLotTable(id, rows, fields) {
-                console.log("createLotTable called");
-                <?php
-                    $result = get_lots();
-                    $fields = get_fields($result);
-                    $rows = get_rows($result);
-                ?>
-                fields = <?php echo json_encode($fields); ?>;
-                console.log(fields);
-                rows = <?php echo json_encode($rows); ?>;
-                stringifyRows(fields, rows);
-                sortRows(rows, 'customer');
-                let table = document.createElement("TABLE");
-                table.setAttribute("id", id);
-                document.getElementById("tableDiv").appendChild(table);
-                createHeaders(id, fields, rows);
-                updateTable(id, fields, rows);
-            }
-            var rows;
-            var fields;
+            <?php $lots = get_lots(); ?>
+            var rows = <?php echo json_encode(get_rows($lots)); ?>;
+            var fields = <?php echo json_encode(get_fields($lots)); ?>;
             var tableId = "lotsTable";
             createLotTable(tableId, rows, fields);
         </script>
