@@ -68,12 +68,12 @@
 		<!-- Link to JavaScript source file -->
         <script src="scripts.js"> </script>
         <!-- Results of search -->
+		<!-- US 6.1 uses the results of the search to extract the values of each row and field -->
 		<script type="text/javascript">
-            <?php $lots = search($_POST["user_input"]); ?>
+            <?php $lots = search($_POST["user_input"]); ?> 
             var rows = <?php echo json_encode(get_rows($lots)); ?>;
             var fields = <?php echo json_encode(get_fields($lots)); ?>;
             var tableId = "lotsTable";
-            createLotTable(tableId, rows, fields);
         </script>
 		
 		<?php if (isset($_POST["user_input"])) { ?>
