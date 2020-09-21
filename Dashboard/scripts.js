@@ -295,27 +295,27 @@ function cmpNum(row1, row2) {
 function sortRows(rows, sortField, reverse) {
     switch (sortField) {
         case "customer":
-            console.log("Sorting by "+ sortField);
+            // console.log("Sorting by "+ sortField);
             rows.sort(cmpCust);
             break;
         case "date":
-            console.log("Sorting by "+ sortField);
+            // console.log("Sorting by "+ sortField);
             rows.sort(cmpDate);
             break;
         case "status":
-            console.log("Sorting by "+ sortField);
+            // console.log("Sorting by "+ sortField);
             rows.sort(cmpStatus);
             break;
         case "lotnum":
-            console.log("Sorting by "+ sortField);
+            // console.log("Sorting by "+ sortField);
             rows.sort(cmpNum);
             break;
         default:
-            console.log("Cannot sort by "+sortField);
+            // console.log("Cannot sort by "+sortField);
             reverse = false;
     }
     if (reverse) {
-        console.log("Rows reversed");
+        // console.log("Rows reversed");
         rows.reverse();
     }
 }
@@ -356,3 +356,5 @@ function createLotTable(id, rows, fields) {
     createHeaders(id, fields, rows);
     updateTable(id, fields, rows);
 }
+
+export { sortRows, cmpCust, cmpDate, cmpStatus, cmpNum };

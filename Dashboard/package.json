@@ -1,0 +1,12 @@
+{
+  "name": "jstests",
+  "version": "1.0.0",
+  "description": "Tests for JS functions",
+  "main": "test.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
