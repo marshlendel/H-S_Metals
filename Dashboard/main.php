@@ -126,7 +126,12 @@
                         <?php
                             if (isset($_POST['lotnum'], $_POST['cust'], $_POST['amt1'])) {
                                 $result = addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt1']);
-                                echo "alert(".json_encode($result).");";
+                                if ($result == 'Success') {
+                                    echo "alert(".json_encode($_POST['cust']."'s Lot ".$_POST['lotnum']." was successfully added to the database").');';
+                                }
+                                else {
+                                    echo "alert(".json_encode($result).");";
+                                }
                             }
                         ?>
                         </script>

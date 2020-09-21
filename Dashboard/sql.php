@@ -8,6 +8,52 @@
 * limitations under the License.
 ************************************************************************** -->
 <?php
+    function removeLot ($lotnum) {
+        $servername = "localhost";
+        $username = "mwithers";
+        $password = "2270410";
+        $dbname = "HandSMetals";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // prepare and bind
+        $stmt = $conn->prepare("DELETE FROM Lots WHERE lotnum = ?");
+        $stmt->bind_param("i", $lotnumsql);
+
+        $lotnumsql = (int) $lotnum;
+
+        $result = $stmt->execute();
+
+        $stmt->close();
+
+        $conn->close();
+
+        return $result;
+    }
+
+    function removeCust($cust) {
+        $servername = "localhost";
+        $username = "mwithers";
+        $password = "2270410";
+        $dbname = "HandSMetals";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // prepare and bind
+        $stmt = $conn->prepare("DELETE FROM Customers WHERE company = ?");
+        $stmt->bind_param("s", $custsql);
+
+        $custsql = "".$cust."";
+
+        $result = $stmt->execute();
+
+        $stmt->close();
+
+        $conn->close();
+
+        return $result;
+    }
+
     function addLot ($lotnum, $cust, $amt) {      //  Takes user input and inserts in sql query
         $servername = "localhost";
         $username = "mwithers";
@@ -35,7 +81,7 @@
         if (!$result) {
             return $error;
         }
-        return $cust."'s Lot ".$lotnum." was successfully added to the database";
+        return "Success";
     }
 
     //  User Story 4.4.2
