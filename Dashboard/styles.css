@@ -8,9 +8,86 @@
 * limitations under the License.
 ************************************************************************** */
 
+
 body {
     font-family: Arial, Helvetica, sans-serif;
+	margin: 0px;
+	padding: 0px;
 }
+
+
+h1{
+	clear:both;
+}
+
+
+ul {
+	text-overflow: hidden;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+li {
+	float: left;
+	margin:0px;
+	margin-bottom: 20px;
+}
+
+ a, #myBtnLot {
+	text-align: center;
+	text-decoration: none;
+	margin: 0px auto;
+	padding: 10px 63px;
+	text-transform: uppercase;
+	background-color: #dddddd;
+	
+}
+
+nav {
+	width:1274px;
+}
+	
+a {
+	display:block;	
+}
+
+
+/* Table in User Story 4.2 */
+table {
+    font-family: arial, sans-serif;
+	border-collapse: collapse;
+	margin: 0px auto;
+	width: 80%;
+	position: relative;
+	bottom: 30px;
+}
+
+th, td {
+	border: 1px solid #dddddd;
+	padding: 8px;
+}
+			
+           
+			
+label {
+	font-weight: bold;
+}
+			
+			
+
+img {
+	border-radius: 50%;
+}
+
+#highlight {
+	background-color: orange;
+}
+
+#lotNum {
+	margin-left: 20px;
+}
+
 /* The Modal (background) During Active Popup */
 .modal {
   display: none; /* Hidden by default */
@@ -43,47 +120,46 @@ body {
   font-weight: bold;
 }
 
-/* Close Button Effects */
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-#highlight{
-	background-color: orange;
-}
 
 /* Taskbar Styling */
-.container {
-  display:flex;
-  justify-content: space-around;
-  background-color: gray;
-  overflow: hidden;
-  padding: 14px 16px;
-}
-/* Taskbar Button Highlight On HOver */
-.container button:hover {
-	background-color: yellow;
-}
-.container input:hover {
-	background-color: yellow;
 
-/* Search Bar Styling */
-.topnav {
-  display:flex;
-  justify-content: space-around;
-  background-color: gray;
-  overflow: hidden;
-  padding: 20px;
+
+.container {
+
+  background-color: gray
+}
+
+
+
+			
+.modal-content{
+	width: 350px;
 }
 
 .topnav button:hover {
 	background-color: yellow;
 }
 
-img {
-	border-radius: 50%;
+/* Close Button Effects */
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
-ta
+
+a:link {
+	color: black;
+}
+a:hover, #myBtnLot:hover {
+	background-color: black;
+	color: white;
+}
+
+
+ tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+tr:nth-child(odd) {
+	background-color: #white;
+	}
