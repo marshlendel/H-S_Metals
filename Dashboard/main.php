@@ -23,45 +23,20 @@
     </head>
 
     <body>
-        <style>
-            /* Table in User Story 4.2 */
-            table {
-              font-family: arial, sans-serif;
-              border-collapse: collapse;
-              width: 100%;
-            }
-            th {
-              border: 1px solid #dddddd;
-              padding: 8px;
-            }
-            td {
-              border: 1px solid #dddddd;
-              text-align: left;
-              padding: 8px;
-            }
-            tr:nth-child(even) {
-              background-color: orange;
-            }
-            tr:nth-child(odd) {
-                background-color: #F2F2F2;
-            }
-			
-			label {
-				font-weight: bold;
-			}
-			
-			#lotNum{
-				margin-left: 20px;
-			}
-			
-			.modal-content{
-				width: 350px;
-			}
-        </style>
 
-        <!-- US 1.1: Trigger/Open The pop up box -->
-        <div class="container">
-            <button id="myBtnLot">Add Lot</button>
+       
+          <nav>
+            <ul>            
+				<li><button id="myBtnLot">Add Lot</button></li>
+                <li><a href="history.php">Lot History</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="customers.php">Customers</a></li>
+                <li><a href="accounts.html">Accounts</a></li>
+                <li><a href="../LoginPage/login.html">Logout</a></li>
+            </ul>
+         </nav>
+		 
+		  <main class="container">
             <div id="addCust" class="modal">
                 <!-- pop up content -->
                 <div id="custbox" class="modal-content">
@@ -140,15 +115,9 @@
                 });
 				
             </script>
-            <!-- Buttons on the task bar without implementation -->
-            <button onClick="location.href='history.php';">Lot History</button>
-            <button onClick="location.href='reports.html';">Reports</button>
-            <button onClick="location.href='customers.php';">Customers</button>
-        	<button onClick="location.href='accounts.html';">Accounts</button>
-			<a href="../LoginPage/login.html">Logout</a>
-
-    	</div>
-        <h1>Home</h1>
+		</main>
+        
+		<h1>Home</h1>
         <!-- US 5.3: JavaScript array to contain table values from db -->
         <div id="tableDiv" class="">
 
