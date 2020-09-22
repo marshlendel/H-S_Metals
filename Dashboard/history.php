@@ -7,7 +7,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 ************************************************************************** -->
-<?php 
+<?php
 	require 'search.php';
 	require 'sql.php';
 ?>
@@ -65,20 +65,23 @@
 		<div id="tableDiv" class="">
 
         </div>
-		<!-- Link to JavaScript source file -->
-        <script src="scripts.js"> </script>
+
         <!-- Results of search -->
 		<!-- US 6.1 uses the results of the search to extract the values of each row and field -->
-		<script type="text/javascript">
-            <?php $lots = search($_POST["user_input"]); ?> 
+		<script type="module">
+            import * as Script from './scripts.js'
+            <?php $lots = search($_POST["user_input"]); ?>
             var rows = <?php echo json_encode(get_rows($lots)); ?>;
             var fields = <?php echo json_encode(get_fields($lots)); ?>;
             var tableId = "lotsTable";
+            <?php if (isset($_POST["user_input"])) { ?>
+    				Script.createLotTable(tableId, rows, fields);
+    		<?php } ?>
         </script>
-		
+
 		<?php if (isset($_POST["user_input"])) { ?>
 			<script type="text/javascript">
-				createLotTable(tableId, rows, fields);
+				Script.createLotTable(tableId, rows, fields);
 			</script>
 		<?php } ?>
 	</body>

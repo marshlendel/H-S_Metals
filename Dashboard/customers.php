@@ -58,9 +58,9 @@
          	<button onClick="location.href='accounts.html';">Accounts</button>
 
             <!-- Search bar -->
-            <form action="" method="post">
+            <form action="" method="">
                 Search:  <input type="text" name="user_input" />
-            <form/>
+            </form>
             <a href="../LoginPage/login.html">Logout</a>
 		</div>
 		<h1>Customers</h1>
@@ -107,7 +107,7 @@
             </form>
 
             <!-- Action for submit of form to add customer (User Story 4.4.2)-->
-            <?php if (isset($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email'])) {?> 
+            <?php if (isset($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email'])) {?>
                 <script> alert("Customer Added Successfully");</script>
             <?php
                 addCustomer($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email']);

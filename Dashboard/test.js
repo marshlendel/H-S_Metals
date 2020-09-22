@@ -2,11 +2,12 @@ import { sortRows, cmpCust, cmpDate, cmpStatus, cmpNum } from './scripts.js';
 import { createRequire } from 'module';
 var require = createRequire(import.meta.url);
 var assert = require('assert');
-describe('Array', function() {
+// US 5.3, 6.1 tests that JS functions sort rows ascending and descending
+describe('US 5.3, 6.1 Sort Rows', function() {
     var array = [{'customer':'Banana', 'date':'2020-08-17', 'status':'DIRTY','lotnum':5},
                  {'customer':'Apple', 'date':'2020-09-17', 'status':'CLEAN','lotnum':10},
                  {'customer':'Cantalope', 'date':'2020-08-20', 'status':'FINISHED','lotnum':1}];
-    describe('#sortRowsAscending()', function() {
+    describe('Ascending', function() {
         it('should sort the array of arrays by customer', function() {
             let toSort = array.slice();
             sortRows(toSort, 'customer', false);
@@ -36,7 +37,7 @@ describe('Array', function() {
             }
         });
     });
-    describe('#sortRowsDescending()', function() {
+    describe('Descending', function() {
         it('should sort the array of arrays by customer', function() {
             let toSort = array.slice();
             sortRows(toSort, 'customer', true);

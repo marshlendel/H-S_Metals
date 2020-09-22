@@ -139,30 +139,37 @@
                 </div>
             </div>
             <!-- Import JS functions -->
-            <script src="scripts.js"></script>
-            <!-- US 2.1, 5.1-5.2: Creates elements of Add Lot box -->
-            <script type="text/javascript">
+            <script type="module" defer>
+                import * as Script from './scripts.js';
                 let custList = <?php echo json_encode(get_customers_list()); ?>;
-				custAdd("custList", custList);
-                setupBoth();
-                let addCustBtn = document.getElementById(addCustBtnId);
+                Script.custAdd("custList", custList);
+                Script.setupBoth();
+                Script.addPallet(Script.palletsDivId);
+                let addCustBtn = document.getElementById(Script.addCustBtnId);
                 addCustBtn.addEventListener('click', function() {
                     var modalLot = document.getElementById("addLot");
                     modalLot.style.display = 'none';
-					var modalCust = document.getElementById("addCust");
-					modalCust.style.display = "block";
+                    var modalCust = document.getElementById("addCust");
+                    modalCust.style.display = "block";
                 });
-                let addPalBtn = document.getElementById(addPalBtnId);
+                let addPalBtn = document.getElementById(Script.addPalBtnId);
                 addPalBtn.addEventListener('click', function() {
                     console.log("Add Pallet clicked");
-                    addPallet(palletsDivId);
+                    Script.addPallet(Script.palletsDivId);
                 });
-                let rmvPalBtn = document.getElementById(rmvPalBtnId);
+                let rmvPalBtn = document.getElementById(Script.rmvPalBtnId);
                 rmvPalBtn.addEventListener('click', function() {
-                    removePallet(palletsDivId)
+                    Script.removePallet(Script.palletsDivId)
                 });
 
+                // US 4.2, 5.3: Table of lot info from db
+                <?php $lots = get_lots(); ?>
+                var rows = <?php echo json_encode(get_rows($lots)); ?>;
+                var fields = <?php echo json_encode(get_fields($lots)); ?>;
+                var tableId = "lotsTable";
+                Script.createLotTable(tableId, rows, fields);
             </script>
+
             <!-- Buttons on the task bar without implementation -->
             <button onClick="location.href='history.php';">Lot History</button>
             <button onClick="location.href='reports.html';">Reports</button>
@@ -176,14 +183,6 @@
         <div id="tableDiv" class="">
 
         </div>
-        <!-- US 4.2, 5.3: Table of lot info from db -->
-        <script type="text/javascript">
-            <?php $lots = get_lots(); ?>
-            var rows = <?php echo json_encode(get_rows($lots)); ?>;
-            var fields = <?php echo json_encode(get_fields($lots)); ?>;
-            var tableId = "lotsTable";
-            createLotTable(tableId, rows, fields);
-        </script>
 
         <!-- Link to JavaScript source file -->
         <!-- <script src="addLotDialogue.js"></script> -->

@@ -8,7 +8,7 @@
 // * limitations under the License.
 // **************************************************************************
 
-function setupAddLot() {
+export function setupAddLot() {
     // Get the pop up
     var modalLot = document.getElementById("addLot");
 
@@ -35,7 +35,7 @@ function setupAddLot() {
     }
 }
 
-function setupAddCust() {
+export function setupAddCust() {
     //  JS for Add Customer dialogue when button is clicked (User Story 4.4.1)
 
     // Get the pop up
@@ -76,20 +76,20 @@ function setupAddCust() {
     }
 }
 
-function setupBoth() {
+export function setupBoth() {
     setupAddLot();
     setupAddCust();
 }
 
-var typeVals = ["Ingot", "S", "MS"];
-var statusVals = ["Dirty", "Clean", "Finished", "Gone"];
-var palletsDivId = "pallets-div";
-var lotDivId = "lotbox";
-var addCustBtnId = "myBtnCust";
-var addPalBtnId = "addPal";
-var rmvPalBtnId = "rmvPal";
+export var typeVals = ["Ingot", "S", "MS"];
+export var statusVals = ["Dirty", "Clean", "Finished", "Gone"];
+export var palletsDivId = "pallets-div";
+export var lotDivId = "lotbox";
+export var addCustBtnId = "myBtnCust";
+export var addPalBtnId = "addPal";
+export var rmvPalBtnId = "rmvPal";
 
-function createBoldLabel(string) {
+export function createBoldLabel(string) {
     let bold = document.createElement("B");
     bold.innerHTML = string;
     let label = document.createElement("LABEL");
@@ -97,7 +97,7 @@ function createBoldLabel(string) {
     return label;
 }
 
-function addPallet(palletsDivId) {
+export function addPallet(palletsDivId) {
     let palletsDiv = document.getElementById(palletsDivId);
     let pallet = document.createElement("P");
     let numPallets = palletsDiv.getElementsByTagName("P").length;
@@ -144,16 +144,20 @@ function addPallet(palletsDivId) {
 }
 
 // US 5.2: Removes last pallet in the list
-function removePallet(palletsDivId) {
+export function removePallet(palletsDivId) {
     console.log("Removing Pallet ");
     let palletsDiv = document.getElementById(palletsDivId);
     let size = palletsDiv.getElementsByTagName("P").length;
     console.log(size);
     palletsDiv.getElementsByTagName("P")[size-1].remove();
+    if (size-1 < 2) {
+        let rmvBtn = document.getElementById(rmvPalBtnId);
+        rmvBtn.disabled = true;
+    }
 }
 
-function custAdd(elemID, custVals) {
-	inputCust = document.getElementById(elemID);
+export function custAdd(elemID, custVals) {
+	let inputCust = document.getElementById(elemID);
 	let cust;
     let value;
 	stringifyRows(['company'], custVals);
@@ -166,7 +170,7 @@ function custAdd(elemID, custVals) {
     }
 }
 // US 5.3: Capitalizes each word in string and returns the result
-function toUpper(string) {
+export function toUpper(string) {
     let upper = "";
     let list = string.split(" ");
     let word;
@@ -182,7 +186,7 @@ function toUpper(string) {
 }
 
 // US 5.3: Creates headers for the table for each column name in "headers"
-function createHeaders(tableId, headers, rows) {
+export function createHeaders(tableId, headers, rows) {
     console.log("createHeaders called ");
     let table = document.getElementById(tableId);
     let header = table.createTHead();
@@ -209,7 +213,7 @@ function createHeaders(tableId, headers, rows) {
 
 // US 5.3: Removes all rows in table (if they exist) and replaces them with
 //      values in "rows"
-function updateTable(tableId, headers, rows) {
+export function updateTable(tableId, headers, rows) {
     console.log("updateTable called");
     // Create table body if one does not exist
     let table = document.getElementById(tableId);
@@ -242,7 +246,7 @@ function updateTable(tableId, headers, rows) {
 }
 
 // US 4.2: Helper function for retrieving data from database
-function stringifyRows(fields, rows) {
+export function stringifyRows(fields, rows) {
     console.log("stringifyRows called");
     let field;
     let string;
@@ -257,7 +261,7 @@ function stringifyRows(fields, rows) {
 }
 
 // US 5.3: The following functions compare the fields between each row
-function cmpCust(row1, row2) {
+export function cmpCust(row1, row2) {
     if (row1['customer'].toUpperCase() < row2['customer'].toUpperCase()) {
         return -1;
     }
@@ -267,7 +271,7 @@ function cmpCust(row1, row2) {
     return 0;
 }
 
-function cmpDate(row1, row2) {
+export function cmpDate(row1, row2) {
     if (row1['date'] < row2['date']) {
         return -1;
     }
@@ -277,7 +281,7 @@ function cmpDate(row1, row2) {
     return 0;
 }
 
-function cmpStatus(row1, row2) {
+export function cmpStatus(row1, row2) {
     if (row1['status'] < row2['status']) {
         return -1;
     }
@@ -287,12 +291,12 @@ function cmpStatus(row1, row2) {
     return 0;
 }
 
-function cmpNum(row1, row2) {
+export function cmpNum(row1, row2) {
     return row1['lotnum'] - row2['lotnum'];
 }
 
 // US 5.3: Function sorts rows using the comparison function correspponding to the field
-function sortRows(rows, sortField, reverse) {
+export function sortRows(rows, sortField, reverse) {
     switch (sortField) {
         case "customer":
             // console.log("Sorting by "+ sortField);
@@ -322,7 +326,7 @@ function sortRows(rows, sortField, reverse) {
 
 // US 5.3: Sorts table by the id of the element clicked
 // (i.e. if 'Customer' is clicked, table is sorted by 'customer')
-function sortTable(ev, tableId, headers, rows) {
+export function sortTable(ev, tableId, headers, rows) {
     let elmtId = ev.target.id;
     if (ev.target != ev.currentTarget && elmtId != 'type' && elmtId != 'amount') {
         console.log("Element clicked: id='"+elmtId+"'");
@@ -345,7 +349,7 @@ function sortTable(ev, tableId, headers, rows) {
     ev.stopPropagation();
 }
 
-function createLotTable(id, rows, fields) {
+export function createLotTable(id, rows, fields) {
     console.log("createLotTable called");
     console.log(fields);
     stringifyRows(fields, rows);
@@ -356,5 +360,3 @@ function createLotTable(id, rows, fields) {
     createHeaders(id, fields, rows);
     updateTable(id, fields, rows);
 }
-
-export { sortRows, cmpCust, cmpDate, cmpStatus, cmpNum };
