@@ -26,14 +26,16 @@
         $custsql = "".$cust."";
         $amtsql = (int)$amt;
         $result = $stmt->execute();
-        $error = $result->error;
+        $error = $stmt->error;
 
         $stmt->close();
         $conn->close();
+
+        // US 6.3: Returns success statement or description of the error
         if (!$result) {
             return $error;
         }
-        return "Success";
+        return $cust."'s Lot ".$lotnum." was successfully added to the database";
     }
 
     //  User Story 4.4.2

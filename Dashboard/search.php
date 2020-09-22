@@ -44,8 +44,4 @@
 
         return $res;
     }
-
-    if (isset($_POST['user_input'])) {
-        $result = search($_POST['user_input']);
-    }
 ?>

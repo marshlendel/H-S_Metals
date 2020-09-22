@@ -22,9 +22,7 @@
         <link rel="stylesheet", href="styles.css">
     </head>
 
-    <body>
-
-       
+    <body>       
           <nav>
             <ul>            
 				<li><button id="myBtnLot">Add Lot</button></li>
@@ -51,15 +49,15 @@
                         <label for="contact">Contact</label>
                         <input type="text" name="contact" required>
 						<br>
-						
+
                         <label for="phone">Phone</label>
                         <input type="number" name="phone" required>
 						<br>
-						
+
             		    <label for="email">E-mail</label>
                         <input type="text" name="email" required>
 						<br>
-						
+
                         <button type="submit" class="btn">Submit</button>
                     </form>
 
@@ -76,25 +74,36 @@
                 <!-- pop up content -->
                 <div id="lotbox" class="modal-content">
                     <span id="spanLot" class="close">&times;</span>
-					
-					<label for="lotnum">Lot No.</label> 
-					<input name="lotnum" id="lotNum" type="number" required=true > <br>
-					
-					<label for="cust">Customer</label>
-					<input type="search" name="cust" list="custList">
-					
-					<!--Lets names pop up with search-->
-					<datalist id="custList">
-					</datalist>
-					
-					<button type="button" id="myBtnCust">+</button>
-					
-					<!-- Action for submit of form to add lot (US 3.1)-->
-                    <?php if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) { ?>
-                        <script> alert("Lot Added Successfully");</script>
-                    <?php
-                        addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);}
-                    ?>
+                    <form class="" method="post">
+                        <label for="lotnum">Lot No.</label>
+    					<input name="lotnum" type="number" required=true > <br>
+
+    					<label for="cust">Customer</label>
+    					<input type="search" name="cust" list="custList">
+
+    					<!--Lets names pop up with search-->
+    					<datalist id="custList">
+    					</datalist>
+
+    					<button type="button" id="myBtnCust">+</button>
+
+                        <div id="pallets-div">
+                            <!-- All pallets will be added here -->
+                        </div>
+                        <button type="button" id="addPal">Add Pallet</button>
+                        <button type="button" id="rmvPal" disabled=true>Remove</button>
+                        <button type="submit" class="btnLot">Submit</button>
+
+    					<!-- Action for submit of form to add lot (US 3.1, 6.3)-->
+                        <script type="text/javascript">
+                        <?php
+                            if (isset($_POST['lotnum'], $_POST['cust'], $_POST['amt1'])) {
+                                $result = addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt1']);
+                                echo "alert(".json_encode($result).");";
+                            }
+                        ?>
+                        </script>
+                    </form>
                 </div>
             </div>
             <!-- Import JS functions -->
@@ -102,8 +111,6 @@
             <!-- US 2.1, 5.1-5.2: Creates elements of Add Lot box -->
             <script type="text/javascript">
                 let custList = <?php echo json_encode(get_customers_list()); ?>;
-                // createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custList);
-			   
 				custAdd("custList", custList);
                 setupBoth();
                 let addCustBtn = document.getElementById(addCustBtnId);
@@ -113,7 +120,16 @@
 					var modalCust = document.getElementById("addCust");
 					modalCust.style.display = "block";
                 });
-				
+                let addPalBtn = document.getElementById(addPalBtnId);
+                addPalBtn.addEventListener('click', function() {
+                    console.log("Add Pallet clicked");
+                    addPallet(palletsDivId);
+                });
+                let rmvPalBtn = document.getElementById(rmvPalBtnId);
+                rmvPalBtn.addEventListener('click', function() {
+                    removePallet(palletsDivId)
+                });
+
             </script>
 		</main>
         
@@ -122,29 +138,11 @@
         <div id="tableDiv" class="">
 
         </div>
-
         <!-- US 4.2, 5.3: Table of lot info from db -->
         <script type="text/javascript">
-            function createLotTable(id, rows, fields) {
-                console.log("createLotTable called");
-                <?php
-                    $result = get_lots();
-                    $fields = get_fields($result);
-                    $rows = get_rows($result);
-                ?>
-                fields = <?php echo json_encode($fields); ?>;
-                console.log(fields);
-                rows = <?php echo json_encode($rows); ?>;
-                stringifyRows(fields, rows);
-                sortRows(rows, 'customer');
-                let table = document.createElement("TABLE");
-                table.setAttribute("id", id);
-                document.getElementById("tableDiv").appendChild(table);
-                createHeaders(id, fields, rows);
-                updateTable(id, fields, rows);
-            }
-            var rows;
-            var fields;
+            <?php $lots = get_lots(); ?>
+            var rows = <?php echo json_encode(get_rows($lots)); ?>;
+            var fields = <?php echo json_encode(get_fields($lots)); ?>;
             var tableId = "lotsTable";
             createLotTable(tableId, rows, fields);
         </script>

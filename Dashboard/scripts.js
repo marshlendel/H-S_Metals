@@ -85,7 +85,7 @@ var typeVals = ["Ingot", "S", "MS"];
 var statusVals = ["Dirty", "Clean", "Finished", "Gone"];
 var palletsDivId = "pallets-div";
 var lotDivId = "lotbox";
-var addCustBtnId = "myBtnCust"; 
+var addCustBtnId = "myBtnCust";
 var addPalBtnId = "addPal";
 var rmvPalBtnId = "rmvPal";
 
@@ -114,7 +114,7 @@ function addPallet(palletsDivId) {
     let input = document.createElement("INPUT");
     input.required = true;
     input.setAttribute('type', 'number');
-    input.setAttribute('name', 'amt');
+    input.setAttribute('name', 'amt'+newNum.toString());
     pallet.appendChild(input);
     pallet.appendChild(document.createElement("BR"));
 
@@ -135,23 +135,6 @@ function addPallet(palletsDivId) {
     typeForm.appendChild(selectType);
     pallet.appendChild(typeForm);
 
-    let statusForm = document.createElement("FORM");
-    formLabel = createBoldLabel("Status");
-    formLabel.setAttribute('for', 'status');
-    statusForm.appendChild(formLabel);
-    let selectStatus = document.createElement("SELECT");
-    selectStatus.setAttribute('name', 'status');
-    selectStatus.setAttribute('id', 'status');
-    let status;
-    for (let index = 0; index < statusVals.length; ++index) {
-        status = document.createElement("OPTION");
-        status.setAttribute('value', statusVals[index]);
-        status.appendChild(document.createTextNode(statusVals[index]));
-        selectStatus.appendChild(status);
-    }
-    statusForm.appendChild(selectStatus);
-    pallet.appendChild(statusForm);
-
     let rmvBtn = document.getElementById(rmvPalBtnId);
     // Adds an event listener for the remove button
     //    if there was an existing pallet
@@ -168,94 +151,6 @@ function removePallet(palletsDivId) {
     console.log(size);
     palletsDiv.getElementsByTagName("P")[size-1].remove();
 }
-
-// US 2.1, 5.1-5.2: Creates elements of Add Lot box
-/*
-function createAddLotForm(lotDivId, palletsDivId, addCustBtnId, custVals) {
-    console.log("Creating Add Lot Form");
-    // Creates form to be submitted
-    let lotDiv = document.getElementById(lotDivId);
-    let lotForm = document.createElement('FORM');
-    lotDiv.appendChild(lotForm);
-
-    // Creates Lot No. label and adds to form
-    let lotNumLabel = createBoldLabel("Lot No.");
-    lotNumLabel.setAttribute('for', 'lotnum');
-    lotForm.appendChild(lotNumLabel);
-    let lotNumInput = document.createElement("INPUT");
-    lotNumInput.setAttribute('type', 'number');
-    lotNumInput.setAttribute('name', 'lotnum');
-    lotNumInput.required = true;
-    lotForm.appendChild(lotNumInput);
-
-    // Creates customer selection dropdown
-    let custForm = document.createElement("INPUT");
-    let formLabel = createBoldLabel("Customer");
-    formLabel.setAttribute('for', 'cust');
-    custForm.appendChild(formLabel);
-    let selectCust = document.createElement("input");
-    selectCust.setAttribute('name', 'cust');
-    selectCust.setAttribute('id', 'cust');
-    let cust;
-    let value;
-    for (let index = 0; index < custVals.length; ++index) {
-        cust = document.createElement("OPTION");
-        stringifyRows(cust, ['company']);
-        value = custVals[index]['company'];
-        cust.setAttribute('value', value);
-        cust.innerHTML = value;
-        selectCust.appendChild(cust);
-    }
-    custForm.appendChild(selectCust);
-
-    // Creates add Customer button
-    let addCustBtn = document.createElement("BUTTON");
-    addCustBtn.setAttribute('type', 'button');
-    addCustBtn.setAttribute('id', addCustBtnId);
-    addCustBtn.innerHTML = "+";
-    custForm.appendChild(addCustBtn);
-    lotForm.appendChild(custForm);
-    var modalCust = document.getElementById("addCust");
-    // When the user clicks the button, open the pop up
-    addCustBtn.onclick = function() {
-      modalCust.style.display = "block";
-    }
-
-
-    // Creates add pallet button
-    let palletsDiv = document.createElement("DIV");
-    palletsDiv.setAttribute('id', palletsDivId);
-    lotForm.appendChild(palletsDiv);
-    let addPalBtn = document.createElement("BUTTON");
-    addPalBtn.setAttribute('id', addPalBtnId);
-    addPalBtn.setAttribute('type', 'button');
-    addPalBtn.innerHTML = "Add Pallet";
-    addPalBtn.addEventListener('click', function() {
-        console.log("Add Pallet clicked");
-        addPallet(palletsDivId);
-    }, false);
-
-    // Creates remove pallet button
-    let rmvPalBtn = document.createElement("BUTTON");
-    rmvPalBtn.setAttribute('id', rmvPalBtnId);
-    rmvPalBtn.setAttribute('type', 'button');
-    rmvPalBtn.innerHTML = "Remove";
-    addPallet(palletsDivId);
-    rmvPalBtn.addEventListener('click', function() {
-        removePallet(palletsDivId)
-    });
-    rmvPalBtn.disabled = true;
-    lotForm.appendChild(addPalBtn);
-    lotForm.appendChild(rmvPalBtn);
-
-    // Creates subit button for form
-    let submitBtn = document.createElement("BUTTON");
-    submitBtn.setAttribute('type', 'submit');
-    submitBtn.setAttribute('class', 'btnLot');
-    submitBtn.innerHTML = "Submit";
-    lotForm.appendChild(submitBtn);
-}
-*/
 
 function custAdd(elemID, custVals) {
 	inputCust = document.getElementById(elemID);
@@ -302,13 +197,11 @@ function createHeaders(tableId, headers, rows) {
     let label;
     // Creates header labels
     for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
-        console.log(headers[cellNum]);
         // console.log(cellNum);
         cell = document.createElement('TH');
         label = headers[cellNum];
         cell.setAttribute('id', label);
         cell.setAttribute('for', cellNum);
-        console.log(cell.getAttribute('for'));
         cell.innerHTML = toUpper(label == 'lotnum' ? 'Lot' : label);
         row.appendChild(cell);
     }
@@ -450,4 +343,16 @@ function sortTable(ev, tableId, headers, rows) {
     }
 
     ev.stopPropagation();
+}
+
+function createLotTable(id, rows, fields) {
+    console.log("createLotTable called");
+    console.log(fields);
+    stringifyRows(fields, rows);
+    sortRows(rows, 'date', false);
+    let table = document.createElement("TABLE");
+    table.setAttribute("id", id);
+    document.getElementById("tableDiv").appendChild(table);
+    createHeaders(id, fields, rows);
+    updateTable(id, fields, rows);
 }
