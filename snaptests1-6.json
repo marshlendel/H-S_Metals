@@ -426,7 +426,7 @@
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "div > button:nth-of-type(2)",
+          "selector": "ul > :nth-child(2) a",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -440,7 +440,7 @@
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "div > button:nth-of-type(3)",
+          "selector": "ul > :nth-child(3) a",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -454,7 +454,7 @@
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "div > button:nth-of-type(4)",
+          "selector": "ul > :nth-child(4) a",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -468,7 +468,7 @@
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "div > button:nth-of-type(5)",
+          "selector": "ul > :nth-child(5) a",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -636,14 +636,12 @@
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "div > button:nth-of-type(2)",
+          "selector": "ul > :nth-child(2) a",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [
-            "Couldn't find a good selector strategy to target this element. "
-          ],
+          "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
           "id": "BJNn5IZvI",
@@ -953,14 +951,12 @@
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "div > a",
+          "selector": "ul > :nth-child(6) a",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [
-            "Couldn't find a good selector strategy to target this element. "
-          ],
+          "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
           "id": "B1_xhU-vI",
@@ -1749,14 +1745,12 @@
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "div > button:nth-of-type(2)",
+          "selector": "ul > :nth-child(2) a",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [
-            "Couldn't find a good selector strategy to target this element. "
-          ],
+          "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
           "id": "BypcaLmdU",
@@ -2063,14 +2057,12 @@
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "div > button:nth-of-type(4)",
+          "selector": "ul > :nth-child(4) a",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [
-            "Couldn't find a good selector strategy to target this element. "
-          ],
+          "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
           "id": "HkMfAUQuI",
