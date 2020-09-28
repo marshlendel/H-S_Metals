@@ -54,7 +54,7 @@
         return $result;
     }
 
-    function addLot ($lotnum, $cust, $amt) {      //  Takes user input and inserts in sql query
+    function addLot ($lotnum, $cust) {      //  Takes user input and inserts in sql query
         $servername = "localhost";
         $username = "mwithers";
         $password = "2270410";
@@ -64,13 +64,44 @@
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         // prepare and bind
-        $stmt = $conn->prepare("INSERT INTO Lots (lotnum, customer, amount) VALUES (?, ?, ?)");
-        $stmt->bind_param("isi", $lotnumsql, $custsql, $amtsql);
+        $stmt = $conn->prepare("INSERT INTO Lots (lotnum, customer) VALUES (?, ?)");
+        $stmt->bind_param("is", $lotnumsql, $custsql);
 
         // set parameters and execute
         $lotnumsql = (int)$lotnum;
         $custsql = "".$cust."";
-        $amtsql = (int)$amt;
+        $result = $stmt->execute();
+        $error = $stmt->error;
+
+        $stmt->close();
+        $conn->close();
+
+        // US 6.3: Returns success statement or description of the error
+        if (!$result) {
+            return $error;
+        }
+        return "Success";
+    }
+
+    function addPallet($lotnum, $cust, $gross, $tare, $net) {
+        $servername = "localhost";
+        $username = "mwithers";
+        $password = "2270410";
+        $dbname = "HandSMetals";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // prepare and bind
+        $stmt = $conn->prepare("INSERT INTO Pallets (lotnum, customer, gross, tare, net) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("isdd", $lotnumsql, $custsql, $grosssql, $taresql, $netsql);
+
+        // set parameters and execute
+        $lotnumsql = (int)$lotnum;
+        $custsql = "".$cust."";
+        $grosssql = (double)$gross;
+        $taresql = (double)$tare;
+        $netsql = (double)$net;
         $result = $stmt->execute();
         $error = $stmt->error;
 
