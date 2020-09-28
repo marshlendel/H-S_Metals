@@ -187,6 +187,34 @@
         return $rows;
     }
 
+    function get_lots_list() {
+        $servername = "localhost";
+        $username = "mwithers";
+        $password = "2270410";
+        $database = "HandSMetals";
+
+        $conn = mysqli_connect($servername, $username, $password, $database);
+
+        // prepare and bind
+        $stmt = $conn->prepare("SELECT lotnum FROM Lots");
+
+        $stmt->execute();
+
+        $res = $stmt->get_result();
+
+        $stmt->close();
+
+        $conn->close();
+
+        $rows = array();
+        $rowInt = 0;
+        while($row = $res->fetch_assoc()) {
+            $rows[$rowInt] = (int) $row;
+            ++$rowInt;
+        }
+        return $rows;
+    }
+
     function get_fields($result) {
         // echo "Getting result...";
         $fieldsArray = array();
