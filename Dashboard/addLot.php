@@ -7,31 +7,42 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 ************************************************************************** -->
-<?php
-    function addLot ($lotnum, $cust, $amt) {      //  Takes user input and inserts in sql query
-        $servername = "localhost";
-        $username = "mwithers";
-        $password = "2270410";
-        $dbname = "HandSMetals";
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // prepare and bind
-        $stmt = $conn->prepare("INSERT INTO Lots (lotnum, customer, amount) VALUES (?, ?, ?)");
-        $stmt->bind_param("isi", $lotnumsql, $custsql, $amtsql);
-
-        // set parameters and execute
-        $lotnumsql = (int)$lotnum;
-        $custsql = "".$cust."";
-        $amtsql = (int)$amt;
-        $stmt->execute();
-
-        $stmt->close();
-        $conn->close();
-    }
-    //
-    // if (isset($_POST['lotnum'], $_POST['cust'], ($_POST['amt']))) {
-    //     addLot($_POST['lotnum'], $_POST['cust'], $_POST['amt']);
-    // }
-?>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Lot</title>
+	<link href="styles.css" rel="stylesheet">
+</head>
+<body>
+<a href="main.php" id="temp"><h4>home</h4></a>
+	<nav>
+		<form id="navForm">
+		<div id="lotBar">
+			<label for="lotNum">Lot No.</label>
+			<input type="number" name= "lotNo"><br>
+		</div>
+		<div class="nav">
+			<label for="gross">Gross</label>
+			<input type="number" name="gross"><br>
+			
+			<label for="tare">Tare</label>
+			<input type="number" name="tare"><br>
+			
+			<label for="cust">Customer</label>
+			<input type="search" name="cust" list="custList">
+			
+			<input type="button" class="add pallet" value="Input Button">
+			<button class="add pallet">Add Pallet</button>
+			
+			<datalist id="custList">
+			</datalist>
+		</div>
+		</form>
+	</nav>
+	
+	<div>
+	</div>
+</body>
+</html>
