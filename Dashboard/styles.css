@@ -84,6 +84,8 @@ img {
 	background-color: orange;
 }
 
+
+}
 #lotNum {
 	margin-left: 20px;
 }
@@ -130,9 +132,30 @@ img {
 }
 
 
+.nav {
+	display: flex;
+	width: 90%;
+	margin: 0 auto;
+}
 
+#lotBar{
+	margin-bottom: 10px;
+	margin-left:55px;
+}
+
+ #temp h4 {
+	bckground-color:white;
+}
+
+#navForm{
+	
+	width: 90%;
+	margin: 0 auto;
+	padding:8px;
+	background-color: gray;
+}
 			
-.modal-content{
+.modal-content {
 	width: 350px;
 }
 

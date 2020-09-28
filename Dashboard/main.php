@@ -23,6 +23,7 @@
     </head>
 
     <body>
+	<a href="addLot.php">Add Lot</a>
           <nav>
             <ul>
 				<li><button id="myBtnLot">Add Lot</button></li>
