@@ -33,7 +33,7 @@
 			<label for="cust">Customer</label>
 			<input type="search" name="cust" list="custList">
 			
-			<input type="button" class="add pallet" value="Input Button">
+			<input type="button" class="add pallet">
 			<button class="add pallet">Add Pallet</button>
 			
 			<datalist id="custList">
