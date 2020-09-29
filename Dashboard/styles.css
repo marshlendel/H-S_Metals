@@ -11,8 +11,8 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 }
 
 
@@ -132,28 +132,7 @@ img {
 }
 
 
-.nav {
-	display: flex;
-	width: 90%;
-	margin: 0 auto;
-}
 
-#lotBar{
-	margin-bottom: 10px;
-	margin-left:55px;
-}
-
- #temp h4 {
-	bckground-color:white;
-}
-
-#navForm{
-	
-	width: 90%;
-	margin: 0 auto;
-	padding:8px;
-	background-color: gray;
-}
 			
 .modal-content {
 	width: 350px;

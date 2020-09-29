@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Lot</title>
-	<link href="styles.css" rel="stylesheet">
+	<link href="styles2.css" rel="stylesheet">
 </head>
 <body>
 <a href="main.php" id="temp"><h4>home</h4></a>
@@ -27,15 +27,15 @@
 			<input type="number" name= "lotNo"><br>
 		</div>
 		<div class="nav">
-            <label for="cust">Customer</label>
+            <label for="cust">Customer:</label>
 			<input type="search" name="cust" list="custList">
             <datalist id="custList">
 			</datalist>
 
-			<label for="gross">Gross</label>
+			<label for="gross">Gross:</label>
 			<input type="number" name="gross"><br>
 
-			<label for="tare">Tare</label>
+			<label for="tare">Tare:</label>
 			<input type="number" name="tare"><br>
 
 			<button>Add Pallet</button>
@@ -51,7 +51,7 @@
 
 </html>
 
- <script type="module" defer>
+<script type="module" defer>
     import * as Script from './scripts.js';
 
     // US 7.2: obtain list of customers from db
@@ -61,3 +61,5 @@
     // US 7.5: create table
     Script.createTable("tableDiv", "pallets", [], ["Pallet", "Gross", "Tare", "Net"]);
 </script>
+
+ 

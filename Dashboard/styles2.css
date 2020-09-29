@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+label {
+	font-weight: bold;
+}
+
+table {
+    font-family: arial, sans-serif;
+	border-collapse: collapse;
+	margin: 0px auto;
+	width: 80%;
+	position: relative;
+	bottom: 30px;
+}
+
+th, td {
+	border: 1px solid #dddddd;
+	padding: 8px;
+}
+
+nav {
+	background-color: gray;
+}
+.nav {
+	display: flex;
+	width: 90%;
+	margin: 0 auto;
+}
+
+#lotBar{
+	margin-bottom: 10px;
+    margin-left: 62px;
+    margin-right: auto;
+}
+
+ #temp h4 {
+	bckground-color:white;
+}
+
+#tableDiv {
+	margin-top: 50px;
+}
+
+#navForm{
+	
+	width: 850px;
+	margin: 0 auto;
+	padding:8px;
+	
+}
