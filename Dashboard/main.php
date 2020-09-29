@@ -34,7 +34,7 @@
             </ul>
          </nav>
 
-		  <main class="container">
+		<main class="container">
             <!-- Import JS functions -->
             <script type="module" defer>
                 import * as Script from './scripts.js';
@@ -44,7 +44,9 @@
                 var rows = <?php echo json_encode(get_rows($lots)); ?>;
                 var fields = <?php echo json_encode(get_fields($lots)); ?>;
                 var tableId = "lotsTable";
-                Script.createLotTable(tableId, rows, fields);
+                Script.stringifyRows(fields, rows);
+                Script.createTable("tableDiv", tableId, rows, fields);
+                Script.sortRows(rows, 'date', false);
             </script>
 		</main>
 

@@ -81,13 +81,8 @@ export function setupBoth() {
     setupAddCust();
 }
 
-export var typeVals = ["Ingot", "S", "MS"];
-export var statusVals = ["Dirty", "Clean", "Finished", "Gone"];
-export var palletsDivId = "pallets-div";
-export var lotDivId = "lotbox";
+export var statusVals = ["Dirty", "Clean", "Partially-Shipped", "Shipped"];
 export var addCustBtnId = "myBtnCust";
-export var addPalBtnId = "addPal";
-export var rmvPalBtnId = "rmvPal";
 
 export function createBoldLabel(string) {
     let bold = document.createElement("B");
@@ -95,65 +90,6 @@ export function createBoldLabel(string) {
     let label = document.createElement("LABEL");
     label.appendChild(bold);
     return label;
-}
-
-export function addPallet(palletsDivId) {
-    let palletsDiv = document.getElementById(palletsDivId);
-    let pallet = document.createElement("P");
-    let numPallets = palletsDiv.getElementsByTagName("P").length;
-    let newNum = numPallets + 1;
-    console.log("Adding Pallet "+newNum.toString());
-    pallet.setAttribute("id", "pallet"+newNum.toString());
-    palletsDiv.appendChild(pallet);
-    pallet.appendChild(createBoldLabel("Pallet "+newNum.toString()));
-    pallet.appendChild(document.createElement("BR"));
-
-    let amt = createBoldLabel("Amount");
-    amt.setAttribute('for', 'amt');
-    pallet.appendChild(amt);
-    let input = document.createElement("INPUT");
-    input.required = true;
-    input.setAttribute('type', 'number');
-    input.setAttribute('name', 'amt'+newNum.toString());
-    pallet.appendChild(input);
-    pallet.appendChild(document.createElement("BR"));
-
-    let typeForm = document.createElement("FORM");
-    let formLabel = createBoldLabel("Type");
-    formLabel.setAttribute('for', 'type');
-    typeForm.appendChild(formLabel);
-    let selectType = document.createElement("SELECT");
-    selectType.setAttribute('name', 'type');
-    selectType.setAttribute('id', 'type');
-    let type;
-    for (let index = 0; index < typeVals.length; ++index) {
-        type = document.createElement("OPTION");
-        type.value = typeVals[index];
-        type.innerHTML = typeVals[index];
-        selectType.appendChild(type);
-    }
-    typeForm.appendChild(selectType);
-    pallet.appendChild(typeForm);
-
-    let rmvBtn = document.getElementById(rmvPalBtnId);
-    // Adds an event listener for the remove button
-    //    if there was an existing pallet
-    if (newNum > 1) {
-        rmvBtn.disabled = false;
-    }
-}
-
-// US 5.2: Removes last pallet in the list
-export function removePallet(palletsDivId) {
-    console.log("Removing Pallet ");
-    let palletsDiv = document.getElementById(palletsDivId);
-    let size = palletsDiv.getElementsByTagName("P").length;
-    console.log(size);
-    palletsDiv.getElementsByTagName("P")[size-1].remove();
-    if (size-1 < 2) {
-        let rmvBtn = document.getElementById(rmvPalBtnId);
-        rmvBtn.disabled = true;
-    }
 }
 
 export function custAdd(elemID, custVals) {
@@ -349,14 +285,12 @@ export function sortTable(ev, tableId, headers, rows) {
     ev.stopPropagation();
 }
 
-export function createLotTable(id, rows, fields) {
-    console.log("createLotTable called");
+export function createTable(elemId, tableId, rows, fields) {
+    console.log("createTable called");
     console.log(fields);
-    stringifyRows(fields, rows);
-    sortRows(rows, 'date', false);
     let table = document.createElement("TABLE");
-    table.setAttribute("id", id);
-    document.getElementById("tableDiv").appendChild(table);
-    createHeaders(id, fields, rows);
-    updateTable(id, fields, rows);
+    table.setAttribute("id", tableId);
+    document.getElementById(elemId).appendChild(table);
+    createHeaders(tableId, fields, rows);
+    updateTable(tableId, fields, rows);
 }

@@ -41,15 +41,21 @@
 		</div>
 		</form>
 	</nav>
+    <br>
+	<div id="tableDiv">
 
-	<div>
-	</div>
+    </div>
 </body>
 
 </html>
 
  <script type="module" defer>
     import * as Script from './scripts.js';
+
+    // US 7.2: obtain list of customers from db
     let custList = <?php echo json_encode(get_customers_list()); ?>;
     Script.custAdd("custList", custList);
+
+    // US 7.5: create table
+    Script.createTable("tableDiv", "pallets", [], ["Pallet", "Gross", "Tare", "Net"]);
 </script>
