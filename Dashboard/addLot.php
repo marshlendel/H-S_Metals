@@ -37,6 +37,8 @@
 			
 			<datalist id="custList">
 			</datalist>
+			<button>Add Pallet</button>
+
 		</div>
 		</form>
 	</nav>
