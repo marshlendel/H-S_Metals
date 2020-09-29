@@ -46,7 +46,7 @@
                 var tableId = "lotsTable";
                 Script.stringifyRows(fields, rows);
                 Script.createTable("tableDiv", tableId, rows, fields);
-                Script.sortRows(rows, 'date', false);
+                Script.sortRows(rows, 'lotnum', false);
             </script>
 		</main>
 

@@ -83,7 +83,7 @@
         return "Success";
     }
 
-    function addPallet($lotnum, $cust, $gross, $tare, $net) {
+    function addPallet($lotnum, $gross, $tare) {
         $servername = "localhost";
         $username = "mwithers";
         $password = "2270410";
@@ -93,15 +93,14 @@
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         // prepare and bind
-        $stmt = $conn->prepare("INSERT INTO Pallets (lotnum, customer, gross, tare, net) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("isdd", $lotnumsql, $custsql, $grosssql, $taresql, $netsql);
+        $stmt = $conn->prepare("INSERT INTO Pallets (lotnum, gross, tare, net) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("iddd", $lotnumsql, $grosssql, $taresql, $netsql);
 
         // set parameters and execute
         $lotnumsql = (int)$lotnum;
-        $custsql = "".$cust."";
         $grosssql = (double)$gross;
         $taresql = (double)$tare;
-        $netsql = (double)$net;
+        $netsql = $grosssql - $taresql;
         $result = $stmt->execute();
         $error = $stmt->error;
 
@@ -190,6 +189,32 @@
         return $res;
     }
 
+    //  Code to connect to db and return data in Lots table (User Story 3.2)
+    function get_pallets ($lotnum) {
+        $servername = "localhost";
+        $username = "mwithers";
+        $password = "2270410";
+        $dbname = "HandSMetals";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // prepare and bind
+        $stmt = $conn->prepare("SELECT * FROM Pallets WHERE lotnum = ?");
+        $stmt->bind_param("i", $lotnumsql);
+
+        $lotnumsql = (int) $lotnum;
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $stmt->close();
+
+        $conn->close();
+
+        return $result;
+    }
+
     function get_customers_list() {
         $servername = "localhost";
         $username = "mwithers";
@@ -240,7 +265,7 @@
         $rows = array();
         $rowInt = 0;
         while($row = $res->fetch_assoc()) {
-            $rows[$rowInt] = (int) $row;
+            $rows[$rowInt] = (int)$row['lotnum'];
             ++$rowInt;
         }
         return $rows;

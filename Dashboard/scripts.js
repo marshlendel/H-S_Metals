@@ -8,77 +8,32 @@
 // * limitations under the License.
 // **************************************************************************
 
-export function setupAddLot() {
-    // Get the pop up
-    var modalLot = document.getElementById("addLot");
-
-    // Get the button that opens the pop up
-    var btnLot = document.getElementById("myBtnLot");
-
-    // Get the <span> element that closes the pop up
-    var spanLot = document.getElementById("spanLot");
-
-    // When the user clicks the button, open the pop up
-    btnLot.onclick = function() {
-      modalLot.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the pop up
-    spanLot.onclick = function() {
-      modalLot.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      if (event.target == modalLot) {
-        modalLot.style.display = "none";
-      }
-    }
-}
-
-export function setupAddCust() {
+export function setupPopup(popupId, spanId, btnId) {
     //  JS for Add Customer dialogue when button is clicked (User Story 4.4.1)
 
     // Get the pop up
-    var modalCust = document.getElementById("addCust");
+    var modal = document.getElementById(popupId);
 
     // Get the <span> element that closes the pop up
-    var spanCust = document.getElementById("spanCust");
+    var span = document.getElementById(spanId);
 
-    var modalLot = document.getElementById("addLot");
+    // Get button to display popup
+    var btn = document.getElementById(btnId);
 
     // When the user clicks anywhere outside of the pop up, close it
-    if (typeof modalLot != 'undefined') {
-        window.onclick = function(event) {
-          if (event.target == modalLot) {
-            modalLot.style.display = "none";
-          }
-          if (event.target == modalCust) {
-              modalCust.style.display = "none";
-              modalLot.style.display = "block";
-          }
-        }
-        // When the user clicks on <span> (x), close the pop up
-        spanCust.onclick = function() {
-            modalCust.style.display = "none";
-            modalLot.style.display = "block";
-        }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
     }
-    else {
-        window.onclick = function(event) {
-          if (event.target == modalCust) {
-              modalCust.style.display = "none";
-          }
-        }
-        // When the user clicks on <span> (x), close the pop up
-        spanCust.onclick = function() {
-            modalCust.style.display = "none";
-        }
+    // When the user clicks on <span> (x), close the pop up
+    span.onclick = function() {
+        modal.style.display = "none";
     }
-}
 
-export function setupBoth() {
-    setupAddLot();
-    setupAddCust();
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
 }
 
 export var statusVals = ["Dirty", "Clean", "Partially-Shipped", "Shipped"];
@@ -142,7 +97,15 @@ export function createHeaders(tableId, headers, rows) {
         label = headers[cellNum];
         cell.setAttribute('id', label);
         cell.setAttribute('for', cellNum);
-        cell.innerHTML = toUpper(label == 'lotnum' ? 'Lot' : label);
+        switch(label) {
+            case 'lotnum':
+                label = 'Lot';
+                break;
+            case 'palletnum':
+                label = 'Pallet';
+                break;
+        }
+        cell.innerHTML = toUpper(label);
         row.appendChild(cell);
     }
 }
@@ -173,7 +136,7 @@ export function updateTable(tableId, headers, rows) {
     let head;
     for (let rowNum = 0; rowNum < rows.length; ++rowNum) {
         row = body.insertRow(rowNum);
-        for (let cellNum = 0; cellNum < Object.keys(rows[rowNum]).length; ++cellNum) {
+        for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
             cell = row.insertCell(cellNum);
             head = headers[cellNum]
             cell.innerHTML = rows[rowNum][head];
@@ -285,6 +248,7 @@ export function sortTable(ev, tableId, headers, rows) {
     ev.stopPropagation();
 }
 
+// US 5.3, 7.5: creates table with id tableId in the element with id elemId
 export function createTable(elemId, tableId, rows, fields) {
     console.log("createTable called");
     console.log(fields);
