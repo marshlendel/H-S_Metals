@@ -38,6 +38,8 @@
 			<label for="tare">Tare</label>
 			<input type="number" name="tare"><br>
 
+			<button>Add Pallet</button>
+
 		</div>
 		</form>
 	</nav>
