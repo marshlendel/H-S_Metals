@@ -27,6 +27,11 @@
                 $lotnum = max(get_lots_list());
                 ?>
                 <script type="text/javascript">
+                    console.log("<?php echo $_POST['lotnum'] ?>");
+                    console.log("<?php echo $_POST['cust'] ?>");
+                    console.log("<?php echo $_POST['gross'] ?>");
+                    console.log("<?php echo $_POST['tare'] ?>");
+                    console.log(<?php echo json_encode($submit); ?>);
                     console.log(<?php echo json_encode(get_lots_list()); ?> );
                     console.log("Lot Max: " + <?php echo json_encode($lotnum); ?> );
                 </script>
@@ -59,21 +64,21 @@
                             echo json_encode($lotnum+1);
                         }
                         ?>
-                    ></input>
+                    required></input>
         		</div>
         		<div class="nav">
                     <label for="cust">Customer:</label>
-        			<input type="search" name="cust" list="custList">
+        			<input type="search" name="cust" list="custList" required>
                     <datalist id="custList">
         			</datalist>
 
         			<label for="gross">Gross:</label>
-        			<input type="number" name="gross"><br>
+        			<input type="number" name="gross" required><br>
 
         			<label for="tare">Tare:</label>
-        			<input type="number" name="tare"><br>
+        			<input type="number" name="tare" required><br>
 
-        			<button>New Pallet</button>
+        			<button type="submit" id="submit" disabled>New Pallet</button>
 
         		</div>
     		</form>
@@ -87,10 +92,57 @@
        import * as Script from './scripts.js';
 
        // US 7.2: obtain list of customers from db
-       let custList = <?php echo json_encode(get_customers_list()); ?>;
+       var custList = <?php echo json_encode(get_customers_list()); ?>;
        Script.custAdd("custList", custList);
 
-       // US 7.5: create pallets table if submit button has been clicked
+       function checkInputs() {
+           var submitBtn = document.getElementById("submit");
+           var custInput = document.getElementsByName("cust")[0];
+           var grossInput = document.getElementsByName("gross")[0];
+           var tareInput = document.getElementsByName("tare")[0];
+
+           let validCust = false;
+           for (let index = 0; index < custList.length; ++index) {
+               if (custInput.value == custList[index]["company"]) {
+                   validCust = true;
+               }
+           }
+           if (validCust && parseFloat(grossInput.value) > parseFloat(tareInput.value)) {
+               submitBtn.disabled = false;
+           }
+           else {
+               submitBtn.disabled = true;
+           }
+       }
+
+       var lotInput = document.getElementsByName("lotnum")[0];
+       var custInput = document.getElementsByName("cust")[0];
+       var grossInput = document.getElementsByName("gross")[0];
+       var tareInput = document.getElementsByName("tare")[0];
+
+       let formSubmit = <?php echo json_encode($submit); ?>;
+       if (formSubmit) {
+           custInput.setAttribute('value', <?php echo json_encode($_POST['cust']); ?>);
+           custInput.setAttribute('readonly', 'readonly');
+           lotInput.setAttribute('readonly', 'readonly');
+       }
+       else {
+           tareInput.addEventListener('focusout', function() {
+               checkInputs();
+           }, false);
+           custInput.addEventListener('focusout', function() {
+               checkInputs();
+           }, false);
+       }
+       grossInput.addEventListener('focusout', function() {
+           checkInputs();
+       }, false);
+       tareInput.addEventListener('focusout', function() {
+           checkInputs();
+       }, false);
+
+
+       // US 7.5, 7.6: create pallets table and retrieves pallets of the lot if submit button has been clicked
        <?php
        if ($submit) {
            $pallets = get_pallets($_POST['lotnum']);
