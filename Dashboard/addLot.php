@@ -79,7 +79,6 @@
         			<input type="number" name="tare" required><br>
 
         			<button type="submit" id="submit" disabled>New Pallet</button>
-
         		</div>
     		</form>
     	</nav>

@@ -93,14 +93,13 @@
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         // prepare and bind
-        $stmt = $conn->prepare("INSERT INTO Pallets (lotnum, gross, tare, net) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("iddd", $lotnumsql, $grosssql, $taresql, $netsql);
+        $stmt = $conn->prepare("INSERT INTO Pallets (lotnum, gross, tare) VALUES (?, ?, ?)");
+        $stmt->bind_param("idd", $lotnumsql, $grosssql, $taresql);
 
         // set parameters and execute
         $lotnumsql = (int)$lotnum;
         $grosssql = (double)$gross;
         $taresql = (double)$tare;
-        $netsql = $grosssql - $taresql;
         $result = $stmt->execute();
         $error = $stmt->error;
 
