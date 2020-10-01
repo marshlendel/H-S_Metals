@@ -13,11 +13,11 @@
 
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Lot</title>
-	<link href="styles2.css" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Lot</title>
+    	<link href="styles2.css" rel="stylesheet">
+    </head>
     <body>
         <a href="main.php" id="temp"><h4>home</h4></a>
     	<nav>
