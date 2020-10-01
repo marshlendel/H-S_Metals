@@ -18,48 +18,19 @@
 		 <link rel="stylesheet", href="styles.css">
 	</head>
 	<body>
-    	<style>
-        	img {
-            	position: absolute;
-                z-index: 10;
-                width:125px;
-                max-height: 12%;
-                top: 0px;
-                left: 7.9px;
-            }
-            /* Table in User Story 4.2 */
-            table {
-              font-family: arial, sans-serif;
-              border-collapse: collapse;
-              width: 100%;
-            }
-            td, th {
-              border: 1px solid #dddddd;
-              text-align: left;
-              padding: 8px;
-            }
-            tr:nth-child(even) {
-              background-color: orange;
-            }
-            tr:nth-child(odd) {
-                background-color: #F2F2F2;
-            }
-    	</style>
-		 <div class="container">
-            <!-- Taskbar -->
-			<a href="main.php"><img id="logo" src="../images/logo.jpg"></a>
-            <button id="highlight">Lot History</button>
-            <button onClick="location.href='reports.html';">Reports</button>
-            <button onClick="location.href='customers.php';">Customers</button>
-        	<button onClick="location.href='accounts.html';">Accounts</button>
-
+    	<nav class="navBar">
+			<a href="main.php" id="logo"></a>
+			<a href="addLot.php">Add Lot</a>
+            <a href="#" id="highlight">Lot History</a>
+            <a href="reports.html">Reports</a>
+            <a href="customers.php">Customers</a>
+        	<a href="accounts.html">Accounts</a>
+		</nav>
             <!-- Search bar -->
             <form action="" method="post">
                 Search:  <input type="text" name="user_input" />
                 <button type="submit">Submit</button>
-            <form/>
-			<a href="../LoginPage/login.html">Logout</a>
-		</div>
+            </form>
 
 		<h1>Lot History</h1>
 		<div id="tableDiv" class="">

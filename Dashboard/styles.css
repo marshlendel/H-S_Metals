@@ -21,36 +21,16 @@ h1{
 }
 
 
-ul {
-	text-overflow: hidden;
-	list-style-type: none;
-	margin: 0px;
-	padding: 0px;
+ a {
+	 display:block;	
+	 text-align:center;
+	 text-transform: uppercase;
+	 background-color: #dddddd;	
+	 text-decoration: none;
+	 flex-grow: 1;
+	 padding:15px;
 }
 
-li {
-	float: left;
-	margin:0px;
-	margin-bottom: 20px;
-}
-
- a, #myBtnLot {
-	text-align: center;
-	text-decoration: none;
-	margin: 0px auto;
-	padding: 10px 63px;
-	text-transform: uppercase;
-	background-color: #dddddd;
-	
-}
-
-nav {
-	width:1274px;
-}
-	
-a {
-	display:block;	
-}
 
 
 /* Table in User Story 4.2 */
@@ -61,6 +41,10 @@ table {
 	width: 80%;
 	position: relative;
 	bottom: 30px;
+}
+
+form {
+	margin-top: 20px;
 }
 
 th, td {
@@ -74,14 +58,35 @@ label {
 	font-weight: bold;
 }
 			
-			
+	
 
-img {
-	border-radius: 50%;
+#myBtn {
+	display:block;
+	position: relative;
+	left: 10px;
+}	
+
+#logo {
+	background-image: url("../images/HSlogo.png");
+	background-repeat: no-repeat;
+	width: 59px;
+	flex-grow: 0;
+	padding: 0;
+	Border-bottom: 2px solid #dddddd;
+	border-radius: 50px;
+}
+
+
+.navBar {
+	width:100%;
+	display:flex;
+	justify-content: space-between;
+	background-color: #dddddd;
 }
 
 #highlight {
-	background-color: orange;
+	border: 1px solid black;
+	border-style: inset;
 }
 
 
@@ -131,8 +136,6 @@ img {
   background-color: gray
 }
 
-
-
 			
 .modal-content {
 	width: 350px;
@@ -152,7 +155,12 @@ img {
 a:link {
 	color: black;
 }
-a:hover, #myBtnLot:hover {
+
+a:visited {
+	color:black;
+}
+
+a:hover{
 	background-color: black;
 	color: white;
 }

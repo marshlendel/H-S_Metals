@@ -19,8 +19,15 @@
     	<link href="styles2.css" rel="stylesheet">
     </head>
     <body>
-        <a href="main.php" id="temp"><h4>home</h4></a>
-    	<nav>
+        <nav class="navBar">
+            <a href="main.php" id="logo"></a>
+            <a href="addLot.php" id="highlight">Add Lot</a>
+            <a href="history.php">Lot History</a>
+            <a href="reports.html">Reports</a>
+            <a href="customers.php">Customers</a>
+            <a href="accounts.html">Accounts</a>
+        </nav>
+    	<section>
     		<form id="navForm" method="post">
                 <?php
                 $submit = isset($_POST['lotnum'], $_POST['cust'], $_POST['gross'], $_POST['tare']);
@@ -81,7 +88,7 @@
         			<button type="submit" id="submit" disabled>New Pallet</button>
         		</div>
     		</form>
-    	</nav>
+    	</section>
         <br>
     	<div id="tableDiv">
 

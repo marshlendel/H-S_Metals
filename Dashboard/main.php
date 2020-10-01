@@ -23,16 +23,14 @@
     </head>
 
     <body>
-          <nav>
-            <ul>
-				<li><a href="addLot.php">Add Lot</a></li>
-                <li><a href="history.php">Lot History</a></li>
-                <li><a href="reports.html">Reports</a></li>
-                <li><a href="customers.php">Customers</a></li>
-                <li><a href="accounts.html">Accounts</a></li>
-                <li><a href="../LoginPage/login.html">Logout</a></li>
-            </ul>
-         </nav>
+          <nav class="navBar">
+			<a href="addLot.php">Add Lot</a>
+            <a href="history.php">Lot History</a>
+            <a href="reports.html">Reports</a>
+            <a href="customers.php">Customers</a>
+            <a href="accounts.html">Accounts</a></li>
+            <a href="../LoginPage/login.html">Logout</a>
+           </nav>
 
 		<main class="container">
             <!-- Import JS functions -->

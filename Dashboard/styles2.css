@@ -4,6 +4,16 @@ body {
 	padding: 0;
 }
 
+a {
+	 display:block;	
+	 text-align:center;
+	 text-transform: uppercase;
+	 background-color: #dddddd;	
+	 text-decoration: none;
+	 flex-grow: 1;
+	 padding:15px;
+}
+
 label {
 	font-weight: bold;
 }
@@ -22,9 +32,37 @@ th, td {
 	padding: 8px;
 }
 
-nav {
+section {
 	background-color: gray;
 }
+
+form {
+	margin-top: 20px;
+}
+
+#logo {
+	background-image: url("../images/HSlogo.png");
+	background-repeat: no-repeat;
+	width: 59px;
+	flex-grow: 0;
+	padding: 0;
+	Border-bottom: 2px solid #dddddd;
+	border-radius: 50px;
+}
+
+
+.navBar {
+	width:100%;
+	display:flex;
+	justify-content: space-between;
+	background-color: #dddddd;
+}
+
+#highlight {
+	border: 1px solid black;
+	border-style: inset;
+}
+
 .nav {
 	display: flex;
 	width: 90%;
@@ -51,4 +89,17 @@ nav {
 	margin: 0 auto;
 	padding:8px;
 	
+}
+
+a:link {
+	color: black;
+}
+
+a:visited {
+	color:black;
+}
+
+a:hover{
+	background-color: black;
+	color: white;
 }
