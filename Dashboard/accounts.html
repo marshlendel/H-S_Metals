@@ -14,26 +14,16 @@
 		 <link rel="stylesheet", href="styles.css">
 	</head>
 	<body>
-	<style>
-    	img {
-        	position: absolute;
-            z-index: 10;
-            width:125px;
-            max-height: 12%;
-            top: 0px;
-            left: 7.9px;
-        }
-	</style>
-
-		<div class="container">
-            <!-- Taskbar -->
-            <a href="main.php"><img id="logo" src="../images/logo.jpg"></a>
-            <button onClick="location.href='history.php'">Lot History</button>
-            <button onClick="location.href='reports.html';">Reports</button>
-            <button onClick="location.href='customers.php';">Customers</button>
-         	<button id="highlight">Accounts</button>
-            <a href="../LoginPage/login.html">Logout</a>
-		</div>
+	
+<nav class="navBar">
+            <a href="main.php" id="logo"></a>
+            <a href="addLot.php">Add Lot</a>
+            <a href="history.php">Lot History</a>
+            <a href="reports.html">Reports</a>
+            <a href="customers.php">Customers</a>
+            <a href="#" id="highlight">Accounts</a>
+        </nav>
+		
 		<h1>Accounts</h1>
 
 

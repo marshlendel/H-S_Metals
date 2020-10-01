@@ -20,53 +20,30 @@
 		 <link rel="stylesheet", href="styles.css">
 	</head>
 	<body>
-	<style>
-    	img {
-        	position: absolute;
-            z-index: 10;
-            width:125px;
-            max-height: 12%;
-            top: 0px;
-            left: 7.9px;
-        }
-
-        /* Styling for table in User Story 4.3 */
-        table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-        tr:nth-child(even) {
-          background-color: orange;
-        }
-        tr:nth-child(odd) {
-            background-color: #F2F2F2;
-        }
-	</style>
-
-		<div class="container">
-            <!-- Taskbar -->
-			<a href="main.php"><img id="logo" src="../images/logo.jpg"></a>
-            <button onClick="location.href='history.php'">Lot History</button>
-            <button onClick="location.href='reports.html';">Reports</button>
-            <button id="highlight">Customers</button>
-         	<button onClick="location.href='accounts.html';">Accounts</button>
-
+	<nav class="navBar">
+            <a href="main.php" id="logo"></a>
+            <a href="addLot.php">Add Lot</a>
+            <a href="history.php">Lot History</a>
+            <a href="reports.html">Reports</a>
+            <a href="#" id="highlight">Customers</a>
+            <a href="accounts.html">Accounts</a>
+        </nav>
+		
+		
             <!-- Search bar -->
             <form action="" method="">
                 Search:  <input type="text" name="user_input" />
             </form>
-            <a href="../LoginPage/login.html">Logout</a>
-		</div>
+            
+		
 		<h1>Customers</h1>
 
         <!-- Customers table (User Story 4.3) -->
-		<table style="width:100%">
+		<button id="myBtn">Add Customer</button> 
+		<br>
+		<br>
+		
+		<table>
     				<tr>
         				<th> Company </th>
         				<th> Contact </th>
@@ -78,10 +55,11 @@
                     echo "<tr><td>" . $row["company"] . "</td><td>" . $row["contact"] . "</td><td>" . $row["phone"] . "</td><td>" . $row["email"] . "</td></tr>";
                 }
 		    ?>
+
         </table>
 
         <!-- Button for User Story 4.4 -->
-        <button id="myBtn">Add Customer</button>
+       
         <!-- The pop up -->
         <div id="addCust" class="modal">
           <!-- pop up content -->
