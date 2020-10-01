@@ -4,21 +4,6 @@ require 'sql.php';
 
 class SQLTest extends TestCase
 {
-    // US 3.1 add lot to database (dataProvider for testAddLot)
-    public function addLotDP() {
-       return array(
-           array(999,'Apple',100,"Success"),
-           array(999,'Apple',90,"Duplicate entry '999' for key 'PRIMARY'"),
-           array(900, 'Fake Name', 100, "Cannot add or update a child row: a foreign key constraint fails (`HandSMetals`.`Lots`, CONSTRAINT `customer_name` FOREIGN KEY (`customer`) REFERENCES `Customers` (`company`) ON DELETE CASCADE ON UPDATE CASCADE)")
-       );
-    }
-    /**
-    * @dataProvider addLotDP
-    */
-    // US 3.1, 6.3 tests add lot to database for correct feedback
-    public function testAddLot($lotnum, $cust, $amt, $expected) {
-        $this->assertSame(addLot($lotnum, $cust, $amt), $expected);
-    }
     // US get_lots returns a mysqli_result object if it is successful, boolean otherwise
     public function testGetLots() {
         $this->assertTrue(gettype(get_lots()) == 'object');
@@ -35,13 +20,6 @@ class SQLTest extends TestCase
     public function testGetLotRows() {
         $this->assertTrue(gettype(get_rows(get_lots())) == 'array');
     }
-    /**
-    * @depends testAddLot
-    */
-    // Helper function for testing
-    public function testRemoveLot() {
-        $this->assertTrue(removeLot(999));
-    }
 
     public function addCustDP() {
         return array(
@@ -56,6 +34,23 @@ class SQLTest extends TestCase
     public function testAddCustomer($company, $contact, $phone, $email, $expected) {
         $this->assertSame(addCustomer($company, $contact, $phone, $email), $expected);
     }
+
+    // US 3.1 add lot to database (dataProvider for testAddLot)
+    public function addLotDP() {
+       return array(
+           array(999,'Campus Police',"Success"),
+           array(999,'Campus Police',"Duplicate entry '999' for key 'PRIMARY'"),
+           array(900, 'Fake Name',"Cannot add or update a child row: a foreign key constraint fails (`HandSMetals`.`Lots`, CONSTRAINT `customer_name` FOREIGN KEY (`customer`) REFERENCES `Customers` (`company`) ON DELETE CASCADE ON UPDATE CASCADE)")
+       );
+    }
+    /**
+    * @dataProvider addLotDP
+    */
+    // US 3.1, 6.3 tests add lot to database for correct feedback
+    public function testAddLot($lotnum, $cust, $expected) {
+        $this->assertSame(addLot($lotnum, $cust), $expected);
+    }
+
     // US 4.3  tests retrieving customers table from database
     //      get_customers() will be an object if successful,
     //      and a boolean otherwise
@@ -77,6 +72,13 @@ class SQLTest extends TestCase
     // US 6.2 tests whether an array is retrieved from the database
     public function testGetCustomersList() {
         $this->assertTrue(gettype(get_customers_list()) == 'array');
+    }
+    /**
+    * @depends testAddLot
+    */
+    // Helper function for testing
+    public function testRemoveLot() {
+        $this->assertTrue(removeLot(999));
     }
     /**
     * @depends testAddCustomer
