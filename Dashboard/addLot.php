@@ -154,14 +154,17 @@
            lotInput.setAttribute('readonly', 'readonly');
         }
         else {
-           custInput.addEventListener('focusout', function() {
+            lotInput.addEventListener('input', function() {
+                checkInputs();
+            }, false);
+           custInput.addEventListener('input', function() {
                checkInputs();
            }, false);
         }
-        grossInput.addEventListener('focusout', function() {
+        grossInput.addEventListener('input', function() {
            checkInputs();
         }, false);
-        tareInput.addEventListener('focusout', function() {
+        tareInput.addEventListener('input', function() {
            checkInputs();
         }, false);
 
