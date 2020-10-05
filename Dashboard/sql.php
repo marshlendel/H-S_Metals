@@ -83,6 +83,7 @@
         return "Success";
     }
 
+    // US 7.6: Add pallet to database
     function addPallet($lotnum, $gross, $tare) {
         $servername = "localhost";
         $username = "mwithers";
@@ -106,7 +107,7 @@
         $stmt->close();
         $conn->close();
 
-        // US 6.3: Returns success statement or description of the error
+        // Returns success statement or description of the error
         if (!$result) {
             return $error;
         }
@@ -188,7 +189,7 @@
         return $res;
     }
 
-    //  Code to connect to db and return data in Lots table (User Story 3.2)
+    // US 7.6: connect to db and return data in pallets table
     function get_pallets ($lotnum) {
         $servername = "localhost";
         $username = "mwithers";
@@ -214,6 +215,7 @@
         return $result;
     }
 
+    // US 7.2: get list of customers from db
     function get_customers_list() {
         $servername = "localhost";
         $username = "mwithers";

@@ -27,22 +27,23 @@
             <a href="reports.html">Reports</a>
             <a href="#" id="highlight">Customers</a>
             <a href="accounts.html">Accounts</a>
+            <a href="../LoginPage/login.html">Logout</a>
         </nav>
-		
-		
+
+
             <!-- Search bar -->
             <form action="" method="">
                 Search:  <input type="text" name="user_input" />
             </form>
-            
-		
+
+
 		<h1>Customers</h1>
 
         <!-- Customers table (User Story 4.3) -->
-		<button id="myBtn">Add Customer</button> 
+		<button id="myBtn">Add Customer</button>
 		<br>
 		<br>
-		
+
 		<table>
     				<tr>
         				<th> Company </th>
@@ -59,7 +60,7 @@
         </table>
 
         <!-- Button for User Story 4.4 -->
-       
+
         <!-- The pop up -->
         <div id="addCust" class="modal">
           <!-- pop up content -->

@@ -25,6 +25,7 @@
             <a href="reports.html">Reports</a>
             <a href="customers.php">Customers</a>
         	<a href="accounts.html">Accounts</a>
+            <a href="../LoginPage/login.html">Logout</a>
 		</nav>
             <!-- Search bar -->
             <form action="" method="post">
@@ -46,14 +47,8 @@
             var fields = <?php echo json_encode(get_fields($lots)); ?>;
             var tableId = "lotsTable";
             <?php if (isset($_POST["user_input"])) { ?>
-    				Script.createLotTable(tableId, rows, fields);
+    				Script.createTable("tableDiv", tableId, rows, fields);
     		<?php } ?>
         </script>
-
-		<?php if (isset($_POST["user_input"])) { ?>
-			<script type="text/javascript">
-				Script.createLotTable(tableId, rows, fields);
-			</script>
-		<?php } ?>
 	</body>
 </html>

@@ -73,6 +73,23 @@ class SQLTest extends TestCase
     public function testGetCustomersList() {
         $this->assertTrue(gettype(get_customers_list()) == 'array');
     }
+
+    // US 7.6: add pallet to database (dataProvider for testAddPallet)
+    public function addPalletDP() {
+       return array(
+           array(999,50000, 10000, "Success"),
+           array(999, 20000, 30000, "Out of range value for column 'net' at row 1"),
+           array(900, 40000, 20000, "Cannot add or update a child row: a foreign key constraint fails (`HandSMetals`.`Pallets`, CONSTRAINT `lotnum_fk` FOREIGN KEY (`lotnum`) REFERENCES `Lots` (`lotnum`) ON DELETE CASCADE ON UPDATE CASCADE)")
+       );
+    }
+    /**
+    * @dataProvider addPalletDP
+    */
+    // US 7.6: tests add pallet to database for correct feedback
+    public function testAddPallet($lotnum, $gross, $tare, $expected) {
+        $this->assertSame(addPallet($lotnum, $gross, $tare), $expected);
+    }
+
     /**
     * @depends testAddLot
     */
