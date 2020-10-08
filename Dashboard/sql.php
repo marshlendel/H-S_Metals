@@ -215,6 +215,32 @@
         return $result;
     }
 
+    function get_num_pallets() {
+        $servername = "localhost";
+        $username = "mwithers";
+        $password = "2270410";
+        $database = "HandSMetals";
+
+        $conn = mysqli_connect($servername, $username, $password, $database);
+
+        // prepare and bind
+        $stmt = $conn->prepare("SELECT lotnum, MAX(palletnum) AS palletnum FROM Pallets GROUP BY lotnum");
+
+        $stmt->execute();
+
+        $res = $stmt->get_result();
+
+        $stmt->close();
+
+        $conn->close();
+
+        $rows = array();
+        while($row = $res->fetch_assoc()) {
+            $rows[(int)$row['lotnum']] = (int)$row['palletnum'];
+        }
+        return $rows;
+    }
+
     // US 7.2: get list of customers from db
     function get_customers_list() {
         $servername = "localhost";

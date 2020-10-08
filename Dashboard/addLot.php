@@ -17,9 +17,16 @@
         <meta charset="UTF-8">
         <title>Add Lot</title>
     	<link href="styles2.css" rel="stylesheet">
+        <style media="screen">
+            .printable { display:none; }
+        </style>
+        <style media="print">
+            .non-printable { display:none; }
+            .printable { display:block; }
+        </style>
     </head>
     <body>
-        <nav class="navBar">
+        <nav class="navBar non-printable">
             <a href="main.php" id="logo"></a>
             <a href="addLot.php" id="highlight">Add Lot</a>
             <a href="history.php">Lot History</a>
@@ -28,7 +35,7 @@
             <a href="accounts.html">Accounts</a>
             <a href="../LoginPage/login.html">Logout</a>
         </nav>
-    	<section>
+    	<section class="non-printable">
     		<form id="navForm" method="post">
                 <?php
                 // US 7.6: checks if fields have been filled on page load/form submit
@@ -97,14 +104,16 @@
         			<label for="tare">Tare:</label>
         			<input type="number" name="tare" required><br>
 
+                    <button type="button" id="printBtn" disabled>Print</input>
         			<button type="submit" id="submit" disabled>New Pallet</button>
         		</div>
     		</form>
     	</section>
         <br>
-    	<div id="tableDiv">
-
+    	<div id="tableDiv" class="non-printable">
         </div>
+        <p id="toPrint" class="printable">
+        </p>
     </body>
     <script type="module" defer>
         // imports functions to create the table and list of customers
@@ -116,6 +125,7 @@
 
         // US 7.6: checks that user input is valid
         function checkInputs() {
+           var printBtn = document.getElementById("printBtn");
            var submitBtn = document.getElementById("submit");
            var lotInput = document.getElementsByName("lotnum")[0];
            var custInput = document.getElementsByName("cust")[0];
@@ -133,9 +143,11 @@
            // Checks that user input for lot number is greater than 0, Gross is greater than 0,
            //       and Gross is greater than Tare
            if (validCust && parseFloat(lotInput.value) > 0 && parseFloat(grossInput.value) > 0 && parseFloat(grossInput.value) > parseFloat(tareInput.value)) {
+               printBtn.disabled = false;
                submitBtn.disabled = false;
            }
            else {
+               printBtn.disabled = true;
                submitBtn.disabled = true;
            }
         }
@@ -182,5 +194,32 @@
         <?php
         }
         ?>
+        var maxPallets = <?php echo json_encode(get_num_pallets()); ?>;
+        function printPallet() {
+            console.log("Printing");
+            let printP = document.getElementById("toPrint");
+            let custName = document.getElementsByName("cust")[0].value;
+            let lotNum = document.getElementsByName("lotnum")[0].value;
+            // let pallets = document.getElementsByClassName('print');
+            let gross = document.getElementsByName("gross")[0].value;
+            let tare = document.getElementsByName("tare")[0].value;
+            let palletNum = maxPallets.hasOwnProperty(lotNum) ? maxPallets[lotNum]+1 : 1;
+
+            console.log(gross);
+            console.log(tare);
+            console.log(gross-tare);
+            console.log(palletNum);
+            printP.innerHTML = "<label>Customer "+custName+
+                    "</label><br><label>Lot# "+lotNum.toString()+
+                    "</label><br><label>Gross "+gross.toString()+
+                    "</label><br><label>Tare "+tare.toString()+
+                    "</label><br><label>Net "+(gross-tare).toString()+
+                    "</label><br><label>Pallet# "+(palletNum).toString()+"</label>";
+            window.print();
+        }
+        var printBtn = document.getElementById("printBtn");
+        printBtn.addEventListener('click', function() {
+            printPallet();
+        }, false);
    </script>
 </html>
