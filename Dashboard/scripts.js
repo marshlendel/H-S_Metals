@@ -136,7 +136,12 @@ export function updateTable(tableId, headers, rows) {
     let head;
     for (let rowNum = 0; rowNum < rows.length; ++rowNum) {
         row = body.insertRow(rowNum);
-        for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
+		let checkbox = document.createElement('input');
+		checkbox.setAttribute('type', 'checkbox');
+		checkbox.setAttribute('id', rowNum);
+		cell = row.insertCell(0);
+		cell.appendChild(checkbox);
+        for (let cellNum = 1; cellNum < headers.length; ++cellNum) {
             cell = row.insertCell(cellNum);
             head = headers[cellNum]
             cell.innerHTML = rows[rowNum][head];
