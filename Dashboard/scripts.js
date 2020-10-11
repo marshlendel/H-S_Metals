@@ -90,6 +90,10 @@ export function createHeaders(tableId, headers, rows) {
     let row = header.insertRow(0);
     let cell;
     let label;
+	let checkbox = document.createElement('input');
+	checkbox.setAttribute('type', 'checkbox');
+	checkbox.setAttribute('id', 'selectAll');
+	row.appendChild(checkbox);
     // Creates header labels
     for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
         // console.log(cellNum);
