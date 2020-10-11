@@ -112,6 +112,11 @@
         <br>
     	<div id="tableDiv" class="non-printable">
         </div>
+        <?php
+        if(isset($_POST['lotnum'])) {
+            echo "<label>Total: ".getLotNet($_POST['lotnum'])."</label>";
+        }
+        ?>
         <p id="toPrint" class="printable">
         </p>
     </body>

@@ -189,6 +189,34 @@
         return $res;
     }
 
+    // US 8.???:
+    function getLotNet ($lotnum) {
+        $servername = "localhost";
+        $username = "mwithers";
+        $password = "2270410";
+        $dbname = "HandSMetals";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // prepare and bind
+        $stmt = $conn->prepare("SELECT net FROM Lots WHERE lotnum = ?");
+        $stmt->bind_param("i", $lotnumsql);
+
+        $lotnumsql = (int) $lotnum;
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $stmt->close();
+
+        $conn->close();
+
+        $row = $result->fetch_assoc();
+
+        return $row["net"];
+    }
+
     // US 7.6: connect to db and return data in pallets table
     function get_pallets ($lotnum) {
         $servername = "localhost";
