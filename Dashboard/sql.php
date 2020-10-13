@@ -189,7 +189,7 @@
         return $res;
     }
 
-    // US 8.???:
+    // US 8.4:
     function getLotNet ($lotnum) {
         $servername = "localhost";
         $username = "mwithers";
