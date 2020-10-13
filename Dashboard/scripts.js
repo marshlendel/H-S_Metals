@@ -88,12 +88,13 @@ export function createHeaders(tableId, headers, rows) {
     header.setAttribute('id', 'tHead');
     header.setAttribute('for', -1);
     let row = header.insertRow(0);
-    let cell;
+    let cell = document.createElement('TH');
     let label;
 	let checkbox = document.createElement('input');
 	checkbox.setAttribute('type', 'checkbox');
 	checkbox.setAttribute('id', 'selectAll');
-	row.appendChild(checkbox);
+	cell.appendChild(checkbox);
+	row.appendChild(cell);
     // Creates header labels
     for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
         // console.log(cellNum);
@@ -145,8 +146,8 @@ export function updateTable(tableId, headers, rows) {
 		checkbox.setAttribute('id', rowNum);
 		cell = row.insertCell(0);
 		cell.appendChild(checkbox);
-        for (let cellNum = 1; cellNum < headers.length; ++cellNum) {
-            cell = row.insertCell(cellNum);
+        for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
+            cell = row.insertCell(cellNum+1);
             head = headers[cellNum]
             cell.innerHTML = rows[rowNum][head];
         }
