@@ -7,36 +7,82 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 ************************************************************************** */
-
-body {font-family: Arial, Helvetica, sans-serif;
-background-image: url("../images/miniLogo.png");
-background-repeat: no-repeat;
-background-position: 50% -50%;
+html{
+	height: 100%;
 }
-/* Background */
+
+body {
+	margin:0;
+	height:100%;
+	font-family: Arial, Helvetica, sans-serif;
+	width"100%;
+
+}
+
+h1 {
+	font-size: 2.5em;
+	font-family: 'Ramabhadra', sans-serif;
+}
+
+input {
+	padding:7px;
+	margin:7px;
+	width: 50%;
+	border-radius: 10px;
+	background-color: #ececec;
+	border:none;
+}
+
+input:focus{
+	border:none;
+	border-radius: 10px;
+}
+
+
+button {
+	padding:5px;
+	margin-top:20px;
+	width:25%;
+	background-color: black;
+	color:white;
+}
+
+section{
+  display:flex;
+  align-items:center;
+  flex-direction: column;
+  position:relative;
+  top:110px;
+}
+
+form {
+  align-items: center;
+  background-color: white;
+  width: 40%;
+  height:100%;
+}
+
+
+main {
+	display:flex;
+	height:100%;
+	
+  background-color: rgba(0,0,0,0.2); /* Black w/ opacity */
+}
+
+
 .container {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
+  width: 60%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+   background-image: url("../images/logo.png");
+ background-repeat: no-repeat;
+ background-position: center;
+ z-index:-1;
+ 
+
 }
 
-/* Login Box */
-.container-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 55%;
-}
 
-/* Highlight Button On Hover */
 .container button:hover {
 	background-color: yellow;
 }

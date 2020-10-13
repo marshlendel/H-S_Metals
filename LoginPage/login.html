@@ -15,19 +15,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
         <!-- Link to CSS stylesheet -->
         <link rel="stylesheet", href="styles.css">
+		<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
     </head>
     <body>
-        <!-- :ogin Form -->
-        <form action="../Dashboard/main.php">
-            <div class="container">
-                <div class="container-content">
+        <!-- :login Form -->
+	<main>
+		<div class="container">
+		
+		</div>
+		<form action="../Dashboard/main.php">
+           
                     <!-- Username Field -->
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="username" required>
-
+				
+                 <section>
+				 <h1>Login</h1>
+                    <input type="text" placeholder="Username" name="username" required>
                     <!-- Password Field -->
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
+                    <input type="password" placeholder="Password" name="password" required>
 
                     <!-- On Submit Opens main.php -->
 					<button onclick="successMessage()">Login</button>
@@ -38,8 +42,8 @@
 					  alert("Login Successful!");		// Fulfills user story 3.3
 					}
 					</script>
-                </div>
-            </div>
+				</section>	
         </form>
+	</main>
     </body>
 </html>
