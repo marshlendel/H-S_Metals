@@ -19,6 +19,15 @@
     	<link href="styles2.css" rel="stylesheet">
         <style media="screen">
             .printable { display:none; }
+            #tableParent {
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+            }
+            #totalNet {
+                align-self: flex-end;
+                margin-right: 10%;
+            }
         </style>
         <style media="print">
             .non-printable { display:none; }
@@ -115,7 +124,7 @@
             </div>
             <?php
             if(isset($_POST['lotnum'])) {
-                echo "<label>Total: ".getLotNet($_POST['lotnum'])."</label>";
+                echo "<label id=\"totalNet\">Total Net: ".getLotNet($_POST['lotnum'])."</label>";
             }
             ?>
         </div>
@@ -129,6 +138,16 @@
         // US 7.2: obtain list of customers from db
         var custList = <?php echo json_encode(get_customers_list()); ?>;
         Script.custAdd("custList", custList);
+
+        // US 7.2: obtains dictionary of lot : customer values
+        var lotsList = <?php echo json_encode(getLotsCustomerList()); ?>;
+
+        function checkLot(lotnum) {
+            if (lotsList[lotnum] != undefined) {
+                return true;
+            }
+            return false;
+        }
 
         // US 7.6: checks that user input is valid
         function checkInputs() {
@@ -173,10 +192,19 @@
            lotInput.setAttribute('readonly', 'readonly');
         }
         else {
+            lotInput.addEventListener('focusout', function() {
+                if (checkLot(lotInput.value)) {
+                    custInput.value = lotsList[lotInput.value];
+                    custInput.setAttribute('readonly', 'readonly');
+                }
+                else {
+                    custInput.setAttribute('readonly', '');
+                }
+            }, false);
             lotInput.addEventListener('input', function() {
                 checkInputs();
             }, false);
-           custInput.addEventListener('input', function() {
+            custInput.addEventListener('input', function() {
                checkInputs();
            }, false);
         }
