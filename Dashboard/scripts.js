@@ -89,7 +89,7 @@ export function createHeaders(tableId, headers, rows) {
     header.setAttribute('for', -1);
     let row = header.insertRow(0);
     let cell = document.createElement('TH');
-    let label;
+    // Create checkbox for first column
 	let checkbox = document.createElement('input');
 	checkbox.setAttribute('type', 'checkbox');
 	checkbox.setAttribute('id', 'selectAll');
@@ -99,7 +99,7 @@ export function createHeaders(tableId, headers, rows) {
     for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
         // console.log(cellNum);
         cell = document.createElement('TH');
-        label = headers[cellNum];
+        let label = headers[cellNum];
         cell.setAttribute('id', label);
         cell.setAttribute('for', cellNum);
         switch(label) {
@@ -136,19 +136,16 @@ export function updateTable(tableId, headers, rows) {
         body.deleteRow(0);
     }
     console.log("Rows deleted: " + nRows.toString());
-    let row;
-    let cell;
-    let head;
     for (let rowNum = 0; rowNum < rows.length; ++rowNum) {
-        row = body.insertRow(rowNum);
+        let row = body.insertRow(rowNum);
 		let checkbox = document.createElement('input');
 		checkbox.setAttribute('type', 'checkbox');
 		checkbox.setAttribute('id', rowNum);
-		cell = row.insertCell(0);
+		let cell = row.insertCell(0);
 		cell.appendChild(checkbox);
         for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
             cell = row.insertCell(cellNum+1);
-            head = headers[cellNum]
+            let head = headers[cellNum]
             cell.innerHTML = rows[rowNum][head];
         }
     }

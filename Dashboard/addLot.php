@@ -17,6 +17,8 @@
         <meta charset="UTF-8">
         <title>Add Lot</title>
     	<link href="styles2.css" rel="stylesheet">
+
+        <!-- Styling for normal display -->
         <style media="screen">
             .printable { display:none; }
             #tableParent {
@@ -29,6 +31,7 @@
                 margin-right: 10%;
             }
         </style>
+        <!-- US 8.3: Styling for printing. Only elements with "printable" classes are visible -->
         <style media="print">
             .non-printable { display:none; }
             .printable { display:block; }
@@ -122,6 +125,7 @@
         <div id="tableParent" class="non-printable">
         	<div id="tableDiv">
             </div>
+            <!-- US 8.4: Creates Total Net label and fetches lot net from DB -->
             <?php
             if(isset($_POST['lotnum'])) {
                 echo "<label id=\"totalNet\">Total Net: ".getLotNet($_POST['lotnum'])."</label>";
@@ -229,7 +233,10 @@
         <?php
         }
         ?>
+        // US 8.3: gets number of pallets from DB
         var maxPallets = <?php echo json_encode(get_num_pallets()); ?>;
+
+        // US 8.3: alters HTML for when a pallet is printed
         function printPallet() {
             console.log("Printing");
             let printP = document.getElementById("toPrint");
@@ -252,6 +259,8 @@
                     "</label><br><label>Pallet# "+(palletNum).toString()+"</label>";
             window.print();
         }
+
+        // US 8.3: sets click listener for Print button. Calls printPallet when clicked
         var printBtn = document.getElementById("printBtn");
         printBtn.addEventListener('click', function() {
             printPallet();

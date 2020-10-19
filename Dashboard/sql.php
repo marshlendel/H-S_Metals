@@ -220,7 +220,7 @@ function get_lots () {
     return $res;
 }
 
-// US 8.4:
+// US 8.4: Returns "net" value from DB of the associated lot "lotnum"
 function getLotNet ($lotnum) {
     $servername = "localhost";
     $username = "mwithers";
@@ -274,6 +274,7 @@ function get_pallets ($lotnum) {
     return $result;
 }
 
+// US 8.3: Retruns an array of key:value pairs in the format lotnum:number of pallets
 function get_num_pallets() {
     $servername = "localhost";
     $username = "mwithers";

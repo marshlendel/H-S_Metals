@@ -1,3 +1,10 @@
+<!-- * Copyright 2020 Marshall Brown, Josiah Schmidt, Micah Withers
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+* See the License for the specific language governing permissions and
+* limitations under the License. -->
 <?php
 use PHPUnit\Framework\TestCase;
 require 'sql.php';
@@ -74,7 +81,7 @@ class SQLTest extends TestCase
         $this->assertTrue(gettype(get_customers_list()) == 'array');
     }
 
-    // US 7.6: add pallet to database (dataProvider for testAddPallet)
+    // US 7.6: add pallet to database (dataProvider for testAddPallet and testGetLotNet)
     public function addPalletDP() {
        return array(
            array(999,50000, 10000, "Success"),
@@ -82,12 +89,37 @@ class SQLTest extends TestCase
            array(900, 40000, 20000, "Cannot add or update a child row: a foreign key constraint fails (`HandSMetals`.`Pallets`, CONSTRAINT `lotnum_fk` FOREIGN KEY (`lotnum`) REFERENCES `Lots` (`lotnum`) ON DELETE CASCADE ON UPDATE CASCADE)")
        );
     }
+
     /**
     * @dataProvider addPalletDP
     */
     // US 7.6: tests add pallet to database for correct feedback
     public function testAddPallet($lotnum, $gross, $tare, $expected) {
         $this->assertSame(addPallet($lotnum, $gross, $tare), $expected);
+    }
+
+    /**
+    * @depends testAddPallet
+    * @dataProvider addPalletDP
+    */
+    // US 8.4: tests getLotNet
+    public function testGetLotNet($lotnum, $gross, $tare, $expected) {
+        if ($expected == "Success") {
+            $this->assertSame((int)getLotNet($lotnum), $gross - $tare);
+        }
+        else {
+            $this->assertTrue(true);
+        }
+    }
+
+    /**
+    * @depends testAddPallet
+    */
+    // US 8.3: tests get_num_pallets
+    public function testGetNumPallets() {
+        $this->assertSame(get_num_pallets()[999], 1);
+        addPallet(999, 10000, 5000);
+        $this->assertSame(get_num_pallets()[999], 2);
     }
 
     /**
