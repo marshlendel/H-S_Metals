@@ -10,12 +10,10 @@
 <?php
 
     function search ($input) {      //  Takes user input and inserts in sql query
-        $servername = "localhost";  //      and returns the result
-        $username = "mwithers";
-        $password = "2270410";
-        $database = "HandSMetals";
+                                    //      and returns the result
+        require 'dbConnect.php';
 
-        $conn = mysqli_connect($servername, $username, $password, $database);
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
 
         // prepare and bind
         if (is_numeric($input)) {
