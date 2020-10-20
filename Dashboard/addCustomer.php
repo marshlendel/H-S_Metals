@@ -10,10 +10,7 @@
 <?php
     //  User Story 4.4.2
     function addCustomer ($company, $contact, $phone, $email) {      //  Takes user input and inserts in sql query
-        $servername = "localhost";
-        $username = "mwithers";
-        $password = "2270410";
-        $dbname = "HandSMetals";
+        require 'dbConnect.php';
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
