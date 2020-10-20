@@ -12,7 +12,7 @@
     function get_customers () {
         require 'dbConnect.php';
 
-        $conn = mysqli_connect($servername, $username, $password, $database);
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
 
         $stmt = $conn->prepare("SELECT * FROM Customers");
 
