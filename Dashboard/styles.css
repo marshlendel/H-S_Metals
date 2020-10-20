@@ -25,10 +25,10 @@ h1{
 
 
  a {
-	 display:block;	
+	 display:block;
 	 text-align:center;
 	 text-transform: uppercase;
-	 background-color: #dddddd;	
+	 background-color: #dddddd;
 	 text-decoration: none;
 	 flex-grow: 1;
 	 padding:15px;
@@ -54,20 +54,20 @@ th, td {
 	border: 1px solid #dddddd;
 	padding: 8px;
 }
-			
-           
-			
+
+
+
 label {
 	font-weight: bold;
 }
-			
-	
+
+
 
 #myBtn {
 	display:block;
 	position: relative;
 	left: 10px;
-}	
+}
 
 #logo {
 	background-image: url("../images/HSlogo.png");
@@ -139,7 +139,7 @@ label {
   background-color: gray
 }
 
-			
+
 .modal-content {
 	width: 350px;
 }
@@ -169,10 +169,14 @@ a:hover{
 }
 
 
- tr:nth-child(even) {
+ tr:nth-child(odd) {
 	background-color: #dddddd;
 }
 
-tr:nth-child(odd) {
+tr:nth-child(even) {
 	background-color: #white;
 	}
+
+th {
+    background: white;
+}
