@@ -8,6 +8,7 @@
 * limitations under the License.
 ************************************************************************** -->
 <?php
+    require 'search.php';
 	require 'sql.php';
 ?>
 <!DOCTYPE html>

@@ -9,35 +9,35 @@
 ************************************************************************** -->
 <?php
 
-function search ($input) {      //  Takes user input and inserts in sql query
-    $servername = "localhost";  //      and returns the result
-    $username = "mwithers";
-    $password = "2270410";
-    $database = "HandSMetals";
-
-    $conn = mysqli_connect($servername, $username, $password, $database);
-
-    // prepare and bind
-    if (is_numeric($input)) {
-        $stmt = $conn->prepare("SELECT * FROM Lots WHERE lotnum = ?");
-        $stmt->bind_param("i", $search);
-        $search = (int)$input;
-    } else {
-        $stmt = $conn->prepare("SELECT * FROM Lots WHERE customer LIKE ?");
-        $stmt->bind_param("s", $search);
-        $search = '%' . $input . '%';
-    }
-
-    $stmt->execute();
-
-    $res = $stmt->get_result();
-
-    $stmt->close();
-
-    $conn->close();
-
-    return $res;
-}
+// function search ($input) {      //  Takes user input and inserts in sql query
+//     $servername = "localhost";  //      and returns the result
+//     $username = "mwithers";
+//     $password = "2270410";
+//     $database = "HandSMetals";
+//
+//     $conn = mysqli_connect($servername, $username, $password, $database);
+//
+//     // prepare and bind
+//     if (is_numeric($input)) {
+//         $stmt = $conn->prepare("SELECT * FROM Lots WHERE lotnum = ?");
+//         $stmt->bind_param("i", $search);
+//         $search = (int)$input;
+//     } else {
+//         $stmt = $conn->prepare("SELECT * FROM Lots WHERE customer LIKE ?");
+//         $stmt->bind_param("s", $search);
+//         $search = '%' . $input . '%';
+//     }
+//
+//     $stmt->execute();
+//
+//     $res = $stmt->get_result();
+//
+//     $stmt->close();
+//
+//     $conn->close();
+//
+//     return $res;
+// }
 
 function removeLot ($lotnum) {
     $servername = "localhost";

@@ -2164,7 +2164,7 @@
           "regex": false
         },
         {
-          "type": "VALUE_ASSERT",
+          "type": "EL_PRESENT_ASSERT",
           "selector": "[name=lotnum]",
           "selectorType": "CSS",
           "nodeName": null,
@@ -2173,9 +2173,7 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rknPo0OUP",
-          "value": "33",
-          "regex": false
+          "id": "rknPo0OUP"
         },
         {
           "type": "TEXT_ASSERT",
@@ -2275,6 +2273,173 @@
       "variables": [
         {
           "id": "rkxzviROID",
+          "name": "baseUrl",
+          "defaultValue": "https://levi.cis.indwes.edu",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "8.1-8.3",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "r1ZXuhhsPv",
+          "value": "/~mwithers/Dashboard/main.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "H1Xdhhoww",
+          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
+          "width": 768,
+          "height": 719,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "#selectAll",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SJ5_n3iPD"
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HywVTnoDP",
+          "value": "${baseUrl}/~mwithers/Dashboard/addLot.php",
+          "width": 500,
+          "height": 500,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "[name=cust]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJjshhjvP",
+          "textContent": null,
+          "textAsserted": false,
+          "x": 314,
+          "y": 103
+        },
+        {
+          "type": "INPUT",
+          "selector": "[name=cust]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "BJl0i33ovw",
+          "value": "IWUCool",
+          "inputType": "search",
+          "isContentEditable": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "[name=gross]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ryeh23svP",
+          "textContent": null,
+          "textAsserted": false,
+          "x": 537,
+          "y": 103
+        },
+        {
+          "type": "INPUT",
+          "selector": "[name=gross]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJlZhn2ovw",
+          "value": "4567",
+          "inputType": "number",
+          "isContentEditable": false
+        },
+        {
+          "type": "INPUT",
+          "selector": "[name=tare]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rkW7n2njDP",
+          "value": "345",
+          "inputType": "number",
+          "isContentEditable": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "#printBtn",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "H1O222sPv",
+          "value": "Print",
+          "regex": false
+        }
+      ],
+      "id": "SJhjo3ivD",
+      "type": "test",
+      "variables": [
+        {
+          "id": "HyeQOnnoPv",
           "name": "baseUrl",
           "defaultValue": "https://levi.cis.indwes.edu",
           "type": "STRING_VAR"
@@ -2402,6 +2567,20 @@
                   "testId": "SJ-rjR_Uv",
                   "leaf": true,
                   "id": "ByWHjAOUv",
+                  "type": "test"
+                }
+              ]
+            },
+            {
+              "collapsed": false,
+              "module": "DevCyc8 Tests",
+              "id": "S1YqonivD",
+              "children": [
+                {
+                  "module": "Unnamed test",
+                  "testId": "SJhjo3ivD",
+                  "leaf": true,
+                  "id": "rynjinovP",
                   "type": "test"
                 }
               ]
