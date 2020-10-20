@@ -17,8 +17,9 @@
         <meta charset="UTF-8">
         <title>Add Lot</title>
     	<link href="styles2.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
 
-        <!-- Styling for normal display -->
+		<!-- Styling for normal display -->
         <style media="screen">
             .printable { display:none; }
             #tableParent {
@@ -47,6 +48,9 @@
             <a href="accounts.html">Accounts</a>
             <a href="../LoginPage/login.html">Logout</a>
         </nav>
+		
+		<h1 class="non-printable">Add Lot</h1>
+		
     	<section class="non-printable">
     		<form id="navForm" method="post">
                 <?php
