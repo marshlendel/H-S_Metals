@@ -16,6 +16,7 @@
 	<head>
 		<title>Lot History</title>
 		 <link rel="stylesheet", href="styles.css">
+		 <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
 	</head>
 	<body>
     	<nav class="navBar">
@@ -27,13 +28,14 @@
         	<a href="accounts.html">Accounts</a>
             <a href="../LoginPage/login.html">Logout</a>
 		</nav>
+		
+		<h1>Lot History</h1>
             <!-- Search bar -->
             <form action="" method="post">
                 Search:  <input type="text" name="user_input" />
                 <button type="submit">Submit</button>
             </form>
 
-		<h1>Lot History</h1>
 		<div id="tableDiv" class="">
 
         </div>
