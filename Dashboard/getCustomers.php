@@ -10,10 +10,7 @@
 <?php
     //  Code to connect to db and return data in Customers table (User Story 4.3)
     function get_customers () {
-        $servername = "localhost";
-        $username = "mwithers";
-        $password = "2270410";
-        $database = "HandSMetals";
+        require 'dbConnect.php';
 
         $conn = mysqli_connect($servername, $username, $password, $database);
 
