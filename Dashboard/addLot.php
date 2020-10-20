@@ -48,9 +48,9 @@
             <a href="accounts.html">Accounts</a>
             <a href="../LoginPage/login.html">Logout</a>
         </nav>
-		
+
 		<h1 class="non-printable">Add Lot</h1>
-		
+
     	<section class="non-printable">
     		<form id="navForm" method="post">
                 <?php
@@ -206,7 +206,7 @@
                     custInput.setAttribute('readonly', 'readonly');
                 }
                 else {
-                    custInput.setAttribute('readonly', '');
+                    custInput.removeAttribute('readonly');
                 }
             }, false);
             lotInput.addEventListener('input', function() {
