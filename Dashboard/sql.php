@@ -10,9 +10,9 @@
 <?php
 
 // function search ($input) {      //  Takes user input and inserts in sql query
-//     $servername = "localhost";  //      and returns the result
-//     $username = "mwithers";
-//     $password = "2270410";
+//       //      and returns the result
+//
+//
 //     $database = "HandSMetals";
 //
 //     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -40,10 +40,10 @@
 // }
 
 function removeLot ($lotnum) {
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
-    $dbname = "HandSMetals";
+
+    require 'dbConnect.php';
+
+
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -63,10 +63,10 @@ function removeLot ($lotnum) {
 }
 
 function removeCust($cust) {
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
-    $dbname = "HandSMetals";
+
+    require 'dbConnect.php';
+
+
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -86,10 +86,10 @@ function removeCust($cust) {
 }
 
 function addLot ($lotnum, $cust) {      //  Takes user input and inserts in sql query
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
-    $dbname = "HandSMetals";
+
+    require 'dbConnect.php';
+
+
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -116,10 +116,10 @@ function addLot ($lotnum, $cust) {      //  Takes user input and inserts in sql 
 
 // US 7.6: Add pallet to database
 function addPallet($lotnum, $gross, $tare) {
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
-    $dbname = "HandSMetals";
+
+
+    require 'dbConnect.php';
+
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -147,10 +147,10 @@ function addPallet($lotnum, $gross, $tare) {
 
 //  User Story 4.4.2
 function addCustomer ($company, $contact, $phone, $email) {      //  Takes user input and inserts in sql query
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
-    $dbname = "HandSMetals";
+
+
+    require 'dbConnect.php';
+
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -177,9 +177,9 @@ function addCustomer ($company, $contact, $phone, $email) {      //  Takes user 
 
 //  Code to connect to db and return data in Customers table (User Story 4.3)
 function get_customers () {
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
+
+    require 'dbConnect.php';
+
     $database = "HandSMetals";
 
     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -199,9 +199,9 @@ function get_customers () {
 
 //  Code to connect to db and return data in Lots table (User Story 3.2)
 function get_lots () {
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
+
+    require 'dbConnect.php';
+
     $database = "HandSMetals";
 
     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -222,10 +222,10 @@ function get_lots () {
 
 // US 8.4: Returns "net" value from DB of the associated lot "lotnum"
 function getLotNet ($lotnum) {
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
-    $dbname = "HandSMetals";
+
+
+    require 'dbConnect.php';
+
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -250,10 +250,10 @@ function getLotNet ($lotnum) {
 
 // US 7.6: connect to db and return data in pallets table
 function get_pallets ($lotnum) {
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
-    $dbname = "HandSMetals";
+
+    require 'dbConnect.php';
+
+
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -276,9 +276,9 @@ function get_pallets ($lotnum) {
 
 // US 8.3: Retruns an array of key:value pairs in the format lotnum:number of pallets
 function get_num_pallets() {
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
+
+    require 'dbConnect.php';
+
     $database = "HandSMetals";
 
     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -303,9 +303,9 @@ function get_num_pallets() {
 
 // US 7.2: get list of customers from db
 function get_customers_list() {
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
+
+    require 'dbConnect.php';
+
     $database = "HandSMetals";
 
     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -331,9 +331,9 @@ function get_customers_list() {
 }
 
 function get_lots_list() {
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
+
+    require 'dbConnect.php';
+
     $database = "HandSMetals";
 
     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -359,9 +359,9 @@ function get_lots_list() {
 }
 
 function getLotsCustomerList() {
-    $servername = "localhost";
-    $username = "mwithers";
-    $password = "2270410";
+
+    require 'dbConnect.php';
+
     $database = "HandSMetals";
 
     $conn = mysqli_connect($servername, $username, $password, $database);
