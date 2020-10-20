@@ -14,6 +14,12 @@ a {
 	 padding:15px;
 }
 
+h1 {
+	font-family: 'Ramabhadra', sans-serif;
+	text-align: center;
+	font-size: 2.5em;
+}
+
 label {
 	font-weight: bold;
 }
@@ -34,10 +40,17 @@ th, td {
 
 section {
 	background-color: gray;
+	margin: 0 auto;
+	width: 80%;
+	overflow-x: scroll;
 }
 
 form {
 	margin-top: 20px;
+}
+
+button {
+	margin: 0 5px;
 }
 
 #logo {
@@ -71,7 +84,7 @@ form {
 
 #lotBar{
 	margin-bottom: 10px;
-    margin-left: 62px;
+    margin-left: 66px;
     margin-right: auto;
 }
 
@@ -85,7 +98,7 @@ form {
 
 #navForm{
 	
-	width: 850px;
+	width: 915px;
 	margin: 0 auto;
 	padding:8px;
 	
