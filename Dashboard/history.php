@@ -16,6 +16,7 @@
 	<head>
 		<title>Lot History</title>
 		 <link rel="stylesheet", href="styles.css">
+		 <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
 	</head>
 	<body>
     	<nav class="navBar">
