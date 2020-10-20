@@ -11,11 +11,12 @@
     require 'getCustomers.php';
     require 'addCustomer.php';
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 	<head>
 		<title>Customers</title>
 		 <link rel="stylesheet", href="styles.css">
+		  <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
 	</head>
 	<body>
 	<nav class="navBar">
@@ -69,18 +70,18 @@
             <!-- form for User Story 4.4.1 -->
             <form class="" action="" method="post">
                 <label for="company"><b>Company</b></label>
-                <input type="text" name="company" required>
+                <input type="text" name="company" class="customerInput" required><br>
 
-                <label for="contact"><b>Contact</b></label>
-                <input type="text" name="contact" required>
+                <label for="contact"><b id="contact">Contact</b></label>
+                <input type="text" name="contact" class="customerInput" required><br>
 
-                <label for="phone"><b>Phone</b></label>
-                <input type="number" name="phone" required>
+                <label for="phone"><b id="phone">Phone</b></label>
+                <input type="number" name="phone" class="customerInput" required><br>
 
-    		    <label for="email"><b>E-mail</b></label>
-                <input type="text" name="email" required>
+    		    <label for="email"><b id="email">E-mail</b></label>
+                <input type="text" name="email" class="customerInput" required><br>
 
-                <button type="submit" class="btn">Submit</button>
+                <button type="submit" class="custBtn">Submit</button>
             </form>
 
             <!-- Action for submit of form to add customer (User Story 4.4.2)-->

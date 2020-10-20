@@ -20,6 +20,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
         <!-- Link to CSS stylesheet -->
         <link rel="stylesheet", href="styles.css">
+		<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -48,7 +49,7 @@
             </script>
 		</main>
 
-		<h1>Home</h1>
+		<h1 id="home">Home</h1>
         <!-- US 5.3: JavaScript array to contain table values from db -->
         <div id="tableDiv" class="">
 

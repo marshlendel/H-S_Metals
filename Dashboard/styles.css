@@ -50,6 +50,7 @@ form {
 	margin-top: 20px;
 }
 
+
 th, td {
 	border: 1px solid #dddddd;
 	padding: 8px;
@@ -61,12 +62,40 @@ label {
 	font-weight: bold;
 }
 
+.customerInput{
+	position: relative;
+	left: 10%;
+	margin: 5px 0
+}
 
+#addCust p {
+	text-align: center;
+    margin-left: 55px;
+}
 
 #myBtn {
 	display:block;
 	position: relative;
-	left: 10px;
+	left: 10%;
+	background-color: black;
+    color: white;
+}
+
+#home {
+	margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+#contact {
+	margin-right: 12px;
+}
+
+#phone {
+	 margin-right: 21px;
+}
+
+#email {
+	 margin-right: 22px;
 }
 
 #logo {
@@ -79,6 +108,14 @@ label {
 	border-radius: 50px;
 }
 
+.custBtn {
+	margin: 5px;
+    position: relative;
+    left: 47%;
+	padding: 5px;
+    background-color: black;
+    color: white;
+}
 
 .navBar {
 	width:100%;
