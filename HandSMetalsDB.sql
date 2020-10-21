@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 20, 2020 at 11:08 AM
+-- Generation Time: Oct 20, 2020 at 06:01 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `handsmetals`
 --
-CREATE DATABASE IF NOT EXISTS `handsmetals` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `handsmetals`;
 
 -- --------------------------------------------------------
 
@@ -56,7 +54,7 @@ INSERT INTO `customers` (`company`, `contact`, `phone`, `email`) VALUES
 DROP TABLE IF EXISTS `lots`;
 CREATE TABLE IF NOT EXISTS `lots` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `lotnum` int(5) UNSIGNED NOT NULL,
+  `lotnum` int(10) UNSIGNED NOT NULL,
   `customer` varchar(20) NOT NULL,
   `gross` decimal(10,0) NOT NULL DEFAULT '0',
   `tare` decimal(10,0) NOT NULL DEFAULT '0',

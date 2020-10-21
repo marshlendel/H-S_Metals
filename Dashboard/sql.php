@@ -11,12 +11,8 @@
 
 // function search ($input) {      //  Takes user input and inserts in sql query
 //       //      and returns the result
-//
-//
 //     $database = "HandSMetals";
-//
-//     $conn = mysqli_connect($servername, $username, $password, $database);
-//
+//     $conn = new mysqli($servername, $username, $password, $database);
 //     // prepare and bind
 //     if (is_numeric($input)) {
 //         $stmt = $conn->prepare("SELECT * FROM Lots WHERE lotnum = ?");
@@ -27,86 +23,56 @@
 //         $stmt->bind_param("s", $search);
 //         $search = '%' . $input . '%';
 //     }
-//
 //     $stmt->execute();
-//
 //     $res = $stmt->get_result();
-//
 //     $stmt->close();
-//
 //     $conn->close();
-//
 //     return $res;
 // }
 
 function removeLot ($lotnum) {
 
     require 'dbConnect.php';
-
-
-
     $conn = new mysqli($servername, $username, $password, $dbname);
-
     // prepare and bind
     $stmt = $conn->prepare("DELETE FROM Lots WHERE lotnum = ?");
     $stmt->bind_param("i", $lotnumsql);
-
     $lotnumsql = (int) $lotnum;
-
     $result = $stmt->execute();
-
     $stmt->close();
-
     $conn->close();
-
     return $result;
 }
 
 function removeCust($cust) {
 
     require 'dbConnect.php';
-
-
-
     $conn = new mysqli($servername, $username, $password, $dbname);
-
     // prepare and bind
     $stmt = $conn->prepare("DELETE FROM Customers WHERE company = ?");
     $stmt->bind_param("s", $custsql);
-
     $custsql = "".$cust."";
-
     $result = $stmt->execute();
-
     $stmt->close();
-
     $conn->close();
-
     return $result;
 }
 
 function addLot ($lotnum, $cust) {      //  Takes user input and inserts in sql query
 
     require 'dbConnect.php';
-
-
-
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
-
     // prepare and bind
     $stmt = $conn->prepare("INSERT INTO Lots (lotnum, customer) VALUES (?, ?)");
     $stmt->bind_param("is", $lotnumsql, $custsql);
-
     // set parameters and execute
     $lotnumsql = (int)$lotnum;
     $custsql = "".$cust."";
     $result = $stmt->execute();
     $error = $stmt->error;
-
     $stmt->close();
     $conn->close();
-
     // US 6.3: Returns success statement or description of the error
     if (!$result) {
         return $error;
@@ -117,27 +83,20 @@ function addLot ($lotnum, $cust) {      //  Takes user input and inserts in sql 
 // US 7.6: Add pallet to database
 function addPallet($lotnum, $gross, $tare) {
 
-
     require 'dbConnect.php';
-
-
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
-
     // prepare and bind
     $stmt = $conn->prepare("INSERT INTO Pallets (lotnum, gross, tare) VALUES (?, ?, ?)");
     $stmt->bind_param("idd", $lotnumsql, $grosssql, $taresql);
-
     // set parameters and execute
     $lotnumsql = (int)$lotnum;
     $grosssql = (double)$gross;
     $taresql = (double)$tare;
     $result = $stmt->execute();
     $error = $stmt->error;
-
     $stmt->close();
     $conn->close();
-
     // Returns success statement or description of the error
     if (!$result) {
         return $error;
@@ -148,17 +107,12 @@ function addPallet($lotnum, $gross, $tare) {
 //  User Story 4.4.2
 function addCustomer ($company, $contact, $phone, $email) {      //  Takes user input and inserts in sql query
 
-
     require 'dbConnect.php';
-
-
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
-
     // prepare and bind
     $stmt = $conn->prepare("INSERT INTO Customers (company, contact, phone, email) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssis", $companysql, $contactsql, $phonesql, $emailsql);
-
     // set parameters and execute
     $companysql = "".$company."";
     $contactsql = "".$contact."";
@@ -166,7 +120,6 @@ function addCustomer ($company, $contact, $phone, $email) {      //  Takes user 
     $emailsql = "".$email."";
     $result = $stmt->execute();
     $error = $stmt->error;
-
     $stmt->close();
     $conn->close();
     if (!$result) {
@@ -179,21 +132,13 @@ function addCustomer ($company, $contact, $phone, $email) {      //  Takes user 
 function get_customers () {
 
     require 'dbConnect.php';
-
     $database = "HandSMetals";
-
-    $conn = mysqli_connect($servername, $username, $password, $database);
-
+    $conn = new mysqli($servername, $username, $password, $database);
     $stmt = $conn->prepare("SELECT * FROM Customers");
-
     $stmt->execute();
-
     $res = $stmt->get_result();
-
     $stmt->close();
-
     $conn->close();
-
     return $res;
 }
 
@@ -201,50 +146,30 @@ function get_customers () {
 function get_lots () {
 
     require 'dbConnect.php';
-
-    $database = "HandSMetals";
-
-    $conn = mysqli_connect($servername, $username, $password, $database);
-
+    $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
     $stmt = $conn->prepare("SELECT * FROM Lots");
-
     $stmt->execute();
-
     $res = $stmt->get_result();
-
     $stmt->close();
-
     $conn->close();
-
     return $res;
 }
 
 // US 8.4: Returns "net" value from DB of the associated lot "lotnum"
 function getLotNet ($lotnum) {
 
-
     require 'dbConnect.php';
-
-
     $conn = new mysqli($servername, $username, $password, $dbname);
-
     // prepare and bind
     $stmt = $conn->prepare("SELECT net FROM Lots WHERE lotnum = ?");
     $stmt->bind_param("i", $lotnumsql);
-
     $lotnumsql = (int) $lotnum;
-
     $stmt->execute();
-
     $result = $stmt->get_result();
-
     $stmt->close();
-
     $conn->close();
-
     $row = $result->fetch_assoc();
-
     return $row["net"];
 }
 
@@ -252,25 +177,15 @@ function getLotNet ($lotnum) {
 function get_pallets ($lotnum) {
 
     require 'dbConnect.php';
-
-
-
     $conn = new mysqli($servername, $username, $password, $dbname);
-
     // prepare and bind
     $stmt = $conn->prepare("SELECT * FROM Pallets WHERE lotnum = ?");
     $stmt->bind_param("i", $lotnumsql);
-
     $lotnumsql = (int) $lotnum;
-
     $stmt->execute();
-
     $result = $stmt->get_result();
-
     $stmt->close();
-
     $conn->close();
-
     return $result;
 }
 
@@ -278,22 +193,14 @@ function get_pallets ($lotnum) {
 function get_num_pallets() {
 
     require 'dbConnect.php';
-
     $database = "HandSMetals";
-
-    $conn = mysqli_connect($servername, $username, $password, $database);
-
+    $conn = new mysqli($servername, $username, $password, $database);
     // prepare and bind
     $stmt = $conn->prepare("SELECT lotnum, MAX(palletnum) AS palletnum FROM Pallets GROUP BY lotnum");
-
     $stmt->execute();
-
     $res = $stmt->get_result();
-
     $stmt->close();
-
     $conn->close();
-
     $rows = array();
     while($row = $res->fetch_assoc()) {
         $rows[(int)$row['lotnum']] = (int)$row['palletnum'];
@@ -305,22 +212,14 @@ function get_num_pallets() {
 function get_customers_list() {
 
     require 'dbConnect.php';
-
     $database = "HandSMetals";
-
-    $conn = mysqli_connect($servername, $username, $password, $database);
-
+    $conn = new mysqli($servername, $username, $password, $database);
     // prepare and bind
     $stmt = $conn->prepare("SELECT company FROM Customers");
-
     $stmt->execute();
-
     $res = $stmt->get_result();
-
     $stmt->close();
-
     $conn->close();
-
     $rows = array();
     $rowInt = 0;
     while($row = $res->fetch_assoc()) {
@@ -333,22 +232,13 @@ function get_customers_list() {
 function get_lots_list() {
 
     require 'dbConnect.php';
-
-    $database = "HandSMetals";
-
-    $conn = mysqli_connect($servername, $username, $password, $database);
-
+    $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
     $stmt = $conn->prepare("SELECT lotnum FROM Lots");
-
     $stmt->execute();
-
     $res = $stmt->get_result();
-
     $stmt->close();
-
     $conn->close();
-
     $rows = array();
     $rowInt = 0;
     while($row = $res->fetch_assoc()) {
@@ -361,22 +251,13 @@ function get_lots_list() {
 function getLotsCustomerList() {
 
     require 'dbConnect.php';
-
-    $database = "HandSMetals";
-
-    $conn = mysqli_connect($servername, $username, $password, $database);
-
+    $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
     $stmt = $conn->prepare("SELECT lotnum, customer FROM Lots");
-
     $stmt->execute();
-
     $res = $stmt->get_result();
-
     $stmt->close();
-
     $conn->close();
-
     $lots = array();
     while($row = $res->fetch_assoc()) {
         $lots[(int)$row['lotnum']] = $row['customer'];
@@ -385,18 +266,13 @@ function getLotsCustomerList() {
 }
 
 function get_fields($result) {
-    // echo "Getting result...";
     $fieldsArray = array();
-    // echo "Created array";
     $finfo = $result->fetch_fields();
-    // echo "fetched results";
     $index = 0;
     foreach ($finfo as $field) {
         $fieldsArray[$index] = $field->name;
         ++$index;
     }
-    // echo "Fields array: ";
-    // echo $fieldsArray;
     return $fieldsArray;
 }
 
