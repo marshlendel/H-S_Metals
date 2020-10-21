@@ -16,6 +16,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Add Lot</title>
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     	<link href="styles2.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
 
@@ -35,7 +36,13 @@
         <!-- US 8.3: Styling for printing. Only elements with "printable" classes are visible -->
         <style media="print">
             .non-printable { display:none; }
-            .printable { display:block; }
+            .printable { display:block;}
+			
+			label {
+				font-size: 48px;
+				margin-right: 10px;
+			}
+			
         </style>
     </head>
     <body>
@@ -255,12 +262,12 @@
             console.log(tare);
             console.log(gross-tare);
             console.log(palletNum);
-            printP.innerHTML = "<label>Customer "+custName+
-                    "</label><br><label>Lot# "+lotNum.toString()+
-                    "</label><br><label>Gross "+gross.toString()+
-                    "</label><br><label>Tare "+tare.toString()+
-                    "</label><br><label>Net "+(gross-tare).toString()+
-                    "</label><br><label>Pallet# "+(palletNum).toString()+"</label>";
+            printP.innerHTML = "<label>Customer</label><label>"+custName+"</label>"+
+                    "<br><label>Lot#</label><label>"+lotNum.toString()+"</label>"+
+                    "<br><label>Gross</label><label>"+gross.toString()+"</label>"+
+                    "<br><label>Tare</label><label>"+tare.toString()+"</label>"+
+                    "<br><label>Net</label><label>"+(gross-tare).toString()+"</label>"+
+                    "<br><label>Pallet#</label><label>"+(palletNum).toString()+"</label>";
             window.print();
         }
 

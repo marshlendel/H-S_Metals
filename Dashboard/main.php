@@ -18,6 +18,8 @@
     <head>
         <!-- Overall page format -->
         <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+		<!-- Adjusts viewport to size of screen-->
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
         <!-- Link to CSS stylesheet -->
         <link rel="stylesheet", href="styles.css">
 		<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">

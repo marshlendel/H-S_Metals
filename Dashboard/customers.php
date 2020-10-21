@@ -16,7 +16,8 @@
 	<head>
 		<title>Customers</title>
 		 <link rel="stylesheet", href="styles.css">
-		  <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
+		 <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
+		 <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 	</head>
 	<body>
 	<nav class="navBar">
