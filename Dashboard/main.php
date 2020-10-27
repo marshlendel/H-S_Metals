@@ -45,7 +45,7 @@ require 'sql.php';
 		<h1 id="home">Home</h1>
         <!-- US 5.3: JavaScript array to contain table values from db -->
         <div id="lotTable" class="">
-			<div class="data"><a href="addLot.php"> 1 </a></div>
+			
         </div>
 
         <!-- Import JS functions -->
