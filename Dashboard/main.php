@@ -64,7 +64,7 @@ require 'sql.php';
                         ");
             ?>
             var rows = <?php echo json_encode(get_rows($lots)); ?>;
-            var fields = <?php echo json_encode(get_fields($lots)); ?>;
+            var fields = <a href="addLot.php"><?php echo json_encode(get_fields($lots))</a>?>;
             var headers = ["Lot", "Customer", "Gross", "Tare", "Net", "Status"];
             var tableId = "lotTable";
             Script.makeTable(tableId, fields, rows, headers, "lotnum");
