@@ -48,7 +48,7 @@ require 'sql.php';
 		<h1 id="home">Home</h1>
         <!-- US 5.3: JavaScript array to contain table values from db -->
         <div id="lotTable" class="">
-
+			
         </div>
 
         <!-- Import JS functions -->
@@ -67,7 +67,7 @@ require 'sql.php';
                         ");
             ?>
             var rows = <?php echo json_encode(get_rows($lots)); ?>;
-            var fields = <?php echo json_encode(get_fields($lots)); ?>;
+            var fields = <?php echo json_encode(get_fields($lots))?>;
             var headers = ["Lot", "Customer", "Gross", "Tare", "Net", "Status"];
             var tableId = "lotTable";
             Script.makeTable(tableId, fields, rows, headers, "lots", "lotnum");
