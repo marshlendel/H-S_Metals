@@ -27,15 +27,7 @@
          </style>
     </head>
 	<body>
-    	<nav class="navBar">
-			<a href="main.php" id="logo"></a>
-			<a href="addLot.php">Add Lot</a>
-            <a href="#" id="highlight">Lot History</a>
-            <a href="reports.html">Reports</a>
-            <a href="customers.php">Customers</a>
-        	<a href="accounts.html">Accounts</a>
-            <a href="../LoginPage/login.html">Logout</a>
-		</nav>
+    	<?php require 'navbar.php'; ?>
 
 		<h1>Lot History</h1>
             <!-- Search bar -->

@@ -34,18 +34,13 @@ require 'sql.php';
             display: flex;
             margin-left: 10%;
             margin-right: 10%;
+            height: 526.4px;
+            overflow: auto;
         }
     </style>
 
     <body>
-          <nav class="navBar">
-			<a href="addLot.php">Add Lot</a>
-            <a href="history.php">Lot History</a>
-            <a href="reports.html">Reports</a>
-            <a href="customers.php">Customers</a>
-            <a href="accounts.html">Accounts</a></li>
-            <a href="../LoginPage/login.html">Logout</a>
-           </nav>
+        <?php require 'navbar.php'; ?>
 
 		<h1 id="home">Home</h1>
         <!-- US 5.3: JavaScript array to contain table values from db -->

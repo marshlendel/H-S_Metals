@@ -11,7 +11,7 @@
     require 'getCustomers.php';
     require 'addCustomer.php';
 ?>
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Customers</title>
@@ -20,15 +20,7 @@
 		 <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 	</head>
 	<body>
-	<nav class="navBar">
-            <a href="main.php" id="logo"></a>
-            <a href="addLot.php">Add Lot</a>
-            <a href="history.php">Lot History</a>
-            <a href="reports.html">Reports</a>
-            <a href="#" id="highlight">Customers</a>
-            <a href="accounts.html">Accounts</a>
-            <a href="../LoginPage/login.html">Logout</a>
-        </nav>
+	<?php require 'navbar.php'; ?>
 
 
             <!-- Search bar -->
