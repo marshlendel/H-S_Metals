@@ -286,10 +286,3 @@ export function makeTable(tableId, fields, rows, headers, radioName="", initialS
         makeSortable(tableId, fields, rows, initialSortField);
     }
 }
-
-export function linkLotNums (fields){
-	if(lotnum clicked = true){
-		link lotnum to addLot.php
-	}
-}
-
