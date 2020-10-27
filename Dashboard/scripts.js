@@ -76,81 +76,6 @@ export function toUpper(string) {
     return upper;
 }
 
-// US 5.3: Creates headers for the table for each column name in "headers"
-export function createHeaders(tableId, headers, rows) {
-    console.log("createHeaders called ");
-    let table = document.getElementById(tableId);
-    let header = table.createTHead();
-    // Add click listener to sort table by the clicked header
-    header.addEventListener('click', function(ev) {
-        sortTable(ev, tableId, headers, rows);
-    }, false);
-    header.setAttribute('id', 'tHead');
-    header.setAttribute('for', -1);
-    let row = header.insertRow(0);
-    let cell = document.createElement('TH');
-    // Create checkbox for first column
-	let checkbox = document.createElement('input');
-	checkbox.setAttribute('type', 'checkbox');
-	checkbox.setAttribute('id', 'selectAll');
-	cell.appendChild(checkbox);
-	row.appendChild(cell);
-    // Creates header labels
-    for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
-        // console.log(cellNum);
-        cell = document.createElement('TH');
-        let label = headers[cellNum];
-        cell.setAttribute('id', label);
-        cell.setAttribute('for', cellNum);
-        switch(label) {
-            case 'lotnum':
-                label = 'Lot';
-                break;
-            case 'palletnum':
-                label = 'Pallet';
-                break;
-        }
-        cell.innerHTML = toUpper(label);
-        row.appendChild(cell);
-    }
-}
-
-// US 5.3: Removes all rows in table (if they exist) and replaces them with
-//      values in "rows"
-export function updateTable(tableId, headers, rows) {
-    console.log("updateTable called");
-    // Create table body if one does not exist
-    let table = document.getElementById(tableId);
-    let body;
-    if (table.tBodies.length < 1) {
-        body = table.createTBody();
-        body.setAttribute('id', 'tBody');
-    }
-    else {
-        body = table.tBodies[0];
-    }
-    // Create rows and add to table body (tBody)
-    let nRows = body.getElementsByTagName('tr').length;
-    console.log("Rows: " + nRows.toString());
-    while (body.getElementsByTagName('tr').length > 0) {
-        body.deleteRow(0);
-    }
-    console.log("Rows deleted: " + nRows.toString());
-    for (let rowNum = 0; rowNum < rows.length; ++rowNum) {
-        let row = body.insertRow(rowNum);
-		let checkbox = document.createElement('input');
-		checkbox.setAttribute('type', 'checkbox');
-		checkbox.setAttribute('id', rowNum);
-		let cell = row.insertCell(0);
-		cell.appendChild(checkbox);
-        for (let cellNum = 0; cellNum < headers.length; ++cellNum) {
-            cell = row.insertCell(cellNum+1);
-            let head = headers[cellNum]
-            cell.innerHTML = rows[rowNum][head];
-        }
-    }
-}
-
 // US 4.2: Helper function for retrieving data from database
 export function stringifyRows(fields, rows) {
     console.log("stringifyRows called");
@@ -166,102 +91,168 @@ export function stringifyRows(fields, rows) {
     }
 }
 
+// Create containers for data to be viewed
+export function createTable(tableId, ncolumns, nrows) {
+    console.log("Creating table with "+ncolumns.toString()+" columns and "+nrows.toString()+" rows");
+    // Get table container
+    let table = document.getElementById(tableId);
+
+    // Create containers for table headers
+    for (let col = 0; col < ncolumns; ++col) {
+        // Create div element to contain checkboxes
+        let contElem = document.createElement('div');
+        contElem.setAttribute('class', 'column');
+        if (col == 0) {
+            contElem.setAttribute('id', 'first');
+        }
+        // Create div to contain header
+        let elem = document.createElement('div');
+        elem.setAttribute('class', 'header');
+        // elem.setAttribute('style', 'order: '+ col.toString());
+        let head = document.createElement('h3');
+        head.setAttribute('class', 'field');
+        elem.appendChild(head);
+        contElem.appendChild(elem);
+
+        for (let row = 0; row < nrows; ++row) {
+            // Create div for data
+            let elem = document.createElement('div');
+            elem.setAttribute('class', 'data');
+            // elem.setAttribute('style', 'order: '+ col.toString());
+            // Add data div to column
+            contElem.appendChild(elem);
+        }
+        // Add column div to table
+        table.appendChild(contElem);
+    }
+}
+
+export function setColumnNames(tableId, fields) {
+    console.log("Filling table with data correspponding to the following fields");
+    console.log(fields);
+    // Get table, header, and data elements and check that the inputs are valid
+    let table = document.getElementById(tableId);
+    let headerElems = table.getElementsByClassName('field');
+    let numFields = fields.length;
+    if (headerElems.length != numFields) {
+        console.log("The number of header elements ("+headerElems.length.toString()+
+                    ") does not equal the number of fields ("+numFields.toString()+")"
+        );
+        return;
+    }
+    // Sets the column fields
+    for (let col = 0; col < numFields; ++col) {
+        headerElems[col].innerHTML = fields[col];
+    }
+}
+
+// US 5.3, 7.5: fills table element with headers and data
+export function setData(tableId, fields, rows) {
+    console.log("Filling table with data correspponding to the following fields");
+    console.log(fields);
+    // Get table and data elements and check that the inputs are valid
+    let table = document.getElementById(tableId);
+    let numFields = fields.length;
+    let dataElems = table.getElementsByClassName('data');
+    let numCells = rows.length*numFields;
+    if (dataElems.length != numCells) {
+        console.log("The number of data elements ("+dataElems.length.toString()+
+                    ") does not equal the number of rows ("+numCells.toString()+")"
+        );
+        return;
+    }
+    // Sets data in the table
+    let elemCount = 0;
+    for (let col = 0; col < numFields; ++col) {
+        for (let row = 0; row < numFields; ++row) {
+            dataElems[elemCount].innerHTML = rows[row][fields[col]];
+            ++elemCount;
+        }
+    }
+}
+
 // US 5.3: The following functions compare the fields between each row
-export function cmpCust(row1, row2) {
-    if (row1['customer'].toUpperCase() < row2['customer'].toUpperCase()) {
-        return -1;
+export function cmpString(field) {
+    return function (row1, row2) {
+        if (row1[field] < row2[field]) {
+            return -1;
+        }
+        else if (row1[field] > row2[field]) {
+            return 1;
+        }
+        return 0;
     }
-    else if (row1['customer'].toUpperCase() > row2['customer'].toUpperCase()) {
-        return 1;
-    }
-    return 0;
 }
 
-export function cmpDate(row1, row2) {
-    if (row1['date'] < row2['date']) {
-        return -1;
+export function cmpNumber(field) {
+    return function (row1, row2) {
+        return row1[field] - row2[field];
     }
-    else if (row1['date'] > row2['date']) {
-        return 1;
-    }
-    return 0;
 }
 
-export function cmpStatus(row1, row2) {
-    if (row1['status'] < row2['status']) {
-        return -1;
+// Helper function for sorting tables
+export function resetSortOrder(tableId) {
+    console.log("Resetting sort order");
+    let fields = document.getElementById(tableId).getElementsByClassName('field');
+    for (let index = 0; index < fields.length; ++index) {
+        // 'for' attribute is set to 0 when there is no order
+        fields[index].setAttribute('for', 0);
     }
-    else if (row1['status'] > row2['status']) {
-        return 1;
-    }
-    return 0;
-}
-
-export function cmpNum(row1, row2) {
-    return row1['lotnum'] - row2['lotnum'];
 }
 
 // US 5.3: Function sorts rows using the comparison function correspponding to the field
-export function sortRows(rows, sortField, reverse) {
-    switch (sortField) {
-        case "customer":
-            // console.log("Sorting by "+ sortField);
-            rows.sort(cmpCust);
-            break;
-        case "date":
-            // console.log("Sorting by "+ sortField);
-            rows.sort(cmpDate);
-            break;
-        case "status":
-            // console.log("Sorting by "+ sortField);
-            rows.sort(cmpStatus);
-            break;
-        case "lotnum":
-            // console.log("Sorting by "+ sortField);
-            rows.sort(cmpNum);
-            break;
-        default:
-            // console.log("Cannot sort by "+sortField);
-            reverse = false;
+export function sortRows(tableId, rows, sortField, reverse=false) {
+    console.log("Sorting by "+sortField);
+    if (isNaN(rows[0][sortField])) {
+        rows.sort(cmpString(sortField));
+    }
+    else {
+        rows.sort(cmpNumber(sortField));
     }
     if (reverse) {
-        // console.log("Rows reversed");
+        console.log("reverse");
         rows.reverse();
     }
-}
-
-// US 5.3: Sorts table by the id of the element clicked
-// (i.e. if 'Customer' is clicked, table is sorted by 'customer')
-export function sortTable(ev, tableId, headers, rows) {
-    let elmtId = ev.target.id;
-    if (ev.target != ev.currentTarget && elmtId != 'type' && elmtId != 'amount') {
-        console.log("Element clicked: id='"+elmtId+"'");
-        let element = document.getElementById(elmtId);
-        if (elmtId == 'status') {
-            element.setAttribute('for', 4);
-
-        }
-// If order is ascending, it becomes descending and vise versa
-        let header = document.getElementById('tHead');
-        let reverse = header.getAttribute('for') == element.getAttribute('for') ? true : false;
-        header.setAttribute('for', element.getAttribute('for'));
-        sortRows(rows, elmtId, reverse);
-        if (reverse) {
-            header.setAttribute('for', -1);
-        }
-        updateTable(tableId, headers, rows);
+    else {
+        console.log("not reverse");
     }
-
-    ev.stopPropagation();
 }
 
-// US 5.3, 7.5: creates table with id tableId in the element with id elemId
-export function createTable(elemId, tableId, rows, fields) {
-    console.log("createTable called");
+export function makeSortable(tableId, fields, rows, initialSortField) {
+    let headerElems = document.getElementById(tableId).getElementsByClassName("field");
+    resetSortOrder(tableId);
+    // Sets the column fields
+    for (let col = 0; col < fields.length; ++col) {
+        let field = fields[col];
+        if (field == initialSortField) {
+            headerElems[col].setAttribute('for', 1);
+        }
+        let parent = headerElems[col].parentElement;
+        parent.addEventListener('click', function (){
+                    // Rows are reversed if order is 1, otherwise -1
+                    let order = headerElems[col].getAttribute('for') == 1;
+                    sortRows(tableId, rows, field, order);
+                    setData(tableId, fields, rows);
+                    resetSortOrder(tableId);
+                    if (order) {
+                        headerElems[col].setAttribute('for', -1);
+                    }
+                    else {
+                        headerElems[col].setAttribute('for', 1);
+                    }
+            }, false);
+    }
+}
+
+export function makeTable(tableId, fields, rows, headers, initialSortField="") {
     console.log(fields);
-    let table = document.createElement("TABLE");
-    table.setAttribute("id", tableId);
-    document.getElementById(elemId).appendChild(table);
-    createHeaders(tableId, fields, rows);
-    updateTable(tableId, fields, rows);
+    console.log(rows);
+    stringifyRows(fields, rows);
+    sortRows(tableId, rows, initialSortField, false);
+    createTable(tableId, fields.length, rows.length)
+    setColumnNames(tableId, headers);
+    setData(tableId, fields, rows);
+    if (initialSortField) {
+        makeSortable(tableId, fields, rows, initialSortField);
+    }
 }

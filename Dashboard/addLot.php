@@ -28,6 +28,12 @@
                 display: flex;
                 flex-direction: column;
             }
+            #tableDiv {
+                margin-top: 50px;
+                display: flex;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
             #totalNet {
                 align-self: flex-end;
                 margin-right: 10%;
@@ -36,13 +42,22 @@
         <!-- US 8.3: Styling for printing. Only elements with "printable" classes are visible -->
         <style media="print">
             .non-printable { display:none; }
-            .printable { display:block;}
-			
+            .printable {
+                display:block;
+            }
+            div {
+                width: 800px;
+                white-space: nowrap;
+                overflow: hidden;
+            }
 			label {
+                display: inline-block;
 				font-size: 48px;
-				margin-right: 10px;
 			}
-			
+            .field {
+                width: 35%;
+            }
+
         </style>
     </head>
     <body>
@@ -68,13 +83,13 @@
                 ?>
                 <script type="text/javascript">
                 // US 7.6: debugging info
-                    console.log("<?php echo $_POST['lotnum'] ?>");
-                    console.log("<?php echo $_POST['cust'] ?>");
-                    console.log("<?php echo $_POST['gross'] ?>");
-                    console.log("<?php echo $_POST['tare'] ?>");
-                    console.log(<?php echo json_encode($submit); ?>);
-                    console.log(<?php echo json_encode(get_lots_list()); ?> );
-                    console.log("Lot Max: " + <?php echo json_encode($lotnum); ?> );
+                    // console.log("<?php //echo $_POST['lotnum'] ?>");
+                    // console.log("<?php //echo $_POST['cust'] ?>");
+                    // console.log("<?php //echo $_POST['gross'] ?>");
+                    // console.log("<?php //echo $_POST['tare'] ?>");
+                    // console.log(<?php //echo json_encode($submit); ?>);
+                    // console.log(<?php //echo json_encode(get_lots_list()); ?> );
+                    // console.log("Lot Max: " + <?php //echo json_encode($lotnum); ?> );
                 </script>
                 <?php
                 // US 7.6: if form has been filled, data is added to database
@@ -202,7 +217,7 @@
         // Does not allow user to change the lot number or customer name if a form was previously submitted
         let formSubmit = <?php echo json_encode($submit); ?>;
         if (formSubmit) {
-           custInput.setAttribute('value', <?php echo json_encode($_POST['cust']); ?>);
+           custInput.setAttribute('value', <?php  if ($submit) echo json_encode($_POST['cust']); ?>);
            custInput.setAttribute('readonly', 'readonly');
            lotInput.setAttribute('readonly', 'readonly');
         }
@@ -238,9 +253,11 @@
         ?>
            var rows = <?php echo json_encode(get_rows($pallets)); ?>;
            var fields = <?php echo json_encode(get_fields($pallets)); ?>;
-           var tableId = "pallets";
-           Script.stringifyRows(fields, rows);
-           Script.createTable("tableDiv", tableId, rows, ["palletnum", "gross", "tare", "net"]);
+           console.log(fields);
+           console.log(rows);
+           var headers = ["Pallet", "Gross", "Tare", "Net"];
+           var tableId = "tableDiv";
+           Script.makeTable(tableId, fields, rows, headers, "palletnum");
         <?php
         }
         ?>
@@ -262,12 +279,12 @@
             console.log(tare);
             console.log(gross-tare);
             console.log(palletNum);
-            printP.innerHTML = "<label>Customer</label><label>"+custName+"</label>"+
-                    "<br><label>Lot#</label><label>"+lotNum.toString()+"</label>"+
-                    "<br><label>Gross</label><label>"+gross.toString()+"</label>"+
-                    "<br><label>Tare</label><label>"+tare.toString()+"</label>"+
-                    "<br><label>Net</label><label>"+(gross-tare).toString()+"</label>"+
-                    "<br><label>Pallet#</label><label>"+(palletNum).toString()+"</label>";
+            printP.innerHTML = "<div><label class=\"field\">Customer</label><label>"+custName+"</label></div>"+
+                    "<br><div><label class=\"field\">Lot#</label><label>"+lotNum.toString()+"</label></div>"+
+                    "<br><div><label class=\"field\">Gross</label><label>"+gross.toString()+"</label></div>"+
+                    "<br><div><label class=\"field\">Tare</label><label>"+tare.toString()+"</label></div>"+
+                    "<br><div><label class=\"field\">Net</label><label>"+(gross-tare).toString()+"</label></div>"+
+                    "<br><div><label class=\"field\">Pallet#</label><label>"+(palletNum).toString()+"</label>";
             window.print();
         }
 

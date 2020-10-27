@@ -30,6 +30,29 @@
 //     return $res;
 // }
 
+//
+function simpleSelect($statement) {
+
+    require 'dbConnect.php';
+    if (!($conn = new mysqli($servername, $username, $password, $dbname))) {
+        echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+        return;
+    }
+    // prepare and bind
+    if (!($stmt = $conn->prepare($statement))) {
+        echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+        return;
+    }
+    if (!($result = $stmt->execute())) {
+        echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+        return;
+    }
+    $res = $stmt->get_result();
+    $stmt->close();
+    $conn->close();
+    return $res;
+}
+
 function removeLot ($lotnum) {
 
     require 'dbConnect.php';
@@ -157,12 +180,12 @@ function get_lots () {
 }
 
 // US 8.4: Returns "net" value from DB of the associated lot "lotnum"
-function getLotNet ($lotnum) {
+function getLotGross ($lotnum) {
 
     require 'dbConnect.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT net FROM Lots WHERE lotnum = ?");
+    $stmt = $conn->prepare("SELECT SUM(gross) gross FROM Pallets WHERE lotnum = ? GROUP BY lotnum");
     $stmt->bind_param("i", $lotnumsql);
     $lotnumsql = (int) $lotnum;
     $stmt->execute();
@@ -170,7 +193,41 @@ function getLotNet ($lotnum) {
     $stmt->close();
     $conn->close();
     $row = $result->fetch_assoc();
-    return $row["net"];
+    return (double)$row["gross"];
+}
+
+// US 8.4: Returns "net" value from DB of the associated lot "lotnum"
+function getLotTare ($lotnum) {
+
+    require 'dbConnect.php';
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // prepare and bind
+    $stmt = $conn->prepare("SELECT SUM(tare) tare FROM Pallets WHERE lotnum = ? GROUP BY lotnum");
+    $stmt->bind_param("i", $lotnumsql);
+    $lotnumsql = (int) $lotnum;
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
+    $conn->close();
+    $row = $result->fetch_assoc();
+    return (double)$row["tare"];
+}
+
+// US 8.4: Returns "net" value from DB of the associated lot "lotnum"
+function getLotNet ($lotnum) {
+
+    require 'dbConnect.php';
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // prepare and bind
+    $stmt = $conn->prepare("SELECT SUM(gross) gross, SUM(tare) tare FROM Pallets WHERE lotnum = ? GROUP BY lotnum");
+    $stmt->bind_param("i", $lotnumsql);
+    $lotnumsql = (int) $lotnum;
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
+    $conn->close();
+    $row = $result->fetch_assoc();
+    return (double)$row["gross"] - (double)$row["tare"];
 }
 
 // US 7.6: connect to db and return data in pallets table
@@ -179,7 +236,7 @@ function get_pallets ($lotnum) {
     require 'dbConnect.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT * FROM Pallets WHERE lotnum = ?");
+    $stmt = $conn->prepare("SELECT palletnum, gross, tare, (gross-tare) net FROM Pallets WHERE lotnum = ?");
     $stmt->bind_param("i", $lotnumsql);
     $lotnumsql = (int) $lotnum;
     $stmt->execute();

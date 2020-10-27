@@ -10,7 +10,11 @@
 
 <!-- php file required to insert new lots into database (US 3.1) -->
 <?php
-    require 'sql.php';
+session_start();
+require 'dbConnect.php';
+$_SESSION["username"] = $username;
+$_SESSION["password"] = $password;
+require 'sql.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +29,14 @@
 		<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
     </head>
 
+    <style media="screen">
+        #lotTable {
+            display: flex;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+    </style>
+
     <body>
           <nav class="navBar">
 			<a href="addLot.php">Add Lot</a>
@@ -35,29 +47,33 @@
             <a href="../LoginPage/login.html">Logout</a>
            </nav>
 
-		<main class="container">
-            <!-- Import JS functions -->
-            <script type="module" defer>
-                import * as Script from './scripts.js';
-
-                // US 4.2, 5.3: Table of lot info from db
-                <?php $lots = get_lots(); ?>
-                var rows = <?php echo json_encode(get_rows($lots)); ?>;
-                var fields = <?php echo json_encode(get_fields($lots)); ?>;
-                var tableId = "lotsTable";
-                Script.stringifyRows(fields, rows);
-                Script.createTable("tableDiv", tableId, rows, fields);
-                Script.sortRows(rows, 'lotnum', false);
-            </script>
-		</main>
-
 		<h1 id="home">Home</h1>
         <!-- US 5.3: JavaScript array to contain table values from db -->
-        <div id="tableDiv" class="">
+        <div id="lotTable" class="">
 
         </div>
 
-        <!-- Link to JavaScript source file -->
-        <!-- <script src="addLotDialogue.js"></script> -->
+        <!-- Import JS functions -->
+        <script type="module" defer>
+            import * as Script from './scripts.js';
+
+            // US 4.2, 5.3: Table of lot info from db
+            <?php $lots = simpleSelect("
+                            SELECT l.lotnum, customer, SUM(p.gross) gross,
+                                SUM(p.tare) tare, (SUM(p.gross) - SUM(p.tare)) net,
+                                status
+                            FROM Lots AS l
+                            INNER JOIN Pallets AS p
+                            USING (lotnum)
+                            GROUP BY (lotnum)
+                        ");
+            ?>
+            var rows = <?php echo json_encode(get_rows($lots)); ?>;
+            var fields = <?php echo json_encode(get_fields($lots)); ?>;
+            var headers = ["Lot", "Customer", "Gross", "Tare", "Net", "Status"];
+            var tableId = "lotTable";
+            Script.makeTable(tableId, fields, rows, headers, "lotnum");
+            // Script.sortRows(rows, 'lotnum', false);
+        </script>
     </body>
 </html>

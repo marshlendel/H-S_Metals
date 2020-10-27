@@ -25,7 +25,6 @@ h1{
 
 
  a {
-	 display:block;
 	 text-align:center;
 	 text-transform: uppercase;
 	 background-color: #dddddd;
@@ -37,29 +36,34 @@ h1{
 
 
 /* Table in User Story 4.2 */
-table {
-    font-family: arial, sans-serif;
-	border-collapse: collapse;
-	margin: 0px auto;
-	width: 80%;
-	position: relative;
-	bottom: 30px;
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 0 auto;
+}
+.column .header, .data:nth-child(odd) {
+    background-color: #dddddd;
+}
+.column .data:nth-child(even) {
+    background-color: white;
+}
+.data {
+    font-size: 20px;
+    padding: 20px 0px;
+}
+div#first .data {
+    padding-left: 25px;
+}
+h3 {
+    font-size: 30px;
+}
+.header {
+    text-align: center;
 }
 
 form {
 	margin-top: 20px;
-}
-
-
-th, td {
-	border: 1px solid #dddddd;
-	padding: 8px;
-}
-
-
-
-label {
-	font-weight: bold;
 }
 
 .customerInput{
@@ -203,17 +207,4 @@ a:visited {
 a:hover{
 	background-color: black;
 	color: white;
-}
-
-
- tr:nth-child(odd) {
-	background-color: #dddddd;
-}
-
-tr:nth-child(even) {
-	background-color: #white;
-	}
-
-th {
-    background: white;
 }

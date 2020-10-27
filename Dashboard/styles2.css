@@ -5,10 +5,10 @@ body {
 }
 
 a {
-	 display:block;	
+	 display:block;
 	 text-align:center;
 	 text-transform: uppercase;
-	 background-color: #dddddd;	
+	 background-color: #dddddd;
 	 text-decoration: none;
 	 flex-grow: 1;
 	 padding:15px;
@@ -22,20 +22,6 @@ h1 {
 
 label {
 	font-weight: bold;
-}
-
-table {
-    font-family: arial, sans-serif;
-	border-collapse: collapse;
-	margin: 0px auto;
-	width: 80%;
-	position: relative;
-	bottom: 30px;
-}
-
-th, td {
-	border: 1px solid #dddddd;
-	padding: 8px;
 }
 
 section {
@@ -92,16 +78,39 @@ button {
 	bckground-color:white;
 }
 
-#tableDiv {
-	margin-top: 50px;
+/* Table in User Story 4.2 */
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 0 auto;
+}
+.column .header, .data:nth-child(odd) {
+    background-color: #dddddd;
+}
+.column .data:nth-child(even) {
+    background-color: white;
+}
+.data {
+    font-size: 20px;
+    padding: 20px 0px;
+}
+div#first .data {
+    padding-left: 25px;
+}
+h3 {
+    font-size: 30px;
+}
+.header {
+    text-align: center;
 }
 
 #navForm{
-	
+
 	width: 915px;
 	margin: 0 auto;
 	padding:8px;
-	
+
 }
 
 a:link {
