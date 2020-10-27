@@ -34,8 +34,10 @@
                 display: flex;
                 margin-left: 10%;
                 margin-right: 10%;
-                height: 526.4px;
+                max-height: 526.4px;
                 overflow: auto;
+                border-width: 2px;
+                border-color: #000000a3;
             }
             #totalNet {
                 align-self: flex-end;

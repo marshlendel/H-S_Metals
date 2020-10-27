@@ -92,19 +92,46 @@ export function stringifyRows(fields, rows) {
 }
 
 // Create containers for data to be viewed
-export function createTable(tableId, ncolumns, nrows) {
+export function createTable(tableId, ncolumns, nrows, radioName="") {
     console.log("Creating table with "+ncolumns.toString()+" columns and "+nrows.toString()+" rows");
     // Get table container
     let table = document.getElementById(tableId);
+    // Create radio buttons
+    if (radioName) {
+        // Create div element to contain checkboxes
+        let contElem = document.createElement('div');
+        contElem.setAttribute('class', 'radioCol');
 
+        // Create div to contain header
+        let elem = document.createElement('div');
+        elem.setAttribute('class', 'header');
+        let head = document.createElement('h3');
+        head.innerHTML = "Select";
+        elem.appendChild(head);
+        contElem.appendChild(elem);
+        for (let row = 0; row < nrows; ++row) {
+            // Create div for data
+            let elem = document.createElement('div');
+            elem.setAttribute('class', 'data radio');
+            let radio = document.createElement('input');
+            radio.setAttribute('type', 'radio');
+            radio.setAttribute('name', radioName)
+            radio.setAttribute('for', row);
+            elem.appendChild(radio);
+            // elem.setAttribute('style', 'order: '+ col.toString());
+            // Add data div to column
+            contElem.appendChild(elem);
+        }
+        table.appendChild(contElem);
+    }
     // Create containers for table headers
     for (let col = 0; col < ncolumns; ++col) {
         // Create div element to contain checkboxes
         let contElem = document.createElement('div');
-        contElem.setAttribute('class', 'column');
-        if (col == 0) {
-            contElem.setAttribute('id', 'first');
-        }
+        contElem.setAttribute('class', 'dataCol');
+        // if (col == 0) {
+        //     contElem.setAttribute('id', 'first');
+        // }
         // Create div to contain header
         let elem = document.createElement('div');
         elem.setAttribute('class', 'header');
@@ -117,7 +144,7 @@ export function createTable(tableId, ncolumns, nrows) {
         for (let row = 0; row < nrows; ++row) {
             // Create div for data
             let elem = document.createElement('div');
-            elem.setAttribute('class', 'data');
+            elem.setAttribute('class', 'data value');
             // elem.setAttribute('style', 'order: '+ col.toString());
             // Add data div to column
             contElem.appendChild(elem);
@@ -128,7 +155,7 @@ export function createTable(tableId, ncolumns, nrows) {
 }
 
 export function setColumnNames(tableId, fields) {
-    console.log("Filling table with data correspponding to the following fields");
+    console.log("Setting column names");
     console.log(fields);
     // Get table, header, and data elements and check that the inputs are valid
     let table = document.getElementById(tableId);
@@ -153,7 +180,7 @@ export function setData(tableId, fields, rows) {
     // Get table and data elements and check that the inputs are valid
     let table = document.getElementById(tableId);
     let numFields = fields.length;
-    let numDataElems = table.getElementsByClassName('data').length;
+    let numDataElems = table.getElementsByClassName('value').length;
     let numCells = rows.length*numFields;
     if (numDataElems != numCells) {
         console.log("The number of data elements ("+numDataElems.toString()+
@@ -161,12 +188,12 @@ export function setData(tableId, fields, rows) {
         );
         return;
     }
-    let columns = table.getElementsByClassName('column');
+    let columns = table.getElementsByClassName('dataCol');
     // Sets data in the table
     let elemCount = 0;
     for (let col = 0; col < numFields; ++col) {
         let column = columns[col];
-        let dataElems = column.getElementsByClassName('data');
+        let dataElems = column.getElementsByClassName('value');
         for (let row = 0; row < rows.length; ++row) {
             dataElems[row].innerHTML = rows[row][fields[col]];
             ++elemCount;
@@ -247,12 +274,12 @@ export function makeSortable(tableId, fields, rows, initialSortField) {
     }
 }
 
-export function makeTable(tableId, fields, rows, headers, initialSortField="") {
+export function makeTable(tableId, fields, rows, headers, radioName="", initialSortField="") {
     console.log(fields);
     console.log(rows);
     stringifyRows(fields, rows);
     sortRows(tableId, rows, initialSortField, false);
-    createTable(tableId, fields.length, rows.length)
+    createTable(tableId, fields.length, rows.length, radioName);
     setColumnNames(tableId, headers);
     setData(tableId, fields, rows);
     if (initialSortField) {

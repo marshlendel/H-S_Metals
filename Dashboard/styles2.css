@@ -86,14 +86,18 @@ button {
     flex: 1 0 auto;
 }
 .column .header, .data:nth-child(odd) {
-    background-color: #dddddd;
+    background-color: white;
 }
 .column .data:nth-child(even) {
-    background-color: white;
+    background-color: #dddddd;
 }
 .data {
     font-size: 20px;
     padding: 10px 0px;
+}
+.data, .header {
+    border-style: solid;
+    border-color: #808080b5;
 }
 div#first .data {
     padding-left: 25px;

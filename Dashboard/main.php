@@ -34,8 +34,11 @@ require 'sql.php';
             display: flex;
             margin-left: 10%;
             margin-right: 10%;
-            height: 526.4px;
+            max-height: 526.4px;
             overflow: auto;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #000000a3;
         }
     </style>
 
@@ -67,7 +70,7 @@ require 'sql.php';
             var fields = <?php echo json_encode(get_fields($lots))?>;
             var headers = ["Lot", "Customer", "Gross", "Tare", "Net", "Status"];
             var tableId = "lotTable";
-            Script.makeTable(tableId, fields, rows, headers, "lotnum");
+            Script.makeTable(tableId, fields, rows, headers, "lots", "lotnum");
             // Script.sortRows(rows, 'lotnum', false);
         </script>
     </body>
