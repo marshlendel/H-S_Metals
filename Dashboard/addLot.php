@@ -27,16 +27,20 @@
                 margin: auto;
                 display: flex;
                 flex-direction: column;
+                margin-bottom: 50px;
             }
             #tableDiv {
                 margin-top: 50px;
                 display: flex;
                 margin-left: 10%;
                 margin-right: 10%;
+                height: 226.4px;
+                overflow: auto;
             }
             #totalNet {
                 align-self: flex-end;
                 margin-right: 10%;
+                font-size: 20px;
             }
         </style>
         <!-- US 8.3: Styling for printing. Only elements with "printable" classes are visible -->
@@ -253,11 +257,9 @@
         ?>
            var rows = <?php echo json_encode(get_rows($pallets)); ?>;
            var fields = <?php echo json_encode(get_fields($pallets)); ?>;
-           console.log(fields);
-           console.log(rows);
            var headers = ["Pallet", "Gross", "Tare", "Net"];
            var tableId = "tableDiv";
-           Script.makeTable(tableId, fields, rows, headers, "palletnum");
+           Script.makeTable(tableId, fields, rows, headers);
         <?php
         }
         ?>

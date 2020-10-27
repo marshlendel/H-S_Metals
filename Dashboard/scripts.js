@@ -153,19 +153,22 @@ export function setData(tableId, fields, rows) {
     // Get table and data elements and check that the inputs are valid
     let table = document.getElementById(tableId);
     let numFields = fields.length;
-    let dataElems = table.getElementsByClassName('data');
+    let numDataElems = table.getElementsByClassName('data').length;
     let numCells = rows.length*numFields;
-    if (dataElems.length != numCells) {
-        console.log("The number of data elements ("+dataElems.length.toString()+
+    if (numDataElems != numCells) {
+        console.log("The number of data elements ("+numDataElems.toString()+
                     ") does not equal the number of rows ("+numCells.toString()+")"
         );
         return;
     }
+    let columns = table.getElementsByClassName('column');
     // Sets data in the table
     let elemCount = 0;
     for (let col = 0; col < numFields; ++col) {
-        for (let row = 0; row < numFields; ++row) {
-            dataElems[elemCount].innerHTML = rows[row][fields[col]];
+        let column = columns[col];
+        let dataElems = column.getElementsByClassName('data');
+        for (let row = 0; row < rows.length; ++row) {
+            dataElems[row].innerHTML = rows[row][fields[col]];
             ++elemCount;
         }
     }

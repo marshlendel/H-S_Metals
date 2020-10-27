@@ -82,7 +82,7 @@ button {
 .column {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex: 1 0 auto;
 }
 .column .header, .data:nth-child(odd) {
@@ -93,7 +93,7 @@ button {
 }
 .data {
     font-size: 20px;
-    padding: 20px 0px;
+    padding: 10px 0px;
 }
 div#first .data {
     padding-left: 25px;
