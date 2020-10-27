@@ -69,12 +69,6 @@ require 'sql.php';
             var tableId = "lotTable";
             Script.makeTable(tableId, fields, rows, headers, "lotnum");
             // Script.sortRows(rows, 'lotnum', false);
-			<?php> 
-			$target = "addLot.php";
-			$linkname = "lotnum";
-			
-			link($target,$linkname);
-			?>
         </script>
     </body>
 </html>
