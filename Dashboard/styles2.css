@@ -79,34 +79,37 @@ button {
 }
 
 /* Table in User Story 4.2 */
-.column {
+.radioCol, .dataCol {
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
     flex: 1 0 auto;
 }
-.column .header, .data:nth-child(odd) {
+.header, .data:nth-child(odd) {
     background-color: white;
 }
-.column .data:nth-child(even) {
+.radioCol, .dataCol .data:nth-child(even) {
     background-color: #dddddd;
+}
+.header, .data {
+    border-style: solid;
+    border-color: #808080b5;
+}
+.header {
+    text-align: center;
 }
 .data {
     font-size: 20px;
     padding: 10px 0px;
 }
-.data, .header {
-    border-style: solid;
-    border-color: #808080b5;
-}
 div#first .data {
-    padding-left: 25px;
+    /* padding-left: 25px; */
 }
 h3 {
     font-size: 30px;
 }
-.header {
-    text-align: center;
+input[type="radio"] {
+    margin-left: calc(50% - 6.4px);
 }
 
 #navForm{

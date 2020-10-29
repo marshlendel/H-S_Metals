@@ -34,7 +34,7 @@
                 display: flex;
                 margin-left: 10%;
                 margin-right: 10%;
-                max-height: 526.4px;
+                max-height: 330px;
                 overflow: auto;
                 border-width: 2px;
                 border-color: #000000a3;

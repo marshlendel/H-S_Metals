@@ -34,7 +34,7 @@ require 'sql.php';
             display: flex;
             margin-left: 10%;
             margin-right: 10%;
-            max-height: 526.4px;
+            max-height: 330px;
             overflow: auto;
             border-style: solid;
             border-width: 2px;
@@ -48,7 +48,7 @@ require 'sql.php';
 		<h1 id="home">Home</h1>
         <!-- US 5.3: JavaScript array to contain table values from db -->
         <div id="lotTable" class="">
-			
+
         </div>
 
         <!-- Import JS functions -->

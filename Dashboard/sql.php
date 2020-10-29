@@ -342,3 +342,28 @@ function get_rows($result) {
     }
     return $rows;
 }
+
+// US 9.2: SQL query to update lots
+function updateLot($lot, $customer, $gross, $tare, $status) {
+    require 'dbConnect.php';
+    if (!($conn = new mysqli($servername, $username, $password, $dbname))) {
+        echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+        return;
+    }
+    // prepare and bind
+    if (!($stmt = $conn->prepare("UPDATE lots SET customer = ?, status = ? WHERE lotnum = ?"))) {
+        echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+        return;
+    }
+    $stmt->bind_param('ssi', $csql, $ssql, $lsql);
+    $lsql = (int) $lot;
+    $csql = "".$customer."";
+    $gsql = (double) $gross;
+    $tsql = (double) $tare;
+    $ssql = "".$status."";
+    if (!($result = $stmt->execute())) {
+        echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+        return $result;
+    }
+    return $result;
+}
