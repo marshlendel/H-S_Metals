@@ -51,6 +51,27 @@ require 'sql.php';
 
 
         </div>
+		
+		<div id="editDiv" class="modal">
+		<div id="editPad" class="modal-content">
+		<span id="editBox" class="close">X</span>
+		<button type="button">Delete</button>
+		 <p>Edit</p>
+		 
+		 <form class="" action="" method="post">
+                <label for="customer"><b>Customer</b></label>
+                <input type="text" name="customer" class="customerInput"><br>
+
+                <label for="status"><b id="status">Status</b></label>
+                <input type="text" name="status" class="StatusInput"><br>
+
+               
+
+                <button type="submit" class="custBtn">Submit</button>
+            </form>
+		
+		</div>
+		</div>
 
         <!-- Import JS functions -->
         <script type="module" defer>
@@ -87,6 +108,8 @@ require 'sql.php';
                     }
                 });
             }
+			
+			Script.setupPopup("editDiv", "editBox", "edit");
         </script>
     </body>
 </html>

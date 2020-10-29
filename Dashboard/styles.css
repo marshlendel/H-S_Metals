@@ -91,6 +91,10 @@ form {
     color: white;
 }
 
+#status {
+	margin-right: 60px;
+}
+
 #edit {
 	margin-left: 10%;
     margin-bottom: 5px;
@@ -144,6 +148,12 @@ form {
 	border: 1px solid black;
 	border-style: inset;
 }
+
+#editPad p {
+	text-align: center;
+	margin-left: 55px;
+}
+
 
 
 }
