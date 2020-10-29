@@ -8,8 +8,7 @@
 * limitations under the License.
 ************************************************************************** -->
 <?php
-    require 'getCustomers.php';
-    require 'addCustomer.php';
+    require 'sql.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +17,19 @@
 		 <link rel="stylesheet", href="styles.css">
 		 <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
 		 <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-	</head>
+         <style media="screen">
+             #custTable {
+                 display: flex;
+                 margin-left: 10%;
+                 margin-right: 10%;
+                 max-height: 330px;
+                 overflow: auto;
+                 border-style: solid;
+                 border-width: 2px;
+                 border-color: #000000a3;
+             }
+         </style>
+    </head>
 	<body>
 	<?php require 'navbar.php'; ?>
 
@@ -36,7 +47,12 @@
 		<br>
 		<br>
 
-		<table>
+        <div id="custTable" class="">
+
+        </div>
+
+        </div>
+		<!-- <table>
     				<tr>
         				<th> Company </th>
         				<th> Contact </th>
@@ -44,12 +60,12 @@
 						<th> Email </th>
     				</tr>
             <?php
-                while($row = $result-> fetch_assoc()){
-                    echo "<tr><td>" . $row["company"] . "</td><td>" . $row["contact"] . "</td><td>" . $row["phone"] . "</td><td>" . $row["email"] . "</td></tr>";
-                }
+                // while($row = $result-> fetch_assoc()){
+                //     echo "<tr><td>" . $row["company"] . "</td><td>" . $row["contact"] . "</td><td>" . $row["phone"] . "</td><td>" . $row["email"] . "</td></tr>";
+                // }
 		    ?>
 
-        </table>
+        </table> -->
 
         <!-- Button for User Story 4.4 -->
 
@@ -76,18 +92,25 @@
 
                 <button type="submit" class="custBtn">Submit</button>
             </form>
-
-            <!-- Action for submit of form to add customer (User Story 4.4.2)-->
-            <?php if (isset($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email'])) {?>
-                <script> alert("Customer Added Successfully");</script>
-            <?php
-                addCustomer($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email']);
-                $result = get_customers();
-            }?>
             </div>
         </div>
 
-
+        <script type="module">
+            import * as Script from './scripts.js';
+            // Action for submit of form to add customer (User Story 4.4.2)
+            <?php
+            if (isset($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email'])) {?>
+                alert("Customer Added Successfully");
+            <?php
+                addCustomer($_POST['company'], $_POST['contact'], $_POST['phone'], $_POST['email']);
+            }?>
+            <?php $customers = get_customers(); ?>
+            var rows = <?php echo json_encode(get_rows($customers)); ?>;
+            var fields = <?php echo json_encode(get_fields($customers))?>;
+            var headers = ["Company", "Contact", "Phone Number", "Email"];
+            var tableId = "custTable";
+            Script.makeTable(tableId, fields, rows, headers, "", "company");
+        </script>
         <!-- Link to JavaScript source file (User Story 4.4.1)-->
         <script src="addCustDialogue.js"> </script>
 	</body>

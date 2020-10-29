@@ -27,20 +27,19 @@ require 'sql.php';
         <!-- Link to CSS stylesheet -->
         <link rel="stylesheet", href="styles.css">
 		<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
+        <style media="screen">
+            #lotTable {
+                display: flex;
+                margin-left: 10%;
+                margin-right: 10%;
+                max-height: 330px;
+                overflow: auto;
+                border-style: solid;
+                border-width: 2px;
+                border-color: #000000a3;
+            }
+        </style>
     </head>
-
-    <style media="screen">
-        #lotTable {
-            display: flex;
-            margin-left: 10%;
-            margin-right: 10%;
-            max-height: 330px;
-            overflow: auto;
-            border-style: solid;
-            border-width: 2px;
-            border-color: #000000a3;
-        }
-    </style>
 
     <body>
         <?php require 'navbar.php'; ?>
@@ -49,7 +48,7 @@ require 'sql.php';
         <!-- US 5.3: JavaScript array to contain table values from db -->
 		<button type="button" disabled id="edit">Edit</button>
         <div id="lotTable" class="">
-		
+
 
         </div>
 
@@ -73,19 +72,21 @@ require 'sql.php';
             var headers = ["Lot", "Customer", "Gross", "Tare", "Net", "Status"];
             var tableId = "lotTable";
             Script.makeTable(tableId, fields, rows, headers, "lots", "lotnum");
-            // Script.sortRows(rows, 'lotnum', false);
-			
-			function enableButton(checkedBox){
-				if(checkedBox.checked){
-					document.getElementById("edit").disabled = false;
-				} else{
-					document.getElementById("edit").disabled = true;
-				}
-			}
 
-			document.getElementsByTagName("input").onclick=function(){
-			enableButton();
-			}
+            let editBtnId = "edit";
+            let radioBtns = document.getElementsByClassName("radioButt");
+            console.log(radioBtns.length);
+            for (let index = 0; index < radioBtns.length; ++index) {
+                let radioBtn = radioBtns[index];
+                radioBtn.addEventListener('click', function() {
+                    if (radioBtn.checked) {
+                        document.getElementById(editBtnId).disabled = false;
+                    }
+                    else {
+                        document.getElementById(editBtnId).disabled = true;
+                    }
+                });
+            }
         </script>
     </body>
 </html>

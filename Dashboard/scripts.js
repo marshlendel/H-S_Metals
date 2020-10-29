@@ -115,6 +115,7 @@ export function createTable(tableId, ncolumns, nrows, radioName="") {
             elem.setAttribute('class', 'data radio');
             let radio = document.createElement('input');
             radio.setAttribute('type', 'radio');
+            radio.setAttribute('class', 'radioButt');
             radio.setAttribute('name', radioName)
             radio.setAttribute('for', row);
             elem.appendChild(radio);
@@ -285,16 +286,4 @@ export function makeTable(tableId, fields, rows, headers, radioName="", initialS
     if (initialSortField) {
         makeSortable(tableId, fields, rows, initialSortField);
     }
-}
-
-function enableButton(checkedBox){
-	if(checkedBox.checked){
-		document.getElementById("edit").disabled = false;
-	} else{
-		document.getElementById("edit").disabled = true;
-	}
-}
-
-document.getElementsByTagName("input").onclick=function(){
-	enableButton();
 }
