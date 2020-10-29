@@ -47,7 +47,9 @@ require 'sql.php';
 
 		<h1 id="home">Home</h1>
         <!-- US 5.3: JavaScript array to contain table values from db -->
+		<button type="button" disabled id="edit">Edit</button>
         <div id="lotTable" class="">
+		
 
         </div>
 
@@ -72,6 +74,18 @@ require 'sql.php';
             var tableId = "lotTable";
             Script.makeTable(tableId, fields, rows, headers, "lots", "lotnum");
             // Script.sortRows(rows, 'lotnum', false);
+			
+			function enableButton(checkedBox){
+				if(checkedBox.checked){
+					document.getElementById("edit").disabled = false;
+				} else{
+					document.getElementById("edit").disabled = true;
+				}
+			}
+
+			document.getElementsByTagName("input").onclick=function(){
+			enableButton();
+			}
         </script>
     </body>
 </html>

@@ -286,3 +286,15 @@ export function makeTable(tableId, fields, rows, headers, radioName="", initialS
         makeSortable(tableId, fields, rows, initialSortField);
     }
 }
+
+function enableButton(checkedBox){
+	if(checkedBox.checked){
+		document.getElementById("edit").disabled = false;
+	} else{
+		document.getElementById("edit").disabled = true;
+	}
+}
+
+document.getElementsByTagName("input").onclick=function(){
+	enableButton();
+}
