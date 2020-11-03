@@ -60,14 +60,25 @@ require 'sql.php';
 
 		 <form class="" action="" method="post">
                 <label for="customer"><b>Customer</b></label>
-                <input type="text" name="customer" class="customerInput"><br>
+                <input type="search" name="customer" class="customerInput" list="custList" required>
+				<datalist id="custList">
+        		</datalist>
+					<br>
 
-                <label for="status"><b id="status">Status</b></label>
-                <input type="text" name="status" class="StatusInput"><br>
+                <label for="status"><b>Status</b></label>
+					<input list="statusList" class="StatusInput" name="status" />
+					<datalist id="statusList">
+					  <option value="dirty">
+					  <option value="partially clean">
+					  <option value="clean">
+					  <option value="shipped">
+					</datalist>
+				<br>
 
 
 
                 <button type="submit" class="custBtn">Submit</button>
+				<button type="reset">Cancel</button>
             </form>
 
 		</div>
@@ -110,6 +121,7 @@ require 'sql.php';
             }
             let customers = <?php echo json_encode(get_customers_list()); ?>;
 			Script.setupPopup("editDiv", "editBox", "edit");
+			Script.custAdd("custList", customers);
         </script>
     </body>
 </html>
