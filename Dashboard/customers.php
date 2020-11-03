@@ -45,9 +45,6 @@
 		<br>
 		<br>
 
-        <div id="custTable" class="">
-        </div>
-
         <!-- Button for User Story 4.4 -->
 
         <!-- The pop up -->
@@ -75,7 +72,37 @@
             </form>
             </div>
         </div>
+		
+		<button type="button" disabled id="edit">Edit</button>
 
+		<div id="editDiv" class="modal">
+    		<div id="editPad" class="modal-content">
+        		<span id="editBox" class="close">X</span>
+        		<button type="button">Delete</button>
+        		<p>Edit</p>
+        		<form class="" action="" method="post">
+                    <input type="hidden" id="lotInput" name="lotnum">
+                    <label for="customer"><b>Company</b></label>
+                    <input type="text" id="custInput" name="customer" class="customerInput"><br>
+
+                    <label for="contact"><b>Contact</b></label>
+                    <input type="text" id="contactInput" name="contact" class="ContactInput" required><br>
+					
+					<label for="phone"><b>Phone</b></label>
+                    <input type="text" id="phoneInput" name="phone" class="PhoneInput" required><br>
+					
+					<label for="email"><b>Email</b></label>
+                    <input type="text" id="emailInput" name="email" class="EmailInput" required><br>
+
+                    <button type="reset">Cancel</button>
+                    <button type="submit" class="custBtn">Submit</button>
+                </form>
+    		</div>
+		</div>
+
+		<div id="custTable" class="">
+        </div>
+		
         <script type="module">
             import * as Script from './scripts.js';
             // Action for submit of form to add customer (User Story 4.4.2)
@@ -91,8 +118,29 @@
             var headers = ["Company", "Contact", "Phone Number", "Email"];
             var tableId = "custTable";
             Script.makeTable(tableId, fields, rows, headers, "customers", "company");
+			
+			let editBtnId = "edit";
+            let radioBtns = document.getElementsByClassName("radioButt");
+            console.log(radioBtns.length);
+            for (let index = 0; index < radioBtns.length; ++index) {
+                let radioBtn = radioBtns[index];
+                radioBtn.addEventListener('click', function() {
+                    if (radioBtn.checked) {
+                        let editBtn = document.getElementById(editBtnId);
+                        editBtn.disabled = false;
+                        console.log(rows);
+                        let rowIndex = radioBtn.getAttribute('for');
+                        editBtn.setAttribute('for', rowIndex);
+                    }
+                    else {
+                        document.getElementById(editBtnId).disabled = true;
+                    }
+                });
+            }
+			Script.setupPopup("editDiv", "editBox", "edit");
         </script>
         <!-- Link to JavaScript source file (User Story 4.4.1)-->
         <script src="addCustDialogue.js"> </script>
+		
 	</body>
 </html>
