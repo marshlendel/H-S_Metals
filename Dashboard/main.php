@@ -108,7 +108,7 @@ require 'sql.php';
                     }
                 });
             }
-            let customers = <?php echo json_encode(get_customers_list()); ?>
+            let customers = <?php echo json_encode(get_customers_list()); ?>;
 			Script.setupPopup("editDiv", "editBox", "edit");
         </script>
     </body>
