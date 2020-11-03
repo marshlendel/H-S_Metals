@@ -344,7 +344,7 @@ function get_rows($result) {
 }
 
 // US 9.2: SQL query to update lots
-function updateLot($lot, $customer, $gross, $tare, $status) {
+function updateLot($lot, $customer, $status) {
     require 'dbConnect.php';
     if (!($conn = new mysqli($servername, $username, $password, $dbname))) {
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -358,8 +358,6 @@ function updateLot($lot, $customer, $gross, $tare, $status) {
     $stmt->bind_param('ssi', $csql, $ssql, $lsql);
     $lsql = (int) $lot;
     $csql = "".$customer."";
-    $gsql = (double) $gross;
-    $tsql = (double) $tare;
     $ssql = "".$status."";
     if (!($result = $stmt->execute())) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;

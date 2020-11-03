@@ -8,32 +8,31 @@
 * limitations under the License.
 ************************************************************************** -->
 <?php
+function search ($input) {      //  Takes user input and inserts in sql query
+                                //      and returns the result
+    require 'dbConnect.php';
 
-    function search ($input) {      //  Takes user input and inserts in sql query
-                                    //      and returns the result
-        require 'dbConnect.php';
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-        // prepare and bind
-        if (is_numeric($input)) {
-            $stmt = $conn->prepare("SELECT * FROM Lots WHERE lotnum = ?");
-            $stmt->bind_param("i", $search);
-            $search = (int)$input;
-        } else {
-            $stmt = $conn->prepare("SELECT * FROM Lots WHERE customer LIKE ?");
-            $stmt->bind_param("s", $search);
-            $search = '%' . $input . '%';
-        }
-
-        $stmt->execute();
-
-        $res = $stmt->get_result();
-
-        $stmt->close();
-
-        $conn->close();
-
-        return $res;
+    // prepare and bind
+    if (is_numeric($input)) {
+        $stmt = $conn->prepare("SELECT * FROM Lots WHERE lotnum = ?");
+        $stmt->bind_param("i", $search);
+        $search = (int)$input;
+    } else {
+        $stmt = $conn->prepare("SELECT * FROM Lots WHERE customer LIKE ?");
+        $stmt->bind_param("s", $search);
+        $search = '%' . $input . '%';
     }
+
+    $stmt->execute();
+
+    $res = $stmt->get_result();
+
+    $stmt->close();
+
+    $conn->close();
+
+    return $res;
+}
 ?>

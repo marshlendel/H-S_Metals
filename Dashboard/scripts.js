@@ -261,18 +261,18 @@ export function makeSortable(tableId, fields, rows, initialSortField) {
         }
         let parent = headerElems[col].parentElement;
         parent.addEventListener('click', function (){
-                    // Rows are reversed if order is 1, otherwise -1
-                    let order = headerElems[col].getAttribute('for') == 1;
-                    sortRows(tableId, rows, field, order);
-                    setData(tableId, fields, rows);
-                    resetSortOrder(tableId);
-                    if (order) {
-                        headerElems[col].setAttribute('for', -1);
-                    }
-                    else {
-                        headerElems[col].setAttribute('for', 1);
-                    }
-            }, false);
+            // Rows are reversed if order is 1, otherwise -1
+            let order = headerElems[col].getAttribute('for') == 1;
+            sortRows(tableId, rows, field, order);
+            setData(tableId, fields, rows);
+            resetSortOrder(tableId);
+            if (order) {
+                headerElems[col].setAttribute('for', -1);
+            }
+            else {
+                headerElems[col].setAttribute('for', 1);
+            }
+        }, false);
     }
 }
 

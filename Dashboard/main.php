@@ -15,6 +15,10 @@ require 'dbConnect.php';
 $_SESSION["username"] = $username;
 $_SESSION["password"] = $password;
 require 'sql.php';
+
+if (isset($_POST["lotnum"], $_POST["customer"], $_POST["status"])) {
+    updateLot($_POST["lotnum"], $_POST["customer"], $_POST["status"]);
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,39 +53,33 @@ require 'sql.php';
 		<button type="button" disabled id="edit">Edit</button>
         <div id="lotTable" class="">
 
-
         </div>
 
 		<div id="editDiv" class="modal">
-		<div id="editPad" class="modal-content">
-		<span id="editBox" class="close">X</span>
-		<button type="button">Delete</button>
-		 <p>Edit</p>
+    		<div id="editPad" class="modal-content">
+        		<span id="editBox" class="close">X</span>
+        		<button type="button">Delete</button>
+        		<p>Edit</p>
+        		<form class="" action="" method="post">
+                    <input type="hidden" id="lotInput" name="lotnum">
+                    <label for="customer"><b>Customer</b></label>
+                    <input type="search" id="custInput" name="customer" class="customerInput"
+                        list="custList" required><br>
+    				<datalist id="custList">
+            		</datalist>
 
-		 <form class="" action="" method="post">
-                <label for="customer"><b>Customer</b></label>
-                <input type="search" name="customer" class="customerInput" list="custList" required>
-				<datalist id="custList">
-        		</datalist>
-					<br>
+                    <label for="status"><b id="status">Status</b></label>
+                    <select id="statusInput" name="status" class="StatusInput" required><br>
+					  <option value="DIRTY">DIRTY</option>
+					  <option value="CLEAN">CLEAN</option>
+					  <option value="PARTIALLY-SHIPPED">PARTIALLY-SHIPPED</option>
+					  <option value="SHIPPED">SHIPPED</option>
+					</select>
 
-                <label for="status"><b>Status</b></label>
-					<input list="statusList" class="StatusInput" name="status" />
-					<datalist id="statusList">
-					  <option value="dirty">
-					  <option value="partially clean">
-					  <option value="clean">
-					  <option value="shipped">
-					</datalist>
-				<br>
-
-
-
-                <button type="submit" class="custBtn">Submit</button>
-				<button type="reset">Cancel</button>
-            </form>
-
-		</div>
+                    <button type="reset">Cancel</button>
+                    <button type="submit" class="custBtn">Submit</button>
+                </form>
+    		</div>
 		</div>
 
         <!-- Import JS functions -->
@@ -112,16 +110,39 @@ require 'sql.php';
                 let radioBtn = radioBtns[index];
                 radioBtn.addEventListener('click', function() {
                     if (radioBtn.checked) {
-                        document.getElementById(editBtnId).disabled = false;
+                        let editBtn = document.getElementById(editBtnId);
+                        editBtn.disabled = false;
+                        console.log(rows);
+                        let rowIndex = radioBtn.getAttribute('for');
+                        editBtn.setAttribute('for', rowIndex);
                     }
                     else {
                         document.getElementById(editBtnId).disabled = true;
                     }
                 });
             }
-            let customers = <?php echo json_encode(get_customers_list()); ?>;
 			Script.setupPopup("editDiv", "editBox", "edit");
-			Script.custAdd("custList", customers);
+
+            let editBtn = document.getElementById(editBtnId);
+            editBtn.addEventListener('click', function() {
+                let rowIndex = editBtn.getAttribute('for');
+                document.getElementById("lotInput").value = rows[rowIndex]["lotnum"];
+                document.getElementById("custInput").value = rows[rowIndex]["customer"];
+                let status = rows[rowIndex]["status"];
+                let statusSelect = document.getElementById("statusInput");
+                let options = statusSelect.getElementsByTagName('option');
+                for (let i = 0; i < options.length; ++i) {
+                    if (options[i].value == status) {
+                        options[i].selected = true;
+                    } else {
+                        options[i].selected = false;
+                    }
+                }
+                // .value = rows[rowIndex]["status"];
+            }, false);
+
+            let customers = <?php echo json_encode(get_customers_list()); ?>;
+            Script.custAdd("custList", customers);
         </script>
     </body>
 </html>
