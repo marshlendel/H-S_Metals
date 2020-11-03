@@ -33,12 +33,10 @@
 	<body>
 	<?php require 'navbar.php'; ?>
 
-
-            <!-- Search bar -->
-            <form action="" method="">
-                Search:  <input type="text" name="user_input" />
-            </form>
-
+        <!-- Search bar -->
+        <form action="" method="">
+            Search:  <input type="text" name="user_input" />
+        </form>
 
 		<h1>Customers</h1>
 
@@ -48,24 +46,7 @@
 		<br>
 
         <div id="custTable" class="">
-
         </div>
-
-        </div>
-		<!-- <table>
-    				<tr>
-        				<th> Company </th>
-        				<th> Contact </th>
-        				<th> Phone Number </th>
-						<th> Email </th>
-    				</tr>
-            <?php
-                // while($row = $result-> fetch_assoc()){
-                //     echo "<tr><td>" . $row["company"] . "</td><td>" . $row["contact"] . "</td><td>" . $row["phone"] . "</td><td>" . $row["email"] . "</td></tr>";
-                // }
-		    ?>
-
-        </table> -->
 
         <!-- Button for User Story 4.4 -->
 
@@ -109,7 +90,7 @@
             var fields = <?php echo json_encode(get_fields($customers))?>;
             var headers = ["Company", "Contact", "Phone Number", "Email"];
             var tableId = "custTable";
-            Script.makeTable(tableId, fields, rows, headers, "", "company");
+            Script.makeTable(tableId, fields, rows, headers, "customers", "company");
         </script>
         <!-- Link to JavaScript source file (User Story 4.4.1)-->
         <script src="addCustDialogue.js"> </script>

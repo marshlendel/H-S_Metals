@@ -87,6 +87,7 @@ require 'sql.php';
                     }
                 });
             }
+            let customers = <?php echo json_encode(get_customers_list()); ?>
         </script>
     </body>
 </html>

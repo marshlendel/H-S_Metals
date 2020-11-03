@@ -30,12 +30,12 @@
                 margin-bottom: 50px;
             }
             #tableDiv {
-                margin-top: 50px;
                 display: flex;
                 margin-left: 10%;
                 margin-right: 10%;
                 max-height: 330px;
                 overflow: auto;
+                border-style: solid;
                 border-width: 2px;
                 border-color: #000000a3;
             }
@@ -101,16 +101,16 @@
                             console.log("Add Lot: " + <?php echo json_encode($result); ?> );
                         </script>
                         <?php
+                        // US 7.6: pallet is added to database
+                        $result = addPallet($_POST['lotnum'], $_POST['gross'], $_POST['tare']);
+                        ?>
+                        <script type="text/javascript">
+                            console.log("Add Pallet: " + <?php echo json_encode($result); ?> );
+                        </script>
+                        <?php
                     }
-                    // US 7.6: pallet is added to database
-                    $result = addPallet($_POST['lotnum'], $_POST['gross'], $_POST['tare']);
-                    ?>
-                    <script type="text/javascript">
-                        console.log("Add Pallet: " + <?php echo json_encode($result); ?> );
-                    </script>
-                    <?php
                 }
-                ?>
+                    ?>
                 <!-- US 7.1: lot label and lot number -->
         		<div id="lotBar">
         			<label for="lotNum">Lot No.</label>

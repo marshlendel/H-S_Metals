@@ -250,6 +250,7 @@ export function sortRows(tableId, rows, sortField, reverse=false) {
 }
 
 export function makeSortable(tableId, fields, rows, initialSortField) {
+    console.log("Adding event listeners for sorting");
     let headerElems = document.getElementById(tableId).getElementsByClassName("field");
     resetSortOrder(tableId);
     // Sets the column fields
@@ -279,11 +280,11 @@ export function makeTable(tableId, fields, rows, headers, radioName="", initialS
     console.log(fields);
     console.log(rows);
     stringifyRows(fields, rows);
-    sortRows(tableId, rows, initialSortField, false);
     createTable(tableId, fields.length, rows.length, radioName);
     setColumnNames(tableId, headers);
     setData(tableId, fields, rows);
     if (initialSortField) {
+        sortRows(tableId, rows, initialSortField, false);
         makeSortable(tableId, fields, rows, initialSortField);
     }
 }
