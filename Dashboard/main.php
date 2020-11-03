@@ -16,8 +16,10 @@ $_SESSION["username"] = $username;
 $_SESSION["password"] = $password;
 require 'sql.php';
 
-if (isset($_POST["lotnum"], $_POST["customer"], $_POST["status"])) {
+if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status"])) {
     updateLot($_POST["lotnum"], $_POST["customer"], $_POST["status"]);
+} else if (isset($_POST["delete"], $_POST["lotnum"])) {
+    removeLot($_POST["lotnum"]);
 }
 ?>
 
@@ -58,26 +60,26 @@ if (isset($_POST["lotnum"], $_POST["customer"], $_POST["status"])) {
 		<div id="editDiv" class="modal">
     		<div id="editPad" class="modal-content">
         		<span id="editBox" class="close">X</span>
-        		<button type="button">Delete</button>
         		<p>Edit</p>
         		<form class="" action="" method="post">
                     <input type="hidden" id="lotInput" name="lotnum">
                     <label for="customer"><b>Customer</b></label>
                     <input type="search" id="custInput" name="customer" class="customerInput"
-                        list="custList" required><br>
+                        list="custList"><br>
     				<datalist id="custList">
             		</datalist>
 
                     <label for="status"><b id="status">Status</b></label>
-                    <select id="statusInput" name="status" class="StatusInput" required><br>
+                    <select id="statusInput" name="status" class="StatusInput"><br>
 					  <option value="DIRTY">DIRTY</option>
 					  <option value="CLEAN">CLEAN</option>
 					  <option value="PARTIALLY-SHIPPED">PARTIALLY-SHIPPED</option>
 					  <option value="SHIPPED">SHIPPED</option>
-					</select>
+                  </select><br>
 
                     <button type="reset">Cancel</button>
-                    <button type="submit" class="custBtn">Submit</button>
+                    <button type="submit" class="custBtn" name="update">Apply</button><br>
+                    <button type="submit" name="delete">Delete</button>
                 </form>
     		</div>
 		</div>
