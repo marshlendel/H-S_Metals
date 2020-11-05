@@ -33,18 +33,6 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
         <!-- Link to CSS stylesheet -->
         <link rel="stylesheet", href="styles.css">
 		<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
-        <style media="screen">
-            #lotTable {
-                display: flex;
-                margin-left: 10%;
-                margin-right: 10%;
-                max-height: 330px;
-                overflow: auto;
-                border-style: solid;
-                border-width: 2px;
-                border-color: #000000a3;
-            }
-        </style>
     </head>
 
     <body>
@@ -60,7 +48,7 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
 		<div id="editDiv" class="modal">
     		<div id="editPad" class="modal-content">
         		<span id="editBox" class="close">X</span>
-        		<p>Edit</p>
+        		<p id="lotLabel"></p>
         		<form class="" action="" method="post">
                     <input type="hidden" id="lotInput" name="lotnum">
                     <label for="customer"><b>Customer</b></label>
@@ -75,11 +63,12 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
 					  <option value="CLEAN">CLEAN</option>
 					  <option value="PARTIALLY-SHIPPED">PARTIALLY-SHIPPED</option>
 					  <option value="SHIPPED">SHIPPED</option>
-                  </select><br>
+                    </select><br>
 
-                    <button type="reset">Cancel</button>
-                    <button type="submit" class="custBtn" name="update">Apply</button><br>
-                    <button type="submit" name="delete">Delete</button>
+                    <button type="submit" class="submitBtn" name="delete">Delete</button>
+                    <button type="reset" class="submitBtn">Cancel</button>
+                    <button type="submit" class="submitBtn" name="update">Apply</button>
+
                 </form>
     		</div>
 		</div>
@@ -125,9 +114,11 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
             }
 			Script.setupPopup("editDiv", "editBox", "edit");
 
+            // US 9.2.2: Puts current customer and status values in inputs
             let editBtn = document.getElementById(editBtnId);
             editBtn.addEventListener('click', function() {
                 let rowIndex = editBtn.getAttribute('for');
+                document.getElementById("lotLabel").innerHTML = "Lot "+rows[rowIndex]["lotnum"];
                 document.getElementById("lotInput").value = rows[rowIndex]["lotnum"];
                 document.getElementById("custInput").value = rows[rowIndex]["customer"];
                 let status = rows[rowIndex]["status"];
@@ -140,7 +131,6 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
                         options[i].selected = false;
                     }
                 }
-                // .value = rows[rowIndex]["status"];
             }, false);
 
             let customers = <?php echo json_encode(get_customers_list()); ?>;

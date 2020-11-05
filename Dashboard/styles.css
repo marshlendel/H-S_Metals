@@ -33,7 +33,16 @@ h1{
 	 padding:15px;
 }
 
-
+#lotTable {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-height: 330px;
+    overflow: auto;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #000000a3;
+}
 
 /* Table in User Story 4.2 */
 .radioCol, .dataCol {
@@ -128,13 +137,24 @@ form {
 	border-radius: 50px;
 }
 
-.custBtn {
-	margin: 5px;
-    position: relative;
-    left: 47%;
-	padding: 5px;
+select {
+    margin: 5px 0;
+    width: 172.8px;
+    height: 21.2px;
+}
+
+.submitBtn {
+    height: 29px;
+    margin: 5px;
+    /* position: relative; */
+    padding: 5px;
     background-color: black;
     color: white;
+    width: 56px;
+}
+
+button[type="reset"] {
+    margin-left: 42%;
 }
 
 .navBar {

@@ -11,9 +11,9 @@
 <nav class="navBar non-printable">
     <a href="main.php" id="logo"></a>
     <a href="addLot.php" id="highlight">Add Lot</a>
-    <a href="history.php">Lot History</a>
-    <a href="reports.html">Reports</a>
+    <!-- <a href="history.php">Lot History</a> -->
+    <!-- <a href="reports.html">Reports</a> -->
     <a href="customers.php">Customers</a>
-    <a href="accounts.html">Accounts</a>
+    <!-- <a href="accounts.html">Accounts</a> -->
     <a href="../LoginPage/login.html">Logout</a>
 </nav>

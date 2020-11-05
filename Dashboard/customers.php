@@ -8,7 +8,14 @@
 * limitations under the License.
 ************************************************************************** -->
 <?php
-    require 'sql.php';
+session_start();
+require 'sql.php';
+
+if (isset($_POST["update"], $_POST["updComp"], $_POST["updCont"], $_POST["updPhone"], $_POST["updEmail"])) {
+    echo updateCustomer($_POST["updComp"], $_POST["updCont"], $_POST["updPhone"], $_POST["updEmail"]);
+} else if (isset($_POST["delete"], $_POST["updComp"])) {
+    echo removeCust($_POST["updComp"]);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,37 +79,37 @@
             </form>
             </div>
         </div>
-		
+
 		<button type="button" disabled id="edit">Edit</button>
 
 		<div id="editDiv" class="modal">
     		<div id="editPad" class="modal-content">
         		<span id="editBox" class="close">X</span>
-        		<button type="button">Delete</button>
-        		<p>Edit</p>
+        		<p id="lotLabel"></p>
         		<form class="" action="" method="post">
                     <input type="hidden" id="lotInput" name="lotnum">
                     <label for="customer"><b>Company</b></label>
-                    <input type="text" id="custInput" name="customer" class="customerInput"><br>
+                    <input type="text" id="custInput" name="updComp" class="customerInput"><br>
 
                     <label for="contact"><b>Contact</b></label>
-                    <input type="text" id="contactInput" name="contact" class="ContactInput" required><br>
-					
-					<label for="phone"><b>Phone</b></label>
-                    <input type="text" id="phoneInput" name="phone" class="PhoneInput" required><br>
-					
-					<label for="email"><b>Email</b></label>
-                    <input type="text" id="emailInput" name="email" class="EmailInput" required><br>
+                    <input type="text" id="contactInput" name="updCont" class="ContactInput" required><br>
 
-                    <button type="reset">Cancel</button>
-                    <button type="submit" class="custBtn">Submit</button>
+					<label for="phone"><b>Phone</b></label>
+                    <input type="text" id="phoneInput" name="updPhone" class="PhoneInput" required><br>
+
+					<label for="email"><b>Email</b></label>
+                    <input type="text" id="emailInput" name="updEmail" class="EmailInput" required><br>
+
+                    <button type="submit" class="submitBtn" name="delete">Delete</button>
+                    <button type="reset" class="submitBtn">Cancel</button>
+                    <button type="submit" class="submitBtn" name="update">Apply</button>
                 </form>
     		</div>
 		</div>
 
 		<div id="custTable" class="">
         </div>
-		
+
         <script type="module">
             import * as Script from './scripts.js';
             // Action for submit of form to add customer (User Story 4.4.2)
@@ -118,7 +125,7 @@
             var headers = ["Company", "Contact", "Phone Number", "Email"];
             var tableId = "custTable";
             Script.makeTable(tableId, fields, rows, headers, "customers", "company");
-			
+
 			let editBtnId = "edit";
             let radioBtns = document.getElementsByClassName("radioButt");
             console.log(radioBtns.length);
@@ -138,9 +145,19 @@
                 });
             }
 			Script.setupPopup("editDiv", "editBox", "edit");
+
+            // US 9.3.2: Puts current customer and status values in inputs
+            let editBtn = document.getElementById(editBtnId);
+            editBtn.addEventListener('click', function() {
+                let rowIndex = editBtn.getAttribute('for');
+                document.getElementById("custInput").value = rows[rowIndex]["company"];
+                document.getElementById("contactInput").value = rows[rowIndex]["contact"];
+                document.getElementById("phoneInput").value = rows[rowIndex]["phone"];
+                document.getElementById("emailInput").value = rows[rowIndex]["email"];
+            }, false);
         </script>
         <!-- Link to JavaScript source file (User Story 4.4.1)-->
         <script src="addCustDialogue.js"> </script>
-		
+
 	</body>
 </html>
