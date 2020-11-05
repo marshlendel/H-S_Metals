@@ -66,7 +66,7 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
                     </select><br>
 
                     <button type="submit" class="submitBtn" name="delete">Delete</button>
-                    <button type="reset" class="submitBtn">Cancel</button>
+                    <button type="reset" class="submitBtn" id="cancel">Cancel</button>
                     <button type="submit" class="submitBtn" name="update">Apply</button>
 
                 </form>
@@ -112,7 +112,12 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
                     }
                 });
             }
-			Script.setupPopup("editDiv", "editBox", "edit");
+            let popupId = "editDiv";
+			Script.setupPopup(popupId, "editBox", "edit");
+            let cancelBtn = document.getElementById("cancel");
+            cancelBtn.addEventListener('click', function() {
+                document.getElementById(popupId).style.display = "none";
+            })
 
             // US 9.2.2: Puts current customer and status values in inputs
             let editBtn = document.getElementById(editBtnId);

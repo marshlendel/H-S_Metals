@@ -11,10 +11,10 @@
 session_start();
 require 'sql.php';
 
-if (isset($_POST["update"], $_POST["updComp"], $_POST["updCont"], $_POST["updPhone"], $_POST["updEmail"])) {
-    echo updateCustomer($_POST["updComp"], $_POST["updCont"], $_POST["updPhone"], $_POST["updEmail"]);
-} else if (isset($_POST["delete"], $_POST["updComp"])) {
-    echo removeCust($_POST["updComp"]);
+if (isset($_POST["update"], $_POST["oldcompany"], $_POST["updComp"], $_POST["updCont"], $_POST["updPhone"], $_POST["updEmail"])) {
+    updateCustomer($_POST["oldcompany"], $_POST["updComp"], $_POST["updCont"], $_POST["updPhone"], $_POST["updEmail"]);
+} else if (isset($_POST["delete"], $_POST["oldcompany"])) {
+    removeCust($_POST["oldcompany"]);
 }
 ?>
 <!DOCTYPE html>
@@ -23,19 +23,6 @@ if (isset($_POST["update"], $_POST["updComp"], $_POST["updCont"], $_POST["updPho
 		<title>Customers</title>
 		 <link rel="stylesheet", href="styles.css">
 		 <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
-		 <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-         <style media="screen">
-             #custTable {
-                 display: flex;
-                 margin-left: 10%;
-                 margin-right: 10%;
-                 max-height: 330px;
-                 overflow: auto;
-                 border-style: solid;
-                 border-width: 2px;
-                 border-color: #000000a3;
-             }
-         </style>
     </head>
 	<body>
 	<?php require 'navbar.php'; ?>
@@ -85,9 +72,9 @@ if (isset($_POST["update"], $_POST["updComp"], $_POST["updCont"], $_POST["updPho
 		<div id="editDiv" class="modal">
     		<div id="editPad" class="modal-content">
         		<span id="editBox" class="close">X</span>
-        		<p id="lotLabel"></p>
+        		<p id="companyLabel"></p>
         		<form class="" action="" method="post">
-                    <input type="hidden" id="lotInput" name="lotnum">
+                    <input type="hidden" id="oldcompany" name="oldcompany">
                     <label for="customer"><b>Company</b></label>
                     <input type="text" id="custInput" name="updComp" class="customerInput"><br>
 
@@ -101,7 +88,7 @@ if (isset($_POST["update"], $_POST["updComp"], $_POST["updCont"], $_POST["updPho
                     <input type="text" id="emailInput" name="updEmail" class="EmailInput" required><br>
 
                     <button type="submit" class="submitBtn" name="delete">Delete</button>
-                    <button type="reset" class="submitBtn">Cancel</button>
+                    <button type="reset" class="submitBtn" id="cancel">Cancel</button>
                     <button type="submit" class="submitBtn" name="update">Apply</button>
                 </form>
     		</div>
@@ -144,12 +131,19 @@ if (isset($_POST["update"], $_POST["updComp"], $_POST["updCont"], $_POST["updPho
                     }
                 });
             }
-			Script.setupPopup("editDiv", "editBox", "edit");
+            let popupId = "editDiv";
+			Script.setupPopup(popupId, "editBox", "edit");
+            let cancelBtn = document.getElementById("cancel");
+            cancelBtn.addEventListener('click', function() {
+                document.getElementById(popupId).style.display = "none";
+            })
 
             // US 9.3.2: Puts current customer and status values in inputs
             let editBtn = document.getElementById(editBtnId);
             editBtn.addEventListener('click', function() {
                 let rowIndex = editBtn.getAttribute('for');
+                document.getElementById("companyLabel").innerHTML = rows[rowIndex]["company"];
+                document.getElementById("oldcompany").value = rows[rowIndex]["company"];
                 document.getElementById("custInput").value = rows[rowIndex]["company"];
                 document.getElementById("contactInput").value = rows[rowIndex]["contact"];
                 document.getElementById("phoneInput").value = rows[rowIndex]["phone"];

@@ -367,7 +367,7 @@ function updateLot($lot, $customer, $status) {
 }
 
 // US 9.2: SQL query to update lots
-function updateCustomer($company, $contact, $phone, $email) {
+function updateCustomer($oldcompany, $newcompany, $contact, $phone, $email) {
     require 'dbConnect.php';
     if (!($conn = new mysqli($servername, $username, $password, $dbname))) {
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -378,12 +378,13 @@ function updateCustomer($company, $contact, $phone, $email) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
         return;
     }
-    $stmt->bind_param("sssss", $companysql, $contactsql, $phonesql, $emailsql, $companysql);
+    $stmt->bind_param("sssss", $newcompanysql, $contactsql, $phonesql, $emailsql, $oldcompanysql);
     // set parameters and execute
-    $companysql = "".$company."";
+    $newcompanysql = "".$newcompany."";
     $contactsql = "".$contact."";
     $phonesql = "".$phone."";
     $emailsql = "".$email."";
+    $oldcompanysql = "".$oldcompany."";
     if (!($result = $stmt->execute())) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
         return $result;
