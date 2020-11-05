@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 04, 2020 at 08:03 PM
+-- Generation Time: Nov 04, 2020 at 10:27 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `handsmetals`
 --
-CREATE DATABASE IF NOT EXISTS `handsmetals` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `handsmetals`;
 
 -- --------------------------------------------------------
 

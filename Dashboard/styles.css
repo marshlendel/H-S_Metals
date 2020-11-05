@@ -98,6 +98,24 @@ form {
 	margin: 5px 0
 }
 
+.contactInput {
+    position: relative;
+    left: 14%;
+    margin: 5px 0;
+}
+
+.phoneInput {
+    position: relative;
+    left: 17%;
+    margin: 5px 0;
+}
+
+.emailInput {
+    position: relative;
+    left: 19%;
+    margin: 5px 0;
+}
+
 #addCust p {
 	text-align: center;
     margin-left: 55px;

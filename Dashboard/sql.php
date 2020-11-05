@@ -15,11 +15,11 @@
 //     $conn = new mysqli($servername, $username, $password, $database);
 //     // prepare and bind
 //     if (is_numeric($input)) {
-//         $stmt = $conn->prepare("SELECT * FROM Lots WHERE lotnum = ?");
+//         $stmt = $conn->prepare("SELECT * FROM lots WHERE lotnum = ?");
 //         $stmt->bind_param("i", $search);
 //         $search = (int)$input;
 //     } else {
-//         $stmt = $conn->prepare("SELECT * FROM Lots WHERE customer LIKE ?");
+//         $stmt = $conn->prepare("SELECT * FROM lots WHERE customer LIKE ?");
 //         $stmt->bind_param("s", $search);
 //         $search = '%' . $input . '%';
 //     }
@@ -58,7 +58,7 @@ function removeLot ($lotnum) {
     require 'dbConnect.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("DELETE FROM Lots WHERE lotnum = ?");
+    $stmt = $conn->prepare("DELETE FROM lots WHERE lotnum = ?");
     $stmt->bind_param("i", $lotnumsql);
     $lotnumsql = (int) $lotnum;
     $result = $stmt->execute();
@@ -72,7 +72,7 @@ function removeCust($cust) {
     require 'dbConnect.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("DELETE FROM Customers WHERE company = ?");
+    $stmt = $conn->prepare("DELETE FROM customers WHERE company = ?");
     $stmt->bind_param("s", $custsql);
     $custsql = "".$cust."";
     $result = $stmt->execute();
@@ -87,7 +87,7 @@ function addLot ($lotnum, $cust) {      //  Takes user input and inserts in sql 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("INSERT INTO Lots (lotnum, customer) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO lots (lotnum, customer) VALUES (?, ?)");
     $stmt->bind_param("is", $lotnumsql, $custsql);
     // set parameters and execute
     $lotnumsql = (int)$lotnum;
@@ -110,7 +110,7 @@ function addPallet($lotnum, $gross, $tare) {
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("INSERT INTO Pallets (lotnum, gross, tare) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO pallets (lotnum, gross, tare) VALUES (?, ?, ?)");
     $stmt->bind_param("idd", $lotnumsql, $grosssql, $taresql);
     // set parameters and execute
     $lotnumsql = (int)$lotnum;
@@ -134,7 +134,7 @@ function addCustomer ($company, $contact, $phone, $email) {      //  Takes user 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("INSERT INTO Customers (company, contact, phone, email) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO customers (company, contact, phone, email) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssis", $companysql, $contactsql, $phonesql, $emailsql);
     // set parameters and execute
     $companysql = "".$company."";
@@ -151,13 +151,13 @@ function addCustomer ($company, $contact, $phone, $email) {      //  Takes user 
     return "Success";
 }
 
-//  Code to connect to db and return data in Customers table (User Story 4.3)
+//  Code to connect to db and return data in customers table (User Story 4.3)
 function get_customers () {
 
     require 'dbConnect.php';
     $database = "HandSMetals";
     $conn = new mysqli($servername, $username, $password, $database);
-    $stmt = $conn->prepare("SELECT * FROM Customers");
+    $stmt = $conn->prepare("SELECT * FROM customers");
     $stmt->execute();
     $res = $stmt->get_result();
     $stmt->close();
@@ -165,13 +165,13 @@ function get_customers () {
     return $res;
 }
 
-//  Code to connect to db and return data in Lots table (User Story 3.2)
+//  Code to connect to db and return data in lots table (User Story 3.2)
 function get_lots () {
 
     require 'dbConnect.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT * FROM Lots");
+    $stmt = $conn->prepare("SELECT * FROM lots");
     $stmt->execute();
     $res = $stmt->get_result();
     $stmt->close();
@@ -185,7 +185,7 @@ function getLotGross ($lotnum) {
     require 'dbConnect.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT SUM(gross) gross FROM Pallets WHERE lotnum = ? GROUP BY lotnum");
+    $stmt = $conn->prepare("SELECT SUM(gross) gross FROM pallets WHERE lotnum = ? GROUP BY lotnum");
     $stmt->bind_param("i", $lotnumsql);
     $lotnumsql = (int) $lotnum;
     $stmt->execute();
@@ -202,7 +202,7 @@ function getLotTare ($lotnum) {
     require 'dbConnect.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT SUM(tare) tare FROM Pallets WHERE lotnum = ? GROUP BY lotnum");
+    $stmt = $conn->prepare("SELECT SUM(tare) tare FROM pallets WHERE lotnum = ? GROUP BY lotnum");
     $stmt->bind_param("i", $lotnumsql);
     $lotnumsql = (int) $lotnum;
     $stmt->execute();
@@ -219,7 +219,7 @@ function getLotNet ($lotnum) {
     require 'dbConnect.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT SUM(gross) gross, SUM(tare) tare FROM Pallets WHERE lotnum = ? GROUP BY lotnum");
+    $stmt = $conn->prepare("SELECT SUM(gross) gross, SUM(tare) tare FROM pallets WHERE lotnum = ? GROUP BY lotnum");
     $stmt->bind_param("i", $lotnumsql);
     $lotnumsql = (int) $lotnum;
     $stmt->execute();
@@ -236,7 +236,7 @@ function get_pallets ($lotnum) {
     require 'dbConnect.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT palletnum, gross, tare, (gross-tare) net FROM Pallets WHERE lotnum = ?");
+    $stmt = $conn->prepare("SELECT palletnum, gross, tare, (gross-tare) net FROM pallets WHERE lotnum = ?");
     $stmt->bind_param("i", $lotnumsql);
     $lotnumsql = (int) $lotnum;
     $stmt->execute();
@@ -253,7 +253,7 @@ function get_num_pallets() {
     $database = "HandSMetals";
     $conn = new mysqli($servername, $username, $password, $database);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT lotnum, MAX(palletnum) AS palletnum FROM Pallets GROUP BY lotnum");
+    $stmt = $conn->prepare("SELECT lotnum, MAX(palletnum) AS palletnum FROM pallets GROUP BY lotnum");
     $stmt->execute();
     $res = $stmt->get_result();
     $stmt->close();
@@ -272,7 +272,7 @@ function get_customers_list() {
     $database = "HandSMetals";
     $conn = new mysqli($servername, $username, $password, $database);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT company FROM Customers");
+    $stmt = $conn->prepare("SELECT company FROM customers");
     $stmt->execute();
     $res = $stmt->get_result();
     $stmt->close();
@@ -291,7 +291,7 @@ function get_lots_list() {
     require 'dbConnect.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT lotnum FROM Lots");
+    $stmt = $conn->prepare("SELECT lotnum FROM lots");
     $stmt->execute();
     $res = $stmt->get_result();
     $stmt->close();
@@ -310,7 +310,7 @@ function getLotsCustomerList() {
     require 'dbConnect.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT lotnum, customer FROM Lots");
+    $stmt = $conn->prepare("SELECT lotnum, customer FROM lots");
     $stmt->execute();
     $res = $stmt->get_result();
     $stmt->close();

@@ -79,13 +79,13 @@ if (isset($_POST["update"], $_POST["oldcompany"], $_POST["updComp"], $_POST["upd
                     <input type="text" id="custInput" name="updComp" class="customerInput"><br>
 
                     <label for="contact"><b>Contact</b></label>
-                    <input type="text" id="contactInput" name="updCont" class="ContactInput" required><br>
+                    <input type="text" id="contactInput" name="updCont" class="contactInput" required><br>
 
 					<label for="phone"><b>Phone</b></label>
-                    <input type="text" id="phoneInput" name="updPhone" class="PhoneInput" required><br>
+                    <input type="text" id="phoneInput" name="updPhone" class="phoneInput" required><br>
 
 					<label for="email"><b>Email</b></label>
-                    <input type="text" id="emailInput" name="updEmail" class="EmailInput" required><br>
+                    <input type="text" id="emailInput" name="updEmail" class="emailInput" required><br>
 
                     <button type="submit" class="submitBtn" name="delete">Delete</button>
                     <button type="reset" class="submitBtn" id="cancel">Cancel</button>
@@ -136,7 +136,7 @@ if (isset($_POST["update"], $_POST["oldcompany"], $_POST["updComp"], $_POST["upd
             let cancelBtn = document.getElementById("cancel");
             cancelBtn.addEventListener('click', function() {
                 document.getElementById(popupId).style.display = "none";
-            })
+            });
 
             // US 9.3.2: Puts current customer and status values in inputs
             let editBtn = document.getElementById(editBtnId);

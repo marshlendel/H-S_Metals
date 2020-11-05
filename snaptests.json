@@ -1,7 +1,7 @@
 {
   "tests": [
     {
-      "name": "3.2",
+      "name": "1.1",
       "description": "",
       "actions": [
         {
@@ -14,8 +14,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "r1euNtaUHw",
-          "value": "/~mwithers/Dashboard/history.php",
+          "id": "SkZ6N9gZtD",
+          "value": "/H-S_Metals/LoginPage/login.html",
           "index": null
         },
         {
@@ -28,161 +28,10 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BJOVYaLSD",
-          "value": "${baseUrl}/~mwithers/Dashboard/history.php",
-          "width": 767,
-          "height": 712,
-          "resize": false,
-          "complete": false
-        },
-        {
-          "type": "MOUSEDOWN",
-          "selector": "[name=user_input]",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "ryc4K6IrP",
-          "textContent": null,
-          "textAsserted": false,
-          "x": 196,
-          "y": 56
-        },
-        {
-          "type": "MOUSEDOWN",
-          "selector": "form > button",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [
-            "Couldn't find a good selector strategy to target this element. "
-          ],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "rynEt6LrD",
-          "textContent": "Submit",
-          "textAsserted": false,
-          "x": 246,
-          "y": 51
-        },
-        {
-          "type": "TEXT_ASSERT",
-          "selector": "#date",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "HkeSYpLSw",
-          "value": "Date",
-          "regex": false
-        },
-        {
-          "type": "TEXT_ASSERT",
-          "selector": "#lotnum",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "HJxlrF6IHD",
-          "value": "Lot",
-          "regex": false
-        },
-        {
-          "type": "TEXT_ASSERT",
-          "selector": "#customer",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "B1-BFpIHD",
-          "value": "Customer",
-          "regex": false
-        },
-        {
-          "type": "TEXT_ASSERT",
-          "selector": "#status",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "SyefrFaIBv",
-          "value": "Status",
-          "regex": false
-        },
-        {
-          "type": "TEXT_ASSERT",
-          "selector": "#type",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "SyQHFpLHw",
-          "value": "Type",
-          "regex": false
-        }
-      ],
-      "id": "H1OAfr-wU",
-      "type": "test",
-      "variables": [
-        {
-          "id": "HJgjU7BZDL",
-          "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
-          "type": "STRING_VAR"
-        }
-      ]
-    },
-    {
-      "name": "3.3",
-      "description": "",
-      "actions": [
-        {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "S1bHJ1IWw8",
-          "value": "/~mwithers/LoginPage/login.html",
-          "index": null
-        },
-        {
-          "type": "FULL_PAGELOAD",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "SJrkkLbPL",
-          "value": "${baseUrl}/~mwithers/LoginPage/login.html",
-          "width": 767,
-          "height": 712,
+          "id": "H1aV5xZtw",
+          "value": "${baseUrl}/H-S_Metals/LoginPage/login.html",
+          "width": 768,
+          "height": 719,
           "resize": false,
           "complete": false
         },
@@ -196,11 +45,11 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rJwkJU-D8",
+          "id": "H10NcxZYw",
           "textContent": null,
           "textAsserted": false,
-          "x": 369,
-          "y": 130
+          "x": 619,
+          "y": 272
         },
         {
           "type": "INPUT",
@@ -212,8 +61,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BkgKyJIZP8",
-          "value": "micah.withers",
+          "id": "S1WCVqe-FP",
+          "value": "mwithers",
           "inputType": "text",
           "isContentEditable": false
         },
@@ -227,73 +76,14 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ryztk1L-PL",
-          "value": "IWUstud0418",
+          "id": "Bkx8rcebFP",
+          "value": "randompassword",
           "inputType": "password",
           "isContentEditable": false
-        },
-        {
-          "type": "SUBMIT",
-          "selector": "[name=password]",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "H1HejkS4v"
-        }
-      ],
-      "id": "H1KG0r-PL",
-      "type": "test",
-      "variables": [
-        {
-          "id": "ByxHk1LZPL",
-          "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
-          "type": "STRING_VAR"
-        }
-      ]
-    },
-    {
-      "name": "1.1-1.2",
-      "description": "",
-      "actions": [
-        {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "S1xtkYL-PU",
-          "value": "/~mwithers/LoginPage/login.html",
-          "index": null
-        },
-        {
-          "type": "FULL_PAGELOAD",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "HytJKL-P8",
-          "value": "${baseUrl}/~mwithers/LoginPage/login.html",
-          "width": 767,
-          "height": 712,
-          "resize": false,
-          "complete": false
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "[name=username]",
+          "selector": "body main button",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -301,45 +91,15 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "Bkq1YL-PI",
-          "textContent": null,
+          "id": "r1qSqlWtP",
+          "textContent": "Login",
           "textAsserted": false,
-          "x": 314,
-          "y": 126
-        },
-        {
-          "type": "INPUT",
-          "selector": "[name=username]",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "S1lhyY8ZvU",
-          "value": "micah.withers",
-          "inputType": "text",
-          "isContentEditable": false
-        },
-        {
-          "type": "INPUT",
-          "selector": "[name=password]",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "ByMn1K8WwL",
-          "value": "IWUstud0418",
-          "inputType": "password",
-          "isContentEditable": false
+          "x": 619,
+          "y": 371
         },
         {
           "type": "SUBMIT",
-          "selector": "form",
+          "selector": "main > form",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -349,24 +109,7 @@
           ],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ryreFkr4P"
-        },
-        {
-          "type": "FULL_PAGELOAD",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "r1Sfigr4D",
-          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
-          "width": 500,
-          "height": 500,
-          "resize": false,
-          "complete": false
+          "id": "r1AS5ebKP"
         },
         {
           "type": "URL_CHANGE_INDICATOR",
@@ -378,8 +121,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "Hy-et8bw8",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "BkRrql-tv",
+          "value": "/H-S_Metals/Dashboard/main.php",
           "index": null
         },
         {
@@ -392,13 +135,29 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "S1g-gF8ZD8",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "BygCrqx-YD",
+          "value": "/H-S_Metals/Dashboard/main.php",
           "regex": false
-        },
+        }
+      ],
+      "id": "r1VQqlZtw",
+      "type": "test",
+      "variables": [
         {
-          "type": "TEXT_ASSERT",
-          "selector": "nav > a",
+          "id": "HkgaV5eZFw",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "1.2",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -406,9 +165,38 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SyuWF8WvI",
-          "value": "Add Lot",
-          "regex": false
+          "id": "ByekBoe-tD",
+          "value": "/H-S_Metals/Dashboard/main.php?username=mwithers&password=randompassword",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "BJkrie-tP",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/main.php?username=mwithers&password=randompassword",
+          "width": 768,
+          "height": 719,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "#logo",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HkeSigZKP"
         },
         {
           "type": "TEXT_ASSERT",
@@ -420,8 +208,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BJtWKL-v8",
-          "value": "Lot History",
+          "id": "BkcHigWKD",
+          "value": "Add Lot",
           "regex": false
         },
         {
@@ -434,8 +222,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HkqZFU-PU",
-          "value": "Reports",
+          "id": "HJiSie-tP",
+          "value": "Lot History",
           "regex": false
         },
         {
@@ -448,8 +236,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "r1j-YL-wL",
-          "value": "Customers",
+          "id": "BynrolZYD",
+          "value": "Reports",
           "regex": false
         },
         {
@@ -462,13 +250,27 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HJhWYUZvU",
+          "id": "ryl2Sjl-Yw",
+          "value": "Customers",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "nav > a:nth-of-type(6)",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJTBix-Fw",
           "value": "Accounts",
           "regex": false
         },
         {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
+          "type": "TEXT_ASSERT",
+          "selector": "nav > a:nth-of-type(7)",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -476,38 +278,24 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "B1LxFkSED",
-          "value": "/~mwithers/Dashboard/main.php",
-          "index": null
-        },
-        {
-          "type": "PATH_ASSERT",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "Bkx8lF1S4D",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "HJCroebFw",
+          "value": "Logout",
           "regex": false
         }
       ],
-      "id": "HJ0o_LZDU",
+      "id": "SkD29gWtD",
       "type": "test",
       "variables": [
         {
-          "id": "rygATuLZD8",
+          "id": "SyexxoeWKw",
           "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
+          "defaultValue": "http://localhost:8080",
           "type": "STRING_VAR"
         }
       ]
     },
     {
-      "name": "2.1-2.4",
+      "name": "2.1",
       "description": "",
       "actions": [
         {
@@ -520,8 +308,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BJZm258ZDI",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "rygO0jgWKP",
+          "value": "/H-S_Metals/Dashboard/main.php",
           "index": null
         },
         {
@@ -534,28 +322,30 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "S1QnqLWwI",
-          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
-          "width": 767,
-          "height": 712,
+          "id": "BJdCix-Fv",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/main.php",
+          "width": 768,
+          "height": 719,
           "resize": false,
           "complete": false
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "nav > a:nth-of-type(2)",
+          "selector": "nav > a:nth-of-type(3)",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [],
+          "warnings": [
+            "Couldn't find a good selector strategy to target this element. "
+          ],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BJNn5IZvI",
+          "id": "S19CsxbFD",
           "textContent": "Lot History",
           "textAsserted": false,
-          "x": 200,
-          "y": 28
+          "x": 256,
+          "y": 34
         },
         {
           "type": "URL_CHANGE_INDICATOR",
@@ -567,8 +357,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rJN2q8WvI",
-          "value": "/~mwithers/Dashboard/history.php",
+          "id": "Skq0jxbKw",
+          "value": "/H-S_Metals/Dashboard/history.php",
           "index": null
         },
         {
@@ -581,8 +371,22 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "S1eVh5IWPU",
-          "value": "/~mwithers/Dashboard/history.php",
+          "id": "H1e5CjlbFw",
+          "value": "/H-S_Metals/Dashboard/history.php",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "h1",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "H120jgWYP",
+          "value": "Lot History",
           "regex": false
         },
         {
@@ -595,11 +399,27 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ry5h9LWwU"
-        },
+          "id": "r1OenxbtP"
+        }
+      ],
+      "id": "BJwcigWtv",
+      "type": "test",
+      "variables": [
         {
-          "type": "TEXT_ASSERT",
-          "selector": "h1",
+          "id": "S1lrpilWKw",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "2.2",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -607,9 +427,26 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SJy6qI-DI",
-          "value": "Lot History",
-          "regex": false
+          "id": "Bk-AI3g-Yv",
+          "value": "/H-S_Metals/Dashboard/history.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Sy08ngWFv",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/history.php",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
         },
         {
           "type": "MOUSEDOWN",
@@ -618,14 +455,16 @@
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [],
+          "warnings": [
+            "Couldn't find a good selector strategy to target this element. "
+          ],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SkKa9LbDU",
+          "id": "Hklw2ebYw",
           "textContent": "Reports",
           "textAsserted": false,
-          "x": 186,
-          "y": 35
+          "x": 334,
+          "y": 30
         },
         {
           "type": "URL_CHANGE_INDICATOR",
@@ -637,8 +476,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ry969IWwI",
-          "value": "/~mwithers/Dashboard/reports.html",
+          "id": "SklD2gZFP",
+          "value": "/H-S_Metals/Dashboard/reports.html",
           "index": null
         },
         {
@@ -651,25 +490,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rye56cI-vI",
-          "value": "/~mwithers/Dashboard/reports.html",
+          "id": "rkelv3lZtv",
+          "value": "/H-S_Metals/Dashboard/reports.html",
           "regex": false
         },
         {
-          "type": "EL_PRESENT_ASSERT",
-          "selector": "[name=user_input]",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "HJppcLZvU"
-        },
-        {
           "type": "TEXT_ASSERT",
-          "selector": "h1",
+          "selector": "form > h1",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -677,13 +504,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HyRaq8ZP8",
+          "id": "BJVDngbFD",
           "value": "Reports",
           "regex": false
         },
         {
-          "type": "MOUSEDOWN",
-          "selector": "nav > a:nth-of-type(5)",
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "[name=user_input]",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -691,12 +518,24 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BkZAq8-vI",
-          "textContent": "Customers",
-          "textAsserted": false,
-          "x": 324,
-          "y": 31
-        },
+          "id": "HJSw3g-tP"
+        }
+      ],
+      "id": "BkJsse-KP",
+      "type": "test",
+      "variables": [
+        {
+          "id": "S1g0UhgWFv",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "2.4",
+      "description": "",
+      "actions": [
         {
           "type": "URL_CHANGE_INDICATOR",
           "selector": "",
@@ -707,12 +546,12 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ryM0cU-DL",
-          "value": "/~mwithers/Dashboard/customers.html",
+          "id": "H1b8tngWKv",
+          "value": "/H-S_Metals/Dashboard/main.php",
           "index": null
         },
         {
-          "type": "PATH_ASSERT",
+          "type": "FULL_PAGELOAD",
           "selector": "",
           "selectorType": "CSS",
           "nodeName": null,
@@ -721,35 +560,12 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SJgG05IWwU",
-          "value": "/~mwithers/Dashboard/customers.php",
-          "regex": false
-        },
-        {
-          "type": "EL_PRESENT_ASSERT",
-          "selector": "[name=user_input]",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "H1r05U-wL"
-        },
-        {
-          "type": "TEXT_ASSERT",
-          "selector": "h1",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "B1ICqUWDI",
-          "value": "Customers",
-          "regex": false
+          "id": "B18Ynl-FP",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/main.php",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
         },
         {
           "type": "MOUSEDOWN",
@@ -758,14 +574,16 @@
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [],
+          "warnings": [
+            "Couldn't find a good selector strategy to target this element. "
+          ],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ryqCcLWw8",
+          "id": "rJ8Y2x-Yw",
           "textContent": "Accounts",
           "textAsserted": false,
-          "x": 412,
-          "y": 29
+          "x": 583,
+          "y": 14
         },
         {
           "type": "URL_CHANGE_INDICATOR",
@@ -777,8 +595,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "Byq0cUbPL",
-          "value": "/~mwithers/Dashboard/accounts.html",
+          "id": "H1MLt3lbtv",
+          "value": "/H-S_Metals/Dashboard/accounts.html",
           "index": null
         },
         {
@@ -791,8 +609,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HJlcR9IbwU",
-          "value": "/~mwithers/Dashboard/accounts.html",
+          "id": "rymUK2gWKw",
+          "value": "/H-S_Metals/Dashboard/accounts.html",
           "regex": false
         },
         {
@@ -805,13 +623,29 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SyRCq8ZvL",
+          "id": "Hk5tnx-KD",
           "value": "Accounts",
           "regex": false
-        },
+        }
+      ],
+      "id": "rkIjogbtv",
+      "type": "test",
+      "variables": [
         {
-          "type": "MOUSEDOWN",
-          "selector": "#logo",
+          "id": "HyeUt2l-Fv",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "2.3",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -819,11 +653,44 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rklaaTOLP",
-          "textContent": null,
+          "id": "BJ-LOhlZKw",
+          "value": "/H-S_Metals/Dashboard/main.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SyUdhe-tw",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/main.php",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "nav > a:nth-of-type(5)",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [
+            "Couldn't find a good selector strategy to target this element. "
+          ],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJvdngZFv",
+          "textContent": "Customers",
           "textAsserted": false,
-          "x": 36,
-          "y": 37
+          "x": 490,
+          "y": 36
         },
         {
           "type": "URL_CHANGE_INDICATOR",
@@ -835,8 +702,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SyxTapd8w",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "HJw_2gbFP",
+          "value": "/H-S_Metals/Dashboard/customers.php",
           "index": null
         },
         {
@@ -849,18 +716,44 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SJgep66OLP",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "r1lwu3x-Fv",
+          "value": "/H-S_Metals/Dashboard/customers.php",
           "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "h1",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "B1Fuhl-FP",
+          "value": "Customers",
+          "regex": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "[name=user_input]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SygYd2e-FD"
         }
       ],
-      "id": "S1s75L-w8",
+      "id": "HytiixbKv",
       "type": "test",
       "variables": [
         {
-          "id": "Skxm298bvL",
+          "id": "SJxIu2eWYP",
           "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
+          "defaultValue": "http://localhost:8080",
           "type": "STRING_VAR"
         }
       ]
@@ -879,8 +772,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SJbwx28Ww8",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "B1etxTgWKw",
+          "value": "/H-S_Metals/Dashboard/main.php",
           "index": null
         },
         {
@@ -893,28 +786,30 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BJDx3UWvL",
-          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
+          "id": "ByiGaxWtw",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/main.php",
           "width": 767,
-          "height": 712,
+          "height": 332,
           "resize": false,
           "complete": false
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "nav > a:nth-of-type(6)",
+          "selector": "nav > a:nth-of-type(7)",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [],
+          "warnings": [
+            "Couldn't find a good selector strategy to target this element. "
+          ],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "B1_xhU-vI",
+          "id": "rJix6e-KD",
           "textContent": "Logout",
           "textAsserted": false,
-          "x": 696,
-          "y": 25
+          "x": 693,
+          "y": 40
         },
         {
           "type": "URL_CHANGE_INDICATOR",
@@ -926,8 +821,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rJYxhUbvU",
-          "value": "/~mwithers/LoginPage/login.html",
+          "id": "rkseTg-Yw",
+          "value": "/H-S_Metals/LoginPage/login.html",
           "index": null
         },
         {
@@ -940,8 +835,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rJeKg3I-v8",
-          "value": "/~mwithers/LoginPage/login.html",
+          "id": "S1gjeax-Kv",
+          "value": "/H-S_Metals/LoginPage/login.html",
           "regex": false
         },
         {
@@ -954,10 +849,10 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HyZHnI-DI",
-          "value": "https://levi.cis.indwes.edu/~mwithers/Dashboard/history.php",
-          "width": 500,
-          "height": 500,
+          "id": "H1lHTxbYw",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/history.php",
+          "width": 767,
+          "height": 332,
           "resize": false,
           "complete": false
         },
@@ -968,136 +863,16 @@
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [],
+          "warnings": [
+            "Couldn't find a good selector strategy to target this element. "
+          ],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "H18onLbDI",
-          "textContent": "Logout",
-          "textAsserted": false,
-          "x": 718,
-          "y": 25
-        },
-        {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "rkwM2UbDU",
-          "value": "/~mwithers/LoginPage/login.html",
-          "index": null
-        },
-        {
-          "type": "PATH_ASSERT",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "rklDM38WvL",
-          "value": "/~mwithers/LoginPage/login.html",
-          "regex": false
-        },
-        {
-          "type": "FULL_PAGELOAD",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "BJYvh8bPL",
-          "value": "https://levi.cis.indwes.edu/~mwithers/Dashboard/reports.html",
-          "width": 500,
-          "height": 500,
-          "resize": false,
-          "complete": false
-        },
-        {
-          "type": "MOUSEDOWN",
-          "selector": "nav > a:nth-of-type(7)",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "HyxCTLWPU",
-          "textContent": "Logout",
-          "textAsserted": false,
-          "x": 718,
-          "y": 25
-        },
-        {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "S18o38Zw8",
-          "value": "/~mwithers/LoginPage/login.html",
-          "index": null
-        },
-        {
-          "type": "PATH_ASSERT",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "SylLinL-w8",
-          "value": "/~mwithers/LoginPage/login.html",
-          "regex": false
-        },
-        {
-          "type": "FULL_PAGELOAD",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "Syhu38-DI",
-          "value": "https://levi.cis.indwes.edu/~mwithers/Dashboard/customers.php",
-          "width": 500,
-          "height": 500,
-          "resize": false,
-          "complete": false
-        },
-        {
-          "type": "MOUSEDOWN",
-          "selector": "nav > a:nth-of-type(7)",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "rJSThUbDU",
+          "id": "BylEaeWYw",
           "textContent": "Logout",
           "textAsserted": false,
           "x": 713,
-          "y": 30
+          "y": 16
         },
         {
           "type": "URL_CHANGE_INDICATOR",
@@ -1109,8 +884,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ByBp28bwI",
-          "value": "/~mwithers/LoginPage/login.html",
+          "id": "Byl4aeWKw",
+          "value": "/H-S_Metals/LoginPage/login.html",
           "index": null
         },
         {
@@ -1123,8 +898,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SyeB62LWw8",
-          "value": "/~mwithers/LoginPage/login.html",
+          "id": "B1elVaxZFD",
+          "value": "/H-S_Metals/LoginPage/login.html",
           "regex": false
         },
         {
@@ -1137,10 +912,10 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "S1YFnLbP8",
-          "value": "https://levi.cis.indwes.edu/~mwithers/Dashboard/accounts.html",
-          "width": 500,
-          "height": 500,
+          "id": "B18K6g-Yw",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/reports.html",
+          "width": 767,
+          "height": 332,
           "resize": false,
           "complete": false
         },
@@ -1151,14 +926,16 @@
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [],
+          "warnings": [
+            "Couldn't find a good selector strategy to target this element. "
+          ],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BJvCh8bvI",
+          "id": "HyodTlWtD",
           "textContent": "Logout",
           "textAsserted": false,
-          "x": 690,
-          "y": 34
+          "x": 701,
+          "y": 19
         },
         {
           "type": "URL_CHANGE_INDICATOR",
@@ -1170,8 +947,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ByPC28ZDL",
-          "value": "/~mwithers/LoginPage/login.html",
+          "id": "r1hOplZtP",
+          "value": "/H-S_Metals/LoginPage/login.html",
           "index": null
         },
         {
@@ -1184,18 +961,144 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "B1xDCh8ZwL",
-          "value": "/~mwithers/LoginPage/login.html",
+          "id": "Byx3OpxWKD",
+          "value": "/H-S_Metals/LoginPage/login.html",
+          "regex": false
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HyNi6ebFP",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/customers.php",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "nav > a:nth-of-type(7)",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [
+            "Couldn't find a good selector strategy to target this element. "
+          ],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "B1sqpx-Fv",
+          "textContent": "Logout",
+          "textAsserted": false,
+          "x": 695,
+          "y": 28
+        },
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rkj5plWtD",
+          "value": "/H-S_Metals/LoginPage/login.html",
+          "index": null
+        },
+        {
+          "type": "PATH_ASSERT",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJeicTxZtD",
+          "value": "/H-S_Metals/LoginPage/login.html",
+          "regex": false
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SyYe6xWtD",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/accounts.html",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "nav > a:nth-of-type(7)",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [
+            "Couldn't find a good selector strategy to target this element. "
+          ],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "B1Nnax-FP",
+          "textContent": "Logout",
+          "textAsserted": false,
+          "x": 688,
+          "y": 32
+        },
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJrh6gZYP",
+          "value": "/H-S_Metals/LoginPage/login.html",
+          "index": null
+        },
+        {
+          "type": "PATH_ASSERT",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ryer3alWtv",
+          "value": "/H-S_Metals/LoginPage/login.html",
           "regex": false
         }
       ],
-      "id": "B1fynUWwL",
+      "id": "Bkg92gbYv",
       "type": "test",
       "variables": [
         {
-          "id": "BJgPl2IbvL",
+          "id": "r1gajngZtw",
           "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
+          "defaultValue": "http://localhost:8080",
           "type": "STRING_VAR"
         }
       ]
@@ -1214,8 +1117,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SkgUM8aISP",
-          "value": "/~mwithers/Dashboard/history.php",
+          "id": "rk-Mb0xZtP",
+          "value": "/H-S_Metals/Dashboard/history.php",
           "index": null
         },
         {
@@ -1228,10 +1131,10 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "Sy8GUpIrv",
-          "value": "${baseUrl}/~mwithers/Dashboard/history.php",
-          "width": 768,
-          "height": 719,
+          "id": "HJzZCxbFw",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/history.php",
+          "width": 767,
+          "height": 332,
           "resize": false,
           "complete": false
         },
@@ -1245,33 +1148,31 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HJ_M8TLSw",
+          "id": "HkE-AeWYw",
           "textContent": null,
           "textAsserted": false,
-          "x": 180,
-          "y": 53
+          "x": 220,
+          "y": 191
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "form > button",
+          "selector": "body form button",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
           "timeout": null,
-          "warnings": [
-            "Couldn't find a good selector strategy to target this element. "
-          ],
+          "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BkYz8p8SD",
+          "id": "r19Z0ebtP",
           "textContent": "Submit",
           "textAsserted": false,
-          "x": 283,
-          "y": 56
+          "x": 263,
+          "y": 183
         },
         {
-          "type": "SUBMIT",
-          "selector": "[name=user_input]",
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "div .radioCol .header",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1279,11 +1180,11 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BylFz8pLSv"
+          "id": "rksMAxbYD"
         },
         {
-          "type": "TEXT_ASSERT",
-          "selector": "#date",
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "div > :nth-child(2) .header",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1291,13 +1192,11 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HyrX8pIHD",
-          "value": "Date",
-          "regex": false
+          "id": "SyRzClZFP"
         },
         {
-          "type": "TEXT_ASSERT",
-          "selector": "#lotnum",
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "div > :nth-child(3) .header",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1305,13 +1204,11 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SJI7U6LrD",
-          "value": "Lot",
-          "regex": false
+          "id": "rJJmAx-KP"
         },
         {
-          "type": "TEXT_ASSERT",
-          "selector": "#customer",
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "div > :nth-child(4) .header",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1319,13 +1216,11 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BkeIQ8pUSP",
-          "value": "Customer",
-          "regex": false
+          "id": "rkx1QCeZYP"
         },
         {
-          "type": "TEXT_ASSERT",
-          "selector": "#status",
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "div > :nth-child(5) .header",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1333,13 +1228,11 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HJ_mIT8BP",
-          "value": "Status",
-          "regex": false
+          "id": "ryemAlbYv"
         },
         {
-          "type": "TEXT_ASSERT",
-          "selector": "#type",
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "div > :nth-child(6) .header",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1347,18 +1240,28 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "B1YQ8pISD",
-          "value": "Type",
-          "regex": false
+          "id": "SkZ70e-tD"
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "div > :nth-child(7) .header",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SJzQCgbKw"
         }
       ],
-      "id": "HJUJALbDL",
+      "id": "BySkRxZKv",
       "type": "test",
       "variables": [
         {
-          "id": "BkgQbCI-PI",
+          "id": "rJgGZAe-FP",
           "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
+          "defaultValue": "http://localhost:8080",
           "type": "STRING_VAR"
         }
       ]
@@ -1368,20 +1271,6 @@
       "description": "",
       "actions": [
         {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "SyeoeOK-D8",
-          "value": "/~mwithers/Dashboard/history.php",
-          "index": null
-        },
-        {
           "type": "FULL_PAGELOAD",
           "selector": "",
           "selectorType": "CSS",
@@ -1391,77 +1280,16 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ByjedYZPU",
-          "value": "${baseUrl}/~mwithers/Dashboard/history.php",
-          "width": 767,
-          "height": 712,
-          "resize": false,
-          "complete": false
-        },
-        {
-          "type": "MOUSEDOWN",
-          "selector": "#logo",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "S1ag_YbP8",
-          "textContent": null,
-          "textAsserted": false,
-          "x": 102,
-          "y": 38
-        },
-        {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "H1aeuYWPI",
-          "value": "/~mwithers/Dashboard/main.php",
-          "index": null
-        },
-        {
-          "type": "PATH_ASSERT",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "HJxpgdt-w8",
-          "value": "/~mwithers/Dashboard/main.php",
-          "regex": false
-        },
-        {
-          "type": "FULL_PAGELOAD",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "BydzuKWvU",
-          "value": "https://levi.cis.indwes.edu/~mwithers/Dashboard/reports.html",
+          "id": "HyhTRlWYP",
+          "value": "http://localhost:8080/H-S_Metals/LoginPage/login.html",
           "width": 500,
           "height": 500,
           "resize": false,
           "complete": false
         },
         {
-          "type": "MOUSEDOWN",
-          "selector": "#logo",
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "main",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1469,39 +1297,7 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "S1ImdF-vL",
-          "textContent": null,
-          "textAsserted": false,
-          "x": 102,
-          "y": 44
-        },
-        {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "SJLmuY-DI",
-          "value": "/~mwithers/Dashboard/main.php",
-          "index": null
-        },
-        {
-          "type": "PATH_ASSERT",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "BJgUXut-PU",
-          "value": "/~mwithers/Dashboard/main.php",
-          "regex": false
+          "id": "S1BsCgbKD"
         },
         {
           "type": "FULL_PAGELOAD",
@@ -1513,15 +1309,15 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HkeVdYbPL",
-          "value": "https://levi.cis.indwes.edu/~mwithers/Dashboard/customers.php",
+          "id": "H1rhClWFD",
+          "value": "http://localhost:8080/H-S_Metals/Dashboard/main.php",
           "width": 500,
           "height": 500,
           "resize": false,
           "complete": false
         },
         {
-          "type": "MOUSEDOWN",
+          "type": "EL_PRESENT_ASSERT",
           "selector": "#logo",
           "selectorType": "CSS",
           "nodeName": null,
@@ -1530,112 +1326,12 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "B1gS_K-PU",
-          "textContent": null,
-          "textAsserted": false,
-          "x": 86,
-          "y": 51
-        },
-        {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "SyeButZDU",
-          "value": "/~mwithers/Dashboard/main.php",
-          "index": null
-        },
-        {
-          "type": "PATH_ASSERT",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "SyexSdF-PI",
-          "value": "/~mwithers/Dashboard/main.php",
-          "regex": false
-        },
-        {
-          "type": "FULL_PAGELOAD",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "Bkqr_F-vU",
-          "value": "https://levi.cis.indwes.edu/~mwithers/Dashboard/accounts.html",
-          "width": 500,
-          "height": 500,
-          "resize": false,
-          "complete": false
-        },
-        {
-          "type": "MOUSEDOWN",
-          "selector": "#logo",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "Hy88uFbD8",
-          "textContent": null,
-          "textAsserted": false,
-          "x": 90,
-          "y": 48
-        },
-        {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "H1IU_YbvI",
-          "value": "/~mwithers/Dashboard/main.php",
-          "index": null
-        },
-        {
-          "type": "PATH_ASSERT",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "SyeLUOYZwI",
-          "value": "/~mwithers/Dashboard/main.php",
-          "regex": false
+          "id": "BJETCg-Kv"
         }
       ],
-      "id": "HkJeDYbwI",
+      "id": "Sks9RlZKv",
       "type": "test",
-      "variables": [
-        {
-          "id": "SJgFnwKZDL",
-          "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
-          "type": "STRING_VAR"
-        }
-      ]
+      "variables": []
     },
     {
       "name": "4.1",
@@ -1651,8 +1347,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rJ-qqp8mdU",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "SyxE41-ZYP",
+          "value": "/H-S_Metals/Dashboard/history.php",
           "index": null
         },
         {
@@ -1665,16 +1361,16 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "Skc5aLQdU",
-          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
+          "id": "ByNNk-ZYP",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/history.php",
           "width": 767,
-          "height": 712,
+          "height": 332,
           "resize": false,
           "complete": false
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "nav > a:nth-of-type(2)",
+          "selector": "body form button",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1682,49 +1378,15 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BypcaLmdU",
-          "textContent": "Lot History",
-          "textAsserted": false,
-          "x": 215,
-          "y": 40
-        },
-        {
-          "type": "MOUSEDOWN",
-          "selector": "[name=user_input]",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "SJCc6U7dI",
-          "textContent": null,
-          "textAsserted": false,
-          "x": 506,
-          "y": 25
-        },
-        {
-          "type": "MOUSEDOWN",
-          "selector": "form > button",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [
-            "Couldn't find a good selector strategy to target this element. "
-          ],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "HygjTImOU",
+          "id": "HkHE1bWFP",
           "textContent": "Submit",
           "textAsserted": false,
-          "x": 664,
-          "y": 33
+          "x": 274,
+          "y": 189
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "#date",
+          "selector": "div .radioCol h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1732,13 +1394,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BJ2CtaUrw",
-          "value": "Date",
+          "id": "Byq4yW-tv",
+          "value": "Select",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "#lotnum",
+          "selector": "div > :nth-child(2) h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1746,13 +1408,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rJg2AKpIrP",
+          "id": "ByjEyWbtP",
           "value": "Lot",
           "regex": false
         },
         {
-          "type": "TEXT_ASSERT",
-          "selector": "#customer",
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "div > :nth-child(3) .header",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1760,13 +1422,35 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rkpCtaUrv",
-          "value": "Customer",
-          "regex": false
+          "id": "r1xiVkWZKv"
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "div > :nth-child(4) .header",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "By2NJbWKD"
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "div > :nth-child(5) .header",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJTEJZWKv"
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "#status",
+          "selector": "div > :nth-child(6) h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1774,13 +1458,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SkgCAt68Bw",
-          "value": "Status",
+          "id": "S104yW-Kv",
+          "value": "Net",
           "regex": false
         },
         {
-          "type": "TEXT_ASSERT",
-          "selector": "#type",
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "div > :nth-child(7) .header",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1788,18 +1472,16 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BJJkcpLSw",
-          "value": "Type",
-          "regex": false
+          "id": "S1xCEkbbYw"
         }
       ],
-      "id": "BkJdaLX_L",
+      "id": "BJrbk-ZYP",
       "type": "test",
       "variables": [
         {
-          "id": "H1g5c68mOU",
+          "id": "ByxqXJ-ZFv",
           "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
+          "defaultValue": "http://localhost:8080",
           "type": "STRING_VAR"
         }
       ]
@@ -1818,8 +1500,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "Bk-_yC8XO8",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "S1-EL1--FP",
+          "value": "/H-S_Metals/Dashboard/main.php",
           "index": null
         },
         {
@@ -1832,16 +1514,16 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SkuJC8md8",
-          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
+          "id": "B1N8yZbKv",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/main.php",
           "width": 767,
-          "height": 712,
+          "height": 332,
           "resize": false,
           "complete": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "#date",
+          "selector": "div .radioCol h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1849,13 +1531,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "r1mqQ0UHw",
-          "value": "Date",
+          "id": "H1DIJb-tD",
+          "value": "Select",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "#lotnum",
+          "selector": "div > :nth-child(2) h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1863,13 +1545,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "S1VcXRISw",
+          "id": "HygPIJ-ZYD",
           "value": "Lot",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "#customer",
+          "selector": "div > :nth-child(3) h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1877,13 +1559,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BygV5mCIHD",
+          "id": "BydI1Z-Fv",
           "value": "Customer",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "#status",
+          "selector": "div > :nth-child(4) h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1891,32 +1573,60 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HyUqmRLHw",
-          "value": "Status",
+          "id": "rJKIyZbKP",
+          "value": "Gross",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "Type",
-          "selectorType": "TEXT",
+          "selector": "div > :nth-child(5) h3",
+          "selectorType": "CSS",
           "nodeName": null,
           "description": null,
           "timeout": null,
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "H1xLc7CIBv",
-          "value": "Type",
+          "id": "rycIyWZKD",
+          "value": "Tare",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div > :nth-child(6) h3",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "B1sIkbWtv",
+          "value": "Net",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div > :nth-child(7) h3",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "r1a81WWFv",
+          "value": "Status",
           "regex": false
         }
       ],
-      "id": "r1lCaL7dU",
+      "id": "H1vZ1-bKP",
       "type": "test",
       "variables": [
         {
-          "id": "BJg_1AUXu8",
+          "id": "HkeE81-ZFP",
           "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
+          "defaultValue": "http://localhost:8080",
           "type": "STRING_VAR"
         }
       ]
@@ -1935,8 +1645,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SkZWMCL7dU",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "r1biP1Z-YD",
+          "value": "/H-S_Metals/Dashboard/customers.php",
           "index": null
         },
         {
@@ -1949,16 +1659,16 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "r1WGA8XOU",
-          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
+          "id": "BkivJ-bFv",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/customers.php",
           "width": 767,
-          "height": 712,
+          "height": 332,
           "resize": false,
           "complete": false
         },
         {
-          "type": "MOUSEDOWN",
-          "selector": "nav > a:nth-of-type(4)",
+          "type": "TEXT_ASSERT",
+          "selector": "div .radioCol h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -1966,43 +1676,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "HkMfAUQuI",
-          "textContent": "Customers",
-          "textAsserted": false,
-          "x": 446,
-          "y": 25
-        },
-        {
-          "type": "URL_CHANGE_INDICATOR",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "By7fCLX_L",
-          "value": "/~mwithers/Dashboard/customers.php",
-          "index": null
-        },
-        {
-          "type": "PATH_ASSERT",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "H1xQMALmOL",
-          "value": "/~mwithers/Dashboard/customers.php",
+          "id": "rJCPkWbFD",
+          "value": "Select",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr > th",
+          "selector": "div > :nth-child(2) h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2010,13 +1690,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "S1OGCImdU",
+          "id": "BkJOJZ-tv",
           "value": "Company",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr > th:nth-of-type(2)",
+          "selector": "div > :nth-child(3) h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2024,13 +1704,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rygdGCIQuU",
+          "id": "S1l_yZ-tD",
           "value": "Contact",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr > th:nth-of-type(3)",
+          "selector": "div > :nth-child(4) h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2038,13 +1718,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "B1FzRUX_L",
+          "id": "HJleu1ZWtv",
           "value": "Phone Number",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "tbody > tr > th:nth-of-type(4)",
+          "selector": "div > :nth-child(5) h3",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2052,24 +1732,24 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rk5fAUX_I",
+          "id": "HJzOkWbKD",
           "value": "Email",
           "regex": false
         }
       ],
-      "id": "ByXb0U7OU",
+      "id": "H1xDZkbbKP",
       "type": "test",
       "variables": [
         {
-          "id": "B1ebfCLQOU",
+          "id": "B1ljPyZbKw",
           "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
+          "defaultValue": "http://localhost:8080",
           "type": "STRING_VAR"
         }
       ]
     },
     {
-      "name": "7.1-7.5",
+      "name": "4.4",
       "description": "",
       "actions": [
         {
@@ -2082,8 +1762,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ry-zwjRdLw",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "H1Z0_k--YP",
+          "value": "/H-S_Metals/Dashboard/customers.php",
           "index": null
         },
         {
@@ -2096,16 +1776,77 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "r1GwiRdLP",
-          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
+          "id": "BkA_k-bKv",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/customers.php",
           "width": 767,
-          "height": 712,
+          "height": 332,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "#myBtn",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SyGtJ-ZFw",
+          "value": "Add Customer",
+          "regex": false
+        }
+      ],
+      "id": "Sk_Z1-bKw",
+      "type": "test",
+      "variables": [
+        {
+          "id": "HJxRuyWbFD",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "7.1",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Sk-6Vl-Wtv",
+          "value": "/H-S_Metals/Dashboard/main.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Syp4eWZFP",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/main.php",
+          "width": 767,
+          "height": 332,
           "resize": false,
           "complete": false
         },
         {
           "type": "MOUSEDOWN",
-          "selector": "nav > a",
+          "selector": "nav > a:nth-of-type(2)",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2115,11 +1856,11 @@
           ],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SJ7woRdLw",
+          "id": "r1TVebZFP",
           "textContent": "Add Lot",
           "textAsserted": false,
-          "x": 76,
-          "y": 38
+          "x": 100,
+          "y": 45
         },
         {
           "type": "URL_CHANGE_INDICATOR",
@@ -2131,8 +1872,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "SJEvj0_UP",
-          "value": "/~mwithers/Dashboard/addLot.php",
+          "id": "HJ0Nx-bYv",
+          "value": "/H-S_Metals/Dashboard/addLot.php",
           "index": null
         },
         {
@@ -2145,13 +1886,13 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rygNwoAuID",
-          "value": "/~mwithers/Dashboard/addLot.php",
+          "id": "B1l0VgZZFD",
+          "value": "/H-S_Metals/Dashboard/addLot.php",
           "regex": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "form > :nth-child(2) label",
+          "selector": "h1",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2159,8 +1900,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "ByqvjROLw",
-          "value": "Lot No.",
+          "id": "S1Zre-ZFw",
+          "value": "Add Lot",
           "regex": false
         },
         {
@@ -2173,7 +1914,54 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rknPo0OUP"
+          "id": "H1irlWZtD"
+        }
+      ],
+      "id": "HkIzgZWtD",
+      "type": "test",
+      "variables": [
+        {
+          "id": "rkxaElZbKv",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "7.2",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "r1WIng-ZYD",
+          "value": "/H-S_Metals/Dashboard/addLot.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "S1L2gbWYD",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/addLot.php",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
         },
         {
           "type": "TEXT_ASSERT",
@@ -2185,7 +1973,7 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "S1sCsCdLv",
+          "id": "S1u2xWbFv",
           "value": "Customer:",
           "regex": false
         },
@@ -2199,7 +1987,54 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BJ3Ai0d8P"
+          "id": "Hkt2lWbYv"
+        }
+      ],
+      "id": "B1wMxb-tv",
+      "type": "test",
+      "variables": [
+        {
+          "id": "SylIhlbZtD",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "7.3",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HybyRgZZtD",
+          "value": "/H-S_Metals/Dashboard/addLot.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJy0gbbYD",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/addLot.php",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
         },
         {
           "type": "TEXT_ASSERT",
@@ -2211,7 +2046,7 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "H1IJhAOUP",
+          "id": "SyfClZWYD",
           "value": "Gross:",
           "regex": false
         },
@@ -2225,7 +2060,54 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "H1Py2COID"
+          "id": "SygGCeWWtv"
+        }
+      ],
+      "id": "HyxvzgW-YD",
+      "type": "test",
+      "variables": [
+        {
+          "id": "HJxJRg-bKP",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "7.4",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HkZY0g-Ztv",
+          "value": "/H-S_Metals/Dashboard/addLot.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SkYAgZbtD",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/addLot.php",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
         },
         {
           "type": "TEXT_ASSERT",
@@ -2237,7 +2119,7 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "B1dJ2Cu8v",
+          "id": "Hk2Clbbtw",
           "value": "Tare:",
           "regex": false
         },
@@ -2251,36 +2133,22 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "H1YJhR_LD"
-        },
-        {
-          "type": "TEXT_ASSERT",
-          "selector": "#submit",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "Hy0d3Cu8P",
-          "value": "New Pallet",
-          "regex": false
+          "id": "BkaCgWWKw"
         }
       ],
-      "id": "SJ-rjR_Uv",
+      "id": "BJbDMlW-KP",
       "type": "test",
       "variables": [
         {
-          "id": "rkxzviROID",
+          "id": "HketCxbZYw",
           "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
+          "defaultValue": "http://localhost:8080",
           "type": "STRING_VAR"
         }
       ]
     },
     {
-      "name": "8.1-8.3",
+      "name": "7.6",
       "description": "",
       "actions": [
         {
@@ -2293,8 +2161,8 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "r1ZXuhhsPv",
-          "value": "/~mwithers/Dashboard/main.php",
+          "id": "ryWZZW-WKD",
+          "value": "/H-S_Metals/Dashboard/addLot.php",
           "index": null
         },
         {
@@ -2307,39 +2175,10 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "H1Xdhhoww",
-          "value": "${baseUrl}/~mwithers/Dashboard/main.php",
-          "width": 768,
-          "height": 719,
-          "resize": false,
-          "complete": false
-        },
-        {
-          "type": "EL_PRESENT_ASSERT",
-          "selector": "#selectAll",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "SJ5_n3iPD"
-        },
-        {
-          "type": "FULL_PAGELOAD",
-          "selector": "",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "HywVTnoDP",
-          "value": "${baseUrl}/~mwithers/Dashboard/addLot.php",
-          "width": 500,
-          "height": 500,
+          "id": "HkW-b-bKv",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/addLot.php",
+          "width": 767,
+          "height": 332,
           "resize": false,
           "complete": false
         },
@@ -2353,11 +2192,11 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rJjshhjvP",
+          "id": "rkyz-ZZYP",
           "textContent": null,
           "textAsserted": false,
-          "x": 314,
-          "y": 103
+          "x": 269,
+          "y": 248
         },
         {
           "type": "INPUT",
@@ -2369,28 +2208,12 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "BJl0i33ovw",
-          "value": "IWUCool",
+          "id": "B1lWzZ--Fv",
+          "value": "IUWU",
           "inputType": "search",
           "isContentEditable": false
         },
         {
-          "type": "MOUSEDOWN",
-          "selector": "[name=gross]",
-          "selectorType": "CSS",
-          "nodeName": null,
-          "description": null,
-          "timeout": null,
-          "warnings": [],
-          "suggestions": [],
-          "continueOnFail": false,
-          "id": "ryeh23svP",
-          "textContent": null,
-          "textAsserted": false,
-          "x": 537,
-          "y": 103
-        },
-        {
           "type": "INPUT",
           "selector": "[name=gross]",
           "selectorType": "CSS",
@@ -2400,7 +2223,7 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rJlZhn2ovw",
+          "id": "rkgmMZZZFw",
           "value": "4567",
           "inputType": "number",
           "isContentEditable": false
@@ -2415,14 +2238,14 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "rkW7n2njDP",
-          "value": "345",
+          "id": "HJxVMZZZKw",
+          "value": "456",
           "inputType": "number",
           "isContentEditable": false
         },
         {
           "type": "TEXT_ASSERT",
-          "selector": "#printBtn",
+          "selector": "#submit",
           "selectorType": "CSS",
           "nodeName": null,
           "description": null,
@@ -2430,18 +2253,684 @@
           "warnings": [],
           "suggestions": [],
           "continueOnFail": false,
-          "id": "H1O222sPv",
-          "value": "Print",
+          "id": "rJqzZ--Kv",
+          "value": "New Pallet",
           "regex": false
         }
       ],
-      "id": "SJhjo3ivD",
+      "id": "HJbx--WtD",
       "type": "test",
       "variables": [
         {
-          "id": "HyeQOnnoPv",
+          "id": "B1ebbW-btP",
           "name": "baseUrl",
-          "defaultValue": "https://levi.cis.indwes.edu",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "8.1",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJ-kefWbKw",
+          "value": "/H-S_Metals/Dashboard/main.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "B11eM-btv",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/main.php",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div .radioCol h3",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HkQxzWZFw",
+          "value": "Select",
+          "regex": false
+        },
+        {
+          "type": "VALUE_ASSERT",
+          "selector": ".radioCol > :nth-child(2) .radioButt",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "r1PxzWbFw",
+          "value": "false",
+          "regex": false
+        }
+      ],
+      "id": "H1Kp-bZtw",
+      "type": "test",
+      "variables": [
+        {
+          "id": "HyxylzbZYP",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "9.3",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "BJZTYQZbFD",
+          "value": "/H-S_Metals/Dashboard/customers.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "H16YXbbtP",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/customers.php",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": ".radioCol > :nth-child(2) .radioButt",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Byk57ZWtw",
+          "textContent": null,
+          "textAsserted": false,
+          "x": 119,
+          "y": 300
+        },
+        {
+          "type": "INPUT",
+          "selector": ".radioCol > :nth-child(2) .radioButt",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Hyeyc7-WYw",
+          "value": true,
+          "inputType": "radio",
+          "isContentEditable": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#edit",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJfq7WWYw",
+          "textContent": "Edit",
+          "textAsserted": false,
+          "x": 106,
+          "y": 152
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "#companyLabel",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "H1H5mZ-tv"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div:nth-of-type(2) > div > form > label > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "BJ89Xb-Kv",
+          "value": "Company",
+          "regex": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "#custInput",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SkD5QZ-Kw"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div:nth-of-type(2) > div > form > label:nth-of-type(2) > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "r1_qX--tP",
+          "value": "Contact",
+          "regex": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "#contactInput",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJKc7ZbFv"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div:nth-of-type(2) > div > form > label:nth-of-type(3) > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Byc9XWbtv",
+          "value": "Phone",
+          "regex": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "#phoneInput",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Hyl55QZWYP"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "div:nth-of-type(2) > div > form > label:nth-of-type(4) > b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "Byi9QWZtw",
+          "value": "Email",
+          "regex": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "#emailInput",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJh9QZWtw"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "[name=delete]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "H1pqXb-YP",
+          "value": "Delete",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "#cancel",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJR5QbbKD",
+          "value": "Cancel",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "[name=update]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "BkgCcXbZYP",
+          "value": "Apply",
+          "regex": false
+        }
+      ],
+      "id": "HJxnTzbWtP",
+      "type": "test",
+      "variables": [
+        {
+          "id": "SJxptmWZFv",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "9.2",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SJZUE7WZFv",
+          "value": "/H-S_Metals/Dashboard/main.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJI4XbWtw",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/main.php",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": ".radioCol > :nth-child(2) .radioButt",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "S1ONm-Wtw",
+          "textContent": null,
+          "textAsserted": false,
+          "x": 122,
+          "y": 208
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": "#edit",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJsVXb-KD",
+          "textContent": "Edit",
+          "textAsserted": false,
+          "x": 116,
+          "y": 66
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "#lotLabel",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HJ1D7bZtv"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "form > :nth-child(2) b",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "H1lPXZZYw",
+          "value": "Customer",
+          "regex": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "#custInput",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rJWvXbWFv"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "#status",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "r1zvm-bFP",
+          "value": "Status",
+          "regex": false
+        },
+        {
+          "type": "EL_PRESENT_ASSERT",
+          "selector": "#statusInput",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SJVwmWZKD"
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "[name=delete]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "ByBD7ZbKw",
+          "value": "Delete",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "#cancel",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rkLD7ZWFD",
+          "value": "Cancel",
+          "regex": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "[name=update]",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "rkwPQ-WKP",
+          "value": "Apply",
+          "regex": false
+        }
+      ],
+      "id": "BybnTGbWtP",
+      "type": "test",
+      "variables": [
+        {
+          "id": "B1gINQb-YD",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
+          "type": "STRING_VAR"
+        }
+      ]
+    },
+    {
+      "name": "9.1",
+      "description": "",
+      "actions": [
+        {
+          "type": "URL_CHANGE_INDICATOR",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "HkW7lmZ-YD",
+          "value": "/H-S_Metals/Dashboard/main.php",
+          "index": null
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "S17l7ZZtw",
+          "value": "${baseUrl}/H-S_Metals/Dashboard/main.php",
+          "width": 767,
+          "height": 332,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": ".radioCol > :nth-child(2) .radioButt",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SJKx7ZbtD",
+          "textContent": null,
+          "textAsserted": false,
+          "x": 120,
+          "y": 250
+        },
+        {
+          "type": "INPUT",
+          "selector": ".radioCol > :nth-child(2) .radioButt",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SkxYgQZZFw",
+          "value": true,
+          "inputType": "radio",
+          "isContentEditable": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "#edit",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SJUWQb-tD",
+          "value": "Edit",
+          "regex": false
+        },
+        {
+          "type": "FULL_PAGELOAD",
+          "selector": "",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "BkhbmbZKD",
+          "value": "http://localhost:8080/H-S_Metals/Dashboard/customers.php",
+          "width": 500,
+          "height": 500,
+          "resize": false,
+          "complete": false
+        },
+        {
+          "type": "MOUSEDOWN",
+          "selector": ".radioCol > :nth-child(2) .radioButt",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SJz7X--tv",
+          "textContent": null,
+          "textAsserted": false,
+          "x": 121,
+          "y": 232
+        },
+        {
+          "type": "INPUT",
+          "selector": ".radioCol > :nth-child(2) .radioButt",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "SkxzmX-Wtv",
+          "value": true,
+          "inputType": "radio",
+          "isContentEditable": false
+        },
+        {
+          "type": "TEXT_ASSERT",
+          "selector": "#edit",
+          "selectorType": "CSS",
+          "nodeName": null,
+          "description": null,
+          "timeout": null,
+          "warnings": [],
+          "suggestions": [],
+          "continueOnFail": false,
+          "id": "BJ4QmbZFw",
+          "value": "Edit",
+          "regex": false
+        }
+      ],
+      "id": "HJf2TfWWtw",
+      "type": "test",
+      "variables": [
+        {
+          "id": "H1eXlQb-KP",
+          "name": "baseUrl",
+          "defaultValue": "http://localhost:8080",
           "type": "STRING_VAR"
         }
       ]
@@ -2457,130 +2946,207 @@
         {
           "collapsed": false,
           "module": "All Tests",
-          "id": "SyP2DkBEw",
+          "id": "B1JWcg-Yv",
           "children": [
             {
               "collapsed": false,
-              "module": "DevCyc1 Tests",
-              "id": "BklsuIbDL",
+              "module": "DC 1",
+              "id": "SJ5bqxZYw",
               "children": [
                 {
                   "module": "Unnamed test",
-                  "testId": "HJ0o_LZDU",
+                  "testId": "r1VQqlZtw",
                   "leaf": true,
-                  "id": "H1Cs_Ubv8",
+                  "id": "Sy479lWKD",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "SkD29gWtD",
+                  "leaf": true,
+                  "id": "Hkv29eZFw",
                   "type": "test"
                 }
               ]
             },
             {
               "collapsed": false,
-              "module": "DevCyc2 Tests",
-              "id": "SyFg5UZwL",
+              "module": "DC 2",
+              "id": "SJSWsgWYD",
               "children": [
                 {
                   "module": "Unnamed test",
-                  "testId": "S1s75L-w8",
+                  "testId": "BJwcigWtv",
                   "leaf": true,
-                  "id": "r1omqLZvI",
+                  "id": "HJvqieZKv",
                   "type": "test"
                 },
                 {
                   "module": "Unnamed test",
-                  "testId": "B1fynUWwL",
+                  "testId": "BkJsse-KP",
                   "leaf": true,
-                  "id": "rkMJ3UbPI",
+                  "id": "SJJiig-Kv",
                   "type": "test"
                 },
                 {
                   "module": "Unnamed test",
-                  "testId": "HJUJALbDL",
+                  "testId": "HytiixbKv",
                   "leaf": true,
-                  "id": "rkUyCUbwU",
+                  "id": "BycsigWKP",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "rkIjogbtv",
+                  "leaf": true,
+                  "id": "ByIislbFv",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "Bkg92gbYv",
+                  "leaf": true,
+                  "id": "Ske52l-Kw",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "BySkRxZKv",
+                  "leaf": true,
+                  "id": "rkS1CgbFw",
                   "type": "test"
                 }
               ]
             },
             {
               "collapsed": false,
-              "module": "DevCyc3 Tests",
-              "id": "rJOVQBbwU",
+              "module": "DC 3",
+              "id": "By1SRxZYw",
               "children": [
                 {
                   "module": "Unnamed test",
-                  "testId": "H1OAfr-wU",
+                  "testId": "Sks9RlZKv",
                   "leaf": true,
-                  "id": "SkORGS-PL",
-                  "type": "test"
-                },
-                {
-                  "module": "Unnamed test",
-                  "testId": "H1KG0r-PL",
-                  "leaf": true,
-                  "id": "SktfCSZP8",
-                  "type": "test"
-                },
-                {
-                  "module": "Unnamed test",
-                  "testId": "HkJeDYbwI",
-                  "leaf": true,
-                  "id": "BJ1lvFWD8",
+                  "id": "SyiqCebKv",
                   "type": "test"
                 }
               ]
             },
             {
               "collapsed": false,
-              "module": "DevCyc4 Tests",
-              "id": "rJXOpLX_U",
+              "module": "DC 4",
+              "id": "rJsy1ZWtD",
               "children": [
                 {
                   "module": "Unnamed test",
-                  "testId": "BkJdaLX_L",
+                  "testId": "BJrbk-ZYP",
                   "leaf": true,
-                  "id": "ry1OTL7_U",
+                  "id": "S1SZ1-bKw",
                   "type": "test"
                 },
                 {
                   "module": "Unnamed test",
-                  "testId": "r1lCaL7dU",
+                  "testId": "H1vZ1-bKP",
                   "leaf": true,
-                  "id": "H1l0TUXd8",
+                  "id": "SJwWkZZtw",
                   "type": "test"
                 },
                 {
                   "module": "Unnamed test",
-                  "testId": "ByXb0U7OU",
+                  "testId": "H1xDZkbbKP",
                   "leaf": true,
-                  "id": "HkXbA8XdL",
+                  "id": "rylDZk-bFP",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "Sk_Z1-bKw",
+                  "leaf": true,
+                  "id": "S1ObJWWtw",
                   "type": "test"
                 }
               ]
             },
             {
               "collapsed": false,
-              "module": "DevCyc7 Tests",
-              "id": "BJRksCuIP",
+              "module": "DC 7",
+              "id": "rktge--Yv",
               "children": [
                 {
                   "module": "Unnamed test",
-                  "testId": "SJ-rjR_Uv",
+                  "testId": "HkIzgZWtD",
                   "leaf": true,
-                  "id": "ByWHjAOUv",
+                  "id": "SyUGlZ-KD",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "B1wMxb-tv",
+                  "leaf": true,
+                  "id": "HywfgZbKw",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "HyxvzgW-YD",
+                  "leaf": true,
+                  "id": "rJlvfxWWtD",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "BJbDMlW-KP",
+                  "leaf": true,
+                  "id": "BJ-DzxW-tP",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "HJbx--WtD",
+                  "leaf": true,
+                  "id": "By-eWZWKP",
                   "type": "test"
                 }
               ]
             },
             {
               "collapsed": false,
-              "module": "DevCyc8 Tests",
-              "id": "S1YqonivD",
+              "module": "DC 8",
+              "id": "HJ-6W-Wtw",
               "children": [
                 {
                   "module": "Unnamed test",
-                  "testId": "SJhjo3ivD",
+                  "testId": "H1Kp-bZtw",
                   "leaf": true,
-                  "id": "rynjinovP",
+                  "id": "SyYaW-ZKv",
+                  "type": "test"
+                }
+              ]
+            },
+            {
+              "collapsed": false,
+              "module": "DC 9",
+              "id": "ByKhGbbKv",
+              "children": [
+                {
+                  "module": "Unnamed test",
+                  "testId": "HJf2TfWWtw",
+                  "leaf": true,
+                  "id": "HkG2afWZtv",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "BybnTGbWtP",
+                  "leaf": true,
+                  "id": "r1Z3pMZWYw",
+                  "type": "test"
+                },
+                {
+                  "module": "Unnamed test",
+                  "testId": "HJxnTzbWtP",
+                  "leaf": true,
+                  "id": "Hkg2pf-ZYv",
                   "type": "test"
                 }
               ]

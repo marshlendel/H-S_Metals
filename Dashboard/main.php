@@ -118,7 +118,7 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
             let cancelBtn = document.getElementById("cancel");
             cancelBtn.addEventListener('click', function() {
                 document.getElementById(popupId).style.display = "none";
-            })
+            });
 
             // US 9.2.2: Puts current customer and status values in inputs
             let editBtn = document.getElementById(editBtnId);
