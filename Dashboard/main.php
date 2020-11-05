@@ -64,10 +64,11 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
 					  <option value="PARTIALLY-SHIPPED">PARTIALLY-SHIPPED</option>
 					  <option value="SHIPPED">SHIPPED</option>
                     </select><br>
-
+				<div id="editButts">
                     <button type="submit" class="submitBtn" name="delete">Delete</button>
                     <button type="reset" class="submitBtn">Cancel</button>
                     <button type="submit" class="submitBtn" name="update">Apply</button>
+				</div>
 
                 </form>
     		</div>
