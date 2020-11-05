@@ -49,8 +49,8 @@
                             SELECT l.lotnum, customer, SUM(p.gross) gross,
                                 SUM(p.tare) tare, (SUM(p.gross) - SUM(p.tare)) net,
                                 status
-                            FROM Lots AS l
-                            INNER JOIN Pallets AS p
+                            FROM lots AS l
+                            INNER JOIN pallets AS p
                             USING (lotnum)
                             GROUP BY (lotnum)
                         "); ?>

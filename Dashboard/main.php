@@ -16,6 +16,7 @@ $_SESSION["username"] = $username;
 $_SESSION["password"] = $password;
 require 'sql.php';
 
+// Checks if user chose to edit or update the lot, then performs the action
 if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status"])) {
     updateLot($_POST["lotnum"], $_POST["customer"], $_POST["status"]);
 } else if (isset($_POST["delete"], $_POST["lotnum"])) {
@@ -37,14 +38,15 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
 
     <body>
         <?php require 'navbar.php'; ?>
-
 		<h1 id="home">Home</h1>
-        <!-- US 5.3: JavaScript array to contain table values from db -->
+        <!-- US 9.1: Edit button can be clicked after selecting a row -->
 		<button type="button" disabled id="edit">Edit</button>
-        <div id="lotTable" class="">
 
+        <!-- US 5.3: Table will be here -->
+        <div id="lotTable" class="">
         </div>
 
+        <!-- US 9.2: Popup that appears after selecting a row and clicking "Edit" -->
 		<div id="editDiv" class="modal">
     		<div id="editPad" class="modal-content">
         		<span id="editBox" class="close">X</span>
@@ -79,15 +81,16 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
             import * as Script from './scripts.js';
 
             // US 4.2, 5.3: Table of lot info from db
-            <?php $lots = simpleSelect("
-                            SELECT l.lotnum, customer, SUM(p.gross) gross,
-                                SUM(p.tare) tare, (SUM(p.gross) - SUM(p.tare)) net,
-                                status
-                            FROM Lots AS l
-                            INNER JOIN Pallets AS p
-                            USING (lotnum)
-                            GROUP BY (lotnum)
-                        ");
+            <?php
+            $lots = simpleSelect("
+                SELECT l.lotnum, customer, SUM(p.gross) gross,
+                    SUM(p.tare) tare, (SUM(p.gross) - SUM(p.tare)) net,
+                    status
+                FROM lots AS l
+                INNER JOIN pallets AS p
+                USING (lotnum)
+                GROUP BY (lotnum)
+            ");
             ?>
             var rows = <?php echo json_encode(get_rows($lots)); ?>;
             var fields = <?php echo json_encode(get_fields($lots))?>;
@@ -95,9 +98,10 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
             var tableId = "lotTable";
             Script.makeTable(tableId, fields, rows, headers, "lots", "lotnum");
 
+            // ID to select the Edit button
             let editBtnId = "edit";
             let radioBtns = document.getElementsByClassName("radioButt");
-            console.log(radioBtns.length);
+            // Click listeners are added to radio buttons to enable the Edit button
             for (let index = 0; index < radioBtns.length; ++index) {
                 let radioBtn = radioBtns[index];
                 radioBtn.addEventListener('click', function() {
@@ -113,6 +117,7 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
                     }
                 });
             }
+            // Allows popup to toggle between visible and hidden
             let popupId = "editDiv";
 			Script.setupPopup(popupId, "editBox", "edit");
             let cancelBtn = document.getElementById("cancel");

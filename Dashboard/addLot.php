@@ -110,7 +110,7 @@
                         <?php
                     }
                 }
-                    ?>
+                ?>
                 <!-- US 7.1: lot label and lot number -->
         		<div id="lotBar">
         			<label for="lotNum">Lot No.</label>

@@ -58,21 +58,35 @@ class SQLTest extends TestCase
         $this->assertSame($expected, addLot($lotnum, $cust));
     }
 
-    // US 9.2.1 update lot in database (dataProvider for testUpdateLot)
+    // US 9.2.3.1 update lot in database (dataProvider for testUpdateLot)
     public function updateLotDP() {
        return array(
-           array(999,'IWU Security', 'CLEAN', 1),
-           array(999,'IWU Police','PROCESSED', 0),
-           array(900, 'Campus Security', 'SHIPPED', 0)
+           array(999,'ICampus Police', 'CLEAN', false),
+           array(999,'IWU Police','SHIPPED', false)
        );
     }
     /**
     * @dataProvider updateLotDP
     * @depends testAddLot
     */
-    // US 9.2.2: tests update lot for correct result
+    // US 9.2.3.1: tests update lot for correct result
     public function testUpdateLot($lotnum, $cust, $status, $expected) {
         $this->assertSame(updateLot($lotnum, $cust, $status), $expected);
+    }
+
+    // US 9.3.3.1 update customers in database (dataProvider for testUpdateCustomer)
+    public function updateCustomerDP() {
+       return array(
+           array('Campus Police', 'IWU Safe People', 'Boss Man', '345678987', 'dontbeafraid@sike.com', true)
+       );
+    }
+    /**
+    * @dataProvider updateCustomerDP
+    * @depends testAddCustomer
+    */
+    // US 9.3.3.1: tests update lot for correct result
+    public function testUpdateCustomer($oldcompany, $newcompany, $contact, $phone, $email, $expected) {
+        $this->assertSame(updateCustomer($oldcompany, $newcompany, $contact, $phone, $email), $expected);
     }
 
     // US 4.3  tests retrieving customers table from database
@@ -146,15 +160,22 @@ class SQLTest extends TestCase
     /**
     * @depends testAddLot
     */
-    // Helper function for testing
+    // US 9.2.3.3: test removing lot
     public function testRemoveLot() {
         $this->assertTrue(removeLot(999));
     }
     /**
     * @depends testAddCustomer
     */
-    // Helper function for testing
+    // US 9.3.3.3: test removing customer
     public function testRemoveCustomer() {
         $this->assertTrue(removeCust("Campus Police"));
+    }
+    /**
+    * @depends testUpdateCustomer
+    */
+    // US 9.3.3.3: test removing customer
+    public function testRemoveUpdatedCustomer() {
+        $this->assertTrue(removeCust("IWU Safe People"));
     }
 }

@@ -16,7 +16,7 @@
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         // prepare and bind
-        $stmt = $conn->prepare("INSERT INTO Customers (company, contact, phone, email) VALUES (?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO customers (company, contact, phone, email) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssis", $companysql, $contactsql, $phonesql, $emailsql);
 
         // set parameters and execute

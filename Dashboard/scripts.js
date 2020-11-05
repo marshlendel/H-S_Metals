@@ -232,7 +232,7 @@ export function resetSortOrder(tableId) {
 }
 
 // US 5.3: Function sorts rows using the comparison function correspponding to the field
-export function sortRows(tableId, rows, sortField, reverse=false) {
+export function sortRows(rows, sortField, reverse=false) {
     console.log("Sorting by "+sortField);
     if (isNaN(rows[0][sortField])) {
         rows.sort(cmpString(sortField));
@@ -263,7 +263,7 @@ export function makeSortable(tableId, fields, rows, initialSortField) {
         parent.addEventListener('click', function (){
             // Rows are reversed if order is 1, otherwise -1
             let order = headerElems[col].getAttribute('for') == 1;
-            sortRows(tableId, rows, field, order);
+            sortRows(rows, field, order);
             setData(tableId, fields, rows);
             resetSortOrder(tableId);
             if (order) {
@@ -284,7 +284,7 @@ export function makeTable(tableId, fields, rows, headers, radioName="", initialS
     setColumnNames(tableId, headers);
     setData(tableId, fields, rows);
     if (initialSortField) {
-        sortRows(tableId, rows, initialSortField, false);
+        sortRows(rows, initialSortField, false);
         makeSortable(tableId, fields, rows, initialSortField);
     }
 }

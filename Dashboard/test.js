@@ -1,4 +1,4 @@
-import { sortRows, cmpCust, cmpDate, cmpStatus, cmpNum } from './scripts.js';
+import { sortRows, cmpString, cmpNumber } from './scripts.js';
 import { createRequire } from 'module';
 var require = createRequire(import.meta.url);
 var assert = require('assert');
