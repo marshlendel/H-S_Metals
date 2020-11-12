@@ -158,7 +158,7 @@
         	<div id="tableDiv">
             </div>
             <!-- US 8.4: Creates Total Net label and fetches lot net from DB -->
-            <label id="totalNet">Total Net: <?php getLotNet($_POST['lotnum']); ?></label>
+            <label id="totalNet">Total Net: <?php echo getLotNet($lotnum); ?></label>
         </div>
         <?php } ?>
 
