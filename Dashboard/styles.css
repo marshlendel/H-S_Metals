@@ -170,6 +170,13 @@ form {
 	border-radius: 50px;
 }
 
+#edit{
+	position: relative;
+    left: 10%;
+    margin-bottom: 5px;
+    width: 60px;
+}
+
 select {
     margin: 5px 0;
     width: 172.8px;
