@@ -9,6 +9,28 @@
 ************************************************************************** -->
 <?php
     require 'sql.php';
+    // US 7.6: checks if fields have been filled on page load/form submit
+    $submit = isset($_POST['lotnum'], $_POST['cust'], $_POST['gross'], $_POST['tare']);
+    $lotList = get_lots_list();
+    // US 7.1: retrieves the highest lot number value from database
+    $lotnum = max($lotList)+1;
+    // US 7.6: if form has been filled, data is added to database
+    if ($submit) {
+        // US 7.6: if the lot number submitted is greater than the highest value lot number in database,
+        //      a new lot is created
+        $lotExists = false;
+        for ($i = 0; $i < count($lotList); ++$i) {
+            if ($_POST["lotnum"] == $lotList[$i]) {
+                $lotExists = true;
+            }
+        }
+        if ($lotExists) {
+            addLot($_POST['lotnum'], $_POST['cust']);
+        }
+        // US 7.6: pallet is added to database
+        $result = addPallet($_POST['lotnum'], $_POST['gross'], $_POST['tare']);
+        $lotnum = $_POST['lotnum'];
+    }
 ?>
 <!-- For Development Cycle 7 -->
 <!DOCTYPE html>
@@ -63,7 +85,6 @@
             .field {
                 width: 35%;
             }
-
         </style>
     </head>
     <body>
@@ -73,59 +94,12 @@
 
     	<section class="non-printable">
     		<form id="navForm" method="post">
-                <?php
-                // US 7.6: checks if fields have been filled on page load/form submit
-                $submit = isset($_POST['lotnum'], $_POST['cust'], $_POST['gross'], $_POST['tare']);
-                // US 7.1: retrieves the highest lot number value from database
-                $lotnum = max(get_lots_list());
-                ?>
-                <script type="text/javascript">
-                // US 7.6: debugging info
-                    // console.log("<?php //echo $_POST['lotnum'] ?>");
-                    // console.log("<?php //echo $_POST['cust'] ?>");
-                    // console.log("<?php //echo $_POST['gross'] ?>");
-                    // console.log("<?php //echo $_POST['tare'] ?>");
-                    // console.log(<?php //echo json_encode($submit); ?>);
-                    // console.log(<?php //echo json_encode(get_lots_list()); ?> );
-                    // console.log("Lot Max: " + <?php //echo json_encode($lotnum); ?> );
-                </script>
-                <?php
-                // US 7.6: if form has been filled, data is added to database
-                if ($submit) {
-                    // US 7.6: if the lot number submitted is greater than the highest value lot number in database,
-                    //      a new lot is created
-                    if ((int) $_POST["lotnum"] > $lotnum) {
-                        $result = addLot($_POST['lotnum'], $_POST['cust']);
-                        ?>
-                        <script type="text/javascript">
-                            console.log("Add Lot: " + <?php echo json_encode($result); ?> );
-                        </script>
-                        <?php
-                        // US 7.6: pallet is added to database
-                        $result = addPallet($_POST['lotnum'], $_POST['gross'], $_POST['tare']);
-                        ?>
-                        <script type="text/javascript">
-                            console.log("Add Pallet: " + <?php echo json_encode($result); ?> );
-                        </script>
-                        <?php
-                    }
-                }
-                ?>
                 <!-- US 7.1: lot label and lot number -->
         		<div id="lotBar">
         			<label for="lotNum">Lot No.</label>
-                    <input type="number" name="lotnum" value=
-                        <?php
-                        // US 7.1: if a form has been submitted, the lot number displayed is the lot number submitted,
-                        //      otherwise it is one greater than the highest value in the database
-                        if ($submit) {
-                            echo json_encode($_POST['lotnum']);
-                        }
-                        else {
-                            echo json_encode($lotnum+1);
-                        }
-                        ?>
-                    required></input>
+                    <!-- US 7.1: if a pallet has been added, the lot number displayed is the lot number submitted,
+                          otherwise it is one greater than the highest value in the database -->
+                    <input type="number" name="lotnum" value=<?php echo $lotnum; ?> required></input>
         		</div>
                 <!-- US 7.2-7.5: labels and inputs for Customer, Gross, and Tare -->
         		<div class="nav">
