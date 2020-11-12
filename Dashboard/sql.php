@@ -343,6 +343,52 @@ function get_rows($result) {
     return $rows;
 }
 
+// SQL query to update pallets
+function updatePallet($lot, $oldpallet, $newpallet, $gross, $tare) {
+    require 'dbConnect.php';
+    if (!($conn = new mysqli($servername, $username, $password, $dbname))) {
+        echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+        return;
+    }
+    // prepare and bind
+    if (!($stmt = $conn->prepare("UPDATE pallets SET palletnum = ?, gross = ?, tare = ? WHERE lotnum = ? AND palletnum = ?"))) {
+        echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+        return;
+    }
+    $stmt->bind_param('iddii', $newpsql, $gsql, $tsql, $lsql, $oldpsql);
+    $newpsql = (int) $newpallet;
+    $gsql = (double) $gross;
+    $tsql = (double) $tare;
+    $lsql = (int) $lot;
+    $oldpsql = (int) $oldpallet;
+    if (!($result = $stmt->execute())) {
+        echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+        return $result;
+    }
+    return $result;
+}
+
+function removePallet ($lot, $pallet) {
+
+    require 'dbConnect.php';
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // prepare and bind
+    $stmt = $conn->prepare("DELETE FROM pallets WHERE lotnum = ? AND palletnum = ?");
+    $stmt->bind_param("ii", $lsql, $psql);
+    $lsql = (int) $lot;
+    $psql = (int) $pallet;
+    $result = $stmt->execute();
+    $stmt->close();
+    $conn->close();
+    if ($result) {
+        $pallets = get_rows(get_pallets($lot));
+        for ($i = $psql-1; $i < count($pallets); ++$i) {
+            updatePallet($lot, $pallets[$i]["palletnum"], $pallets[$i]["palletnum"]-1, $pallets[$i]["gross"], $pallets[$i]["tare"]);
+        }
+    }
+    return $result;
+}
+
 // US 9.2: SQL query to update lots
 function updateLot($lot, $customer, $status) {
     require 'dbConnect.php';
