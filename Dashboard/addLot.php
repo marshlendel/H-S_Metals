@@ -134,7 +134,7 @@
                     <label for="tareChange"><b>Tare</b></label>
                     <input type="number" id="tareInput" name="tareChange" required><br>
 
-                    <label for="netChange"><b>Net</b></label><label id="netChange" name="netChange"></label>
+                    <label for="netChange"><b>Net: </b></label><label id="netChange" name="netChange"></label>
 				<div id="editButts">
                     <button type="submit" class="submitBtn" name="delete">Delete</button>
                     <button type="reset" class="submitBtn" id="cancel">Cancel</button>
