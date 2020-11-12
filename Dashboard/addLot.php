@@ -98,35 +98,35 @@
     <body>
         <?php require 'navbar.php'; ?>
 
-		<h1 class="non-printable">Add Lot</h1>
+		<h1 class="non-printable">Pallets</h1>
 
     	<section class="non-printable">
     		<form id="navForm" method="post">
                 <!-- US 7.1: lot label and lot number -->
         		<div id="lotBar">
-        			<label for="lotNum">Lot No.</label>
+        			<label for="lotNum" id="lotNo">Lot No.</label>
                     <!-- US 7.1: if a pallet has been added, the lot number displayed is the lot number submitted,
                           otherwise it is one greater than the highest value in the database -->
                     <input type="number" name="lotnum" value=<?php echo $lotnum; ?> required></input>
-        		</div>
-                <!-- US 7.2-7.5: labels and inputs for Customer, Gross, and Tare -->
-        		<div class="nav">
-                    <label for="cust">Customer:</label>
+					 <label for="cust" id="custLabel">Customer:</label>
         			<input type="search" name="cust" list="custList" required>
                     <datalist id="custList">
         			</datalist>
-
+        		</div>
+                <!-- US 7.2-7.5: labels and inputs for Customer, Gross, and Tare -->
+        		<div class="nav">
+					<label for="next_pallet" id="nextPal">Next Pallet:</label>
         			<label for="gross">Gross:</label>
         			<input type="number" name="gross" required><br>
 
-        			<label for="tare">Tare:</label>
+        			<label for="tare" id="tareLabe">Tare:</label>
         			<input type="number" name="tare" required><br>
-
-                    <button type="button" id="printBtn" disabled>Print</input>
-        			<button type="submit" id="submit" disabled>New Pallet</button>
         		</div>
+				<button type="button" id="printBtn" disabled>Print</input>
+        		<button type="submit" id="submit" disabled>New Pallet</button>
     		</form>
     	</section>
+		<small>A new lot will be created if an existing lot is not selected</small>
         <br>
         <?php if (isset($_POST["lotnum"])) { ?>
         <!-- US 9.2: Popup that appears after selecting a row and clicking "Edit" -->

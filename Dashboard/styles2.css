@@ -27,6 +27,7 @@ label {
 section {
 	background-color: gray;
 	margin: 0 auto;
+	margin-bottom: 15x;
 	width: 80%;
 	overflow-x: auto;
 }
@@ -37,6 +38,10 @@ form {
 
 button {
 	margin: 0 5px;
+}
+
+small {
+	margin-left: 64%;
 }
 
 #logo {
@@ -77,10 +82,27 @@ button {
 	margin: 0 auto;
 }
 
+#nextPal{
+	margin-right: 80px;
+}
+
+#tareLabe{
+	margin-left: 64px;
+}
+#lotNo{
+	margin-left: 138px;
+}
 #lotBar{
-	margin-bottom: 10px;
+	margin-bottom: 20px;
     margin-left: 66px;
     margin-right: auto;
+}
+
+#edit{
+	position: relative;
+    left: 9.5%;
+    margin-bottom: 5px;
+    width: 60px;
 }
 
  #temp h4 {
@@ -125,7 +147,7 @@ input[type="radio"] {
 
 	width: 915px;
 	margin: 0 auto;
-	padding:8px;
+	padding:10px;
 
 }
 
@@ -152,6 +174,15 @@ input[type="radio"] {
 
 #editButts{
 	margin-top:10px;
+}
+
+#custLabel{
+	margin-left: 20px;
+}
+
+#printBtn{
+	margin-left: 577px;
+	margin-top: 10px;
 }
 
 a:link {
