@@ -97,7 +97,7 @@ button {
 .header, .data:nth-child(odd) {
     background-color: white;
 }
-.radioCol, .dataCol .data:nth-child(even) {
+.data:nth-child(even) {
     background-color: #dddddd;
 }
 .header, .data {
@@ -138,7 +138,7 @@ input[type="radio"] {
 }
 
 #grossInput{
-	
+
 	position: relative;
 	left: 18%;
 	margin-bottom: 10px;
