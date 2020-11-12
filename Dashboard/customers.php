@@ -27,11 +27,6 @@ if (isset($_POST["update"], $_POST["oldcompany"], $_POST["updComp"], $_POST["upd
 	<body>
 	<?php require 'navbar.php'; ?>
 
-        <!-- Search bar -->
-        <form action="" method="">
-            Search:  <input type="text" name="user_input" />
-        </form>
-
 		<h1>Customers</h1>
 
         <!-- Customers table (User Story 4.3) -->

@@ -41,6 +41,10 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
 		<h1 id="home">Home</h1>
         <!-- US 9.1: Edit button can be clicked after selecting a row -->
 		<button type="button" disabled id="edit">Edit</button>
+        <form class="" action="addLot.php" method="post">
+            <input type="hidden" name="lotnum" id="lotnumInput" value="" required>
+            <button type="submit" id="view" disabled>View Pallets</button>
+        </form>
 
         <!-- US 5.3: Table will be here -->
         <div id="lotTable" class="">
@@ -100,6 +104,7 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
 
             // ID to select the Edit button
             let editBtnId = "edit";
+            let viewBtnId = "view";
             let radioBtns = document.getElementsByClassName("radioButt");
             // Click listeners are added to radio buttons to enable the Edit button
             for (let index = 0; index < radioBtns.length; ++index) {
@@ -107,13 +112,18 @@ if (isset($_POST["update"], $_POST["lotnum"], $_POST["customer"], $_POST["status
                 radioBtn.addEventListener('click', function() {
                     if (radioBtn.checked) {
                         let editBtn = document.getElementById(editBtnId);
+                        let viewBtn = document.getElementById(viewBtnId);
                         editBtn.disabled = false;
+                        viewBtn.disabled = false;
                         console.log(rows);
                         let rowIndex = radioBtn.getAttribute('for');
                         editBtn.setAttribute('for', rowIndex);
+                        document.getElementById("lotnumInput").value = rows[rowIndex]["lotnum"];
                     }
                     else {
                         document.getElementById(editBtnId).disabled = true;
+                        document.getElementById(viewBtnId).disabled = true;
+                        document.getElementById("lotnumInput").value = "";
                     }
                 });
             }

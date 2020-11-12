@@ -10,7 +10,7 @@
 
 <nav class="navBar non-printable">
     <a href="main.php" id="logo"></a>
-    <a href="addLot.php">Add Lot</a>
+    <a href="addLot.php">Pallets</a>
     <!-- <a href="history.php">Lot History</a>
     <a href="reports.html">Reports</a> -->
     <a href="customers.php">Customers</a>
