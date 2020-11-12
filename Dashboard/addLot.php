@@ -14,6 +14,9 @@
     $lotList = get_lots_list();
     // US 7.1: retrieves the highest lot number value from database
     $lotnum = max($lotList)+1;
+    if (isset($_POST["lotnum"])) {
+        $lotnum = $_POST['lotnum'];
+    }
     // US 7.6: if form has been filled, data is added to database
     if ($submit) {
         // US 7.6: if the lot number submitted is greater than the highest value lot number in database,
@@ -29,7 +32,12 @@
         }
         // US 7.6: pallet is added to database
         $result = addPallet($_POST['lotnum'], $_POST['gross'], $_POST['tare']);
-        $lotnum = $_POST['lotnum'];
+    }
+    else if (isset($_POST['update'], $_POST['lotnum'], $_POST['palletnum'], $_POST['grossChange'], $_POST['tareChange'])) {
+        updatePallet($_POST['lotnum'], $_POST['palletnum'], $_POST['palletnum'], $_POST['grossChange'], $_POST['tareChange']);
+    }
+    else if (isset($_POST['delete'], $_POST['lotnum'], $_POST['palletnum'])) {
+        removePallet($_POST['lotnum'], $_POST['palletnum']);
     }
 ?>
 <!-- For Development Cycle 7 -->
@@ -127,6 +135,7 @@
         		<span id="editBox" class="close">X</span>
         		<p id="palletLabel"></p>
         		<form class="" action="" method="post">
+                    <input type="hidden" name="lotnum" value=<?php echo $lotnum; ?>>
                     <input type="hidden" id="palletInput" name="palletnum">
                     <label for="grossChange"><b>Gross</b></label>
                     <input type="number" id="grossInput" name="grossChange" required><br>
@@ -210,9 +219,9 @@
         var tareInput = document.getElementsByName("tare")[0];
 
         // Does not allow user to change the lot number or customer name if a form was previously submitted
-        let formSubmit = <?php echo json_encode($submit); ?>;
+        let formSubmit = <?php echo json_encode(isset($_POST["lotnum"])); ?>;
         if (formSubmit) {
-           custInput.setAttribute('value', <?php  if ($submit) echo json_encode($_POST['cust']); ?>);
+           custInput.value = lotsList[lotInput.value];
            custInput.setAttribute('readonly', 'readonly');
            lotInput.setAttribute('readonly', 'readonly');
         }
@@ -285,15 +294,11 @@
            let editBtn = document.getElementById(editBtnId);
            editBtn.addEventListener('click', function() {
                let rowIndex = editBtn.getAttribute('for');
-               let palletLabel = document.getElementById("palletLabel");
-               let grossChange = document.getElementById("grossInput");
-               let tareChange = document.getElementById("tareInput");
-               let netChange = document.getElementById("netChange");
-
-               palletLabel.innerHTML = "Pallet "+rows[rowIndex]["palletnum"];
-               grossChange.value = rows[rowIndex]["gross"];
-               tareChange.value = rows[rowIndex]["tare"];
-               netChange.innerHTML = grossChange.value - tareChange.value;
+               document.getElementById("palletLabel").innerHTML = "Pallet "+rows[rowIndex]["palletnum"];
+               document.getElementById("palletInput").value = rows[rowIndex]["palletnum"];
+               document.getElementById("grossInput").value = rows[rowIndex]["gross"];
+               document.getElementById("tareInput").value = rows[rowIndex]["tare"];
+               document.getElementById("netChange").innerHTML = grossChange.value - tareChange.value;
            }, false);
            let grossChange = document.getElementById("grossInput");
            let tareChange = document.getElementById("tareInput");
