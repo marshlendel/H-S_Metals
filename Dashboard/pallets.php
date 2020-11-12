@@ -12,10 +12,17 @@
     // US 7.6: checks if fields have been filled on page load/form submit
     $submit = isset($_POST['lotnum'], $_POST['cust'], $_POST['gross'], $_POST['tare']);
     $lotList = get_lots_list();
+
     // US 7.1: retrieves the highest lot number value from database
     $lotnum = max($lotList)+1;
     if (isset($_POST["lotnum"])) {
         $lotnum = $_POST['lotnum'];
+        // US 8.3: gets number of pallets from DB
+        $numPallets = get_num_pallets();
+        $nextPallet = 1;
+        if (array_key_exists($lotnum, $numPallets)) {
+            $nextPallet = $numPallets[$lotnum]+1;
+        }
     }
     // US 7.6: if form has been filled, data is added to database
     if ($submit) {
@@ -115,7 +122,7 @@
         		</div>
                 <!-- US 7.2-7.5: labels and inputs for Customer, Gross, and Tare -->
         		<div class="nav">
-					<label for="next_pallet" id="nextPal">Next Pallet:</label>
+					<label for="next_pallet" id="nextPal">Next Pallet: <?php echo $nextPallet; ?></label>
         			<label for="gross">Gross:</label>
         			<input type="number" name="gross" required><br>
 
@@ -126,7 +133,9 @@
         		<button type="submit" id="submit" disabled>New Pallet</button>
     		</form>
     	</section>
+        <?php if (!isset($_POST["lotnum"])) { ?>
 		<small>A new lot will be created if an existing lot is not selected</small>
+        <?php } ?>
         <br>
         <?php if (isset($_POST["lotnum"])) { ?>
         <!-- US 9.2: Popup that appears after selecting a row and clicking "Edit" -->
@@ -322,8 +331,6 @@
         <?php
         }
         ?>
-        // US 8.3: gets number of pallets from DB
-        var maxPallets = <?php echo json_encode(get_num_pallets()); ?>;
 
         // US 8.3: alters HTML for when a pallet is printed
         function printPallet() {
@@ -334,7 +341,7 @@
             // let pallets = document.getElementsByClassName('print');
             let gross = document.getElementsByName("gross")[0].value;
             let tare = document.getElementsByName("tare")[0].value;
-            let palletNum = maxPallets.hasOwnProperty(lotNum) ? maxPallets[lotNum]+1 : 1;
+            let palletNum = <?php echo $nextPallet; ?>;
 
             console.log(gross);
             console.log(tare);
