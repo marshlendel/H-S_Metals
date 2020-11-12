@@ -24,7 +24,7 @@
                 $lotExists = true;
             }
         }
-        if ($lotExists) {
+        if (!$lotExists) {
             addLot($_POST['lotnum'], $_POST['cust']);
         }
         // US 7.6: pallet is added to database
@@ -120,16 +120,39 @@
     		</form>
     	</section>
         <br>
+        <?php if (isset($_POST["lotnum"])) { ?>
+        <!-- US 9.2: Popup that appears after selecting a row and clicking "Edit" -->
+		<div id="editDiv" class="modal non-printable">
+    		<div id="editPad" class="modal-content">
+        		<span id="editBox" class="close">X</span>
+        		<p id="palletLabel"></p>
+        		<form class="" action="" method="post">
+                    <input type="hidden" id="palletInput" name="palletnum">
+                    <label for="grossChange"><b>Gross</b></label>
+                    <input type="number" id="grossInput" name="grossChange" required><br>
+
+                    <label for="tareChange"><b>Tare</b></label>
+                    <input type="number" id="tareInput" name="tareChange" required><br>
+
+                    <label for="netChange"><b>Net</b></label><label id="netChange" name="netChange"></label>
+				<div id="editButts">
+                    <button type="submit" class="submitBtn" name="delete">Delete</button>
+                    <button type="reset" class="submitBtn" id="cancel">Cancel</button>
+                    <button type="submit" class="submitBtn" id="apply" name="update">Apply</button>
+				</div>
+
+                </form>
+    		</div>
+		</div>
+        <button type="button" disabled id="edit">Edit</button>
         <div id="tableParent" class="non-printable">
         	<div id="tableDiv">
             </div>
             <!-- US 8.4: Creates Total Net label and fetches lot net from DB -->
-            <?php
-            if(isset($_POST['lotnum'])) {
-                echo "<label id=\"totalNet\">Total Net: ".getLotNet($_POST['lotnum'])."</label>";
-            }
-            ?>
+            <label id="totalNet">Total Net: <?php getLotNet($_POST['lotnum']); ?></label>
         </div>
+        <?php } ?>
+
         <p id="toPrint" class="printable">
         </p>
     </body>
@@ -220,14 +243,77 @@
 
         // US 7.5, 7.6: create pallets table and retrieves pallets of the lot if submit button has been clicked
         <?php
-        if ($submit) {
+        if (isset($_POST['lotnum'])) {
            $pallets = get_pallets($_POST['lotnum']);
         ?>
            var rows = <?php echo json_encode(get_rows($pallets)); ?>;
            var fields = <?php echo json_encode(get_fields($pallets)); ?>;
            var headers = ["Pallet", "Gross", "Tare", "Net"];
            var tableId = "tableDiv";
-           Script.makeTable(tableId, fields, rows, headers);
+           Script.makeTable(tableId, fields, rows, headers, "pallet");
+
+           // ID to select the Edit button
+           let editBtnId = "edit";
+           let radioBtns = document.getElementsByClassName("radioButt");
+           // Click listeners are added to radio buttons to enable the Edit button
+           for (let index = 0; index < radioBtns.length; ++index) {
+               let radioBtn = radioBtns[index];
+               radioBtn.addEventListener('click', function() {
+                   if (radioBtn.checked) {
+                       let editBtn = document.getElementById(editBtnId);
+                       editBtn.disabled = false;
+                       console.log(rows);
+                       let rowIndex = radioBtn.getAttribute('for');
+                       editBtn.setAttribute('for', rowIndex);
+                   }
+                   else {
+                       document.getElementById(editBtnId).disabled = true;
+                   }
+               });
+           }
+
+           // US 10.1: Sets up popup for editing pallets
+           // Allows popup to toggle between visible and hidden
+           let popupId = "editDiv";
+           Script.setupPopup(popupId, "editBox", "edit");
+           let cancelBtn = document.getElementById("cancel");
+           cancelBtn.addEventListener('click', function() {
+               document.getElementById(popupId).style.display = "none";
+           });
+
+           // US 9.2.2: Puts current customer and status values in inputs
+           let editBtn = document.getElementById(editBtnId);
+           editBtn.addEventListener('click', function() {
+               let rowIndex = editBtn.getAttribute('for');
+               let palletLabel = document.getElementById("palletLabel");
+               let grossChange = document.getElementById("grossInput");
+               let tareChange = document.getElementById("tareInput");
+               let netChange = document.getElementById("netChange");
+
+               palletLabel.innerHTML = "Pallet "+rows[rowIndex]["palletnum"];
+               grossChange.value = rows[rowIndex]["gross"];
+               tareChange.value = rows[rowIndex]["tare"];
+               netChange.innerHTML = grossChange.value - tareChange.value;
+           }, false);
+           let grossChange = document.getElementById("grossInput");
+           let tareChange = document.getElementById("tareInput");
+           let netChange = document.getElementById("netChange");
+           function checkChanges () {
+               let applyBtn = document.getElementById("apply");
+               if (grossChange.value > tareChange.value) {
+                   applyBtn.disabled = false;
+               }
+               else {
+                   applyBtn.disabled = true;
+               }
+               netChange.innerHTML = grossChange.value - tareChange.value;
+           }
+           grossChange.addEventListener('input', function() {
+               checkChanges();
+           }, false);
+           tareChange.addEventListener('input', function() {
+               checkChanges();
+           }, false);
         <?php
         }
         ?>
