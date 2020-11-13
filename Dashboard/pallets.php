@@ -184,13 +184,13 @@
 
         // US 7.2: obtains dictionary of lot : customer values
         var lotsList = <?php echo json_encode(getLotsCustomerList()); ?>;
-
         function checkLot(lotnum) {
             if (lotsList[lotnum] != undefined) {
                 return true;
             }
             return false;
         }
+        var maxPallets = <?php echo json_encode($numPallets); ?>;
 
         // US 7.6: checks that user input is valid
         function checkInputs() {
@@ -235,10 +235,12 @@
            lotInput.setAttribute('readonly', 'readonly');
         }
         else {
-            lotInput.addEventListener('focusout', function() {
+            lotInput.addEventListener('input', function() {
+                document.getElementById("nextPal").innerHTML = "Next Pallet: "+(maxPallets.hasOwnProperty(lotInput.value) ? maxPallets[lotInput.value]+1 : 1).toString();
                 if (checkLot(lotInput.value)) {
                     custInput.value = lotsList[lotInput.value];
                     custInput.setAttribute('readonly', 'readonly');
+
                 }
                 else {
                     custInput.removeAttribute('readonly');
@@ -341,7 +343,7 @@
             // let pallets = document.getElementsByClassName('print');
             let gross = document.getElementsByName("gross")[0].value;
             let tare = document.getElementsByName("tare")[0].value;
-            let palletNum = <?php echo $nextPallet; ?>;
+            let palletNum = maxPallets.hasOwnProperty(lotNum) ? maxPallets[lotNum]+1 : 1;
 
             console.log(gross);
             console.log(tare);
