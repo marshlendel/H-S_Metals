@@ -61,9 +61,9 @@ if (isset($_POST["update"], $_POST["oldcompany"], $_POST["updComp"], $_POST["upd
             </form>
             </div>
         </div>
-
-		<button type="button" disabled id="edit">Edit</button>
-
+        <div class="btnform">
+            <button type="button" disabled id="edit">Edit</button>
+        </div>
 		<div id="editDiv" class="modal">
     		<div id="editPad" class="modal-content">
         		<span id="editBox" class="close">X</span>

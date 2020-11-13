@@ -18,11 +18,6 @@
     if (isset($_POST["lotnum"])) {
         $lotnum = $_POST['lotnum'];
         // US 8.3: gets number of pallets from DB
-        $numPallets = get_num_pallets();
-        $nextPallet = 1;
-        if (array_key_exists($lotnum, $numPallets)) {
-            $nextPallet = $numPallets[$lotnum]+1;
-        }
     }
     // US 7.6: if form has been filled, data is added to database
     if ($submit) {
@@ -45,6 +40,11 @@
     }
     else if (isset($_POST['delete'], $_POST['lotnum'], $_POST['palletnum'])) {
         removePallet($_POST['lotnum'], $_POST['palletnum']);
+    }
+    $numPallets = get_num_pallets();
+    $nextPallet = 1;
+    if (array_key_exists($lotnum, $numPallets)) {
+        $nextPallet = $numPallets[$lotnum]+1;
     }
 ?>
 <!-- For Development Cycle 7 -->
