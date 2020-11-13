@@ -134,7 +134,7 @@
     		</form>
     	</section>
         <?php if (!isset($_POST["lotnum"])) { ?>
-		<small>A new lot will be created if an existing lot is not selected</small>
+		<small class="non-printable">A new lot will be created if an existing lot is not selected</small>
         <?php } ?>
         <br>
         <?php if (isset($_POST["lotnum"])) { ?>
