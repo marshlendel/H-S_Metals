@@ -121,6 +121,18 @@ form {
     margin-left: 55px;
 }
 
+.custBtn{
+	
+	height: 29px;
+    margin: 5px;
+    margin-left: 46%;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    width: 56px;
+}
+
 #myBtn {
 	display:block;
 	position: relative;
